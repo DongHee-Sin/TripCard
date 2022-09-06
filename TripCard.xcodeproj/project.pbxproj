@@ -17,6 +17,8 @@
 		D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514428C76E8D00EB6D2B /* ReusableProtocol.swift */; };
 		D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */; };
 		D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */; };
+		D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */; };
+		D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514F28C776C700EB6D2B /* ColorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		D0AB514428C76E8D00EB6D2B /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */,
+				D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 		D0AB514828C7720E00EB6D2B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				D0AB514E28C776BD00EB6D2B /* ColorManager */,
 				D0AB514928C7721B00EB6D2B /* UserDefaultManager */,
 			);
 			path = Manager;
@@ -149,6 +155,14 @@
 				D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */,
 			);
 			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
+		D0AB514E28C776BD00EB6D2B /* ColorManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB514F28C776C700EB6D2B /* ColorManager.swift */,
+			);
+			path = ColorManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +236,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
+				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
+				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,

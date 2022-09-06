@@ -20,10 +20,13 @@ struct UserDefault<T> {
 }
 
 
-class UserDefaultManager {
+final class UserDefaultManager {
+    
     static let shared = UserDefaultManager()
     
     private init() {}
+    
+    
     
     // MARK: - Propertys
     @UserDefault(key: "font", defaultValue: "defaultFont")
@@ -33,6 +36,9 @@ class UserDefaultManager {
     @UserDefault(key: "isInitialLaunch", defaultValue: false)
     var isInitialLaunch: Bool
     
+    
+    @UserDefault(key: "colorCombination", defaultValue: "light")
+    var colorCombination: String
     
     
     
