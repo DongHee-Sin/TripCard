@@ -16,6 +16,7 @@
 		D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514228C76E6400EB6D2B /* BaseView.swift */; };
 		D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514428C76E8D00EB6D2B /* ReusableProtocol.swift */; };
 		D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */; };
+		D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D0AB514228C76E6400EB6D2B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D0AB514428C76E8D00EB6D2B /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				D0AB513728C76CE700EB6D2B /* App */,
 				D0AB513828C76D1C00EB6D2B /* Utility */,
+				D0AB514828C7720E00EB6D2B /* Manager */,
 				D0AB513928C76D2C00EB6D2B /* View */,
 				D0AB512C28C76CD800EB6D2B /* Assets.xcassets */,
 				D0AB512E28C76CD800EB6D2B /* LaunchScreen.storyboard */,
@@ -130,6 +133,22 @@
 				D0AB513D28C76D9800EB6D2B /* MainViewController.swift */,
 			);
 			path = MainScene;
+			sourceTree = "<group>";
+		};
+		D0AB514828C7720E00EB6D2B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB514928C7721B00EB6D2B /* UserDefaultManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D0AB514928C7721B00EB6D2B /* UserDefaultManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */,
+			);
+			path = UserDefaultManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +223,7 @@
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
+				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
