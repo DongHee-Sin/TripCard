@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
+		D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */; };
+		D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */; };
+		D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
 		D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */; };
 		D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB512C28C76CD800EB6D2B /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
+		D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KyoboHandwriting2020pdy.otf; sourceTree = "<group>"; };
+		D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiBaseRegular.otf; sourceTree = "<group>"; };
+		D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D02099E028C79A2600FD25DF /* CustomFont */ = {
+			isa = PBXGroup;
+			children = (
+				D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */,
+				D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */,
+				D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */,
+			);
+			path = CustomFont;
+			sourceTree = "<group>";
+		};
 		D0AB511728C76CD800EB6D2B = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +112,7 @@
 				D0AB513C28C76D6200EB6D2B /* Base */,
 				D0AB513B28C76D5B00EB6D2B /* Protocol */,
 				D0AB513A28C76D3900EB6D2B /* Extension */,
+				D02099E028C79A2600FD25DF /* CustomFont */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -111,6 +130,7 @@
 			children = (
 				D0AB514628C7700D00EB6D2B /* UIViewController+Extension.swift */,
 				D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */,
+				D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -225,6 +245,9 @@
 			files = (
 				D0AB513028C76CD800EB6D2B /* LaunchScreen.storyboard in Resources */,
 				D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */,
+				D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */,
+				D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */,
+				D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +268,7 @@
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
+				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
