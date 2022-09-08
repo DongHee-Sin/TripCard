@@ -26,7 +26,7 @@ final class ColorManager {
     
     
     // MARK: - Propertys
-    var backgroundColor: UIColor = UIColor(hex: "645CAA") ?? .label
+    var backgroundColor: UIColor = UIColor(hex: "645CAA") ?? .systemBackground
     
     var tintColor: UIColor = UIColor(hex: "645CAA") ?? .label
     
