@@ -21,4 +21,10 @@ class BaseViewController: UIViewController {
     
     
     func setNavigationBar() {}
+    
+    
+    private func setInitialUI() {
+        view.backgroundColor = ColorManager.shared.backgroundColor
+        navigationController?.navigationBar.tintColor = ColorManager.shared.buttonColor
+    }
 }

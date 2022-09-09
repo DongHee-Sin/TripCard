@@ -29,8 +29,8 @@ final class UserDefaultManager {
     
     
     // MARK: - Propertys
-    @UserDefault(key: "font", defaultValue: "defaultFont")
-    var font: String
+    @UserDefault(key: "customFont", defaultValue: "KyoboHandwriting2020")
+    var customFont: String
     
     
     @UserDefault(key: "isInitialLaunch", defaultValue: false)

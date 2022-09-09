@@ -14,6 +14,9 @@
 		D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F028C79F4500FD25DF /* Localizable.strings */; };
 		D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099F228C79F5800FD25DF /* String+Extension.swift */; };
 		D02099F628C7A02800FD25DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F828C7A02800FD25DF /* InfoPlist.strings */; };
+		D031752B28CB246D00C7A91C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardView.swift */; };
+		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
+		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
 		D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */; };
 		D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB512C28C76CD800EB6D2B /* Assets.xcassets */; };
@@ -39,6 +42,7 @@
 		D02099F228C79F5800FD25DF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D02099F728C7A02800FD25DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D02099F928C7A02B00FD25DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D031752A28CB246D00C7A91C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
+				D031753128CB28F000C7A91C /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,14 @@
 				D02099F828C7A02800FD25DF /* InfoPlist.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		D031752928CB245000C7A91C /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				D031752A28CB246D00C7A91C /* CardView.swift */,
+			);
+			path = ReusableView;
 			sourceTree = "<group>";
 		};
 		D0AB511728C76CD800EB6D2B = {
@@ -139,6 +153,7 @@
 		D0AB513928C76D2C00EB6D2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
 			);
 			path = View;
@@ -183,26 +198,10 @@
 		D0AB514828C7720E00EB6D2B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D0AB514E28C776BD00EB6D2B /* ColorManager */,
-				D0AB514928C7721B00EB6D2B /* UserDefaultManager */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		D0AB514928C7721B00EB6D2B /* UserDefaultManager */ = {
-			isa = PBXGroup;
-			children = (
+				D0AB514F28C776C700EB6D2B /* ColorManager.swift */,
 				D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */,
 			);
-			path = UserDefaultManager;
-			sourceTree = "<group>";
-		};
-		D0AB514E28C776BD00EB6D2B /* ColorManager */ = {
-			isa = PBXGroup;
-			children = (
-				D0AB514F28C776C700EB6D2B /* ColorManager.swift */,
-			);
-			path = ColorManager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +220,10 @@
 			dependencies = (
 			);
 			name = TripCard;
+			packageProductDependencies = (
+				D031752D28CB285C00C7A91C /* SnapKit */,
+				D031753028CB28F000C7A91C /* Then */,
+			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +253,10 @@
 				ko,
 			);
 			mainGroup = D0AB511728C76CD800EB6D2B;
+			packageReferences = (
+				D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,6 +295,7 @@
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
+				D031752B28CB246D00C7A91C /* CardView.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
@@ -525,6 +533,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D031752D28CB285C00C7A91C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D031753028CB28F000C7A91C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0AB511828C76CD800EB6D2B /* Project object */;
 }
