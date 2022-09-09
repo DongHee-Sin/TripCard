@@ -26,13 +26,13 @@ final class ColorManager {
     
     
     // MARK: - Propertys
-    var backgroundColor: UIColor = UIColor(hex: "645CAA") ?? .systemBackground
+    var backgroundColor: UIColor = UIColor(hex: "B8FFF9ff") ?? .systemBackground
     
-    var tintColor: UIColor = UIColor(hex: "645CAA") ?? .label
+    var tintColor: UIColor = .black
     
-    var buttonColor: UIColor = UIColor(hex: "645CAA") ?? .label
+    var buttonColor: UIColor = UIColor(hex: "42C2FFff") ?? .label
     
-    var selectedColor: UIColor = UIColor(hex: "645CAA") ?? .label
+    var selectedColor: UIColor = UIColor(hex: "85F4FFff") ?? .label
     
     
     
@@ -40,7 +40,7 @@ final class ColorManager {
     func colorCombinationChanged() {
         
         let colorCombinationString = UserDefaultManager.shared.colorCombination
-        let colorCombination = ColorCombination(rawValue: colorCombinationString) ?? .light
+        let colorCombination = ColorCombination(rawValue: colorCombinationString) ?? .skyBlue
         
         switch colorCombination {
         case .modern: break
