@@ -14,6 +14,8 @@ class BaseViewController: UIViewController {
         
         configure()
         setNavigationBar()
+        
+        setInitialUI()
     }
     
     

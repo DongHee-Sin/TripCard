@@ -9,6 +9,11 @@ import UIKit
 
 final class MainViewController: BaseViewController {
 
+//    let customView = CardView()
+//    override func loadView() {
+//        self.view = customView
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
