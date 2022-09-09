@@ -14,7 +14,13 @@
 		D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F028C79F4500FD25DF /* Localizable.strings */; };
 		D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099F228C79F5800FD25DF /* String+Extension.swift */; };
 		D02099F628C7A02800FD25DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F828C7A02800FD25DF /* InfoPlist.strings */; };
-		D031752B28CB246D00C7A91C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardView.swift */; };
+		D0254FA528CB7CAC0076FCB1 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D0254FA428CB7CAC0076FCB1 /* Tabman */; };
+		D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FA828CB7D5E0076FCB1 /* DomesticListViewController.swift */; };
+		D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FAA28CB7D800076FCB1 /* OverseasListViewController.swift */; };
+		D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */; };
+		D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB228CB86620076FCB1 /* CardListView.swift */; };
+		D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */; };
+		D031752B28CB246D00C7A91C /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardCell.swift */; };
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
@@ -43,7 +49,12 @@
 		D02099F228C79F5800FD25DF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D02099F728C7A02800FD25DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D02099F928C7A02B00FD25DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D031752A28CB246D00C7A91C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D0254FA828CB7D5E0076FCB1 /* DomesticListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticListViewController.swift; sourceTree = "<group>"; };
+		D0254FAA28CB7D800076FCB1 /* OverseasListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasListViewController.swift; sourceTree = "<group>"; };
+		D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0254FB228CB86620076FCB1 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extension.swift"; sourceTree = "<group>"; };
+		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +79,7 @@
 			files = (
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
+				D0254FA528CB7CAC0076FCB1 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +105,27 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		D0254FA628CB7CFB0076FCB1 /* DomesticListView */ = {
+			isa = PBXGroup;
+			children = (
+				D0254FA828CB7D5E0076FCB1 /* DomesticListViewController.swift */,
+			);
+			path = DomesticListView;
+			sourceTree = "<group>";
+		};
+		D0254FA728CB7D2E0076FCB1 /* OverseasListView */ = {
+			isa = PBXGroup;
+			children = (
+				D0254FAA28CB7D800076FCB1 /* OverseasListViewController.swift */,
+			);
+			path = OverseasListView;
+			sourceTree = "<group>";
+		};
 		D031752928CB245000C7A91C /* ReusableView */ = {
 			isa = PBXGroup;
 			children = (
-				D031752A28CB246D00C7A91C /* CardView.swift */,
+				D031752A28CB246D00C7A91C /* CardCell.swift */,
+				D0254FB228CB86620076FCB1 /* CardListView.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -169,6 +198,7 @@
 				D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */,
 				D02099F228C79F5800FD25DF /* String+Extension.swift */,
 				D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */,
+				D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,6 +216,7 @@
 			children = (
 				D0AB514028C76E2C00EB6D2B /* BaseViewController.swift */,
 				D0AB514228C76E6400EB6D2B /* BaseView.swift */,
+				D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -194,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				D0AB513D28C76D9800EB6D2B /* MainViewController.swift */,
+				D0254FA628CB7CFB0076FCB1 /* DomesticListView */,
+				D0254FA728CB7D2E0076FCB1 /* OverseasListView */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -226,6 +259,7 @@
 			packageProductDependencies = (
 				D031752D28CB285C00C7A91C /* SnapKit */,
 				D031753028CB28F000C7A91C /* Then */,
+				D0254FA428CB7CAC0076FCB1 /* Tabman */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -259,6 +293,7 @@
 			packageReferences = (
 				D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
+				D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -293,15 +328,20 @@
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
+				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
+				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
-				D031752B28CB246D00C7A91C /* CardView.swift in Sources */,
+				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
+				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
+				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
+				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
@@ -539,6 +579,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -558,6 +606,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D0254FA428CB7CAC0076FCB1 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
 		D031752D28CB285C00C7A91C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */;

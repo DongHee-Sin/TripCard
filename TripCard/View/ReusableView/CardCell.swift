@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-final class CardView: BaseView {
+final class CardCell: BaseCollectionViewCell {
     
     // MARK: - Propertys
     let photoImage = UIImageView().then {
