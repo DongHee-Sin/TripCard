@@ -48,16 +48,12 @@ final class MainViewController: TabmanViewController {
         
         self.dataSource = self
         
-//        let bar = TMBar.ButtonBar()
         let bar = TMBar.TabBar()
         bar.layout.transitionStyle = .snap
-        bar.buttons.customize { (button) in
-            button.tintColor = .white
-            button.selectedTintColor = .black
-        }
+//        bar.backgroundColor = .darkGray.withAlphaComponent(0.7)
         bar.buttons.customize {
-            $0.tintColor = ColorManager.shared.textColor
-            $0.selectedTintColor = ColorManager.shared.selectedColor
+            $0.tintColor = .black
+            $0.selectedTintColor = ColorManager.shared.buttonColor
         }
         
         addBar(bar, dataSource: self, at: .top)
@@ -83,8 +79,10 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         let item = TMBarItem(title: "")
-        item.title = "Page \(index)"
-        item.image = UIImage(systemName: "star")
+        item.title = index == 0 ? "국내" : "해외"
+        
+        let imageString = index == 0 ? "location.circle" : "globe.asia.australia"
+        item.image = UIImage(systemName: imageString)
         
         return item
     }

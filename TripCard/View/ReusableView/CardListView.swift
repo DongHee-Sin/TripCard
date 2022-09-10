@@ -10,7 +10,9 @@ import UIKit
 
 final class CardListView: BaseView {
     
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureCollectionViewLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureCollectionViewLayout()).then {
+        $0.backgroundColor = .clear
+    }
     
     
     override func configureUI() {
