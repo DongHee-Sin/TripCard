@@ -9,9 +9,9 @@ import UIKit
 
 
 enum FontSize: CGFloat {
-    case tabmanTitle = 17
+    case large = 17
     case normal = 15
-    case userText = 13
+    case small = 13
 }
 
 

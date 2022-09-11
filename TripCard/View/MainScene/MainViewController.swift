@@ -23,7 +23,8 @@ final class MainViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setInitialUI()
+        setNavigationAppearance()
+        setNavigationBar()
         configureTabman()
     }
     
@@ -31,7 +32,7 @@ final class MainViewController: TabmanViewController {
     
     
     // MARK: - Methods
-    private func setInitialUI() {
+    private func setNavigationAppearance() {
         let navigationAppearance = UINavigationBarAppearance()
         navigationAppearance.backgroundColor = ColorManager.shared.backgroundColor
         
@@ -39,6 +40,14 @@ final class MainViewController: TabmanViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = navigationAppearance
         
         navigationController?.navigationBar.tintColor = ColorManager.shared.buttonColor
+    }
+    
+    
+    private func setNavigationBar() {
+        navigationItem.title = "Card"
+        
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingButtonTapped))
+        navigationItem.rightBarButtonItem = settingButton
     }
     
     
@@ -50,13 +59,17 @@ final class MainViewController: TabmanViewController {
         
         let bar = TMBar.TabBar()
         bar.layout.transitionStyle = .snap
-//        bar.backgroundColor = .darkGray.withAlphaComponent(0.7)
         bar.buttons.customize {
             $0.tintColor = .black
             $0.selectedTintColor = ColorManager.shared.buttonColor
         }
         
         addBar(bar, dataSource: self, at: .top)
+    }
+    
+    
+    @objc private func settingButtonTapped() {
+        print("설정 화면으로 이동")
     }
 }
 
