@@ -27,6 +27,8 @@
 		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
 		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
+		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
+		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
 		D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */; };
 		D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB512C28C76CD800EB6D2B /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		D091EECE28CEE86C00BEDC80 /* Database_Realm */ = {
 			isa = PBXGroup;
 			children = (
+				D091EED128CF0E8600BEDC80 /* Trip.swift */,
 			);
 			path = Database_Realm;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				D02099F228C79F5800FD25DF /* String+Extension.swift */,
 				D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */,
 				D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */,
+				D091EED328CF138800BEDC80 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
+				D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */,
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
@@ -356,6 +363,7 @@
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
+				D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */,
 				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
