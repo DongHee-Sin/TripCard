@@ -8,11 +8,17 @@
 import UIKit
 
 
-class TabBarViewController: UITabBarController {
+final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setViewControllers()
+        setTabBarUI()
+    }
+    
+    
+    private func setViewControllers() {
         let mainVC = MainViewController()
         
         mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage(systemName: "globe.asia.australia"), selectedImage: UIImage(systemName: "globe.asia.australia.fill"))
@@ -20,4 +26,9 @@ class TabBarViewController: UITabBarController {
         setViewControllers([mainVC], animated: true)
     }
     
+    private func setTabBarUI() {
+        tabBar.barTintColor = ColorManager.shared.selectedColor
+        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .white
+    }
 }
