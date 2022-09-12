@@ -21,7 +21,7 @@ final class CardListView: BaseView {
     
     override func setConstraint() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(self).inset(0)
+            make.edges.equalTo(self.safeAreaLayoutGuide).inset(0)
         }
     }
 }
