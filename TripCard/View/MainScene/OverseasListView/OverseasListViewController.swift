@@ -18,4 +18,36 @@ final class OverseasListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
+    
+    
+    // MARK: - Methods
+    override func configure() {
+        cardListView.collectionView.delegate = self
+        cardListView.collectionView.dataSource = self
+        cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
+    }
+}
+
+
+
+
+// MARK: - CollectionView Protocol
+extension OverseasListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CardCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.contentLabel.isHidden = true
+        
+        return cell
+    }
 }

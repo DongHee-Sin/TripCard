@@ -23,8 +23,6 @@ final class MainViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationAppearance()
-        setNavigationBar()
         configureTabman()
     }
     
@@ -32,25 +30,6 @@ final class MainViewController: TabmanViewController {
     
     
     // MARK: - Methods
-    private func setNavigationAppearance() {
-        let navigationAppearance = UINavigationBarAppearance()
-        navigationAppearance.backgroundColor = ColorManager.shared.backgroundColor
-        
-        navigationController?.navigationBar.standardAppearance = navigationAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationAppearance
-        
-        navigationController?.navigationBar.tintColor = ColorManager.shared.buttonColor
-    }
-    
-    
-    private func setNavigationBar() {
-        navigationItem.title = "Card"
-        
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingButtonTapped))
-        navigationItem.rightBarButtonItem = settingButton
-    }
-    
-    
     private func configureTabman() {
         viewControllers.append(DomesticListViewController())
         viewControllers.append(OverseasListViewController())

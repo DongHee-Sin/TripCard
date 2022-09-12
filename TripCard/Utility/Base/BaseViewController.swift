@@ -13,7 +13,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         configure()
-        setNavigationBar()
         
         setInitialUI()
     }
@@ -22,11 +21,7 @@ class BaseViewController: UIViewController {
     func configure() {}
     
     
-    func setNavigationBar() {}
-    
-    
     private func setInitialUI() {
         view.backgroundColor = ColorManager.shared.backgroundColor
-        navigationController?.navigationBar.tintColor = ColorManager.shared.buttonColor
     }
 }
