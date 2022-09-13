@@ -33,6 +33,7 @@
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
 		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
 		D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A666B928D0815F0042C9C7 /* MainTextField.swift */; };
+		D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
 		D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */; };
 		D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB512C28C76CD800EB6D2B /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
@@ -317,6 +319,7 @@
 				D091EECA28CEE83000BEDC80 /* Realm */,
 				D091EECC28CEE83000BEDC80 /* RealmSwift */,
 				D04A961328D0648F0073EC38 /* TextFieldEffects */,
+				D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -353,6 +356,7 @@
 				D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -686,6 +690,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -718,6 +730,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
