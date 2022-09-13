@@ -46,6 +46,7 @@ extension UIViewController {
     // MARK: - Transition ViewController
     enum TransitionStyle {
         case present
+        case presentFullScreen
         case presentOverFullScreen
         case push
     }
@@ -56,6 +57,9 @@ extension UIViewController {
         switch transitionStyle {
         case .present:
             self.present(viewController, animated: true)
+        case .presentFullScreen:
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true)
         case .presentOverFullScreen:
             viewController.modalPresentationStyle = .overFullScreen
             self.present(viewController, animated: true)
@@ -63,5 +67,13 @@ extension UIViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         
+    }
+    
+    
+    
+    
+    // MARK: - dismiss method
+    @objc func dismissButtonTapped() {
+        dismiss(animated: true)
     }
 }

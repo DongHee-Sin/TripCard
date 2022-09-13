@@ -24,11 +24,15 @@
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
+		D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A960E28D0611B0073EC38 /* WriteViewController.swift */; };
+		D04A961128D0613E0073EC38 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A961028D0613E0073EC38 /* WriteView.swift */; };
+		D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D04A961328D0648F0073EC38 /* TextFieldEffects */; };
 		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
 		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
 		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
+		D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A666B928D0815F0042C9C7 /* MainTextField.swift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
 		D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */; };
 		D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB512C28C76CD800EB6D2B /* Assets.xcassets */; };
@@ -63,9 +67,12 @@
 		D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extension.swift"; sourceTree = "<group>"; };
 		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D04A960E28D0611B0073EC38 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		D04A961028D0613E0073EC38 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D0A666B928D0815F0042C9C7 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB512528C76CD800EB6D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +99,7 @@
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
+				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
 				D0254FA528CB7CAC0076FCB1 /* Tabman in Frameworks */,
 			);
@@ -140,8 +148,25 @@
 			children = (
 				D031752A28CB246D00C7A91C /* CardCell.swift */,
 				D0254FB228CB86620076FCB1 /* CardListView.swift */,
+				D04A961028D0613E0073EC38 /* WriteView.swift */,
 			);
 			path = ReusableView;
+			sourceTree = "<group>";
+		};
+		D04A960D28D060810073EC38 /* WriteView */ = {
+			isa = PBXGroup;
+			children = (
+				D04A960E28D0611B0073EC38 /* WriteViewController.swift */,
+			);
+			path = WriteView;
+			sourceTree = "<group>";
+		};
+		D04A961528D080B50073EC38 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				D0A666B928D0815F0042C9C7 /* MainTextField.swift */,
+			);
+			path = CustomClass;
 			sourceTree = "<group>";
 		};
 		D091EECE28CEE86C00BEDC80 /* Database */ = {
@@ -201,6 +226,7 @@
 				D0AB513B28C76D5B00EB6D2B /* Protocol */,
 				D0AB513A28C76D3900EB6D2B /* Extension */,
 				D02099E028C79A2600FD25DF /* CustomFont */,
+				D04A961528D080B50073EC38 /* CustomClass */,
 				D02099EA28C79EF600FD25DF /* Localization */,
 			);
 			path = Utility;
@@ -212,6 +238,7 @@
 				D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */,
 				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
+				D04A960D28D060810073EC38 /* WriteView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +316,7 @@
 				D0254FA428CB7CAC0076FCB1 /* Tabman */,
 				D091EECA28CEE83000BEDC80 /* Realm */,
 				D091EECC28CEE83000BEDC80 /* RealmSwift */,
+				D04A961328D0648F0073EC38 /* TextFieldEffects */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -324,6 +352,7 @@
 				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
 				D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -362,10 +391,12 @@
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
+				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
 				D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */,
+				D04A961128D0613E0073EC38 /* WriteView.swift in Sources */,
 				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
@@ -374,6 +405,7 @@
 				D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */,
 				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
+				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
@@ -638,6 +670,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -663,6 +703,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		D04A961328D0648F0073EC38 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 		D091EECA28CEE83000BEDC80 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

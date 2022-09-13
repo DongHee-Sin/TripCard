@@ -68,7 +68,9 @@ final class MainViewController: TabmanViewController {
     
     
     @objc private func floatingButtonTapped() {
-        print("글작성 화면으로 이동")
+        let writeVC = WriteViewController()
+        let navi = UINavigationController(rootViewController: writeVC)
+        transition(navi, transitionStyle: .presentFullScreen)
     }
 }
 
