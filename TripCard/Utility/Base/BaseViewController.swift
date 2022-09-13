@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
     func configure() {}
     
     
-    private func setInitialUI() {
+    private final func setInitialUI() {
         view.backgroundColor = ColorManager.shared.backgroundColor
     }
 }

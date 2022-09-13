@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
 		D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */; };
 		D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */; };
@@ -14,7 +15,6 @@
 		D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F028C79F4500FD25DF /* Localizable.strings */; };
 		D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099F228C79F5800FD25DF /* String+Extension.swift */; };
 		D02099F628C7A02800FD25DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F828C7A02800FD25DF /* InfoPlist.strings */; };
-		D0254FA528CB7CAC0076FCB1 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D0254FA428CB7CAC0076FCB1 /* Tabman */; };
 		D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FA828CB7D5E0076FCB1 /* DomesticListViewController.swift */; };
 		D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FAA28CB7D800076FCB1 /* OverseasListViewController.swift */; };
 		D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */; };
@@ -99,11 +99,11 @@
 			files = (
 				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
+				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
-				D0254FA528CB7CAC0076FCB1 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +315,11 @@
 			packageProductDependencies = (
 				D031752D28CB285C00C7A91C /* SnapKit */,
 				D031753028CB28F000C7A91C /* Then */,
-				D0254FA428CB7CAC0076FCB1 /* Tabman */,
 				D091EECA28CEE83000BEDC80 /* Realm */,
 				D091EECC28CEE83000BEDC80 /* RealmSwift */,
 				D04A961328D0648F0073EC38 /* TextFieldEffects */,
 				D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */,
+				D00BE9FE28D09094000AE09D /* Tabman */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -353,10 +353,10 @@
 			packageReferences = (
 				D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
-				D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -650,12 +650,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+		D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -701,9 +701,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D0254FA428CB7CAC0076FCB1 /* Tabman */ = {
+		D00BE9FE28D09094000AE09D /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D0254FA328CB7CAC0076FCB1 /* XCRemoteSwiftPackageReference "Tabman" */;
+			package = D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
 		};
 		D031752D28CB285C00C7A91C /* SnapKit */ = {

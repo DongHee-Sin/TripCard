@@ -51,7 +51,7 @@ final class WriteView: BaseView {
     
     
     // MARK: - Methods
-    override func configureUI() {
+    override func configureUI() {        
         self.addSubview(scrollView)
         
         [stackView, addImageButton].forEach {
