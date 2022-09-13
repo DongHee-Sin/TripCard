@@ -16,6 +16,11 @@ final class MainViewController: TabmanViewController {
     // MARK: - Propertys
     private var viewControllers: [UIViewController] = []
     
+    private let floatingButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
+        $0.tintColor = ColorManager.shared.buttonColor
+    }
+    
     
     
     
@@ -24,6 +29,7 @@ final class MainViewController: TabmanViewController {
         super.viewDidLoad()
         
         configureTabman()
+        setFloatingButton()
     }
     
     
@@ -47,8 +53,22 @@ final class MainViewController: TabmanViewController {
     }
     
     
-    @objc private func settingButtonTapped() {
-        print("설정 화면으로 이동")
+    private func setFloatingButton() {
+        view.addSubview(floatingButton)
+        
+        floatingButton.snp.makeConstraints { make in
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+            make.trailing.equalTo(view.snp.trailing).offset(-30)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
+        }
+        
+        floatingButton.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    @objc private func floatingButtonTapped() {
+        print("글작성 화면으로 이동")
     }
 }
 
@@ -70,10 +90,9 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        let item = TMBarItem(title: "")
-        item.title = index == 0 ? "국내" : "해외"
+        let item = TMBarItem(title: index == 0 ? "국내" : "해외")
         
-        let imageString = index == 0 ? "location.circle" : "globe.asia.australia"
+        let imageString = index == 0 ? "location.circle" : "globe"
         item.image = UIImage(systemName: imageString)
         
         return item
