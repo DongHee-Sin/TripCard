@@ -25,6 +25,7 @@ final class WriteView: BaseView {
     }
     
     let photoImage = UIImageView().then {
+        $0.clipsToBounds = true
         $0.backgroundColor = .lightGray
         $0.contentMode = .scaleAspectFill
     }
