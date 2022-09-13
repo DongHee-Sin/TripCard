@@ -27,8 +27,20 @@ extension UIViewController {
         present(alertController, animated: true)
     }
     
-
     
+    
+    
+    // MARK: - Error Alert
+    func showErrorAlert(error: Error) {
+        switch error {
+        case RealmError.writeError: showAlert(title: "메모 저장에 실패했습니다.")
+        case RealmError.updateError: showAlert(title: "메모 수정에 실패했습니다.")
+        case RealmError.deleteError: showAlert(title: "메모 삭제에 실패했습니다.")
+        default: showAlert(title: "에러가 발생했습니다.")
+        }
+    }
+    
+
     
     
     // MARK: - Transition ViewController

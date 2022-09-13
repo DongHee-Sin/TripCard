@@ -41,6 +41,8 @@
 		D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */; };
 		D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */; };
 		D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514F28C776C700EB6D2B /* ColorManager.swift */; };
+		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
+		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
+		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,12 +144,14 @@
 			path = ReusableView;
 			sourceTree = "<group>";
 		};
-		D091EECE28CEE86C00BEDC80 /* Database_Realm */ = {
+		D091EECE28CEE86C00BEDC80 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				D091EED128CF0E8600BEDC80 /* Trip.swift */,
+				D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */,
+				D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */,
 			);
-			path = Database_Realm;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		D0AB511728C76CD800EB6D2B = {
@@ -170,7 +176,7 @@
 				D0AB513728C76CE700EB6D2B /* App */,
 				D0AB513828C76D1C00EB6D2B /* Utility */,
 				D0AB514828C7720E00EB6D2B /* Manager */,
-				D091EECE28CEE86C00BEDC80 /* Database_Realm */,
+				D091EECE28CEE86C00BEDC80 /* Database */,
 				D0AB513928C76D2C00EB6D2B /* View */,
 				D0AB512C28C76CD800EB6D2B /* Assets.xcassets */,
 				D0AB512E28C76CD800EB6D2B /* LaunchScreen.storyboard */,
@@ -359,6 +365,8 @@
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
+				D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */,
+				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
