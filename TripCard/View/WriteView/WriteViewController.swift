@@ -31,9 +31,13 @@ final class WriteViewController: BaseViewController {
     override func configure() {
         setNavigationBarButtonItem()
         
+        setNavigationBar()
+        
         dismissKeyboardWhenTappedAround()
         
         writeView.addImageButton.addTarget(self, action: #selector(presentPHPickerViewController), for: .touchUpInside)
+        
+        writeView.segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
     }
     
     
@@ -46,9 +50,30 @@ final class WriteViewController: BaseViewController {
     }
     
     
+    func setNavigationBar() {
+        navigationTitleImageUpdate(selectedSegmentIndex: writeView.segmentControl.selectedSegmentIndex)
+        
+        navigationController?.navigationBar.tintColor = .black
+    }
+    
+    
     func dismissKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    
+    func presentCropViewController(image: UIImage) {
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        cropViewController.customAspectRatio = CGSize(width: 1, height: 1.25)
+        
+        cropViewController.aspectRatioLockEnabled = true
+        cropViewController.aspectRatioPickerButtonHidden = true
+        cropViewController.resetButtonHidden = true
+        cropViewController.rotateButtonsHidden = true
+        
+        transition(cropViewController, transitionStyle: .present)
     }
     
     
@@ -73,17 +98,16 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    func presentCropViewController(image: UIImage) {
-        let cropViewController = CropViewController(image: image)
-        cropViewController.delegate = self
-        cropViewController.customAspectRatio = CGSize(width: 1, height: 1.25)
+    @objc func segmentControlValueChanged(_ segment: UISegmentedControl) {
+        navigationTitleImageUpdate(selectedSegmentIndex: segment.selectedSegmentIndex)
+    }
+    
+    
+    private func navigationTitleImageUpdate(selectedSegmentIndex: Int) {
+        let imageText = selectedSegmentIndex == 0 ? "car" : "airplane"
+        let titleImage = UIImageView(image: UIImage(systemName: imageText))
         
-        cropViewController.aspectRatioLockEnabled = true
-        cropViewController.aspectRatioPickerButtonHidden = true
-        cropViewController.resetButtonHidden = true
-        cropViewController.rotateButtonsHidden = true
-        
-        transition(cropViewController, transitionStyle: .present)
+        navigationItem.titleView = titleImage
     }
 }
 
@@ -115,7 +139,7 @@ extension WriteViewController: PHPickerViewControllerDelegate {
 // MARK: - CropViewController Protocol
 extension WriteViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        self.writeView.photoImage.image = image
+        self.writeView.mainPhotoImage.image = image
         self.dismiss(animated: true)
     }
 }

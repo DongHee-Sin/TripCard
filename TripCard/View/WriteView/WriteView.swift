@@ -24,18 +24,21 @@ final class WriteView: BaseView {
         $0.axis = .vertical
     }
     
-    let photoImage = UIImageView().then {
-        $0.clipsToBounds = true
+    let mainPhotoImage = UIImageView().then {
         $0.backgroundColor = .systemGray6
         $0.contentMode = .scaleAspectFill
     }
     
-    
+    let segmentControl = UISegmentedControl(items: ["국내여행", "해외여행"]).then {
+        $0.selectedSegmentIndex = 0
+        $0.selectedSegmentTintColor = ColorManager.shared.selectedColor
+        $0.backgroundColor = .lightGray
+    }
     
     let addImageButton = UIButton().then {
+        $0.tintColor = ColorManager.shared.buttonColor
         $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "photo.circle"), for: .normal)
-        $0.tintColor = ColorManager.shared.buttonColor
     }
     
     let locationTextField = MainTextField().then {
@@ -61,7 +64,7 @@ final class WriteView: BaseView {
             scrollView.addSubview($0)
         }
         
-        [photoImage, locationTextField, periodTextField, contentTextView].forEach {
+        [mainPhotoImage, segmentControl, locationTextField, periodTextField, contentTextView].forEach {
             stackView.addArrangedSubview($0)
         }
     }
@@ -77,13 +80,13 @@ final class WriteView: BaseView {
             make.width.equalTo(scrollView.snp.width)
         }
         
-        photoImage.snp.makeConstraints { make in
-            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
+        mainPhotoImage.snp.makeConstraints { make in
+            make.height.equalTo(mainPhotoImage.snp.width).multipliedBy(1.25)
         }
         
         addImageButton.snp.makeConstraints { make in
-            make.trailing.equalTo(photoImage.snp.trailing).offset(-12)
-            make.bottom.equalTo(photoImage.snp.bottom).offset(-12)
+            make.trailing.equalTo(mainPhotoImage.snp.trailing).offset(-12)
+            make.bottom.equalTo(mainPhotoImage.snp.bottom).offset(-12)
         }
         
         locationTextField.snp.makeConstraints { make in
