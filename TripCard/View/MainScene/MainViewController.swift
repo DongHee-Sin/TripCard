@@ -17,6 +17,7 @@ final class MainViewController: TabmanViewController {
     private var viewControllers: [UIViewController] = []
     
     private let floatingButton = UIButton().then {
+        $0.addShadow(color: .darkGray, width: 0, height: 0, alpha: 1, radius: 6)
         $0.tintColor = ColorManager.shared.buttonColor
         $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
@@ -91,7 +92,7 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        let item = TMBarItem(title: index == 0 ? "국내" : "해외")
+        let item = TMBarItem(title: index == 0 ? "국내여행" : "해외여행")
         
         let imageString = index == 0 ? "location.circle" : "globe"
         item.image = UIImage(systemName: imageString)

@@ -30,6 +30,8 @@ final class WriteView: BaseView {
         $0.contentMode = .scaleAspectFill
     }
     
+    
+    
     let addImageButton = UIButton().then {
         $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "photo.circle"), for: .normal)

@@ -34,6 +34,7 @@
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
 		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
+		D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C947D28D1C31600D2B68D /* UIView+Extension.swift */; };
 		D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A666B928D0815F0042C9C7 /* MainTextField.swift */; };
 		D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D09C947D28D1C31600D2B68D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D0A666B928D0815F0042C9C7 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +156,6 @@
 			children = (
 				D031752A28CB246D00C7A91C /* CardCell.swift */,
 				D0254FB228CB86620076FCB1 /* CardListView.swift */,
-				D04A961028D0613E0073EC38 /* WriteView.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D04A960E28D0611B0073EC38 /* WriteViewController.swift */,
+				D04A961028D0613E0073EC38 /* WriteView.swift */,
 			);
 			path = WriteView;
 			sourceTree = "<group>";
@@ -259,6 +261,7 @@
 				D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */,
 				D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */,
 				D091EED328CF138800BEDC80 /* Date+Extension.swift */,
+				D09C947D28D1C31600D2B68D /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
+				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
