@@ -6,6 +6,9 @@
 //
 
 import UIKit
+
+import CropViewController
+import TOCropViewController
 import PhotosUI
 
 
@@ -68,14 +71,28 @@ final class WriteViewController: BaseViewController {
         
         transition(pickerVC, transitionStyle: .present)
     }
+    
+    
+    func presentCropViewController(image: UIImage) {
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        cropViewController.customAspectRatio = CGSize(width: 1, height: 1.25)
+        
+        cropViewController.aspectRatioLockEnabled = true
+        cropViewController.aspectRatioPickerButtonHidden = true
+        cropViewController.resetButtonHidden = true
+        cropViewController.rotateButtonsHidden = true
+        
+        transition(cropViewController, transitionStyle: .present)
+    }
 }
 
 
 
 
+// MARK: - PHPicker Protocol
 extension WriteViewController: PHPickerViewControllerDelegate {
     
-    // PHPicker6. 필수 메서드 구현 (선택이 완료되면 호출)
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
@@ -83,11 +100,22 @@ extension WriteViewController: PHPickerViewControllerDelegate {
                 guard let selectedImage = image as? UIImage else { return }
                 
                 DispatchQueue.main.async {
-                    self.writeView.photoImage.image = selectedImage
-                    self.dismiss(animated: true)
+                    self.presentCropViewController(image: selectedImage)
                 }
             }
         }
+        
+        self.dismiss(animated: true)
     }
-    
+}
+
+
+
+
+// MARK: - CropViewController Protocol
+extension WriteViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.writeView.photoImage.image = image
+        self.dismiss(animated: true)
+    }
 }

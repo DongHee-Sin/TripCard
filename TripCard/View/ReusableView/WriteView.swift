@@ -75,7 +75,7 @@ final class WriteView: BaseView {
         }
         
         photoImage.snp.makeConstraints { make in
-            make.height.equalTo(photoImage.snp.width).multipliedBy(1.3)
+            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
         }
         
         addImageButton.snp.makeConstraints { make in

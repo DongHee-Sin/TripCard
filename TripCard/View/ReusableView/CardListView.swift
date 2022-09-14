@@ -11,6 +11,7 @@ import UIKit
 final class CardListView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureCollectionViewLayout()).then {
+        $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         $0.backgroundColor = .clear
     }
     

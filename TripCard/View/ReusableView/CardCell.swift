@@ -102,13 +102,17 @@ final class CardCell: BaseCollectionViewCell {
         }
         
         locationImage.snp.makeConstraints { make in
-            make.width.equalTo(20)
-            make.height.equalTo(20)
+            make.width.equalTo(16)
+            make.height.equalTo(16)
         }
         
         calendarImage.snp.makeConstraints { make in
-            make.width.equalTo(20)
-            make.height.equalTo(20)
+            make.width.equalTo(16)
+            make.height.equalTo(16)
+        }
+        
+        photoImage.snp.makeConstraints { make in
+            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
         }
     }
 }

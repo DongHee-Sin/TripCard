@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
+		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
+		D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A5128D184EE0038A9B6 /* TOCropViewController */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
 		D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */; };
 		D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */; };
@@ -98,10 +100,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
+				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
+				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
 			);
@@ -320,6 +324,8 @@
 				D04A961328D0648F0073EC38 /* TextFieldEffects */,
 				D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */,
 				D00BE9FE28D09094000AE09D /* Tabman */,
+				D0201A4F28D184EE0038A9B6 /* CropViewController */,
+				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -357,6 +363,7 @@
 				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
+				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -578,7 +585,7 @@
 				DEVELOPMENT_TEAM = PW2RLJT734;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripCard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "앱 아이콘 이름";
+				INFOPLIST_KEY_CFBundleDisplayName = TripCard;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -608,7 +615,7 @@
 				DEVELOPMENT_TEAM = PW2RLJT734;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripCard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "앱 아이콘 이름";
+				INFOPLIST_KEY_CFBundleDisplayName = TripCard;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -655,6 +662,14 @@
 		D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
@@ -707,6 +722,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		D0201A4F28D184EE0038A9B6 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		D0201A5128D184EE0038A9B6 /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
 		};
 		D031752D28CB285C00C7A91C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
