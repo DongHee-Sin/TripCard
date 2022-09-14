@@ -17,8 +17,9 @@ final class MainViewController: TabmanViewController {
     private var viewControllers: [UIViewController] = []
     
     private let floatingButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
         $0.tintColor = ColorManager.shared.buttonColor
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
     }
     
     
@@ -57,10 +58,8 @@ final class MainViewController: TabmanViewController {
         view.addSubview(floatingButton)
         
         floatingButton.snp.makeConstraints { make in
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-            make.trailing.equalTo(view.snp.trailing).offset(-30)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
         
         floatingButton.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)

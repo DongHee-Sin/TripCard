@@ -26,13 +26,14 @@ final class WriteView: BaseView {
     
     let photoImage = UIImageView().then {
         $0.clipsToBounds = true
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = .systemGray6
         $0.contentMode = .scaleAspectFill
     }
     
     let addImageButton = UIButton().then {
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "photo.circle"), for: .normal)
         $0.tintColor = ColorManager.shared.buttonColor
-        $0.setImage(UIImage(systemName: "photo"), for: .normal)
     }
     
     let locationTextField = MainTextField().then {
@@ -79,10 +80,8 @@ final class WriteView: BaseView {
         }
         
         addImageButton.snp.makeConstraints { make in
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-            make.trailing.equalTo(photoImage.snp.trailing).offset(-30)
-            make.bottom.equalTo(photoImage.snp.bottom).offset(-30)
+            make.trailing.equalTo(photoImage.snp.trailing).offset(-12)
+            make.bottom.equalTo(photoImage.snp.bottom).offset(-12)
         }
         
         locationTextField.snp.makeConstraints { make in
