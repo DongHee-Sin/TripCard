@@ -14,6 +14,21 @@ import PhotosUI
 
 final class WriteViewController: BaseViewController {
 
+    // MARK: - Propertys
+    let viewModel = WriteViewModel()
+    
+    let phpickerViewController: PHPickerViewController = {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let pickerVC = PHPickerViewController(configuration: configuration)
+        return pickerVC
+    }()
+    
+    
+    
+    
     // MARK: - Life Cycle
     let writeView = WriteView()
     override func loadView() {
@@ -35,9 +50,23 @@ final class WriteViewController: BaseViewController {
         
         setNavigationBar()
         
-        // addTarget
-//        writeView.addImageButton.addTarget(self, action: #selector(presentPHPickerViewController), for: .touchUpInside)
-//        writeView.segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
+        addCompletionToViewModelPropertys()
+        
+        phpickerViewController.delegate = self
+    }
+    
+    
+    private func addCompletionToViewModelPropertys() {
+        viewModel.segmentValue.bind { [weak self] selectedIndex in
+            guard let self = self else { return }
+            self.navigationTitleImageUpdate(selectedSegmentIndex: selectedIndex)
+        }
+        
+        viewModel.photoImage.bind { [weak self] image in
+            guard let self = self else { return }
+            print("header 리로드?")
+            self.writeView.tableView.reloadData()
+        }
     }
     
     
@@ -59,16 +88,8 @@ final class WriteViewController: BaseViewController {
     
     
     private func setNavigationBar() {
-        //navigationTitleImageUpdate(selectedSegmentIndex: writeView.segmentControl.selectedSegmentIndex)
-        
         navigationController?.navigationBar.tintColor = .black
     }
-    
-    
-//    private func dismissKeyboardWhenTappedAround() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        self.view.addGestureRecognizer(tap)
-//    }
     
     
     func presentCropViewController(image: UIImage) {
@@ -90,24 +111,8 @@ final class WriteViewController: BaseViewController {
     }
     
     
-//    @objc private func dismissKeyboard() {
-//        self.view.endEditing(false)
-//    }
-    
-    
-    @objc private func presentPHPickerViewController() {
-        var configuration = PHPickerConfiguration()
-        configuration.selectionLimit = 1
-        configuration.filter = .images
-        let pickerVC = PHPickerViewController(configuration: configuration)
-        pickerVC.delegate = self
-        
-        transition(pickerVC, transitionStyle: .present)
-    }
-    
-    
-    @objc func segmentControlValueChanged(_ segment: UISegmentedControl) {
-        navigationTitleImageUpdate(selectedSegmentIndex: segment.selectedSegmentIndex)
+    private func presentPHPickerViewController() {
+        transition(phpickerViewController, transitionStyle: .present)
     }
     
     
@@ -129,6 +134,9 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteTableViewHeader.identifier) as? WriteTableViewHeader else {
             return nil
         }
+        
+        header.delegate = self
+        header.updateCell(viewModel: viewModel)
         
         return header
     }
@@ -182,7 +190,22 @@ extension WriteViewController: PHPickerViewControllerDelegate {
 // MARK: - CropViewController Protocol
 extension WriteViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        //self.writeView.mainPhotoImage.image = image
+        viewModel.photoImage.value = image
         self.dismiss(animated: true)
+    }
+}
+
+
+
+
+// MARK: - Writing Delegate Protocol
+extension WriteViewController: WritingDelegate {
+    func addImageButtonTapped() {
+        presentPHPickerViewController()
+    }
+    
+    
+    func segmentValueChanged(_ index: Int) {
+        viewModel.segmentValue.value = index
     }
 }

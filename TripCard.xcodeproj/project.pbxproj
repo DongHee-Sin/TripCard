@@ -30,6 +30,8 @@
 		D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A961028D0613E0073EC38 /* WriteByDateView.swift */; };
 		D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D04A961328D0648F0073EC38 /* TextFieldEffects */; };
 		D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */; };
+		D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */; };
+		D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB528D225F5004C2F10 /* Observable.swift */; };
 		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
 		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
@@ -78,6 +80,8 @@
 		D04A960E28D0611B0073EC38 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		D04A961028D0613E0073EC38 /* WriteByDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateView.swift; sourceTree = "<group>"; };
 		D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateViewController.swift; sourceTree = "<group>"; };
+		D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		D04CCEB528D225F5004C2F10 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			children = (
 				D04A960E28D0611B0073EC38 /* WriteViewController.swift */,
 				D09C947F28D1D56D00D2B68D /* WriteView.swift */,
+				D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */,
 				D09C948128D1D6D100D2B68D /* TableView */,
 				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 			);
@@ -194,6 +199,14 @@
 				D04A961028D0613E0073EC38 /* WriteByDateView.swift */,
 			);
 			path = WriteByDateView;
+			sourceTree = "<group>";
+		};
+		D04CCEB428D225DD004C2F10 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				D04CCEB528D225F5004C2F10 /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 		D091EECE28CEE86C00BEDC80 /* Database */ = {
@@ -263,6 +276,7 @@
 				D0AB513A28C76D3900EB6D2B /* Extension */,
 				D02099E028C79A2600FD25DF /* CustomFont */,
 				D04A961528D080B50073EC38 /* CustomClass */,
+				D04CCEB428D225DD004C2F10 /* Observable */,
 				D02099EA28C79EF600FD25DF /* Localization */,
 			);
 			path = Utility;
@@ -439,6 +453,7 @@
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
 				D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */,
 				D09C948028D1D56D00D2B68D /* WriteView.swift in Sources */,
+				D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */,
 				D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */,
 				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
@@ -451,6 +466,7 @@
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
+				D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
 				D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,

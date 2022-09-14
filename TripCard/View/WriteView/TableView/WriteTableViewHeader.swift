@@ -9,9 +9,18 @@ import UIKit
 import SnapKit
 
 
+protocol WritingDelegate: AnyObject {
+    func addImageButtonTapped()
+    
+    func segmentValueChanged(_ index: Int)
+}
+
+
 final class WriteTableViewHeader: UITableViewHeaderFooterView {
 
     // MARK: - Propertys
+    var delegate: WritingDelegate?
+    
     let stackView = UIStackView().then {
         $0.layoutMargins = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 20)
         $0.isLayoutMarginsRelativeArrangement = true
@@ -25,7 +34,6 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
 
     let segmentControl = UISegmentedControl(items: ["국내여행", "해외여행"]).then {
-        $0.selectedSegmentIndex = 0
         $0.selectedSegmentTintColor = ColorManager.shared.selectedColor
         $0.backgroundColor = .lightGray
     }
@@ -53,6 +61,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         
         configureUI()
         setConstraint()
+        addTarget()
     }
     
     
@@ -96,5 +105,28 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         periodTextField.snp.makeConstraints { make in
             make.height.equalTo(55)
         }
+    }
+    
+    
+    private func addTarget() {
+        addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        
+        segmentControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
+    }
+    
+    
+    @objc private func addImageButtonTapped() {
+        delegate?.addImageButtonTapped()
+    }
+    
+    
+    @objc private func segmentValueChanged(_ segmentControl: UISegmentedControl) {
+        delegate?.segmentValueChanged(segmentControl.selectedSegmentIndex)
+    }
+    
+    
+    func updateCell(viewModel: WriteViewModel) {
+        self.mainPhotoImage.image = viewModel.photoImage.value
+        self.segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
     }
 }
