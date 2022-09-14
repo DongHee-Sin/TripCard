@@ -29,19 +29,27 @@ final class WriteViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
+        setTableView()
+        
         setNavigationBarButtonItem()
         
         setNavigationBar()
         
-        dismissKeyboardWhenTappedAround()
-        
-        writeView.addImageButton.addTarget(self, action: #selector(presentPHPickerViewController), for: .touchUpInside)
-        
-        writeView.segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
+        // addTarget
+//        writeView.addImageButton.addTarget(self, action: #selector(presentPHPickerViewController), for: .touchUpInside)
+//        writeView.segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
     }
     
     
-    func setNavigationBarButtonItem() {
+    private func setTableView() {
+        writeView.tableView.delegate = self
+        writeView.tableView.dataSource = self
+        writeView.tableView.register(WriteTableViewCell.self, forCellReuseIdentifier: WriteTableViewCell.identifier)
+        writeView.tableView.register(WriteTableViewHeader.self, forHeaderFooterViewReuseIdentifier: WriteTableViewHeader.identifier)
+    }
+    
+    
+    private func setNavigationBarButtonItem() {
         let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
         let addTripButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(addTripButtonTapped))
         
@@ -50,17 +58,17 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    func setNavigationBar() {
-        navigationTitleImageUpdate(selectedSegmentIndex: writeView.segmentControl.selectedSegmentIndex)
+    private func setNavigationBar() {
+        //navigationTitleImageUpdate(selectedSegmentIndex: writeView.segmentControl.selectedSegmentIndex)
         
         navigationController?.navigationBar.tintColor = .black
     }
     
     
-    func dismissKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
-    }
+//    private func dismissKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        self.view.addGestureRecognizer(tap)
+//    }
     
     
     func presentCropViewController(image: UIImage) {
@@ -82,9 +90,9 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    @objc private func dismissKeyboard() {
-        self.view.endEditing(false)
-    }
+//    @objc private func dismissKeyboard() {
+//        self.view.endEditing(false)
+//    }
     
     
     @objc private func presentPHPickerViewController() {
@@ -108,6 +116,41 @@ final class WriteViewController: BaseViewController {
         let titleImage = UIImageView(image: UIImage(systemName: imageText))
         
         navigationItem.titleView = titleImage
+    }
+}
+
+
+
+
+// MARK: - TableView Protocol
+extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteTableViewHeader.identifier) as? WriteTableViewHeader else {
+            return nil
+        }
+        
+        return header
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: WriteTableViewCell.identifier, for: indexPath) as? WriteTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let writeByDateVC = WriteByDateViewController()
+        transition(writeByDateVC, transitionStyle: .present)
     }
 }
 
@@ -139,7 +182,7 @@ extension WriteViewController: PHPickerViewControllerDelegate {
 // MARK: - CropViewController Protocol
 extension WriteViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        self.writeView.mainPhotoImage.image = image
+        //self.writeView.mainPhotoImage.image = image
         self.dismiss(animated: true)
     }
 }

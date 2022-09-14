@@ -26,7 +26,7 @@ final class OverseasListViewController: BaseViewController {
     override func configure() {
         cardListView.collectionView.delegate = self
         cardListView.collectionView.dataSource = self
-        cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
+        cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
     }
 }
 
@@ -42,7 +42,7 @@ extension OverseasListViewController: UICollectionViewDelegate, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: indexPath) as? CardCell else {
             return UICollectionViewCell()
         }
         
