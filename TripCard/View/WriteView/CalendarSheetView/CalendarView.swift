@@ -24,8 +24,7 @@ final class CalendarView: BaseView {
     
     override func setConstraint() {
         calendar.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide)
-            make.height.equalTo(self.safeAreaLayoutGuide.snp.height)
+            make.edges.equalTo(self.safeAreaLayoutGuide).inset(12)
         }
     }
 }

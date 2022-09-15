@@ -9,6 +9,7 @@ import UIKit
 
 import CropViewController
 import TOCropViewController
+import PanModal
 import PhotosUI
 
 
@@ -113,16 +114,11 @@ final class WriteViewController: BaseViewController {
     @objc private func addTripButtonTapped() {
         print("데이터 추가")
         
-        if #available(iOS 15, *) {
-            let calendarVC = CalendarSheetViewController()
-            
-            guard let sheetVC = calendarVC.sheetPresentationController else { return }
-            
-            sheetVC.detents = [.medium()]
-            
-            transition(calendarVC, transitionStyle: .present)
+        let calendarVC = CalendarSheetViewController()
+        if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
+            calendarVC.halfDeviceHeight = deviceHeight / 2
         }
-        
+        presentPanModal(calendarVC)
     }
     
     

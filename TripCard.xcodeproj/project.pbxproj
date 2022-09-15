@@ -22,6 +22,7 @@
 		D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */; };
 		D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB228CB86620076FCB1 /* CardListView.swift */; };
 		D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */; };
+		D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = D02BC3BB28D35B6300BCEB0E /* PanModal */; };
 		D031752B28CB246D00C7A91C /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardCell.swift */; };
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
@@ -126,6 +127,7 @@
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
+				D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
 			);
@@ -388,6 +390,7 @@
 				D0201A4F28D184EE0038A9B6 /* CropViewController */,
 				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
 				D0BBA54E28D3115A007D0916 /* FSCalendar */,
+				D02BC3BB28D35B6300BCEB0E /* PanModal */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -427,6 +430,7 @@
 				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
 				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -747,6 +751,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -812,6 +824,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = TOCropViewController;
+		};
+		D02BC3BB28D35B6300BCEB0E /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 		D031752D28CB285C00C7A91C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
