@@ -87,7 +87,7 @@ final class WriteTableViewCell: UITableViewCell {
     }
     
     
-//    func updateCell(data: Memo, keyword: String) {
+//    func updateCell(viewModel: WriteViewModel) {
 //
 //    }
 

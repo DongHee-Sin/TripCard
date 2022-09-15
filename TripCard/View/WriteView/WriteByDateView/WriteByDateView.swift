@@ -42,6 +42,7 @@ final class WriteByDateView: BaseView {
     }
     
     let contentTextView = UITextView().then {
+        $0.backgroundColor = .clear
         $0.sizeToFit()
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.isScrollEnabled = false
