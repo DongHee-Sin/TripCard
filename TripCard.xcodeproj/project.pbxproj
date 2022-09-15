@@ -23,6 +23,7 @@
 		D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB228CB86620076FCB1 /* CardListView.swift */; };
 		D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */; };
 		D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = D02BC3BB28D35B6300BCEB0E /* PanModal */; };
+		D02BC3BE28D3714A00BCEB0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D02BC3BD28D3714A00BCEB0E /* .gitignore */; };
 		D031752B28CB246D00C7A91C /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardCell.swift */; };
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
@@ -79,6 +80,7 @@
 		D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0254FB228CB86620076FCB1 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extension.swift"; sourceTree = "<group>"; };
+		D02BC3BD28D3714A00BCEB0E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D04A960E28D0611B0073EC38 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				D0AB512C28C76CD800EB6D2B /* Assets.xcassets */,
 				D0AB512E28C76CD800EB6D2B /* LaunchScreen.storyboard */,
 				D0AB513128C76CD800EB6D2B /* Info.plist */,
+				D02BC3BD28D3714A00BCEB0E /* .gitignore */,
 			);
 			path = TripCard;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02BC3BE28D3714A00BCEB0E /* .gitignore in Resources */,
 				D0AB513028C76CD800EB6D2B /* LaunchScreen.storyboard in Resources */,
 				D02099F628C7A02800FD25DF /* InfoPlist.strings in Resources */,
 				D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */,

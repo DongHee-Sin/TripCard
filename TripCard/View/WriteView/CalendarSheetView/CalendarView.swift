@@ -12,7 +12,10 @@ import FSCalendar
 final class CalendarView: BaseView {
     
     // MARK: - Propertys
-    let calendar = FSCalendar()
+    let calendar = FSCalendar().then {
+//        $0.allowsMultipleSelection = true
+        $0.swipeToChooseGesture.isEnabled = true
+    }
     
     
     
