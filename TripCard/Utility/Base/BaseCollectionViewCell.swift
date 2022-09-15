@@ -14,6 +14,8 @@ class BaseCollectionViewCell: UICollectionViewCell {
         
         configureUI()
         setConstraint()
+        
+        addShadow()
     }
     
     required init?(coder: NSCoder) {
@@ -24,4 +26,9 @@ class BaseCollectionViewCell: UICollectionViewCell {
     func configureUI() {}
     
     func setConstraint() {}
+    
+    final private func addShadow() {
+        self.addShadow(color: .black, width: 5, height: 5, alpha: 0.3, radius: 5)
+        self.layer.masksToBounds = false
+    }
 }

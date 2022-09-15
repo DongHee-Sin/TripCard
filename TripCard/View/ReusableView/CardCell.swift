@@ -50,12 +50,6 @@ final class CardCell: BaseCollectionViewCell {
         $0.tintColor = ColorManager.shared.textColor
     }
     
-//    let shadowView = UIView().then {
-//        $0.layer.masksToBounds = false
-//        $0.backgroundColor = .clear
-//        $0.addShadow(color: .black, width: 5, height: 5, alpha: 0.3, radius: 5)
-//    }
-    
     
     
     
@@ -102,9 +96,5 @@ final class CardCell: BaseCollectionViewCell {
             make.trailing.equalTo(self.snp.trailing).offset(-8)
             make.bottom.equalTo(self.snp.bottom).offset(-8)
         }
-        
-//        shadowView.snp.makeConstraints { make in
-//            make.edges.equalTo(self).inset(0)
-//        }
     }
 }

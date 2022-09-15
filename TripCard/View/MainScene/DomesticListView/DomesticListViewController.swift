@@ -46,9 +46,6 @@ extension DomesticListViewController: UICollectionViewDelegate, UICollectionView
             return UICollectionViewCell()
         }
         
-        cell.addShadow(color: .black, width: 5, height: 5, alpha: 0.3, radius: 5)
-        cell.layer.masksToBounds = false
-        
         return cell
     }
 }
