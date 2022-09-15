@@ -55,6 +55,9 @@
 		D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */; };
 		D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */; };
 		D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514F28C776C700EB6D2B /* ColorManager.swift */; };
+		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
+		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
+		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +107,8 @@
 		D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
+		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +121,7 @@
 				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
 				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
+				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
 				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
@@ -179,6 +185,7 @@
 				D09C947F28D1D56D00D2B68D /* WriteView.swift */,
 				D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */,
 				D09C948128D1D6D100D2B68D /* TableView */,
+				D0BBA55028D3142F007D0916 /* CalendarSheetView */,
 				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 			);
 			path = WriteView;
@@ -345,6 +352,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		D0BBA55028D3142F007D0916 /* CalendarSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */,
+				D0BBA55328D314A0007D0916 /* CalendarView.swift */,
+			);
+			path = CalendarSheetView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,6 +387,7 @@
 				D00BE9FE28D09094000AE09D /* Tabman */,
 				D0201A4F28D184EE0038A9B6 /* CropViewController */,
 				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
+				D0BBA54E28D3115A007D0916 /* FSCalendar */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -409,6 +426,7 @@
 				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
 				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -455,9 +473,11 @@
 				D09C948028D1D56D00D2B68D /* WriteView.swift in Sources */,
 				D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */,
 				D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */,
+				D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */,
 				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
+				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
 				D09C948528D1D70D00D2B68D /* WriteTableViewCell.swift in Sources */,
@@ -767,6 +787,14 @@
 				kind = branch;
 			};
 		};
+		D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -814,6 +842,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		D0BBA54E28D3115A007D0916 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

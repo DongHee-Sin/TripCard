@@ -46,8 +46,6 @@ extension OverseasListViewController: UICollectionViewDelegate, UICollectionView
             return UICollectionViewCell()
         }
         
-        cell.contentLabel.isHidden = true
-        
         return cell
     }
 }

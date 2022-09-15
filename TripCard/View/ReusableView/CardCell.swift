@@ -47,48 +47,14 @@ final class CardCell: BaseCollectionViewCell {
         $0.tintColor = ColorManager.shared.textColor
     }
     
-    let contentLabel = UILabel().then {
-        $0.textColor = ColorManager.shared.textColor
-        $0.font = .systemFont(ofSize: FontSize.small.rawValue)
-        $0.numberOfLines = 0
-    }
-    
-    lazy var locationStackView = UIStackView().then { view in
-        [locationImage, locationLabel].forEach {
-            view.addArrangedSubview($0)
-        }
-        view.spacing = 8
-        view.axis = .horizontal
-        
-        view.isLayoutMarginsRelativeArrangement = true
-        view.layoutMargins = UIEdgeInsets(top: .zero, left: 8, bottom: .zero, right: 8)
-    }
-    
-    lazy var periodStackView = UIStackView().then { view in
-        [calendarImage, periodLabel].forEach {
-            view.addArrangedSubview($0)
-        }
-        view.spacing = 8
-        view.axis = .horizontal
-        
-        view.isLayoutMarginsRelativeArrangement = true
-        view.layoutMargins = UIEdgeInsets(top: .zero, left: 8, bottom: 8, right: 8)
-    }
-    
-    lazy var cardStackView = UIStackView().then { view in
-        [photoImage, locationStackView, periodStackView, contentLabel].forEach {
-            view.addArrangedSubview($0)
-        }
-        view.spacing = 8
-        view.axis = .vertical
-    }
-    
     
     
     
     // MARK: - Methods
     override func configureUI() {
-        self.addSubview(cardStackView)
+        [photoImage, locationImage, locationLabel, calendarImage, periodLabel].forEach {
+            self.addSubview($0)
+        }
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 20
@@ -97,22 +63,35 @@ final class CardCell: BaseCollectionViewCell {
     
     
     override func setConstraint() {
-        cardStackView.snp.makeConstraints { make in
-            make.edges.equalTo(self.safeAreaLayoutGuide).inset(0)
+        photoImage.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.leading.trailing.equalTo(self)
+            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
         }
         
         locationImage.snp.makeConstraints { make in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.centerY.equalTo(locationLabel)
+            make.leading.equalTo(self.snp.leading).offset(8)
+            make.width.height.equalTo(16)
         }
-        
+
+        locationLabel.snp.makeConstraints { make in
+            make.top.equalTo(photoImage.snp.bottom).offset(8)
+            make.leading.equalTo(locationImage.snp.trailing).offset(8)
+            make.trailing.equalTo(self.snp.trailing).offset(-8)
+        }
+
         calendarImage.snp.makeConstraints { make in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.centerY.equalTo(periodLabel)
+            make.leading.equalTo(self.snp.leading).offset(8)
+            make.width.height.equalTo(16)
         }
-        
-        photoImage.snp.makeConstraints { make in
-            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
+
+        periodLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(8)
+            make.leading.equalTo(calendarImage.snp.trailing).offset(8)
+            make.trailing.equalTo(self.snp.trailing).offset(-8)
+            make.bottom.equalTo(self.snp.bottom).offset(-8)
         }
     }
 }

@@ -112,6 +112,17 @@ final class WriteViewController: BaseViewController {
     
     @objc private func addTripButtonTapped() {
         print("데이터 추가")
+        
+        if #available(iOS 15, *) {
+            let calendarVC = CalendarSheetViewController()
+            
+            guard let sheetVC = calendarVC.sheetPresentationController else { return }
+            
+            sheetVC.detents = [.medium()]
+            
+            transition(calendarVC, transitionStyle: .present)
+        }
+        
     }
     
     
