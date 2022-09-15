@@ -26,7 +26,7 @@ final class ColorManager {
     
     
     // MARK: - Propertys
-    var backgroundColor: UIColor = UIColor(hex: "B8FFF9ff") ?? .white
+    var backgroundColor: UIColor = UIColor(hex: "EFFFFDff") ?? .white
     
     var textColor: UIColor = .black
     

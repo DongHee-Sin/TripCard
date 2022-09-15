@@ -89,6 +89,10 @@ final class WriteViewController: BaseViewController {
     
     private func setNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
+        
+        if #available(iOS 15, *) {
+            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
+        }
     }
     
     
@@ -119,6 +123,7 @@ final class WriteViewController: BaseViewController {
     private func navigationTitleImageUpdate(selectedSegmentIndex: Int) {
         let imageText = selectedSegmentIndex == 0 ? "car" : "airplane"
         let titleImage = UIImageView(image: UIImage(systemName: imageText))
+        titleImage.tintColor = ColorManager.shared.buttonColor
         
         navigationItem.titleView = titleImage
     }

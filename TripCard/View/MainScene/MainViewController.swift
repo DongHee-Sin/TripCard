@@ -44,8 +44,15 @@ final class MainViewController: TabmanViewController {
         
         self.dataSource = self
         
-        let bar = TMBar.TabBar()
+        let bar = TMBar.ButtonBar()
+
         bar.layout.transitionStyle = .snap
+        bar.backgroundView.style = .blur(style: .regular)
+
+        bar.indicator.weight = .medium
+        bar.indicator.tintColor = ColorManager.shared.buttonColor
+        bar.layout.contentInset = UIEdgeInsets(top: .zero, left: 20, bottom: .zero, right: 20)
+        
         bar.buttons.customize {
             $0.tintColor = .black
             $0.selectedTintColor = ColorManager.shared.buttonColor
