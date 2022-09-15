@@ -47,27 +47,13 @@ final class WriteViewController: BaseViewController {
     override func configure() {
         setTableView()
         
+        addCompletionToViewModelPropertys()
+        
         setNavigationBarButtonItem()
         
         setNavigationBar()
         
-        addCompletionToViewModelPropertys()
-        
         phpickerViewController.delegate = self
-    }
-    
-    
-    private func addCompletionToViewModelPropertys() {
-        viewModel.segmentValue.bind { [weak self] selectedIndex in
-            guard let self = self else { return }
-            self.navigationTitleImageUpdate(selectedSegmentIndex: selectedIndex)
-        }
-        
-        viewModel.photoImage.bind { [weak self] image in
-            guard let self = self else { return }
-            print("header 리로드?")
-            self.writeView.tableView.reloadData()
-        }
     }
     
     
@@ -76,6 +62,20 @@ final class WriteViewController: BaseViewController {
         writeView.tableView.dataSource = self
         writeView.tableView.register(WriteTableViewCell.self, forCellReuseIdentifier: WriteTableViewCell.identifier)
         writeView.tableView.register(WriteTableViewHeader.self, forHeaderFooterViewReuseIdentifier: WriteTableViewHeader.identifier)
+    }
+    
+    
+    private func addCompletionToViewModelPropertys() {
+        viewModel.segmentValue.bind { [weak self] selectedIndex in
+            guard let self = self else { return }
+            self.updateNavigationTitleImage(selectedSegmentIndex: selectedIndex)
+        }
+        
+        viewModel.photoImage.bind { [weak self] image in
+            guard let self = self else { return }
+            print("header 리로드?")
+            self.writeView.tableView.reloadData()
+        }
     }
     
     
@@ -97,7 +97,7 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    func presentCropViewController(image: UIImage) {
+    private func presentCropViewController(image: UIImage) {
         let cropViewController = CropViewController(image: image)
         cropViewController.delegate = self
         cropViewController.customAspectRatio = CGSize(width: 1, height: 1.25)
@@ -127,7 +127,7 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    private func navigationTitleImageUpdate(selectedSegmentIndex: Int) {
+    private func updateNavigationTitleImage(selectedSegmentIndex: Int) {
         let imageText = selectedSegmentIndex == 0 ? "car" : "airplane"
         let titleImage = UIImageView(image: UIImage(systemName: imageText))
         titleImage.tintColor = ColorManager.shared.buttonColor
@@ -150,6 +150,9 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         header.delegate = self
         header.updateCell(viewModel: viewModel)
         
+        header.locationTextField.delegate = self
+        header.periodTextField.delegate = self
+        
         return header
     }
     
@@ -165,6 +168,11 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
     
     
@@ -220,4 +228,14 @@ extension WriteViewController: WritingDelegate {
     func segmentValueChanged(_ index: Int) {
         viewModel.segmentValue.value = index
     }
+}
+
+
+
+
+// MARK: - TextField Delegate
+extension WriteViewController: UITextFieldDelegate {
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//
+//    }
 }

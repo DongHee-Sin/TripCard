@@ -74,7 +74,6 @@ final class WriteTableViewCell: UITableViewCell {
         dateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         dateLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
             make.leading.equalTo(self.snp.leading).offset(20)
             make.verticalEdges.equalTo(self).inset(8)
         }
