@@ -128,5 +128,6 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     func updateCell(viewModel: WriteViewModel) {
         self.mainPhotoImage.image = viewModel.photoImage.value
         self.segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
+        self.periodTextField.text = viewModel.periodString
     }
 }

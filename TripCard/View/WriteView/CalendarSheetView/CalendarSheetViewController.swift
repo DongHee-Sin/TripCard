@@ -11,10 +11,18 @@ import FSCalendar
 import PanModal
 
 
+protocol AddPeriodDelegate: AnyObject {
+    func addPeriod(dates: [Date])
+}
+
+
+
 final class CalendarSheetViewController: BaseViewController {
 
     // MARK: - Propertys
     var halfDeviceHeight: CGFloat = 0
+    
+    var delegate: AddPeriodDelegate?
     
     
     
@@ -34,7 +42,7 @@ final class CalendarSheetViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
-        updateCalendarSelectedLabel()
+        selectedDateDidChanged()
         calendarCurrentPageDidChange(calendarView.calendar)
         
         calendarView.calendar.delegate = self
@@ -78,18 +86,22 @@ final class CalendarSheetViewController: BaseViewController {
     }
     
     
-    private func updateCalendarSelectedLabel() {
+    private func selectedDateDidChanged() {
         let selectedDates = calendarView.calendar.selectedDates
         
-        if selectedDates.isEmpty {
+        delegate?.addPeriod(dates: selectedDates)
+        updateCalendarSelectedLabel(dates: selectedDates)
+    }
+    
+    
+    private func updateCalendarSelectedLabel(dates: [Date]) {
+        if dates.isEmpty {
             calendarView.selectedDateLabel.text = "여행 기간"
-        }else if selectedDates.count == 1 {
-            calendarView.selectedDateLabel.text = selectedDates[0].string
+        }else if dates.count == 1 {
+            calendarView.selectedDateLabel.text = dates[0].string
         }else {
-            calendarView.selectedDateLabel.text = selectedDates.first!.string + " ~ " + selectedDates.last!.string
+            calendarView.selectedDateLabel.text = dates.first!.string + " ~ " + dates.last!.string
         }
-        
-        print("호출")
     }
 }
 
@@ -128,7 +140,7 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
         default: break
         }
         
-        updateCalendarSelectedLabel()
+        selectedDateDidChanged()
     }
     
     
@@ -140,7 +152,7 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
         
         calendar.select(date)
         
-        updateCalendarSelectedLabel()
+        selectedDateDidChanged()
     }
     
     

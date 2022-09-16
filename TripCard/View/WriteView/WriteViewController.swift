@@ -76,6 +76,11 @@ final class WriteViewController: BaseViewController {
             print("header 리로드?")
             self.writeView.tableView.reloadData()
         }
+        
+        viewModel.tripPeriod.bind { [weak self] dates in
+            guard let self = self else { return }
+            self.writeView.tableView.reloadData()
+        }
     }
     
     
@@ -113,12 +118,6 @@ final class WriteViewController: BaseViewController {
     
     @objc private func addTripButtonTapped() {
         print("데이터 추가")
-        
-        let calendarVC = CalendarSheetViewController()
-        if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
-            calendarVC.halfDeviceHeight = deviceHeight / 2
-        }
-        presentPanModal(calendarVC)
     }
     
     
@@ -150,7 +149,6 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         header.delegate = self
         header.updateCell(viewModel: viewModel)
         
-        header.locationTextField.delegate = self
         header.periodTextField.delegate = self
         
         return header
@@ -235,7 +233,26 @@ extension WriteViewController: WritingDelegate {
 
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//
-//    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let calendarVC = CalendarSheetViewController()
+        if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
+            calendarVC.halfDeviceHeight = deviceHeight / 2
+        }
+        
+        calendarVC.delegate = self
+        
+        presentPanModal(calendarVC)
+        
+        return false
+    }
+}
+
+
+
+
+// MARK: - Add Period Delegate
+extension WriteViewController: AddPeriodDelegate {
+    func addPeriod(dates: [Date]) {
+        viewModel.tripPeriod.value = dates
+    }
 }
