@@ -12,6 +12,12 @@ import FSCalendar
 final class CalendarView: BaseView {
     
     // MARK: - Propertys
+    let selectedDateLabel = UILabel().then {
+        $0.textAlignment = .center
+        $0.textColor = ColorManager.shared.textColor
+        $0.font = .customFont(size: .normal)
+    }
+    
     let changeDateStackView = UIStackView().then {
         $0.distribution = .fillEqually
         $0.spacing = 20
@@ -47,22 +53,28 @@ final class CalendarView: BaseView {
             changeDateStackView.addArrangedSubview($0)
         }
         
-        [changeDateStackView, calendar].forEach {
+        [selectedDateLabel, changeDateStackView, calendar].forEach {
             self.addSubview($0)
         }
     }
     
     
     override func setConstraint() {
-        changeDateStackView.snp.makeConstraints { make in
+        selectedDateLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self).inset(20)
             make.top.equalTo(self.snp.top).offset(20)
-            make.height.equalTo(50)
+            make.height.equalTo(30)
+        }
+        
+        changeDateStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(self).inset(20)
+            make.top.equalTo(selectedDateLabel.snp.bottom).offset(8)
+            make.height.equalTo(30)
         }
         
         calendar.snp.makeConstraints { make in
-            make.top.equalTo(changeDateStackView.snp.bottom).offset(8)
             make.horizontalEdges.equalTo(self).inset(20)
+            make.top.equalTo(changeDateStackView.snp.bottom).offset(8)
             make.bottom.equalTo(self.snp.bottom).offset(-20)
         }
     }

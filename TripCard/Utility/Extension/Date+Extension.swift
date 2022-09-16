@@ -10,6 +10,11 @@ import Foundation
 
 extension Date {
     
+    var string: String {
+        return DateFormatterManager.shared.dateToString(date: self)
+    }
+    
+    
     static func calcDateDifference (startDate: Date, endDate: Date) -> Int {
         let second = startDate.timeIntervalSinceReferenceDate - endDate.timeIntervalSinceReferenceDate
         let day = Int(second / 86400)

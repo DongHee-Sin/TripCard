@@ -34,6 +34,7 @@ final class CalendarSheetViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
+        updateCalendarSelectedLabel()
         calendarCurrentPageDidChange(calendarView.calendar)
         
         calendarView.calendar.delegate = self
@@ -75,6 +76,21 @@ final class CalendarSheetViewController: BaseViewController {
         
         calendarView.calendar.setCurrentPage(changedPage, animated: true)
     }
+    
+    
+    private func updateCalendarSelectedLabel() {
+        let selectedDates = calendarView.calendar.selectedDates
+        
+        if selectedDates.isEmpty {
+            calendarView.selectedDateLabel.text = "여행 기간"
+        }else if selectedDates.count == 1 {
+            calendarView.selectedDateLabel.text = selectedDates[0].string
+        }else {
+            calendarView.selectedDateLabel.text = selectedDates.first!.string + " ~ " + selectedDates.last!.string
+        }
+        
+        print("호출")
+    }
 }
 
 
@@ -111,6 +127,8 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
             }
         default: break
         }
+        
+        updateCalendarSelectedLabel()
     }
     
     
@@ -121,6 +139,8 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
         }
         
         calendar.select(date)
+        
+        updateCalendarSelectedLabel()
     }
     
     

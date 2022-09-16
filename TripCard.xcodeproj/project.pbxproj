@@ -34,6 +34,7 @@
 		D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */; };
 		D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */; };
 		D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB528D225F5004C2F10 /* Observable.swift */; };
+		D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069916528D45C1A0089F862 /* DateFormatterManager.swift */; };
 		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
 		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
@@ -89,6 +90,7 @@
 		D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateViewController.swift; sourceTree = "<group>"; };
 		D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
 		D04CCEB528D225F5004C2F10 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		D069916528D45C1A0089F862 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				D0AB514F28C776C700EB6D2B /* ColorManager.swift */,
 				D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */,
+				D069916528D45C1A0089F862 /* DateFormatterManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
+				D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */,
 				D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */,
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
