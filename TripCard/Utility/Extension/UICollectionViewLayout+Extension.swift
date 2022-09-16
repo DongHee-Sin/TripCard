@@ -42,22 +42,4 @@ extension UICollectionViewLayout {
 
         return layout
     }
-    
-    
-//    static func configureCollectionViewLayout() -> UICollectionViewLayout {
-//        let layout = UICollectionViewFlowLayout()
-//
-//        let itemSpacing: CGFloat = 16
-//
-//        let width: CGFloat = UIScreen.main.bounds.width - (itemSpacing * 3)
-//        let itemWidth: CGFloat = width / 2
-//
-//        layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.5)
-//        layout.scrollDirection = .vertical
-//        layout.sectionInset = UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: itemSpacing, right: itemSpacing)
-//        layout.minimumLineSpacing = itemSpacing + 8
-//        layout.minimumInteritemSpacing = itemSpacing
-//
-//        return layout
-//    }
 }

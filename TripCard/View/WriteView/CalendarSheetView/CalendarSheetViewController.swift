@@ -34,8 +34,46 @@ final class CalendarSheetViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
+        calendarCurrentPageDidChange(calendarView.calendar)
+        
         calendarView.calendar.delegate = self
         calendarView.calendar.dataSource = self
+        
+        setAddTarget()
+    }
+    
+    
+    private func setAddTarget() {
+        calendarView.changeMonthView.backButton.addTarget(self, action: #selector(moveMonthButtonTapped), for: .touchUpInside)
+        calendarView.changeMonthView.nextButton.addTarget(self, action: #selector(moveMonthButtonTapped), for: .touchUpInside)
+        calendarView.changeYearView.backButton.addTarget(self, action: #selector(moveYearButtonTapped), for: .touchUpInside)
+        calendarView.changeYearView.nextButton.addTarget(self, action: #selector(moveYearButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    @objc private func moveMonthButtonTapped(button: UIButton) {
+        let isNext = button == calendarView.changeMonthView.nextButton
+        var dateComponents = DateComponents()
+        dateComponents.month = isNext ? 1 : -1
+        
+        updateCalendarCurrentPage(dateComponents: dateComponents)
+    }
+    
+    
+    @objc private func moveYearButtonTapped(button: UIButton) {
+        let isNext = button == calendarView.changeYearView.nextButton
+        var dateComponents = DateComponents()
+        dateComponents.year = isNext ? 1 : -1
+        
+        updateCalendarCurrentPage(dateComponents: dateComponents)
+    }
+    
+    
+    private func updateCalendarCurrentPage(dateComponents: DateComponents) {
+        let calendar = Calendar.current
+        let changedPage = calendar.date(byAdding: dateComponents, to: calendarView.calendar.currentPage) ?? Date()
+        
+        calendarView.calendar.setCurrentPage(changedPage, animated: true)
     }
 }
 
@@ -85,6 +123,11 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
         calendar.select(date)
     }
     
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        calendarView.changeMonthView.dateLabel.text = "\(calendar.currentPage.get(.month))월"
+        calendarView.changeYearView.dateLabel.text = "\(calendar.currentPage.get(.year))년"
+    }
 }
 
 

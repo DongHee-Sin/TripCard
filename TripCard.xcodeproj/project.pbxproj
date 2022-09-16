@@ -57,6 +57,7 @@
 		D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */; };
 		D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */; };
 		D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514F28C776C700EB6D2B /* ColorManager.swift */; };
+		D0AB59BD28D4384300DD13AD /* ChangeDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB59BC28D4384300DD13AD /* ChangeDateView.swift */; };
 		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
@@ -110,6 +111,7 @@
 		D0AB514A28C7726200EB6D2B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		D0AB59BC28D4384300DD13AD /* ChangeDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateView.swift; sourceTree = "<group>"; };
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				D031752A28CB246D00C7A91C /* CardCell.swift */,
 				D0254FB228CB86620076FCB1 /* CardListView.swift */,
+				D0AB59BC28D4384300DD13AD /* ChangeDateView.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
 				D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */,
+				D0AB59BD28D4384300DD13AD /* ChangeDateView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
