@@ -240,6 +240,7 @@ extension WriteViewController: UITextFieldDelegate {
         }
         
         calendarVC.delegate = self
+        calendarVC.updateCalendar(viewModel: viewModel)
         
         presentPanModal(calendarVC)
         

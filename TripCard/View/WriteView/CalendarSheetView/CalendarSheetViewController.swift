@@ -42,7 +42,6 @@ final class CalendarSheetViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
-        selectedDateDidChanged()
         calendarCurrentPageDidChange(calendarView.calendar)
         
         calendarView.calendar.delegate = self
@@ -86,9 +85,7 @@ final class CalendarSheetViewController: BaseViewController {
     }
     
     
-    private func selectedDateDidChanged() {
-        let selectedDates = calendarView.calendar.selectedDates
-        
+    private func selectedDateDidChanged(selectedDates: [Date]) {
         delegate?.addPeriod(dates: selectedDates)
         updateCalendarSelectedLabel(dates: selectedDates)
     }
@@ -103,6 +100,26 @@ final class CalendarSheetViewController: BaseViewController {
             calendarView.selectedDateLabel.text = dates.first!.string + " ~ " + dates.last!.string
         }
     }
+    
+    
+    func updateCalendar(viewModel: WriteViewModel) {
+        guard !viewModel.tripPeriod.value.isEmpty else { return }
+        
+        calendarView.calendar.setCurrentPage(viewModel.tripPeriod.value.first!, animated: true)
+        selectDates(dates: viewModel.tripPeriod.value)
+    }
+    
+    
+    private func selectDates(dates: [Date]) {
+        var startTemp: Date!
+        let calendar = calendarView.calendar
+
+        startTemp = dates.first!
+        while startTemp <= dates.last! {
+            calendar.select(startTemp)
+            startTemp += 86400
+        }
+    }
 }
 
 
@@ -112,35 +129,22 @@ final class CalendarSheetViewController: BaseViewController {
 extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
+        
         switch calendar.selectedDates.count {
         case 3...:
             for _ in 0..<calendar.selectedDates.count {
                 calendar.deselect(calendar.selectedDates[0])
             }
         case 2:
-            var startTemp: Date!
-            if calendar.selectedDates.count == 2{
-                if calendar.selectedDates[0] < calendar.selectedDates[1]{
-                    startTemp = calendar.selectedDates[0]
-                    while startTemp < calendar.selectedDates[1]-86400{
-                        startTemp += 86400
-                        calendar.select(startTemp)
-                    }
-                    startTemp = nil
-                }
-                else{
-                    startTemp = calendar.selectedDates[1]
-                    while startTemp < calendar.selectedDates[0] - 86400{
-                        startTemp += 86400
-                        calendar.select(startTemp)
-                    }
-                }
+            if calendar.selectedDates[0] > calendar.selectedDates[1] {
+                calendar.deselect(calendar.selectedDates[0])
+            }else {
+                selectDates(dates: calendar.selectedDates)
             }
         default: break
         }
         
-        selectedDateDidChanged()
+        selectedDateDidChanged(selectedDates: calendar.selectedDates.sorted())
     }
     
     
@@ -152,7 +156,7 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
         
         calendar.select(date)
         
-        selectedDateDidChanged()
+        selectedDateDidChanged(selectedDates: calendar.selectedDates.sorted())
     }
     
     
