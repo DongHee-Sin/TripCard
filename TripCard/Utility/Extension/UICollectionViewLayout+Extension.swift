@@ -9,37 +9,23 @@ import UIKit
 
 
 extension UICollectionViewLayout {
-    
+
     static func configureCollectionViewLayout() -> UICollectionViewLayout {
-
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-            // Item
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-            item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-
-
-            // Groub
-            let groubSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(300))
-
-            let groub = NSCollectionLayoutGroup.horizontal(layoutSize: groubSize, subitem: item, count: 2)
-
-
-            // Section
-            let section = NSCollectionLayoutSection(group: groub)
-
-            section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
-
-            section.interGroupSpacing = 20
-
-
-            return section
-        }
-
+        let layout = UICollectionViewFlowLayout()
+            
+        let sectionSpacing: CGFloat = 20
+        let itemSpacing: CGFloat = 16
+            
+        let width: CGFloat = UIScreen.main.bounds.width - itemSpacing - (sectionSpacing * 2)
+        let itemWidth: CGFloat = width / 2
+        let itemHeight: CGFloat = (itemWidth * 1.25) + 55
+            
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        layout.minimumLineSpacing = itemSpacing * 2
+        layout.minimumInteritemSpacing = itemSpacing
+            
         return layout
     }
 }
