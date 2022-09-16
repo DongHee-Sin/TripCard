@@ -16,23 +16,18 @@ final class WriteTableViewCell: UITableViewCell {
         $0.textColor = .white
         $0.backgroundColor = ColorManager.shared.buttonColor
         $0.font = .customFont(size: .normal)
-        
-        $0.text = "  n일차  "
     }
     
     let contentLabel = UILabel().then {
         $0.textColor = .black
         $0.font = .systemFont(ofSize: FontSize.small.rawValue)
-        
-        $0.text = "TEST TEST TEST TEST TEST"
     }
     
     let photoImage = UIImageView().then {
-        $0.clipsToBounds = true
+        $0.tintColor = ColorManager.shared.buttonColor
         $0.backgroundColor = .systemGray6
+        $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
-        
-        $0.image = UIImage(systemName: "photo.circle")
     }
     
     
@@ -86,8 +81,10 @@ final class WriteTableViewCell: UITableViewCell {
     }
     
     
-//    func updateCell(viewModel: WriteViewModel) {
-//
-//    }
+    func updateCell(index: Int, cardByDate: CardByDate) {
+        dateLabel.text = "  \(index + 1)일차  "
+        contentLabel.text = cardByDate.content ?? "내용을 입력하세요!"
+        photoImage.image = cardByDate.photoImage ?? UIImage(systemName: "photo")
+    }
 
 }

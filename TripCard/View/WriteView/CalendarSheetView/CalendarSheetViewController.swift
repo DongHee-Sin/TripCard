@@ -103,10 +103,14 @@ final class CalendarSheetViewController: BaseViewController {
     
     
     func updateCalendar(viewModel: WriteViewModel) {
+        let dates = viewModel.tripPeriod.value
+        
+        updateCalendarSelectedLabel(dates: dates)
+        
         guard !viewModel.tripPeriod.value.isEmpty else { return }
         
+        selectDates(dates: dates)
         calendarView.calendar.setCurrentPage(viewModel.tripPeriod.value.first!, animated: true)
-        selectDates(dates: viewModel.tripPeriod.value)
     }
     
     

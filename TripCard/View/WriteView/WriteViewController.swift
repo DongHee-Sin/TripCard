@@ -159,7 +159,7 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         header.delegate = self
-        header.updateCell(viewModel: viewModel)
+        header.updateHeader(viewModel: viewModel)
         
         header.periodTextField.delegate = self
         
@@ -177,6 +177,9 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let cardByDate = viewModel.cardByDate.value[indexPath.row]
+        cell.updateCell(index: indexPath.row, cardByDate: cardByDate)
+        
         return cell
     }
     
@@ -188,7 +191,13 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let writeByDateVC = WriteByDateViewController()
-        transition(writeByDateVC, transitionStyle: .present)
+        
+        writeByDateVC.index = indexPath.row
+        writeByDateVC.viewModel = viewModel
+        
+        let navi = UINavigationController(rootViewController: writeByDateVC)
+        
+        transition(navi, transitionStyle: .present)
     }
 }
 
