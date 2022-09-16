@@ -16,9 +16,9 @@ extension Date {
     
     
     static func calcDateDifference (startDate: Date, endDate: Date) -> Int {
-        let second = startDate.timeIntervalSinceReferenceDate - endDate.timeIntervalSinceReferenceDate
+        let second = endDate.timeIntervalSinceReferenceDate - startDate.timeIntervalSinceReferenceDate
         let day = Int(second / 86400)
-        return day
+        return day + 1
     }
     
     

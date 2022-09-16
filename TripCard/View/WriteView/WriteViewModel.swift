@@ -9,8 +9,8 @@ import UIKit
 
 
 struct CardByDate {
-    var photoImage: UIImage
-    var content: String
+    var photoImage: UIImage?
+    var content: String?
 }
 
 
@@ -21,8 +21,10 @@ class WriteViewModel {
     var photoImage: Observable<UIImage> = Observable(UIImage())
     var tripPeriod: Observable<[Date]> = Observable([])
 
+    
     // 생성된 cell 개수만큼 Value를 생성하고, 하나씩 업데이트시키는 느낌으로..
-    var cardByDate: [Observable<CardByDate>] = []
+    var cardByDate: Observable<[CardByDate]> = Observable([])
+    
     
     var periodString: String {
         if tripPeriod.value.isEmpty {
@@ -35,6 +37,11 @@ class WriteViewModel {
     }
     
     
-    // MARK: - Methods
-    
+    var numberOfCell: Int {
+        if tripPeriod.value.isEmpty {
+            return 0
+        }else {
+            return Date.calcDateDifference(startDate: tripPeriod.value.first!, endDate: tripPeriod.value.last!)
+        }
+    }
 }

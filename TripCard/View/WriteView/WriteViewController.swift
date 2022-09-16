@@ -79,6 +79,18 @@ final class WriteViewController: BaseViewController {
         
         viewModel.tripPeriod.bind { [weak self] dates in
             guard let self = self else { return }
+            
+            if self.viewModel.numberOfCell > 0 {
+                self.viewModel.cardByDate.value = Array(repeating: CardByDate(), count: self.viewModel.numberOfCell)
+            }else {
+                self.viewModel.cardByDate.value = []
+            }
+            
+            self.writeView.tableView.reloadData()
+        }
+        
+        viewModel.cardByDate.bind { [weak self] _ in
+            guard let self = self else { return }
             self.writeView.tableView.reloadData()
         }
     }
@@ -156,7 +168,7 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfCell
     }
     
     
