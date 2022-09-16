@@ -47,6 +47,7 @@ final class MainViewController: TabmanViewController {
         let bar = TMBar.ButtonBar()
 
         bar.layout.transitionStyle = .snap
+        bar.layout.contentMode = .fit
         bar.backgroundView.style = .blur(style: .regular)
 
         bar.indicator.weight = .medium
