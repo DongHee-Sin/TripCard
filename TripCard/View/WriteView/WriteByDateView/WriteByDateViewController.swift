@@ -148,7 +148,10 @@ extension WriteByDateViewController: PHPickerViewControllerDelegate {
 extension WriteByDateViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         writeByDateView.mainPhotoImage.image = image
-        cropViewController.dismiss(animated: true)
+        
+        let viewController = cropViewController.children.first!
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.presentingViewController?.dismiss(animated: true)
     }
 }
 
