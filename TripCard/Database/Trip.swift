@@ -18,15 +18,15 @@ final class Trip: Object {
     @Persisted var location: String
     @Persisted var startDate: Date
     @Persisted var endDate: Date
+    @Persisted var numberOfDate: Int
 
-    @Persisted var imageByDate: List<String>
-    @Persisted var contentByDate: List<String>
+    @Persisted var contentByDate: List<String?>
 
     
     @Persisted(primaryKey: true) var objectId: ObjectId
     
     
-    convenience init(mainPhotoImage: String, isDomestic: Bool, location: String, tripPeriod: TripPeriod, imageByDate: List<String>, contentByDate: List<String>) {
+    convenience init(mainPhotoImage: String, isDomestic: Bool, location: String, tripPeriod: TripPeriod, contentByDate: List<String?>) {
         self.init()
         
         self.mainPhotoImage = mainPhotoImage
@@ -34,8 +34,8 @@ final class Trip: Object {
         self.location = location
         self.startDate = tripPeriod.start
         self.endDate = tripPeriod.end
+        self.numberOfDate = Date.calcDateDifference(startDate: startDate, endDate: endDate)
         
-        self.imageByDate = imageByDate
         self.contentByDate = contentByDate
     }
 }

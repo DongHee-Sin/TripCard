@@ -66,15 +66,15 @@ final class WriteViewController: BaseViewController {
     
     
     private func addCompletionToViewModelPropertys() {
-        viewModel.segmentValue.bind { [weak self] selectedIndex in
-            guard let self = self else { return }
-            self.updateNavigationTitleImage(selectedSegmentIndex: selectedIndex)
-        }
-        
-        viewModel.photoImage.bind { [weak self] image in
+        viewModel.mainPhotoImage.bind { [weak self] image in
             guard let self = self else { return }
             print("header 리로드?")
             self.writeView.tableView.reloadData()
+        }
+        
+        viewModel.segmentValue.bind { [weak self] selectedIndex in
+            guard let self = self else { return }
+            self.updateNavigationTitleImage(selectedSegmentIndex: selectedIndex)
         }
         
         viewModel.tripPeriod.bind { [weak self] dates in
@@ -130,6 +130,13 @@ final class WriteViewController: BaseViewController {
     
     @objc private func addTripButtonTapped() {
         print("데이터 추가")
+        
+        do {
+            try viewModel.createTripCard()
+        }
+        catch {
+            showErrorAlert(error: error)
+        }
     }
     
     
@@ -229,7 +236,7 @@ extension WriteViewController: PHPickerViewControllerDelegate {
 // MARK: - CropViewController Protocol
 extension WriteViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        viewModel.photoImage.value = image
+        viewModel.mainPhotoImage.value = image
         self.dismiss(animated: true)
     }
 }

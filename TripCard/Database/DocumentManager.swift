@@ -46,7 +46,7 @@ struct DocumentManager {
     
     
     
-    private func createDirectory(directoryName: String) throws {
+    private func createEachCardDirectory(directoryName: String) throws {
         guard let documentDirectory = documentDirectoryPath() else { return }
 
         let imagesPath = documentDirectory.appendingPathComponent("images")
@@ -67,30 +67,46 @@ struct DocumentManager {
     
     
     
-    func saveImageToDocument(directoryName: String, images: [UIImage]) throws {
+    func saveImageToDocument(directoryName: String, mainImage: UIImage, imageByDate: [UIImage?]) throws {
         guard let documentDirectory = documentDirectoryPath() else { return }
         let imagesPath = documentDirectory.appendingPathComponent("images", isDirectory: true)
         
-        try createDirectory(directoryName: directoryName)
+        try createEachCardDirectory(directoryName: directoryName)
     
         let directoryPath = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
         
-        let result = images.enumerated().map { index, image in
-            let fileURL = directoryPath.appendingPathComponent("image\(index).jpg")
-            let imageData = image.jpegData(compressionQuality: 0.3) ?? Data()
+        
+        // 메인 이미지
+        let result = {
+            let fileURL = directoryPath.appendingPathComponent("mainImage")
+            let imageData = mainImage.jpegData(compressionQuality: 0.3) ?? Data()
+            
+            return (fileURL: fileURL, imageData: imageData)
+        }()
+        
+        
+        // 날짜별 이미지
+        let resultByDate = imageByDate.enumerated().map { index, image in
+            let fileURL = directoryPath.appendingPathComponent("day\(index + 1)Image.jpg")
+            let imageData = image?.jpegData(compressionQuality: 0.3)
             
             let result = (fileURL: fileURL, imageData: imageData)
             
             return result
         }
+
         
-        try result.forEach {
-            do {
-                try $0.imageData.write(to: $0.fileURL)
+        // 이미지 저장
+        do {
+            try result.imageData.write(to: result.fileURL)
+            
+            try resultByDate.forEach {
+                guard let imageData = $0.imageData else { return }
+                try imageData.write(to: $0.fileURL)
             }
-            catch {
-                throw DocumentError.saveImageError
-            }
+        }
+        catch {
+            throw DocumentError.saveImageError
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 struct CardByDate {
@@ -18,13 +19,12 @@ class WriteViewModel {
     
     // MARK: - Propertys
     let repository = TripDataRepository.shared
-    
+
+    var mainPhotoImage: Observable<UIImage> = Observable(UIImage())
     var segmentValue: Observable<Int> = Observable(0)
-    var photoImage: Observable<UIImage> = Observable(UIImage())
+    var location: Observable<String> = Observable("")
     var tripPeriod: Observable<(start: Date, end: Date)?> = Observable(nil)
 
-    
-    // 생성된 cell 개수만큼 Value를 생성하고, 하나씩 업데이트시키는 느낌으로..
     var cardByDate: Observable<[CardByDate]> = Observable([])
     
     
@@ -47,5 +47,30 @@ class WriteViewModel {
         }
         
         return Date.calcDateDifference(startDate: tripPeriod.start, endDate: tripPeriod.end)
+    }
+    
+    
+    
+    
+    // MARK: - Methods
+    func createTripCard() throws {
+        let isDomestic = segmentValue.value == 0
+        
+        let imageByDate = cardByDate.value.map { $0.photoImage }
+        
+        let arr = cardByDate.value.map { $0.content }
+        let contentByDate: List<String?> = List<String?>()
+        arr.forEach {
+            contentByDate.append($0)
+        }
+        
+        guard let period = tripPeriod.value else {
+            // 기간이 입력되지 않았다는 얼럿 띄워야 함.
+            return
+        }
+        
+        let trip = Trip(mainPhotoImage: "mainImage", isDomestic: isDomestic, location: location.value, tripPeriod: period, contentByDate: contentByDate)
+        
+        try repository.create(trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate)
     }
 }

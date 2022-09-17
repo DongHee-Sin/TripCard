@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol TripDataRepositoryType {
-    func create(_ trip: Trip) throws
+    func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws
     
     func getTrip(at index: Int, isDomestic: Bool) -> Trip?
     
@@ -39,6 +39,8 @@ final class TripDataRepository: TripDataRepositoryType {
     static let shared = TripDataRepository()
     
     private let localRealm = try! Realm()
+    
+    private let documentManager = DocumentManager()
     
     // Database Table
     private var totalTripList: Results<Trip>
@@ -79,7 +81,7 @@ final class TripDataRepository: TripDataRepositoryType {
     
     // MARK: - Methods
     // Create(add)
-    func create(_ trip: Trip) throws {
+    func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws {
         do {
             try localRealm.write {
                 localRealm.add(trip)
@@ -88,6 +90,8 @@ final class TripDataRepository: TripDataRepositoryType {
         catch {
             throw RealmError.writeError
         }
+        
+        try documentManager.saveImageToDocument(directoryName: trip.objectId.stringValue, mainImage: mainImage, imageByDate: imageByDate)
     }
     
     
