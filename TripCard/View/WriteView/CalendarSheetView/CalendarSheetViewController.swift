@@ -164,6 +164,11 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
     }
     
     
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        return calendar.currentPage.isInSameMonth(as: date) ? true : false
+    }
+    
+    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         calendarView.changeMonthView.dateLabel.text = "\(calendar.currentPage.get(.month))월"
         calendarView.changeYearView.dateLabel.text = "\(calendar.currentPage.get(.year))년"
