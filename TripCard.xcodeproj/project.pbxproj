@@ -195,7 +195,6 @@
 				D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */,
 				D09C948128D1D6D100D2B68D /* TableView */,
 				D0BBA55028D3142F007D0916 /* CalendarSheetView */,
-				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 			);
 			path = WriteView;
 			sourceTree = "<group>";
@@ -306,6 +305,7 @@
 				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
 				D04A960D28D060810073EC38 /* WriteView */,
+				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 			);
 			path = View;
 			sourceTree = "<group>";

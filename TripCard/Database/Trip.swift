@@ -13,26 +13,29 @@ typealias TripPeriod = (start: Date, end: Date)
 
 
 final class Trip: Object {
+    @Persisted var mainPhotoImage: String
     @Persisted var isDomestic: Bool
     @Persisted var location: String
     @Persisted var startDate: Date
     @Persisted var endDate: Date
-    @Persisted var numberOfDays: Int
-    @Persisted var userInput: String         // 변수명 변경하기
-    @Persisted var photoImages: List<String>
+
+    @Persisted var imageByDate: List<String>
+    @Persisted var contentByDate: List<String>
 
     
     @Persisted(primaryKey: true) var objectId: ObjectId
     
-    convenience init(isDomestic: Bool, location: String, tripPeriod: TripPeriod, userInput: String, photoImages: List<String>) {
+    
+    convenience init(mainPhotoImage: String, isDomestic: Bool, location: String, tripPeriod: TripPeriod, imageByDate: List<String>, contentByDate: List<String>) {
         self.init()
+        
+        self.mainPhotoImage = mainPhotoImage
         self.isDomestic = isDomestic
         self.location = location
         self.startDate = tripPeriod.start
         self.endDate = tripPeriod.end
-        self.userInput = userInput
-        self.photoImages = photoImages
         
-        numberOfDays = Date.calcDateDifference(startDate: startDate, endDate: endDate)
+        self.imageByDate = imageByDate
+        self.contentByDate = contentByDate
     }
 }

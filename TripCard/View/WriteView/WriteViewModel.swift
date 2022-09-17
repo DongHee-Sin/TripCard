@@ -17,6 +17,8 @@ struct CardByDate {
 class WriteViewModel {
     
     // MARK: - Propertys
+    let repository = TripDataRepository.shared
+    
     var segmentValue: Observable<Int> = Observable(0)
     var photoImage: Observable<UIImage> = Observable(UIImage())
     var tripPeriod: Observable<(start: Date, end: Date)?> = Observable(nil)
