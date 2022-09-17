@@ -261,7 +261,7 @@ extension WriteViewController: UITextFieldDelegate {
         }
         
         calendarVC.delegate = self
-        calendarVC.updateCalendar(viewModel: viewModel)
+        calendarVC.calendarInitialSetting(viewModel: viewModel)
         
         presentPanModal(calendarVC)
         
@@ -274,7 +274,7 @@ extension WriteViewController: UITextFieldDelegate {
 
 // MARK: - Add Period Delegate
 extension WriteViewController: AddPeriodDelegate {
-    func addPeriod(dates: [Date]) {
-        viewModel.tripPeriod.value = dates
+    func addPeriod(period: TripPeriod?) {
+        viewModel.tripPeriod.value = period
     }
 }

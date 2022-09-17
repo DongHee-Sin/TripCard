@@ -12,7 +12,7 @@ import PanModal
 
 
 protocol AddPeriodDelegate: AnyObject {
-    func addPeriod(dates: [Date])
+    func addPeriod(period: TripPeriod?)
 }
 
 
@@ -86,42 +86,55 @@ final class CalendarSheetViewController: BaseViewController {
     
     
     private func selectedDateDidChanged(selectedDates: [Date]) {
-        delegate?.addPeriod(dates: selectedDates)
-        updateCalendarSelectedLabel(dates: selectedDates)
+        let period = convertDateArrayToTripPeriod(dates: selectedDates)
+        
+        delegate?.addPeriod(period: period)
+        updateCalendarLabel(period: period)
     }
     
     
-    private func updateCalendarSelectedLabel(dates: [Date]) {
-        if dates.isEmpty {
+    private func updateCalendarLabel(period: TripPeriod?) {
+        guard let period = period else {
             calendarView.selectedDateLabel.text = "여행 기간"
-        }else if dates.count == 1 {
-            calendarView.selectedDateLabel.text = dates[0].string
+            return
+        }
+        
+        if period.start == period.end {
+            calendarView.selectedDateLabel.text = period.start.string
         }else {
-            calendarView.selectedDateLabel.text = dates.first!.string + " ~ " + dates.last!.string
+            calendarView.selectedDateLabel.text = period.start.string + " ~ " + period.end.string
         }
     }
     
     
-    func updateCalendar(viewModel: WriteViewModel) {
-        let dates = viewModel.tripPeriod.value
+    func calendarInitialSetting(viewModel: WriteViewModel) {
+        let period = viewModel.tripPeriod.value
         
-        updateCalendarSelectedLabel(dates: dates)
+        updateCalendarLabel(period: period)
         
-        guard !viewModel.tripPeriod.value.isEmpty else { return }
+        guard let period = viewModel.tripPeriod.value else { return }
         
-        selectDates(dates: dates)
-        calendarView.calendar.setCurrentPage(viewModel.tripPeriod.value.first!, animated: true)
+        selectDates(period: period)
+        calendarView.calendar.setCurrentPage(period.start, animated: true)
     }
     
     
-    private func selectDates(dates: [Date]) {
-        var startTemp: Date!
+    private func selectDates(period: TripPeriod) {
         let calendar = calendarView.calendar
 
-        startTemp = dates.first!
-        while startTemp <= dates.last! {
+        var startTemp = period.start
+        while startTemp <= period.end {
             calendar.select(startTemp)
             startTemp += 86400
+        }
+    }
+    
+    
+    private func convertDateArrayToTripPeriod(dates: [Date]) -> TripPeriod? {
+        if dates.isEmpty {
+            return nil
+        }else {
+            return (dates.first!, dates.last!)
         }
     }
 }
@@ -143,7 +156,9 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
             if calendar.selectedDates[0] > calendar.selectedDates[1] {
                 calendar.deselect(calendar.selectedDates[0])
             }else {
-                selectDates(dates: calendar.selectedDates)
+                if let period = convertDateArrayToTripPeriod(dates: calendar.selectedDates) {
+                    selectDates(period: period)
+                }
             }
         default: break
         }

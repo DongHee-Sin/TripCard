@@ -19,7 +19,7 @@ class WriteViewModel {
     // MARK: - Propertys
     var segmentValue: Observable<Int> = Observable(0)
     var photoImage: Observable<UIImage> = Observable(UIImage())
-    var tripPeriod: Observable<[Date]> = Observable([])
+    var tripPeriod: Observable<(start: Date, end: Date)?> = Observable(nil)
 
     
     // 생성된 cell 개수만큼 Value를 생성하고, 하나씩 업데이트시키는 느낌으로..
@@ -27,21 +27,23 @@ class WriteViewModel {
     
     
     var periodString: String {
-        if tripPeriod.value.isEmpty {
+        guard let tripPeriod = tripPeriod.value else {
             return ""
-        }else if tripPeriod.value.count == 1 {
-            return tripPeriod.value[0].string
+        }
+        
+        if tripPeriod.start == tripPeriod.end {
+            return tripPeriod.start.string
         }else {
-            return tripPeriod.value.first!.string + " ~ " + tripPeriod.value.last!.string
+            return tripPeriod.start.string + " ~ " + tripPeriod.end.string
         }
     }
     
     
     var numberOfCell: Int {
-        if tripPeriod.value.isEmpty {
+        guard let tripPeriod = tripPeriod.value else {
             return 0
-        }else {
-            return Date.calcDateDifference(startDate: tripPeriod.value.first!, endDate: tripPeriod.value.last!)
         }
+        
+        return Date.calcDateDifference(startDate: tripPeriod.start, endDate: tripPeriod.end)
     }
 }
