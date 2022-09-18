@@ -51,8 +51,6 @@ final class WriteViewController: BaseViewController {
         
         setNavigationBarButtonItem()
         
-        setNavigationBar()
-        
         phpickerViewController.delegate = self
     }
     
@@ -102,15 +100,6 @@ final class WriteViewController: BaseViewController {
         
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItem = addTripButton
-    }
-    
-    
-    private func setNavigationBar() {
-        navigationController?.navigationBar.tintColor = .black
-        
-        if #available(iOS 15, *) {
-            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
-        }
     }
     
     
@@ -212,7 +201,7 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         writeByDateVC.index = indexPath.row
         writeByDateVC.viewModel = viewModel
         
-        let navi = UINavigationController(rootViewController: writeByDateVC)
+        let navi = BaseNavigationController(rootViewController: writeByDateVC)
         
         transition(navi, transitionStyle: .present)
     }

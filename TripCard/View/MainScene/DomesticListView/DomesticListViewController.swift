@@ -76,7 +76,7 @@ extension DomesticListViewController: UICollectionViewDelegate, UICollectionView
         vc.selectedIndex = indexPath.item
         vc.tripType = .domestic
         
-        let navi = UINavigationController(rootViewController: vc)
+        let navi = BaseNavigationController(rootViewController: vc)
         transition(navi, transitionStyle: .presentOverFullScreen)
     }
 }

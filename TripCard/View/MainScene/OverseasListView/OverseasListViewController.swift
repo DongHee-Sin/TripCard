@@ -76,7 +76,7 @@ extension OverseasListViewController: UICollectionViewDelegate, UICollectionView
         vc.selectedIndex = indexPath.item
         vc.tripType = .overseas
         
-        let navi = UINavigationController(rootViewController: vc)
+        let navi = BaseNavigationController(rootViewController: vc)
         transition(navi, transitionStyle: .presentOverFullScreen)
     }
 }

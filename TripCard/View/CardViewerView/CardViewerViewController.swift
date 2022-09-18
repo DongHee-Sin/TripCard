@@ -49,7 +49,6 @@ final class CardViewerViewController: BaseViewController {
     override func configure() {
         setCollectionView()
         
-        setNavigationBar()
         setNavigationBarButtonItem()
     }
     
@@ -58,11 +57,6 @@ final class CardViewerViewController: BaseViewController {
         cardViewerView.collectionView.delegate = self
         cardViewerView.collectionView.dataSource = self
         cardViewerView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
-    }
-    
-    
-    private func setNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = .clear
     }
     
     

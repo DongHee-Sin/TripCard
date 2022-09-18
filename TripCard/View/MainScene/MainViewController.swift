@@ -79,7 +79,7 @@ final class MainViewController: TabmanViewController {
     
     @objc private func floatingButtonTapped() {
         let writeVC = WriteViewController()
-        let navi = UINavigationController(rootViewController: writeVC)
+        let navi = BaseNavigationController(rootViewController: writeVC)
         transition(navi, transitionStyle: .presentFullScreen)
     }
 }

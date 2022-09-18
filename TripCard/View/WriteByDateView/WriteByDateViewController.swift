@@ -76,14 +76,8 @@ final class WriteByDateViewController: BaseViewController {
     
     
     private func setNavigationBar() {
-        navigationController?.navigationBar.tintColor = .black
-        
         if let index = index {
             navigationItem.title = "\(index + 1)일차 여행"
-        }
-        
-        if #available(iOS 15, *) {
-            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
         }
     }
     

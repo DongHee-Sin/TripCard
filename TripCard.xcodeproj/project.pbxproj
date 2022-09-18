@@ -30,6 +30,7 @@
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
+		D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */; };
 		D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A960E28D0611B0073EC38 /* WriteViewController.swift */; };
 		D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A961028D0613E0073EC38 /* WriteByDateView.swift */; };
 		D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D04A961328D0648F0073EC38 /* TextFieldEffects */; };
@@ -89,6 +90,7 @@
 		D02BC3BD28D3714A00BCEB0E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseNavigationController+Extension.swift"; sourceTree = "<group>"; };
 		D04A960E28D0611B0073EC38 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		D04A961028D0613E0073EC38 /* WriteByDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateView.swift; sourceTree = "<group>"; };
 		D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				D0AB514028C76E2C00EB6D2B /* BaseViewController.swift */,
 				D0AB514228C76E6400EB6D2B /* BaseView.swift */,
 				D0254FAE28CB831A0076FCB1 /* BaseCollectionViewCell.swift */,
+				D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
 				D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */,
+				D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */,
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
