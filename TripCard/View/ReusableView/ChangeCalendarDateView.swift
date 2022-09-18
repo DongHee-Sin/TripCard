@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class ChangeDateView: BaseView {
+final class ChangeCalendarDateView: BaseView {
     
     // MARK: - Propertys
     let dateLabel = UILabel().then {

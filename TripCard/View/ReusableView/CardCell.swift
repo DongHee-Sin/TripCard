@@ -97,4 +97,11 @@ final class CardCell: BaseCollectionViewCell {
             make.bottom.equalTo(self.snp.bottom).offset(-8)
         }
     }
+    
+    
+    func updateCell(trip: Trip, mainImage: UIImage?) {
+        self.photoImage.image = mainImage
+        self.locationLabel.text = trip.location
+        self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
+    }
 }

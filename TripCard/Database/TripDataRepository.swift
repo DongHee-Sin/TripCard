@@ -13,7 +13,7 @@ import UIKit
 protocol TripDataRepositoryType {
     func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws
     
-    func getTrip(at index: Int, isDomestic: Bool) -> Trip?
+    func fetchTrip(at index: Int, isDomestic: Bool) -> Trip?
     
     func update(trip: Trip, completion: (Trip) -> Void) throws
     
@@ -40,7 +40,7 @@ final class TripDataRepository: TripDataRepositoryType {
     
     private let localRealm = try! Realm()
     
-    private let documentManager = DocumentManager()
+    let documentManager = DocumentManager()
     
     // Database Table
     private var totalTripList: Results<Trip>
@@ -97,7 +97,7 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     // Read
-    func getTrip(at index: Int, isDomestic: Bool) -> Trip? {
+    func fetchTrip(at index: Int, isDomestic: Bool) -> Trip? {
         if isDomestic {
             guard index < domesticCount else { return nil }
             return domesticList[index]

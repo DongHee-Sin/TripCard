@@ -24,9 +24,9 @@ final class CalendarView: BaseView {
         $0.axis = .horizontal
     }
     
-    let changeMonthView = ChangeDateView()
+    let changeMonthView = ChangeCalendarDateView()
     
-    let changeYearView = ChangeDateView()
+    let changeYearView = ChangeCalendarDateView()
     
     let calendar = FSCalendar().then {
         $0.layer.cornerRadius = 10

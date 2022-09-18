@@ -14,6 +14,7 @@ enum DocumentError: Error {
     case removeDirectoryError
     case fetchImagesError
     case fetchZipFileError
+    case fetchDirectoryPathError
 }
 
 
@@ -26,11 +27,17 @@ struct DocumentManager {
     }
     
     
+    private func imageDirectoryPath() -> URL? {
+        guard let documentPath = documentDirectoryPath() else { return nil }
+        let imagesDirectoryPath = documentPath.appendingPathComponent("images")
+        
+        return imagesDirectoryPath
+    }
+    
+    
     
     func createImagesDirectory() throws {
-        guard let path = documentDirectoryPath() else { return }
-
-        let imagesPath = path.appendingPathComponent("images")
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
 
         if !FileManager.default.fileExists(atPath: imagesPath.path) {
             do {
@@ -47,9 +54,7 @@ struct DocumentManager {
     
     
     private func createEachCardDirectory(directoryName: String) throws {
-        guard let documentDirectory = documentDirectoryPath() else { return }
-
-        let imagesPath = documentDirectory.appendingPathComponent("images")
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         let directoryPathForCreate = imagesPath.appendingPathComponent(directoryName)
 
@@ -68,8 +73,7 @@ struct DocumentManager {
     
     
     func saveImageToDocument(directoryName: String, mainImage: UIImage, imageByDate: [UIImage?]) throws {
-        guard let documentDirectory = documentDirectoryPath() else { return }
-        let imagesPath = documentDirectory.appendingPathComponent("images", isDirectory: true)
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         try createEachCardDirectory(directoryName: directoryName)
     
@@ -113,8 +117,7 @@ struct DocumentManager {
     
     
     func removeImageDirectoryFromDocument(directoryName: String) throws {
-        guard let documentDirectory = documentDirectoryPath() else { return }
-        let imagesPath = documentDirectory.appendingPathComponent("images", isDirectory: true)
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         let directoryPathForRemove = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
         
@@ -126,10 +129,26 @@ struct DocumentManager {
     }
     
     
+    func loadMainImageFromDocument(directoryName: String) throws -> UIImage? {
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
+        
+        let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
+        
+        let mainImagePath = directoryURL.appendingPathComponent("mainImage")
+        
+        var image: UIImage?
+        if #available(iOS 16, *) {
+            image = UIImage(contentsOfFile: mainImagePath.path())
+        }else {
+            image = UIImage(contentsOfFile: mainImagePath.path)
+        }
+        
+        return image
+    }
+    
     
     func loadImagesFromDocument(directoryName: String) throws -> [UIImage?] {
-        guard let documentDirectory = documentDirectoryPath() else { return [] }
-        let imagesPath = documentDirectory.appendingPathComponent("images")
+        guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
         
