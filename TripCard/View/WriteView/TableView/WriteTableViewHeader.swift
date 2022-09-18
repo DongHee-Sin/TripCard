@@ -39,9 +39,10 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
 
     let addImageButton = UIButton().then {
-        $0.tintColor = ColorManager.shared.buttonColor
-        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
-        $0.setImage(UIImage(systemName: "photo.circle"), for: .normal)
+        $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        $0.tintColor = .white
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "plus"), for: .normal)
     }
 
     let locationTextField = MainTextField().then {
@@ -94,8 +95,8 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         }
         
         addImageButton.snp.makeConstraints { make in
-            make.trailing.equalTo(mainPhotoImage.snp.trailing).offset(-12)
-            make.bottom.equalTo(mainPhotoImage.snp.bottom).offset(-12)
+            make.height.width.equalTo(88)
+            make.center.equalTo(mainPhotoImage)
         }
         
         locationTextField.snp.makeConstraints { make in
