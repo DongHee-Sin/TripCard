@@ -20,9 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // IQKeyboard
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        
+        // TabBar BackgroundColor iOS 15 ~
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().backgroundColor = ColorManager.shared.selectedColor
+        }
         
         return true
     }

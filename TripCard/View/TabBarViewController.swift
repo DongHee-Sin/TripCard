@@ -20,15 +20,17 @@ final class TabBarViewController: UITabBarController {
     
     private func setViewControllers() {
         let mainVC = MainViewController()
+        let settingVC = SettingViewController()
         
-        mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage(systemName: "globe.asia.australia"), selectedImage: UIImage(systemName: "globe.asia.australia.fill"))
+        mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage(systemName: "airplane"), selectedImage: UIImage(systemName: "airplane"))
+        settingVC.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
         
-        setViewControllers([mainVC], animated: true)
+        setViewControllers([mainVC, settingVC], animated: true)
     }
     
     private func setTabBarUI() {
         tabBar.barTintColor = ColorManager.shared.selectedColor
         tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .white
+        tabBar.unselectedItemTintColor = .lightGray
     }
 }
