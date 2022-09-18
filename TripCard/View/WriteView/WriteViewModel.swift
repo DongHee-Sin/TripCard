@@ -9,6 +9,13 @@ import UIKit
 import RealmSwift
 
 
+enum WriteViewStatus {
+    case needEnterLocationData
+    case needEnterPeriodData
+    case dataCanBeStored
+}
+
+
 struct CardByDate {
     var photoImage: UIImage?
     var content: String?
@@ -47,6 +54,14 @@ class WriteViewModel {
         }
         
         return Date.calcDateDifference(startDate: tripPeriod.start, endDate: tripPeriod.end)
+    }
+    
+    
+    var writeViewStatus: WriteViewStatus {
+        guard !location.value.trimmingCharacters(in: .whitespaces).isEmpty else { return .needEnterLocationData }
+        guard tripPeriod.value != nil else { return .needEnterPeriodData }
+        
+        return .dataCanBeStored
     }
     
     

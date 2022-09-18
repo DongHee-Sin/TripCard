@@ -143,6 +143,20 @@ struct DocumentManager {
         catch {
             throw DocumentError.fetchImagesError
         }
+        
+        
+        // MARK: - 방법 테스트
+//        guard let documentDirectory = documentDirectoryPath() else { return [] }
+//        let imagesPath = documentDirectory.appendingPathComponent("images")
+//        let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
+//
+//        // 메인이미지 가져오기
+//        //try FileManager.default.contents(atPath: "mainImage")
+//
+//        [].forEach {
+//            let eachImageURL = directoryURL.appendingPathComponent("day\($0)Image")
+//            try FileManager.default.contents(atPath: eachImageURL)
+//        }
     }
     
     

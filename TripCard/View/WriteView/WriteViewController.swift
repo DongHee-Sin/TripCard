@@ -129,13 +129,19 @@ final class WriteViewController: BaseViewController {
     
     
     @objc private func addTripButtonTapped() {
-        print("데이터 추가")
         
-        do {
-            try viewModel.createTripCard()
-        }
-        catch {
-            showErrorAlert(error: error)
+        switch viewModel.writeViewStatus {
+        case .needEnterLocationData: showAlert(title: "여행 지역을 입력해주세요! (필수)")
+        case .needEnterPeriodData: showAlert(title: "여행 기간을 입력해주세요! (필수)")
+        case .dataCanBeStored:
+            do {
+                try viewModel.createTripCard()
+            }
+            catch {
+                showErrorAlert(error: error)
+            }
+            
+            dismiss(animated: true)
         }
     }
     
@@ -168,7 +174,11 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         header.delegate = self
         header.updateHeader(viewModel: viewModel)
         
+        header.locationTextField.delegate = self
         header.periodTextField.delegate = self
+        
+        header.locationTextField.tag = 0
+        header.periodTextField.tag = 1
         
         return header
     }
@@ -262,17 +272,31 @@ extension WriteViewController: WritingDelegate {
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let calendarVC = CalendarSheetViewController()
-        if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
-            calendarVC.halfDeviceHeight = deviceHeight / 2
+        
+        if textField.tag == 1 {
+            let calendarVC = CalendarSheetViewController()
+            if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
+                calendarVC.halfDeviceHeight = deviceHeight / 2
+            }
+            
+            calendarVC.delegate = self
+            calendarVC.calendarInitialSetting(viewModel: viewModel)
+            
+            presentPanModal(calendarVC)
+            
+            return false
+        }else {
+            return true
+        }
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.tag == 0 {
+            viewModel.location.value = textField.text ?? ""
         }
         
-        calendarVC.delegate = self
-        calendarVC.calendarInitialSetting(viewModel: viewModel)
-        
-        presentPanModal(calendarVC)
-        
-        return false
+        return true
     }
 }
 
