@@ -33,6 +33,10 @@ final class OverseasListViewController: BaseViewController {
         cardListView.collectionView.delegate = self
         cardListView.collectionView.dataSource = self
         cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
+        
+        repository.addObserver(to: .overseas) { [weak self] in
+            self?.cardListView.collectionView.reloadData()
+        }
     }
 }
 

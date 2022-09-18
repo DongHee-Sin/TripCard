@@ -33,6 +33,10 @@ final class DomesticListViewController: BaseViewController {
         cardListView.collectionView.delegate = self
         cardListView.collectionView.dataSource = self
         cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
+        
+        repository.addObserver(to: .domestic) { [weak self] in
+            self?.cardListView.collectionView.reloadData()
+        }
     }
 }
 

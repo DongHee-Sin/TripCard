@@ -69,7 +69,7 @@ class WriteViewModel {
     
     // MARK: - Methods
     func createTripCard() throws {
-        let isDomestic = segmentValue.value == 0
+        let tripType = TripType(rawValue: segmentValue.value) ?? .domestic
         
         let imageByDate = cardByDate.value.map { $0.photoImage }
         
@@ -79,12 +79,9 @@ class WriteViewModel {
             contentByDate.append($0)
         }
         
-        guard let period = tripPeriod.value else {
-            // 기간이 입력되지 않았다는 얼럿 띄워야 함.
-            return
-        }
+        guard let period = tripPeriod.value else { return }
         
-        let trip = Trip(mainPhotoImage: "mainImage", isDomestic: isDomestic, location: location.value, tripPeriod: period, contentByDate: contentByDate)
+        let trip = Trip(mainPhotoImage: "mainImage", tripType: tripType, location: location.value, tripPeriod: period, contentByDate: contentByDate)
         
         try repository.create(trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate)
     }

@@ -19,7 +19,7 @@ protocol TripDataRepositoryType {
     
     func remove(trip: Trip) throws
     
-    func addObserver(completion: @escaping () -> Void)
+    func addObserver(to tripType: TripType, completion: @escaping () -> Void)
     
 //    func fetchSearchResult(searchWord: String)
 //    func getSearchResult(at index: Int) -> Trip?
@@ -51,7 +51,8 @@ final class TripDataRepository: TripDataRepositoryType {
     var overseasCount: Int { overseasList.count }
     
     // Observer 토큰
-    private var tripNotificationToken: NotificationToken?
+    private var domesticTripNotificationToken: NotificationToken?
+    private var overseasTripNotificationToken: NotificationToken?
     
     
     // SearchController
@@ -138,9 +139,16 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     // Observer 달기
-    func addObserver(completion: @escaping () -> Void) {
-        tripNotificationToken = totalTripList.observe { _ in
-            completion()
+    func addObserver(to tripType: TripType, completion: @escaping () -> Void) {
+        switch tripType {
+        case .domestic:
+            domesticTripNotificationToken = domesticList.observe { _ in
+                completion()
+            }
+        case .overseas:
+            overseasTripNotificationToken = overseasList.observe { _ in
+                completion()
+            }
         }
     }
     

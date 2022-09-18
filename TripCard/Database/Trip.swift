@@ -9,6 +9,12 @@ import Foundation
 import RealmSwift
 
 
+enum TripType: Int {
+    case domestic
+    case overseas
+}
+
+
 typealias TripPeriod = (start: Date, end: Date)
 
 
@@ -26,11 +32,11 @@ final class Trip: Object {
     @Persisted(primaryKey: true) var objectId: ObjectId
     
     
-    convenience init(mainPhotoImage: String, isDomestic: Bool, location: String, tripPeriod: TripPeriod, contentByDate: List<String?>) {
+    convenience init(mainPhotoImage: String, tripType: TripType, location: String, tripPeriod: TripPeriod, contentByDate: List<String?>) {
         self.init()
         
         self.mainPhotoImage = mainPhotoImage
-        self.isDomestic = isDomestic
+        self.isDomestic = tripType == .domestic
         self.location = location
         self.startDate = tripPeriod.start
         self.endDate = tripPeriod.end
