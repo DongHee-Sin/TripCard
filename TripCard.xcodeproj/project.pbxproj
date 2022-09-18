@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
+		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
+		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
 		D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A5128D184EE0038A9B6 /* TOCropViewController */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
@@ -67,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D015C6F628D716D80081062F /* CardViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerViewController.swift; sourceTree = "<group>"; };
+		D015C6F828D7174E0081062F /* CardViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerView.swift; sourceTree = "<group>"; };
 		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
 		D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KyoboHandwriting2020pdy.otf; sourceTree = "<group>"; };
 		D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiBaseRegular.otf; sourceTree = "<group>"; };
@@ -301,12 +305,12 @@
 		D0AB513928C76D2C00EB6D2B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D0C4476E28D6CFF300BCCA52 /* New Group */,
 				D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */,
 				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
 				D04A960D28D060810073EC38 /* WriteView */,
 				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
+				D0C4476E28D6CFF300BCCA52 /* CardViewerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,11 +377,13 @@
 			path = CalendarSheetView;
 			sourceTree = "<group>";
 		};
-		D0C4476E28D6CFF300BCCA52 /* New Group */ = {
+		D0C4476E28D6CFF300BCCA52 /* CardViewerView */ = {
 			isa = PBXGroup;
 			children = (
+				D015C6F628D716D80081062F /* CardViewerViewController.swift */,
+				D015C6F828D7174E0081062F /* CardViewerView.swift */,
 			);
-			path = "New Group";
+			path = CardViewerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,6 +493,7 @@
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
+				D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */,
 				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
@@ -518,6 +525,7 @@
 				D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */,
 				D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */,
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
+				D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,12 @@ import SnapKit
 import Then
 
 
+enum CollectionViewType {
+    case list
+    case card
+}
+
+
 final class CardCell: BaseCollectionViewCell {
     
     // MARK: - Propertys
@@ -19,26 +25,18 @@ final class CardCell: BaseCollectionViewCell {
         $0.layer.cornerRadius = 20
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.contentMode = .scaleToFill
-        
-        $0.image = UIImage(named: "TestImage")
     }
     
     let locationLabel = UILabel().then {
         $0.textColor = ColorManager.shared.textColor
-        $0.font = .customFont(size: .small)
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
-        
-        $0.text = "제주도 서귀포"
     }
     
     let periodLabel = UILabel().then {
         $0.textColor = ColorManager.shared.textColor
-        $0.font = .customFont(size: .small)
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
-        
-        $0.text = "20.05.01 ~ 20.05.10"
     }
     
     let locationImage = UIImageView().then {
@@ -96,13 +94,23 @@ final class CardCell: BaseCollectionViewCell {
             make.leading.equalTo(calendarImage.snp.trailing).offset(8)
             make.trailing.equalTo(self.snp.trailing).offset(-8)
             make.bottom.equalTo(self.snp.bottom).offset(-8)
+            make.height.equalTo(locationLabel.snp.height)
         }
     }
     
     
-    func updateCell(trip: Trip, mainImage: UIImage?) {
+    func updateCell(trip: Trip, mainImage: UIImage?, type: CollectionViewType) {
         self.photoImage.image = mainImage
         self.locationLabel.text = trip.location
         self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
+        
+        switch type {
+        case .list:
+            locationLabel.font = .customFont(size: .small)
+            periodLabel.font = .customFont(size: .small)
+        case .card:
+            locationLabel.font = .customFont(size: .large)
+            periodLabel.font = .customFont(size: .large)
+        }
     }
 }

@@ -13,7 +13,7 @@ import UIKit
 protocol TripDataRepositoryType {
     func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws
     
-    func fetchTrip(at index: Int, isDomestic: Bool) -> Trip?
+    func fetchTrip(at index: Int, tripType: TripType) -> Trip?
     
     func update(trip: Trip, completion: (Trip) -> Void) throws
     
@@ -98,11 +98,12 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     // Read
-    func fetchTrip(at index: Int, isDomestic: Bool) -> Trip? {
-        if isDomestic {
+    func fetchTrip(at index: Int, tripType: TripType) -> Trip? {
+        switch tripType {
+        case .domestic:
             guard index < domesticCount else { return nil }
             return domesticList[index]
-        }else {
+        case .overseas:
             guard index < overseasCount else { return nil }
             return overseasList[index]
         }

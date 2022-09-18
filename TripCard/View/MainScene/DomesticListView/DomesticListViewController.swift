@@ -56,7 +56,7 @@ extension DomesticListViewController: UICollectionViewDelegate, UICollectionView
             return UICollectionViewCell()
         }
         
-        if let trip = repository.fetchTrip(at: indexPath.row, isDomestic: true) {
+        if let trip = repository.fetchTrip(at: indexPath.row, tripType: .domestic) {
             var image: UIImage?
             do {
                 image = try repository.documentManager.loadMainImageFromDocument(directoryName: trip.objectId.stringValue)
@@ -64,9 +64,19 @@ extension DomesticListViewController: UICollectionViewDelegate, UICollectionView
             catch {
                 showErrorAlert(error: error)
             }
-            cell.updateCell(trip: trip, mainImage: image)
+            cell.updateCell(trip: trip, mainImage: image, type: .list)
         }
         
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = CardViewerViewController()
+        vc.selectedIndex = indexPath.item
+        vc.tripType = .domestic
+        
+        let navi = UINavigationController(rootViewController: vc)
+        transition(navi, transitionStyle: .presentOverFullScreen)
     }
 }

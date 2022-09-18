@@ -10,7 +10,7 @@ import UIKit
 
 extension UICollectionViewLayout {
 
-    static func configureCollectionViewLayout() -> UICollectionViewLayout {
+    static func configureGridListLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
             
         let sectionSpacing: CGFloat = 20
@@ -25,6 +25,23 @@ extension UICollectionViewLayout {
         layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
         layout.minimumLineSpacing = itemSpacing * 2
         layout.minimumInteritemSpacing = itemSpacing
+            
+        return layout
+    }
+    
+    
+    static func configureCardLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+            
+        let sectionSpacing: CGFloat = 44
+            
+        let width: CGFloat = UIScreen.main.bounds.width - (sectionSpacing * 2)
+        let itemWidth: CGFloat = width
+        let itemHeight: CGFloat = (itemWidth * 1.25) + 100
+            
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
             
         return layout
     }

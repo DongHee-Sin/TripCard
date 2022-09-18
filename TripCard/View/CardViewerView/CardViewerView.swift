@@ -1,17 +1,17 @@
 //
-//  CardListView.swift
+//  CardViewerView.swift
 //  TripCard
 //
-//  Created by 신동희 on 2022/09/09.
+//  Created by 신동희 on 2022/09/18.
 //
 
 import UIKit
 
 
-final class CardListView: BaseView {
+final class CardViewerView: BaseView {
     
     // MARK: - Propertys
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureGridListLayout()).then {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureCardLayout()).then {
         $0.backgroundColor = .clear
     }
     
@@ -26,8 +26,7 @@ final class CardListView: BaseView {
     
     override func setConstraint() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(self.safeAreaLayoutGuide).inset(0)
+            make.edges.equalToSuperview()
         }
     }
 }
-
