@@ -78,6 +78,15 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let font = customFontList[indexPath.row]
         
+        
+        if let currentFont = currentFont {
+            if currentFont == font {
+                showAlert(title: "이미 적용중인 폰트네요!")
+                return
+            }
+        }
+        
+        
         showAlert(title: "\(font.rawValue) 폰트로 변경하시겠어요?", buttonTitle: "네!", cancelTitle: "아뇨!") { _ in
             UserDefaultManager.shared.customFont = font.rawValue
             self.changeRootViewController()
