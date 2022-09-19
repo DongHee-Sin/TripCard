@@ -36,6 +36,12 @@ extension UIViewController {
         case RealmError.writeError: showAlert(title: "메모 저장에 실패했습니다.")
         case RealmError.updateError: showAlert(title: "메모 수정에 실패했습니다.")
         case RealmError.deleteError: showAlert(title: "메모 삭제에 실패했습니다.")
+        case DocumentError.createDirectoryError: showAlert(title: "저장 폴더 생성에 실패했습니다.")
+        case DocumentError.saveImageError: showAlert(title: "이미지 저장에 실패했습니다.")
+        case DocumentError.removeDirectoryError: showAlert(title: "저장 폴더 삭제에 실패했습니다.")
+        case DocumentError.fetchImagesError: showAlert(title: "이미지를 가져오는데 실패했습니다.")
+        case DocumentError.fetchZipFileError: showAlert(title: "압축 파일을 가져오는데 실패했습니다.")
+        case DocumentError.fetchDirectoryPathError: showAlert(title: "폴더 경로를 가져오는데 실패했습니다.")
         default: showAlert(title: "에러가 발생했습니다.")
         }
     }
