@@ -28,10 +28,12 @@
 		D02BC3BE28D3714A00BCEB0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D02BC3BD28D3714A00BCEB0E /* .gitignore */; };
 		D0306ECD28D8384E003F9577 /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306ECC28D8384E003F9577 /* ChangeColorViewController.swift */; };
 		D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306ED028D838D4003F9577 /* ReusableTableCustomView.swift */; };
+		D0306ED428D85788003F9577 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306ED328D85788003F9577 /* DateCollectionViewCell.swift */; };
 		D031752B28CB246D00C7A91C /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031752A28CB246D00C7A91C /* CardCell.swift */; };
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
+		D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045AAB628D868400027B7F5 /* CardDetailCollectionViewCell.swift */; };
 		D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */; };
 		D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */; };
 		D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A960E28D0611B0073EC38 /* WriteViewController.swift */; };
@@ -69,7 +71,7 @@
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
 		D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */; };
-		D0BC601728D81015001A4728 /* CardDetailViewrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601628D81015001A4728 /* CardDetailViewrView.swift */; };
+		D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601628D81015001A4728 /* CardDetailViewerView.swift */; };
 		D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601828D811DD001A4728 /* CustomFont.swift */; };
 		D0BC601C28D8143B001A4728 /* ChangeFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
@@ -97,8 +99,10 @@
 		D02BC3BD28D3714A00BCEB0E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D0306ECC28D8384E003F9577 /* ChangeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorViewController.swift; sourceTree = "<group>"; };
 		D0306ED028D838D4003F9577 /* ReusableTableCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTableCustomView.swift; sourceTree = "<group>"; };
+		D0306ED328D85788003F9577 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		D031752A28CB246D00C7A91C /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D045AAB628D868400027B7F5 /* CardDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseNavigationController+Extension.swift"; sourceTree = "<group>"; };
 		D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D04A960E28D0611B0073EC38 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +137,7 @@
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
-		D0BC601628D81015001A4728 /* CardDetailViewrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewrView.swift; sourceTree = "<group>"; };
+		D0BC601628D81015001A4728 /* CardDetailViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerView.swift; sourceTree = "<group>"; };
 		D0BC601828D811DD001A4728 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFontViewController.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
@@ -211,6 +215,15 @@
 			children = (
 			);
 			path = OpenSourceView;
+			sourceTree = "<group>";
+		};
+		D0306ED228D85765003F9577 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D0306ED328D85788003F9577 /* DateCollectionViewCell.swift */,
+				D045AAB628D868400027B7F5 /* CardDetailCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		D031752928CB245000C7A91C /* ReusableView */ = {
@@ -428,7 +441,8 @@
 			isa = PBXGroup;
 			children = (
 				D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */,
-				D0BC601628D81015001A4728 /* CardDetailViewrView.swift */,
+				D0BC601628D81015001A4728 /* CardDetailViewerView.swift */,
+				D0306ED228D85765003F9577 /* CollectionViewCell */,
 			);
 			path = CardDetailViewerView;
 			sourceTree = "<group>";
@@ -558,7 +572,7 @@
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
-				D0BC601728D81015001A4728 /* CardDetailViewrView.swift in Sources */,
+				D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
 				D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */,
 				D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */,
@@ -586,6 +600,7 @@
 				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */,
+				D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
 				D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */,
 				D0306ECD28D8384E003F9577 /* ChangeColorViewController.swift in Sources */,
@@ -599,6 +614,7 @@
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
 				D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
+				D0306ED428D85788003F9577 /* DateCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

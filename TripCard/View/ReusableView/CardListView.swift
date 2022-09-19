@@ -12,6 +12,7 @@ final class CardListView: BaseView {
     
     // MARK: - Propertys
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureGridListLayout()).then {
+        $0.showsHorizontalScrollIndicator = false
         $0.backgroundColor = .clear
     }
     

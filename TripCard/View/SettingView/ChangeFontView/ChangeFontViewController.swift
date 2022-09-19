@@ -11,15 +11,15 @@ import UIKit
 final class ChangeFontViewController: BaseViewController {
 
     // MARK: - Propertys
-    let currentFont = CustomFont(rawValue: UserDefaultManager.shared.customFont)
+    private let currentFont = CustomFont(rawValue: UserDefaultManager.shared.customFont)
     
-    let customFontList = CustomFont.allCases
+    private let customFontList = CustomFont.allCases
     
     
     
     
     // MARK: - Life Cycle
-    let changeFontView = ReusableTableCustomView()
+    private let changeFontView = ReusableTableCustomView()
     override func loadView() {
         self.view = changeFontView
     }

@@ -12,7 +12,7 @@ final class CardViewerViewController: BaseViewController {
     // MARK: - Propertys
     let repository = TripDataRepository.shared
     
-    var selectedIndex: Int?                                     // 이부분은 이니셜라이저로 빼면 옵셔널바인딩 과정 없이 사용할 수 있을듯?? 개선가능?
+    var selectedIndex: Int?                        // 이부분은 이니셜라이저로 빼면 옵셔널바인딩 과정 없이 사용할 수 있을듯?? 개선가능?
     var tripType: TripType?
     
     var numberOfCard: Int {
@@ -65,6 +65,13 @@ final class CardViewerViewController: BaseViewController {
         
         navigationItem.leftBarButtonItem = dismissButton
     }
+    
+    
+    private func moveToSelectedCard() {
+        guard let selectedIndex = selectedIndex else { return }
+        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: 0, section: selectedIndex), at: .centeredHorizontally, animated: false)
+        cardViewerView.collectionView.isPagingEnabled = true
+    }
 }
 
 
@@ -106,9 +113,23 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     
-    func moveToSelectedCard() {
-        guard let selectedIndex = selectedIndex else { return }
-        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: 0, section: selectedIndex), at: .centeredHorizontally, animated: false)
-        cardViewerView.collectionView.isPagingEnabled = true
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = CardDetailViewerViewController()
+        
+        if let tripType = tripType, let trip = repository.fetchTrip(at: indexPath.section, tripType: tripType) {
+            do {
+                var contentByDate: [String?] = []
+                contentByDate.append(contentsOf: trip.contentByDate)
+                let imageByDate = try repository.documentManager.loadImagesFromDocument(directoryName: trip.objectId.stringValue, numberOfTripDate: trip.numberOfDate)
+                
+                detailVC.contentByDate = contentByDate
+                detailVC.imageByDate = imageByDate
+            }
+            catch {
+                showErrorAlert(error: error)
+            }
+        }
+        
+        transition(detailVC, transitionStyle: .presentFullScreen)
     }
 }

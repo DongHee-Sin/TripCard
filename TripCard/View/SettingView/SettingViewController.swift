@@ -23,7 +23,7 @@ enum SettingCellList: String {
 class SettingViewController: BaseViewController {
 
     // MARK: - Propertys
-    let cellItems: [[SettingCellList]] = [
+    private let cellItems: [[SettingCellList]] = [
         [.changeFont, .changeThemeColor],
         [.backUpAndRestore, .reset],
         [.bugReportAndFeedback, .appStoreReview],
@@ -34,7 +34,7 @@ class SettingViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let settingView = ReusableTableCustomView()
+    private let settingView = ReusableTableCustomView()
     override func loadView() {
         self.view = settingView
     }
@@ -75,6 +75,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue
+        cell.textLabel?.font = .customFont(size: .normal)
         cell.selectionStyle = .none
         
         return cell

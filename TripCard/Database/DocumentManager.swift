@@ -82,7 +82,7 @@ struct DocumentManager {
         
         // 메인 이미지
         let result = {
-            let fileURL = directoryPath.appendingPathComponent("mainImage")
+            let fileURL = directoryPath.appendingPathComponent("mainImage.jpg")
             let imageData = mainImage.jpegData(compressionQuality: 0.3) ?? Data()
             
             return (fileURL: fileURL, imageData: imageData)
@@ -134,7 +134,7 @@ struct DocumentManager {
         
         let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
         
-        let mainImagePath = directoryURL.appendingPathComponent("mainImage")
+        let mainImagePath = directoryURL.appendingPathComponent("mainImage.jpg")
         
         var image: UIImage?
         if #available(iOS 16, *) {
@@ -147,35 +147,22 @@ struct DocumentManager {
     }
     
     
-    func loadImagesFromDocument(directoryName: String) throws -> [UIImage?] {
+    func loadImagesFromDocument(directoryName: String, numberOfTripDate: Int) throws -> [UIImage?] {
         guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
-        
-        do {
-            let imagePaths = try FileManager.default.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil)
+
+        let resultImages = (1...numberOfTripDate).map {
+            let eachImageURL = directoryURL.appendingPathComponent("day\($0)Image.jpg")
             
-            let images = imagePaths.map { UIImage(contentsOfFile: $0.path) }
-            
-            return images
-        }
-        catch {
-            throw DocumentError.fetchImagesError
+            if #available(iOS 16, *) {
+                return UIImage(contentsOfFile: eachImageURL.path())
+            }else {
+                return UIImage(contentsOfFile: eachImageURL.path)
+            }
         }
         
-        
-        // MARK: - 방법 테스트
-//        guard let documentDirectory = documentDirectoryPath() else { return [] }
-//        let imagesPath = documentDirectory.appendingPathComponent("images")
-//        let directoryURL = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
-//
-//        // 메인이미지 가져오기
-//        //try FileManager.default.contents(atPath: "mainImage")
-//
-//        [].forEach {
-//            let eachImageURL = directoryURL.appendingPathComponent("day\($0)Image")
-//            try FileManager.default.contents(atPath: eachImageURL)
-//        }
+        return resultImages
     }
     
     

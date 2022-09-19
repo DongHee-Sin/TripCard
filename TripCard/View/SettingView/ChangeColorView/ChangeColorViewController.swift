@@ -11,15 +11,15 @@ import UIKit
 final class ChangeColorViewController: BaseViewController {
 
     // MARK: - Propertys
-    let currentThemeColor = ThemeColor(rawValue: UserDefaultManager.shared.themeColor)
+    private let currentThemeColor = ThemeColor(rawValue: UserDefaultManager.shared.themeColor)
     
-    let themeColorList = ThemeColor.allCases
+    private let themeColorList = ThemeColor.allCases
     
     
     
     
     // MARK: - Life Cycle
-    let changeColorView = ReusableTableCustomView()
+    private let changeColorView = ReusableTableCustomView()
     override func loadView() {
         self.view = changeColorView
     }
