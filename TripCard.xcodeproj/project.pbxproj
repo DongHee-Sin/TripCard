@@ -67,6 +67,9 @@
 		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
+		D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */; };
+		D0BC601728D81015001A4728 /* CardDetailViewrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601628D81015001A4728 /* CardDetailViewrView.swift */; };
+		D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601828D811DD001A4728 /* CustomFont.swift */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
@@ -126,6 +129,9 @@
 		D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCalendarDateView.swift; sourceTree = "<group>"; };
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
+		D0BC601628D81015001A4728 /* CardDetailViewrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewrView.swift; sourceTree = "<group>"; };
+		D0BC601828D811DD001A4728 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +161,7 @@
 		D02099E028C79A2600FD25DF /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
+				D0BC601828D811DD001A4728 /* CustomFont.swift */,
 				D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */,
 				D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */,
 				D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */,
@@ -326,6 +333,7 @@
 				D04A960D28D060810073EC38 /* WriteView */,
 				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 				D0C4476E28D6CFF300BCCA52 /* CardViewerView */,
+				D0BC601328D80E97001A4728 /* CardDetailViewerView */,
 				D047C77B28D76BE3007A6BE6 /* SettingView */,
 			);
 			path = View;
@@ -392,6 +400,15 @@
 				D0BBA55328D314A0007D0916 /* CalendarView.swift */,
 			);
 			path = CalendarSheetView;
+			sourceTree = "<group>";
+		};
+		D0BC601328D80E97001A4728 /* CardDetailViewerView */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */,
+				D0BC601628D81015001A4728 /* CardDetailViewrView.swift */,
+			);
+			path = CardDetailViewerView;
 			sourceTree = "<group>";
 		};
 		D0C4476E28D6CFF300BCCA52 /* CardViewerView */ = {
@@ -512,6 +529,7 @@
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
+				D0BC601728D81015001A4728 /* CardDetailViewrView.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
 				D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */,
 				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
@@ -529,6 +547,7 @@
 				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
+				D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */,
 				D09C948528D1D70D00D2B68D /* WriteTableViewCell.swift in Sources */,
 				D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */,
 				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
@@ -537,6 +556,7 @@
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
+				D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */,
 				D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */,
 				D0AB59BD28D4384300DD13AD /* ChangeCalendarDateView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,

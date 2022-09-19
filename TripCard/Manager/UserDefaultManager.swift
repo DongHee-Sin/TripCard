@@ -29,7 +29,7 @@ final class UserDefaultManager {
     
     
     // MARK: - Propertys
-    @UserDefault(key: "customFont", defaultValue: "KyoboHandwriting2020")
+    @UserDefault(key: "customFont", defaultValue: CustomFont.KyoboHandwriting2020.rawValue)
     var customFont: String
     
     
