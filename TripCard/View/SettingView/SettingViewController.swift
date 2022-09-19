@@ -34,7 +34,7 @@ class SettingViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let settingView = SettingView()
+    let settingView = ReusableTableCustomView()
     override func loadView() {
         self.view = settingView
     }
@@ -88,7 +88,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch selectedCell {
         case .changeFont: selectedVC = ChangeFontViewController()
-        case .changeThemeColor: break
+        case .changeThemeColor: selectedVC = ChangeColorViewController()
         case .backUpAndRestore: break
         case .reset: break
         case .bugReportAndFeedback: break

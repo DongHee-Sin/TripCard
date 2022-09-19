@@ -1,5 +1,5 @@
 //
-//  SettingView.swift
+//  TableCustomView.swift
 //  TripCard
 //
 //  Created by 신동희 on 2022/09/19.
@@ -8,12 +8,13 @@
 import UIKit
 
 
-final class SettingView: BaseView {
+final class ReusableTableCustomView: BaseView {
     
     // MARK: - Propertys
     let tableView = UITableView(frame: CGRect(), style: .insetGrouped).then {
         $0.backgroundColor = .clear
     }
+    
     
     
     

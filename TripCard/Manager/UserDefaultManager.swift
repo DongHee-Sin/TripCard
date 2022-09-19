@@ -37,8 +37,8 @@ final class UserDefaultManager {
     var isInitialLaunch: Bool
     
     
-    @UserDefault(key: "colorCombination", defaultValue: "light")
-    var colorCombination: String
+    @UserDefault(key: "themeColor", defaultValue: "light")
+    var themeColor: String
     
     
     

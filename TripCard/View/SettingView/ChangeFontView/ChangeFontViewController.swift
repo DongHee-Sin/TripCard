@@ -19,7 +19,7 @@ final class ChangeFontViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let changeFontView = ChangeFontView()
+    let changeFontView = ReusableTableCustomView()
     override func loadView() {
         self.view = changeFontView
     }
