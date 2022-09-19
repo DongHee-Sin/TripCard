@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum CustomFont: String {
+enum CustomFont: String, CaseIterable {
     case KyoboHandwriting2020
     case GangwonEduAll = "GangwonEduAll-OTFLight"
     case LeferiBaseType = "LeferiBaseType-Regular"

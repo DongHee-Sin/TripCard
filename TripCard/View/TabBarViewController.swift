@@ -21,11 +21,12 @@ final class TabBarViewController: UITabBarController {
     private func setViewControllers() {
         let mainVC = MainViewController()
         let settingVC = SettingViewController()
+        let settingNavi = BaseNavigationController(rootViewController: settingVC)
         
         mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage(systemName: "airplane"), selectedImage: UIImage(systemName: "airplane"))
-        settingVC.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        settingNavi.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
         
-        setViewControllers([mainVC, settingVC], animated: true)
+        setViewControllers([mainVC, settingNavi], animated: true)
     }
     
     private func setTabBarUI() {

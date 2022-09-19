@@ -76,4 +76,16 @@ extension UIViewController {
     @objc func dismissButtonTapped() {
         dismiss(animated: true)
     }
+    
+    
+    
+    
+    // MARK: - Root View Controller
+    func changeRootViewController(to rootVC: UIViewController = TabBarViewController()) {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        sceneDelegate?.window?.rootViewController = rootVC
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
 }

@@ -70,6 +70,8 @@
 		D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */; };
 		D0BC601728D81015001A4728 /* CardDetailViewrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601628D81015001A4728 /* CardDetailViewrView.swift */; };
 		D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601828D811DD001A4728 /* CustomFont.swift */; };
+		D0BC601C28D8143B001A4728 /* ChangeFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */; };
+		D0BC601E28D8144C001A4728 /* ChangeFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601D28D8144C001A4728 /* ChangeFontView.swift */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +134,8 @@
 		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
 		D0BC601628D81015001A4728 /* CardDetailViewrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewrView.swift; sourceTree = "<group>"; };
 		D0BC601828D811DD001A4728 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFontViewController.swift; sourceTree = "<group>"; };
+		D0BC601D28D8144C001A4728 /* ChangeFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFontView.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +213,7 @@
 			children = (
 				D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */,
 				D047C77E28D76C0F007A6BE6 /* SettingView.swift */,
+				D0BC601A28D813F8001A4728 /* ChangeFontView */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -411,6 +416,15 @@
 			path = CardDetailViewerView;
 			sourceTree = "<group>";
 		};
+		D0BC601A28D813F8001A4728 /* ChangeFontView */ = {
+			isa = PBXGroup;
+			children = (
+				D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */,
+				D0BC601D28D8144C001A4728 /* ChangeFontView.swift */,
+			);
+			path = ChangeFontView;
+			sourceTree = "<group>";
+		};
 		D0C4476E28D6CFF300BCCA52 /* CardViewerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,8 +555,10 @@
 				D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */,
 				D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */,
 				D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */,
+				D0BC601C28D8143B001A4728 /* ChangeFontViewController.swift in Sources */,
 				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
+				D0BC601E28D8144C001A4728 /* ChangeFontView.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,

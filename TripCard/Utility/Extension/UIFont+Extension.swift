@@ -22,4 +22,10 @@ extension UIFont {
         return UIFont(name: savedFont, size: size.rawValue) ?? .systemFont(ofSize: size.rawValue)
     }
     
+    
+    static func customFont(font: CustomFont, size: FontSize) -> UIFont {
+        let selectedFont = font.rawValue
+        return UIFont(name: selectedFont, size: size.rawValue) ?? .systemFont(ofSize: size.rawValue)
+    }
+    
 }
