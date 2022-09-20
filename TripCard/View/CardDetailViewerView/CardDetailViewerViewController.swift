@@ -32,6 +32,8 @@ final class CardDetailViewerViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         setCollectionView()
+        
+        setNavigationBarButtonItem()
     }
     
     
@@ -44,6 +46,13 @@ final class CardDetailViewerViewController: BaseViewController {
         cardDetailViewerView.cardCollectionView.dataSource = self
         cardDetailViewerView.cardCollectionView.register(CardDetailCollectionViewCell.self, forCellWithReuseIdentifier: CardDetailCollectionViewCell.identifier)
     }
+    
+    
+    private func setNavigationBarButtonItem() {
+        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
+        
+        navigationItem.leftBarButtonItem = dismissButton
+    }
 }
 
 
@@ -52,13 +61,8 @@ final class CardDetailViewerViewController: BaseViewController {
 // MARK: - CollectionView Protocol
 extension CardDetailViewerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return collectionView == cardDetailViewerView.dateCollectionView ? 1 : contentByDate.count
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == cardDetailViewerView.dateCollectionView ? contentByDate.count : 1
+        return contentByDate.count
     }
     
     
