@@ -46,7 +46,7 @@ final class CardDetailViewerView: BaseView {
         cardCollectionView.snp.makeConstraints { make in
             make.top.equalTo(dateCollectionView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }

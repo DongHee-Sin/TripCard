@@ -130,8 +130,6 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
             }
         }
         
-        let navi = BaseNavigationController(rootViewController: detailVC)
-        
-        transition(navi, transitionStyle: .presentFullScreen)
+        transition(detailVC, transitionStyle: .present)
     }
 }

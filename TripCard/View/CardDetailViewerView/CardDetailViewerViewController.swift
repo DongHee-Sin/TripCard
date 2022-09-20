@@ -32,8 +32,6 @@ final class CardDetailViewerViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         setCollectionView()
-        
-        setNavigationBarButtonItem()
     }
     
     
@@ -45,13 +43,6 @@ final class CardDetailViewerViewController: BaseViewController {
         cardDetailViewerView.cardCollectionView.delegate = self
         cardDetailViewerView.cardCollectionView.dataSource = self
         cardDetailViewerView.cardCollectionView.register(CardDetailCollectionViewCell.self, forCellWithReuseIdentifier: CardDetailCollectionViewCell.identifier)
-    }
-    
-    
-    private func setNavigationBarButtonItem() {
-        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
-        
-        navigationItem.leftBarButtonItem = dismissButton
     }
 }
 
@@ -97,10 +88,7 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cardDetailViewerView.dateCollectionView {
             
-            cardDetailViewerView.cardCollectionView.isPagingEnabled = false
             cardDetailViewerView.cardCollectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 0), at: .centeredHorizontally, animated: true)
-            cardDetailViewerView.cardCollectionView.isPagingEnabled = true
-            
         }
     }
 }

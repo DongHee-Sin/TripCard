@@ -48,56 +48,34 @@ extension UICollectionViewLayout {
     }
     
     
-    static func configureDetailCardLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewFlowLayout()
-            
-        let sectionSpacing: CGFloat = 30
-        let itemSpacing: CGFloat = 60
-            
-        let width: CGFloat = UIScreen.main.bounds.width - (sectionSpacing * 2)
-        let itemWidth: CGFloat = width
-        let itemHeight: CGFloat = (itemWidth * 1.25) + 100
-            
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
-        
-        layout.minimumLineSpacing = itemSpacing
-        layout.minimumInteritemSpacing = itemSpacing
-            
-        return layout
-    }
-    
-    
     
         
     // MARK: - Compositional Layout
-//    static func configureDetailCardLayout() -> UICollectionViewLayout {
-//
-//        let layout = UICollectionViewCompositionalLayout {
-//            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-//
-//            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-//
-//            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//            item.contentInsets = NSDirectionalEdgeInsets(top: .zero, leading: .zero, bottom: .zero, trailing: 40)
-//
-//            let groubSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-//
-//            let groub = NSCollectionLayoutGroup.horizontal(layoutSize: groubSize, subitem: item, count: 1)
-//
-//            let section = NSCollectionLayoutSection(group: groub)
-//            section.orthogonalScrollingBehavior = .paging
+    static func configureDetailCardLayout() -> UICollectionViewLayout {
 
-//            section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20)
-//
-//            return section
-//        }
-//
-//        return layout
-//    }
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            item.contentInsets = NSDirectionalEdgeInsets(top: .zero, leading: .zero, bottom: .zero, trailing: 40)
+
+            let groubSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+
+            let groub = NSCollectionLayoutGroup.horizontal(layoutSize: groubSize, subitem: item, count: 1)
+
+            let section = NSCollectionLayoutSection(group: groub)
+            section.orthogonalScrollingBehavior = .paging
+
+            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+
+            return section
+        }
+
+        return layout
+    }
     
     
     static func configureDateListLayout() -> UICollectionViewLayout {
