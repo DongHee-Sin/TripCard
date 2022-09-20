@@ -17,6 +17,7 @@ final class CardDetailViewerView: BaseView {
     }
     
     let cardCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: .configureDetailCardLayout()).then {
+        $0.isPagingEnabled = true
         $0.showsHorizontalScrollIndicator = false
         $0.backgroundColor = .clear
     }
@@ -37,13 +38,13 @@ final class CardDetailViewerView: BaseView {
     
     override func setConstraint() {
         dateCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(50)
         }
         
         cardCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(dateCollectionView.snp.bottom).offset(20)
+            make.top.equalTo(dateCollectionView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }

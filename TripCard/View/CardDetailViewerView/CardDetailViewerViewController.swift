@@ -87,9 +87,20 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
                 return UICollectionViewCell()
             }
             
-            cell.updateCell(day: indexPath.section + 1, content: contentByDate[indexPath.section], image: imageByDate[indexPath.section])
+            cell.updateCell(day: indexPath.item + 1, content: contentByDate[indexPath.item], image: imageByDate[indexPath.item])
             
             return cell
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == cardDetailViewerView.dateCollectionView {
+            
+            cardDetailViewerView.cardCollectionView.isPagingEnabled = false
+            cardDetailViewerView.cardCollectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 0), at: .centeredHorizontally, animated: true)
+            cardDetailViewerView.cardCollectionView.isPagingEnabled = true
+            
         }
     }
 }

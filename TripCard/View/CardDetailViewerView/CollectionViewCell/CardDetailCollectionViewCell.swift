@@ -48,7 +48,7 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
         
         photoImage.snp.makeConstraints { make in
