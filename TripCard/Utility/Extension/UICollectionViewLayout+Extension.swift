@@ -69,7 +69,7 @@ extension UICollectionViewLayout {
             let section = NSCollectionLayoutSection(group: groub)
             section.orthogonalScrollingBehavior = .paging
 
-            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 20, bottom: 30, trailing: 20)
 
             return section
         }
@@ -87,7 +87,7 @@ extension UICollectionViewLayout {
                 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-            item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 12, bottom: 12, trailing: 12)
                
             let groubSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .fractionalHeight(1))
                 

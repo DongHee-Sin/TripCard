@@ -61,7 +61,7 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
         
         let themeColor = themeColorList[indexPath.row]
         cell.textLabel?.text = themeColor.rawValue
-        cell.textLabel?.font = .customFont(size: .normal)
+        cell.textLabel?.font = .customFont(size: .large)
         
         if let currentThemeColor = currentThemeColor {
             if currentThemeColor == themeColor {

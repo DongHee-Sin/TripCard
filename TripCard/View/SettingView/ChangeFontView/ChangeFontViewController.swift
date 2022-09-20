@@ -61,7 +61,7 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
         
         let font = customFontList[indexPath.row]
         cell.textLabel?.text = font.rawValue
-        cell.textLabel?.font = .customFont(font: font, size: .normal)
+        cell.textLabel?.font = .customFont(font: font, size: .large)
         
         if let currentFont = currentFont {
             if currentFont == font {

@@ -18,13 +18,15 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
     }
     
     let photoImage = UIImageView().then {
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
         $0.backgroundColor = ColorManager.shared.selectedColor
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        $0.contentMode = .scaleToFill
     }
     
-    let contentLabel = UILabel().then {
-        $0.numberOfLines = 0
+    let contentTextView = UITextView().then {
+        $0.layer.cornerRadius = 20
+        $0.textContainerInset = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
         $0.textColor = ColorManager.shared.textColor
         $0.font = .systemFont(ofSize: FontSize.normal.rawValue)
     }
@@ -34,7 +36,7 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Methods
     override func configureUI() {
-        [dateLabel, photoImage, contentLabel].forEach {
+        [dateLabel, photoImage, contentTextView].forEach {
             self.addSubview($0)
         }
         
@@ -54,10 +56,18 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
         photoImage.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(photoImage.snp.width).multipliedBy(1.25)
+            
+            var isNotch: Bool {
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScene = scenes.first as? UIWindowScene
+                let window = windowScene?.windows.first
+                return Double(window?.safeAreaInsets.bottom ?? -1) > 0
+            }
+            
+            make.height.equalTo(photoImage.snp.width).multipliedBy(isNotch ? 1.25 : 1)
         }
         
-        contentLabel.snp.makeConstraints { make in
+        contentTextView.snp.makeConstraints { make in
             make.top.equalTo(photoImage.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.snp.bottom)
@@ -68,6 +78,6 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
     func updateCell(day: Int, content: String?, image: UIImage?) {
         dateLabel.text = "\(day)일차"
         photoImage.image = image
-        contentLabel.text = content
+        contentTextView.text = content
     }
 }

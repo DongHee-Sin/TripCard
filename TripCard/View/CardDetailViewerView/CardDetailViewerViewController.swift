@@ -78,6 +78,7 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
                 return UICollectionViewCell()
             }
             
+            cell.contentTextView.delegate = self
             cell.updateCell(day: indexPath.item + 1, content: contentByDate[indexPath.item], image: imageByDate[indexPath.item])
             
             return cell
@@ -90,5 +91,15 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
             
             cardDetailViewerView.cardCollectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 0), at: .centeredHorizontally, animated: true)
         }
+    }
+}
+
+
+
+
+// MARK: - TextView Protocol
+extension CardDetailViewerViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return false
     }
 }

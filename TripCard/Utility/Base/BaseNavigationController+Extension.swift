@@ -24,9 +24,5 @@ final class BaseNavigationController: UINavigationController {
     
     private func setNavigationBar() {
         self.navigationBar.tintColor = .black
-        
-        if #available(iOS 15, *) {
-            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
-        }
     }
 }

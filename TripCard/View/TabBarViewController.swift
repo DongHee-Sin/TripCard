@@ -31,7 +31,7 @@ final class TabBarViewController: UITabBarController {
     
     private func setTabBarUI() {
         tabBar.barTintColor = ColorManager.shared.selectedColor
-        tabBar.tintColor = .black
+        tabBar.tintColor = ColorManager.shared.textColor
         tabBar.unselectedItemTintColor = .lightGray
     }
 }

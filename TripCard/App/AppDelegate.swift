@@ -25,11 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-        
-        // TabBar BackgroundColor iOS 15 ~
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().backgroundColor = ColorManager.shared.selectedColor
-        }
+        UITabBar.appearance().backgroundColor = ColorManager.shared.selectedColor
         
         return true
     }

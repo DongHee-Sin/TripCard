@@ -147,6 +147,11 @@ final class WriteViewController: BaseViewController {
         
         navigationItem.titleView = titleImage
     }
+    
+    
+//    func updateViewModel(mainImage: UIImage, trip: Trip) {
+//
+//    }
 }
 
 

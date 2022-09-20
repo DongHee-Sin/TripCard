@@ -12,7 +12,7 @@ final class CardViewerViewController: BaseViewController {
     // MARK: - Propertys
     let repository = TripDataRepository.shared
     
-    var selectedIndex: Int?                        // 이부분은 이니셜라이저로 빼면 옵셔널바인딩 과정 없이 사용할 수 있을듯?? 개선가능?
+    var selectedIndex: Int?
     var tripType: TripType?
     
     var numberOfCard: Int {
@@ -62,8 +62,10 @@ final class CardViewerViewController: BaseViewController {
     
     private func setNavigationBarButtonItem() {
         let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
+        let modifyButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(modifyButtonTapped))
         
         navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.rightBarButtonItem = modifyButton
     }
     
     
@@ -71,6 +73,14 @@ final class CardViewerViewController: BaseViewController {
         guard let selectedIndex = selectedIndex else { return }
         cardViewerView.collectionView.scrollToItem(at: IndexPath(item: 0, section: selectedIndex), at: .centeredHorizontally, animated: false)
         cardViewerView.collectionView.isPagingEnabled = true
+    }
+    
+    
+    @objc private func modifyButtonTapped() {
+        let modifyVC = WriteViewController()
+        
+        let navi = BaseNavigationController(rootViewController: modifyVC)
+        transition(modifyVC, transitionStyle: .presentFullScreen)
     }
 }
 

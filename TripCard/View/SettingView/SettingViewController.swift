@@ -75,7 +75,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue
-        cell.textLabel?.font = .customFont(size: .normal)
+        cell.textLabel?.font = .customFont(size: .large)
         cell.selectionStyle = .none
         
         return cell
