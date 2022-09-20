@@ -24,6 +24,7 @@ extension UICollectionViewLayout {
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        
         layout.minimumLineSpacing = itemSpacing * 2
         layout.minimumInteritemSpacing = itemSpacing
             
@@ -35,6 +36,7 @@ extension UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
             
         let sectionSpacing: CGFloat = 44
+        let itemSpacing: CGFloat = 88
             
         let width: CGFloat = UIScreen.main.bounds.width - (sectionSpacing * 2)
         let itemWidth: CGFloat = width
@@ -43,6 +45,9 @@ extension UICollectionViewLayout {
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        
+        layout.minimumLineSpacing = itemSpacing
+        layout.minimumInteritemSpacing = itemSpacing
             
         return layout
     }
@@ -89,7 +94,7 @@ extension UICollectionViewLayout {
                 
             item.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 12, bottom: 12, trailing: 12)
                
-            let groubSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .fractionalHeight(1))
+            let groubSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .fractionalHeight(1))
                 
             let groub = NSCollectionLayoutGroup.horizontal(layoutSize: groubSize, subitem: item, count: 1)
                 

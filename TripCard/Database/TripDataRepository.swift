@@ -11,11 +11,11 @@ import UIKit
 
 
 protocol TripDataRepositoryType {
-    func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws
+    func create(_ trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?]) throws
     
     func fetchTrip(at index: Int, tripType: TripType) -> Trip?
     
-    func update(trip: Trip, completion: (Trip) -> Void) throws
+    func update(trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?], completion: (Trip) -> Void) throws
     
     func remove(trip: Trip) throws
     
@@ -82,7 +82,7 @@ final class TripDataRepository: TripDataRepositoryType {
     
     // MARK: - Methods
     // Create(add)
-    func create(_ trip: Trip, mainImage: UIImage, imageByDate: [UIImage?]) throws {
+    func create(_ trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?]) throws {
         do {
             try localRealm.write {
                 localRealm.add(trip)
@@ -112,7 +112,9 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     // Update
-    func update(trip: Trip, completion: (Trip) -> Void) throws {
+    func update(trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?], completion: (Trip) -> Void) throws {
+        let directoryName = trip.objectId.stringValue
+        
         do {
             try localRealm.write({
                 completion(trip)
@@ -121,12 +123,16 @@ final class TripDataRepository: TripDataRepositoryType {
         catch {
             throw RealmError.updateError
         }
+        
+        try documentManager.updateImage(directoryName: directoryName, mainImage: mainImage, imageByDate: imageByDate)
     }
     
     
     
     // Delete
     func remove(trip: Trip) throws {
+        let directoryName = trip.objectId.stringValue
+        
         do {
             try localRealm.write {
                 localRealm.delete(trip)
@@ -135,6 +141,8 @@ final class TripDataRepository: TripDataRepositoryType {
         catch {
             throw RealmError.deleteError
         }
+        
+        try documentManager.removeImageDirectoryFromDocument(directoryName: directoryName)
     }
     
     

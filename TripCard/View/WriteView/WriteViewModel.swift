@@ -9,6 +9,12 @@ import UIKit
 import RealmSwift
 
 
+enum WriteCardMode {
+    case create
+    case modify
+}
+
+
 enum WriteViewStatus {
     case needEnterLocationData
     case needEnterPeriodData
@@ -25,9 +31,20 @@ struct CardByDate {
 class WriteViewModel {
     
     // MARK: - Propertys
+    var writeCardMode: WriteCardMode = .create
+    
+    var forModifyTrip: Trip? {
+        didSet {
+            guard let trip = forModifyTrip else { return }
+            segmentValue.value = trip.isDomestic ? 0 : 1
+            location.value = trip.location
+            tripPeriod.value = (trip.startDate, trip.endDate)
+        }
+    }
+    
     let repository = TripDataRepository.shared
 
-    var mainPhotoImage: Observable<UIImage> = Observable(UIImage())
+    var mainPhotoImage: Observable<UIImage?> = Observable(nil)
     var segmentValue: Observable<Int> = Observable(0)
     var location: Observable<String> = Observable("")
     var tripPeriod: Observable<(start: Date, end: Date)?> = Observable(nil)
@@ -68,21 +85,47 @@ class WriteViewModel {
     
     
     // MARK: - Methods
-    func createTripCard() throws {
+    func finishButtonTapped() throws {
+        switch writeCardMode {
+        case .create:
+            try createTripCard()
+        case .modify:
+            try updateTripCard()
+        }
+    }
+    
+    
+    private func createTripCard() throws {
         let tripType = TripType(rawValue: segmentValue.value) ?? .domestic
         
         let imageByDate = cardByDate.value.map { $0.photoImage }
         
-        let arr = cardByDate.value.map { $0.content }
+        let contentArray = cardByDate.value.map { $0.content }
         let contentByDate: List<String?> = List<String?>()
-        arr.forEach {
-            contentByDate.append($0)
-        }
+        contentByDate.append(objectsIn: contentArray)
         
         guard let period = tripPeriod.value else { return }
         
         let trip = Trip(mainPhotoImage: "mainImage", tripType: tripType, location: location.value, tripPeriod: period, contentByDate: contentByDate)
         
         try repository.create(trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate)
+    }
+    
+    
+    private func updateTripCard() throws {
+        guard let trip = forModifyTrip else { return }
+        
+        let imageByDate = cardByDate.value.map { $0.photoImage }
+        
+        try repository.update(trip: trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate) { trip in
+            trip.isDomestic = segmentValue.value == 0
+            trip.location = location.value
+            
+            if let tripPeriod = tripPeriod.value {
+                trip.startDate = tripPeriod.start
+                trip.endDate = tripPeriod.end
+                trip.numberOfDate = Date.calcDateDifference(startDate: tripPeriod.start, endDate: tripPeriod.end)
+            }
+        }
     }
 }

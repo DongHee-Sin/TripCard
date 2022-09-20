@@ -72,7 +72,7 @@ struct DocumentManager {
     
     
     
-    func saveImageToDocument(directoryName: String, mainImage: UIImage, imageByDate: [UIImage?]) throws {
+    func saveImageToDocument(directoryName: String, mainImage: UIImage?, imageByDate: [UIImage?]) throws {
         guard let imagesPath = imageDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         try createEachCardDirectory(directoryName: directoryName)
@@ -83,7 +83,7 @@ struct DocumentManager {
         // 메인 이미지
         let result = {
             let fileURL = directoryPath.appendingPathComponent("mainImage.jpg")
-            let imageData = mainImage.jpegData(compressionQuality: 0.3) ?? Data()
+            let imageData = mainImage?.jpegData(compressionQuality: 0.3)
             
             return (fileURL: fileURL, imageData: imageData)
         }()
@@ -102,7 +102,9 @@ struct DocumentManager {
         
         // 이미지 저장
         do {
-            try result.imageData.write(to: result.fileURL)
+            if let imageData = result.imageData {
+                try imageData.write(to: result.fileURL)
+            }
             
             try resultByDate.forEach {
                 guard let imageData = $0.imageData else { return }
@@ -126,6 +128,12 @@ struct DocumentManager {
         }catch {
             throw DocumentError.removeDirectoryError
         }
+    }
+    
+    
+    func updateImage(directoryName: String, mainImage: UIImage?, imageByDate: [UIImage?]) throws {
+        try removeImageDirectoryFromDocument(directoryName: directoryName)
+        try saveImageToDocument(directoryName: directoryName, mainImage: mainImage, imageByDate: imageByDate)
     }
     
     

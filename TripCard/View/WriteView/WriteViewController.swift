@@ -27,6 +27,8 @@ final class WriteViewController: BaseViewController {
         return pickerVC
     }()
     
+    var modifyCardCompletion: (() -> Void)?
+    
     
     
     
@@ -78,10 +80,12 @@ final class WriteViewController: BaseViewController {
         viewModel.tripPeriod.bind { [weak self] dates in
             guard let self = self else { return }
             
-            if self.viewModel.numberOfCell > 0 {
-                self.viewModel.cardByDate.value = Array(repeating: CardByDate(), count: self.viewModel.numberOfCell)
-            }else {
-                self.viewModel.cardByDate.value = []
+            if self.viewModel.numberOfCell != self.viewModel.cardByDate.value.count {
+                if self.viewModel.numberOfCell > 0 {
+                    self.viewModel.cardByDate.value = Array(repeating: CardByDate(), count: self.viewModel.numberOfCell)
+                }else {
+                    self.viewModel.cardByDate.value = []
+                }
             }
             
             self.writeView.tableView.reloadData()
@@ -96,7 +100,7 @@ final class WriteViewController: BaseViewController {
     
     private func setNavigationBarButtonItem() {
         let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
-        let addTripButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(addTripButtonTapped))
+        let addTripButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
         
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItem = addTripButton
@@ -117,17 +121,21 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    @objc private func addTripButtonTapped() {
+    @objc private func finishButtonTapped() {
         
         switch viewModel.writeViewStatus {
         case .needEnterLocationData: showAlert(title: "여행 지역을 입력해주세요! (필수)")
         case .needEnterPeriodData: showAlert(title: "여행 기간을 입력해주세요! (필수)")
         case .dataCanBeStored:
             do {
-                try viewModel.createTripCard()
+                try viewModel.finishButtonTapped()
             }
             catch {
                 showErrorAlert(error: error)
+            }
+            
+            if viewModel.writeCardMode == .modify {
+                modifyCardCompletion?()
             }
             
             dismiss(animated: true)
@@ -149,9 +157,17 @@ final class WriteViewController: BaseViewController {
     }
     
     
-//    func updateViewModel(mainImage: UIImage, trip: Trip) {
-//
-//    }
+    func updateViewModel(mainImage: UIImage?, imageByDate: [UIImage?], trip: Trip) {
+        viewModel.mainPhotoImage.value = mainImage
+        viewModel.forModifyTrip = trip
+        
+        viewModel.writeCardMode = .modify
+        
+        let cardByDate = zip(imageByDate, trip.contentByDate).map { (image, content) in
+            return CardByDate(photoImage: image, content: content)
+        }
+        viewModel.cardByDate.value = cardByDate
+    }
 }
 
 
@@ -170,9 +186,6 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         
         header.locationTextField.delegate = self
         header.periodTextField.delegate = self
-        
-        header.locationTextField.tag = 0
-        header.periodTextField.tag = 1
         
         return header
     }
@@ -266,7 +279,7 @@ extension WriteViewController: WritingDelegate {
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
+        // tag 1 : Calendar
         if textField.tag == 1 {
             let calendarVC = CalendarSheetViewController()
             if let deviceHeight = view.window?.windowScene?.screen.bounds.height {

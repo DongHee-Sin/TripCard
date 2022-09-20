@@ -15,6 +15,8 @@ final class CardViewerViewController: BaseViewController {
     var selectedIndex: Int?
     var tripType: TripType?
     
+    var currentCardIndex: Int?
+    
     var numberOfCard: Int {
         guard let tripType = tripType else { return 1 }
         
@@ -63,24 +65,63 @@ final class CardViewerViewController: BaseViewController {
     private func setNavigationBarButtonItem() {
         let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
         let modifyButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(modifyButtonTapped))
+        let deleteButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteButtonTapped))
         
         navigationItem.leftBarButtonItem = dismissButton
-        navigationItem.rightBarButtonItem = modifyButton
+        navigationItem.rightBarButtonItems = [deleteButton, modifyButton]
     }
     
     
     private func moveToSelectedCard() {
         guard let selectedIndex = selectedIndex else { return }
-        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: 0, section: selectedIndex), at: .centeredHorizontally, animated: false)
+        currentCardIndex = selectedIndex
+        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
         cardViewerView.collectionView.isPagingEnabled = true
     }
     
     
-    @objc private func modifyButtonTapped() {
+    @objc private func modifyButtonTapped() throws {
         let modifyVC = WriteViewController()
         
+        guard let toModifyData = self.fetchTrip() else { return }
+        
+        let mainImage = try repository.documentManager.loadMainImageFromDocument(directoryName: toModifyData.objectId.stringValue)
+        let imageByDate = try repository.documentManager.loadImagesFromDocument(directoryName: toModifyData.objectId.stringValue, numberOfTripDate: toModifyData.numberOfDate)
+        
+        modifyVC.updateViewModel(mainImage: mainImage, imageByDate: imageByDate, trip: toModifyData)
+        
+        modifyVC.modifyCardCompletion = { [weak self] in
+            guard let self = self else { return }
+            self.cardViewerView.collectionView.reloadData()
+        }
+        
         let navi = BaseNavigationController(rootViewController: modifyVC)
-        transition(modifyVC, transitionStyle: .presentFullScreen)
+        transition(navi, transitionStyle: .presentFullScreen)
+    }
+    
+    
+    @objc private func deleteButtonTapped() throws {
+        showAlert(title: "정말 삭제하실 건가요???", buttonTitle: "삭제하기", cancelTitle: "취소") { [weak self] _ in
+            guard let self = self else { return }
+            
+            guard let toRemoveData = self.fetchTrip() else { return }
+            
+            do {
+                try self.repository.remove(trip: toRemoveData)
+            }
+            catch {
+                self.showErrorAlert(error: error)
+            }
+            
+            self.dismiss(animated: true)
+        }
+    }
+    
+    
+    private func fetchTrip() -> Trip? {
+        guard let currentCardIndex = self.currentCardIndex, let tripType = self.tripType else { return nil }
+        
+        return repository.fetchTrip(at: currentCardIndex, tripType: tripType)
     }
 }
 
@@ -90,13 +131,8 @@ final class CardViewerViewController: BaseViewController {
 // MARK: - CollectionView Protocol
 extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return numberOfCard
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return numberOfCard
     }
     
     
@@ -107,7 +143,7 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
         
         guard let tripType = tripType else { return UICollectionViewCell() }
         
-        if let trip = repository.fetchTrip(at: indexPath.section, tripType: tripType) {
+        if let trip = repository.fetchTrip(at: indexPath.item, tripType: tripType) {
             var image: UIImage?
             do {
                 image = try repository.documentManager.loadMainImageFromDocument(directoryName: trip.objectId.stringValue)
@@ -123,10 +159,19 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let cell = cardViewerView.collectionView.visibleCells.first else { return }
+        
+        let indexPath = cardViewerView.collectionView.indexPath(for: cell)
+        
+        currentCardIndex = indexPath?.item
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = CardDetailViewerViewController()
         
-        if let tripType = tripType, let trip = repository.fetchTrip(at: indexPath.section, tripType: tripType) {
+        if let tripType = tripType, let trip = repository.fetchTrip(at: indexPath.item, tripType: tripType) {
             do {
                 var contentByDate: [String?] = []
                 contentByDate.append(contentsOf: trip.contentByDate)

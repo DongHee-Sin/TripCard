@@ -26,7 +26,7 @@ class CardDetailCollectionViewCell: BaseCollectionViewCell {
     
     let contentTextView = UITextView().then {
         $0.layer.cornerRadius = 20
-        $0.textContainerInset = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
+        $0.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         $0.textColor = ColorManager.shared.textColor
         $0.font = .systemFont(ofSize: FontSize.normal.rawValue)
     }

@@ -46,10 +46,12 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
 
     let locationTextField = MainTextField().then {
+        $0.tag = 0
         $0.placeholder = "지역"
     }
 
     let periodTextField = MainTextField().then {
+        $0.tag = 1
         $0.placeholder = "기간"
     }
     
@@ -129,6 +131,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     func updateHeader(viewModel: WriteViewModel) {
         self.mainPhotoImage.image = viewModel.mainPhotoImage.value
         self.segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
+        self.locationTextField.text = viewModel.location.value
         self.periodTextField.text = viewModel.periodString
     }
 }
