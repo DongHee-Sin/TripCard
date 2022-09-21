@@ -18,7 +18,7 @@ enum TripType: Int {
 typealias TripPeriod = (start: Date, end: Date)
 
 
-final class Trip: Object {
+final class Trip: Object, Codable {
     @Persisted var mainPhotoImage: String
     @Persisted var isDomestic: Bool
     @Persisted var location: String

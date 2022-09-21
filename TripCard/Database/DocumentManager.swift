@@ -212,8 +212,7 @@ struct DocumentManager {
             throw DocumentError.compressionFailedError
         }
         
-        urlPaths.append(realmFilePath)
-        urlPaths.append(imagesDirectoryPath)
+        urlPaths.append(contentsOf: [realmFilePath, imagesDirectoryPath])
         
         do {
             let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "TripCard-\(Date().string)")

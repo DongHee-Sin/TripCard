@@ -19,7 +19,8 @@ protocol WritingDelegate: AnyObject {
 final class WriteTableViewHeader: UITableViewHeaderFooterView {
 
     // MARK: - Propertys
-    var delegate: WritingDelegate?
+    weak var delegate: WritingDelegate?
+//    var delegate: WritingDelegate?     -> 강한 참조 사이클
     
     let stackView = UIStackView().then {
         $0.layoutMargins = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 20)

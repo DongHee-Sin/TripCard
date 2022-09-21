@@ -22,7 +22,7 @@ final class CalendarSheetViewController: BaseViewController {
     // MARK: - Propertys
     var halfDeviceHeight: CGFloat = 0
     
-    var delegate: AddPeriodDelegate?
+    weak var delegate: AddPeriodDelegate?
     
     
     

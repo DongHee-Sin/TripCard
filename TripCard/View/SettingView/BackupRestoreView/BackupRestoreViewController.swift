@@ -65,9 +65,9 @@ final class BackupRestoreViewController: BaseViewController {
             do {
                 let backupFilePath = try self.documentManager.createBackupFile()
                 
-                self.fetchZipFiles()
-                
                 self.showActivityViewController(filePath: backupFilePath)
+                
+                self.fetchZipFiles()
             }
             catch {
                 self.showErrorAlert(error: error)
@@ -93,7 +93,8 @@ final class BackupRestoreViewController: BaseViewController {
     
     func showActivityViewController(filePath: URL) {
         let vc = UIActivityViewController(activityItems: [filePath], applicationActivities: [])
-        transition(vc, transitionStyle: .present)
+        present(vc, animated: true)
+//        transition(vc, transitionStyle: .present)
     }
 }
 
