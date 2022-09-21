@@ -15,6 +15,13 @@ extension Date {
     }
     
     
+    var backupFileTitle: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: self)
+    }
+    
+    
     static func calcDateDifference (startDate: Date, endDate: Date) -> Int {
         let second = endDate.timeIntervalSinceReferenceDate - startDate.timeIntervalSinceReferenceDate
         let day = Int(second / 86400)
