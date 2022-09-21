@@ -92,8 +92,11 @@ final class CardViewerViewController: BaseViewController {
         
         modifyVC.modifyCardCompletion = { [weak self] in
             guard let self = self else { return }
+            self.cardViewerView.collectionView.isPagingEnabled = true
             self.cardViewerView.collectionView.reloadData()
         }
+        
+        self.cardViewerView.collectionView.isPagingEnabled = false
         
         let navi = BaseNavigationController(rootViewController: modifyVC)
         transition(navi, transitionStyle: .presentFullScreen)
