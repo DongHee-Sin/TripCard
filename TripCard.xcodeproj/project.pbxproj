@@ -42,6 +42,8 @@
 		D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */; };
 		D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */; };
 		D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB528D225F5004C2F10 /* Observable.swift */; };
+		D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */; };
+		D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */; };
 		D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069916528D45C1A0089F862 /* DateFormatterManager.swift */; };
 		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
 		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
@@ -110,6 +112,8 @@
 		D04CCEB028D2144B004C2F10 /* WriteByDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteByDateViewController.swift; sourceTree = "<group>"; };
 		D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
 		D04CCEB528D225F5004C2F10 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreViewController.swift; sourceTree = "<group>"; };
+		D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreView.swift; sourceTree = "<group>"; };
 		D069916528D45C1A0089F862 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */,
 				D0BC601A28D813F8001A4728 /* ChangeFontView */,
 				D0306ECA28D8380C003F9577 /* ChangeColorView */,
+				D04DD30928DABB7900EDCBDA /* BackupRestoreView */,
 				D0306ECB28D83826003F9577 /* OpenSourceView */,
 			);
 			path = SettingView;
@@ -283,6 +288,15 @@
 				D04CCEB528D225F5004C2F10 /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		D04DD30928DABB7900EDCBDA /* BackupRestoreView */ = {
+			isa = PBXGroup;
+			children = (
+				D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */,
+				D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */,
+			);
+			path = BackupRestoreView;
 			sourceTree = "<group>";
 		};
 		D091EECE28CEE86C00BEDC80 /* Database */ = {
@@ -580,6 +594,7 @@
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
+				D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */,
 				D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */,
 				D09C948028D1D56D00D2B68D /* WriteView.swift in Sources */,
 				D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */,
@@ -603,6 +618,7 @@
 				D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,
 				D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */,
+				D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */,
 				D0306ECD28D8384E003F9577 /* ChangeColorViewController.swift in Sources */,
 				D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */,
 				D0AB59BD28D4384300DD13AD /* ChangeCalendarDateView.swift in Sources */,

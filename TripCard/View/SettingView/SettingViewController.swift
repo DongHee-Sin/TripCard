@@ -90,7 +90,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         switch selectedCell {
         case .changeFont: selectedVC = ChangeFontViewController()
         case .changeThemeColor: selectedVC = ChangeColorViewController()
-        case .backUpAndRestore: break
+        case .backUpAndRestore: selectedVC = BackupRestoreViewController()
         case .reset: break
         case .bugReportAndFeedback: break
         case .appStoreReview: break

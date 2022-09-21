@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().backgroundColor = ColorManager.shared.selectedColor
         
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.normal)
+        
         return true
     }
 

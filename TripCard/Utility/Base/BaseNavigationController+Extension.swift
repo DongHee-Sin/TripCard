@@ -23,6 +23,7 @@ final class BaseNavigationController: UINavigationController {
     
     
     private func setNavigationBar() {
-        self.navigationBar.tintColor = .black
+        self.navigationBar.tintColor = ColorManager.shared.textColor
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.customFont(size: .large)]
     }
 }

@@ -102,7 +102,12 @@ final class CardCell: BaseCollectionViewCell {
     func updateCell(trip: Trip, mainImage: UIImage?, type: CollectionViewType) {
         self.photoImage.image = mainImage
         self.locationLabel.text = trip.location
-        self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
+        
+        if trip.startDate == trip.endDate {
+            self.periodLabel.text = trip.startDate.string
+        }else {
+            self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
+        }
         
         switch type {
         case .list:

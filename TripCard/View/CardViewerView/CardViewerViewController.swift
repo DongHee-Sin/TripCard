@@ -73,9 +73,20 @@ final class CardViewerViewController: BaseViewController {
     
     
     private func moveToSelectedCard() {
-        guard let selectedIndex = selectedIndex else { return }
-        currentCardIndex = selectedIndex
-        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
+        if let currentCardIndex = currentCardIndex {
+            scrollToItem(at: currentCardIndex)
+            return
+        }
+        
+        if let selectedIndex = selectedIndex {
+            scrollToItem(at: selectedIndex)
+            currentCardIndex = selectedIndex
+        }
+    }
+    
+    
+    private func scrollToItem(at index: Int) {
+        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
         cardViewerView.collectionView.isPagingEnabled = true
     }
     
@@ -92,7 +103,6 @@ final class CardViewerViewController: BaseViewController {
         
         modifyVC.modifyCardCompletion = { [weak self] in
             guard let self = self else { return }
-            self.cardViewerView.collectionView.isPagingEnabled = true
             self.cardViewerView.collectionView.reloadData()
         }
         

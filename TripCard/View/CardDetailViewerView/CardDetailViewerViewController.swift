@@ -53,7 +53,7 @@ final class CardDetailViewerViewController: BaseViewController {
 extension CardDetailViewerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentByDate.count
+        return min(contentByDate.count, imageByDate.count)
     }
     
     
