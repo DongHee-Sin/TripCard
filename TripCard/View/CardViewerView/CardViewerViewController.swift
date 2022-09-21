@@ -47,6 +47,7 @@ final class CardViewerViewController: BaseViewController {
     
     
     
+    
     // MARK: - Methods
     override func configure() {
         setCollectionView()

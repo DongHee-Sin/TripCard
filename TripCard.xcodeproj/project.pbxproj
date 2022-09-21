@@ -76,6 +76,8 @@
 		D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601628D81015001A4728 /* CardDetailViewerView.swift */; };
 		D0BC601928D811DD001A4728 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601828D811DD001A4728 /* CustomFont.swift */; };
 		D0BC601C28D8143B001A4728 /* ChangeFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */; };
+		D0C91E2A28DAF32A0045D587 /* BackupFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */; };
+		D0C91E2D28DB010E0045D587 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = D0C91E2C28DB010E0045D587 /* Zip */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +146,7 @@
 		D0BC601628D81015001A4728 /* CardDetailViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerView.swift; sourceTree = "<group>"; };
 		D0BC601828D811DD001A4728 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFontViewController.swift; sourceTree = "<group>"; };
+		D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupFileTableViewCell.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,7 @@
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
 				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
+				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */,
@@ -295,6 +299,7 @@
 			children = (
 				D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */,
 				D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */,
+				D0C91E2828DAF30D0045D587 /* TableView */,
 			);
 			path = BackupRestoreView;
 			sourceTree = "<group>";
@@ -478,6 +483,14 @@
 			path = CardViewerView;
 			sourceTree = "<group>";
 		};
+		D0C91E2828DAF30D0045D587 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,6 +519,7 @@
 				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
 				D0BBA54E28D3115A007D0916 /* FSCalendar */,
 				D02BC3BB28D35B6300BCEB0E /* PanModal */,
+				D0C91E2C28DB010E0045D587 /* Zip */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -546,6 +560,7 @@
 				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */,
+				D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -621,6 +636,7 @@
 				D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */,
 				D0306ECD28D8384E003F9577 /* ChangeColorViewController.swift in Sources */,
 				D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */,
+				D0C91E2A28DAF32A0045D587 /* BackupFileTableViewCell.swift in Sources */,
 				D0AB59BD28D4384300DD13AD /* ChangeCalendarDateView.swift in Sources */,
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
@@ -939,6 +955,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -996,6 +1020,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		D0C91E2C28DB010E0045D587 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Zip
 
 
 enum DocumentError: Error {
@@ -15,6 +16,8 @@ enum DocumentError: Error {
     case fetchImagesError
     case fetchZipFileError
     case fetchDirectoryPathError
+    
+    case compressionFailedError
 }
 
 
@@ -131,10 +134,12 @@ struct DocumentManager {
     }
     
     
+    
     func updateImage(directoryName: String, mainImage: UIImage?, imageByDate: [UIImage?]) throws {
         try removeImageDirectoryFromDocument(directoryName: directoryName)
         try saveImageToDocument(directoryName: directoryName, mainImage: mainImage, imageByDate: imageByDate)
     }
+    
     
     
     func loadMainImageFromDocument(directoryName: String) throws -> UIImage? {
@@ -153,6 +158,7 @@ struct DocumentManager {
         
         return image
     }
+    
     
     
     func loadImagesFromDocument(directoryName: String, numberOfTripDate: Int) throws -> [UIImage?] {
@@ -190,6 +196,37 @@ struct DocumentManager {
     
     
     
+    func createBackupFile() throws -> URL {
+        var urlPaths: [URL] = []
+        
+        let documentPath = documentDirectoryPath()
+        
+        let realmFilePath = documentPath?.appendingPathComponent("default.realm")
+        let imagesDirectoryPath = imageDirectoryPath()
+        
+        guard let realmFilePath = realmFilePath, let imagesDirectoryPath = imagesDirectoryPath else {
+            throw DocumentError.fetchDirectoryPathError
+        }
+        
+        guard isFileExist(path: realmFilePath) && isFileExist(path: imagesDirectoryPath) else {
+            throw DocumentError.compressionFailedError
+        }
+        
+        urlPaths.append(realmFilePath)
+        urlPaths.append(imagesDirectoryPath)
+        
+        do {
+            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "TripCard-\(Date().string)")
+            
+            return zipFilePath
+        }
+        catch {
+            throw DocumentError.compressionFailedError
+        }
+    }
+    
+    
+    
     func fetchDocumentZipFile() throws -> [URL] {
         do {
             guard let path = documentDirectoryPath() else { return [] }
@@ -204,5 +241,19 @@ struct DocumentManager {
             throw DocumentError.fetchZipFileError
         }
         
+    }
+    
+    
+    
+    private func isFileExist(path: URL) -> Bool {
+        var urlString: String?
+        
+        if #available(iOS 16, *) {
+            urlString = path.path()
+        }else {
+            urlString = path.path
+        }
+
+        return FileManager.default.fileExists(atPath: urlString ?? "")
     }
 }

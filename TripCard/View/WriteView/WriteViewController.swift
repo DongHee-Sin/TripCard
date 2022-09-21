@@ -40,6 +40,33 @@ final class WriteViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("\(#function) : \(CFGetRetainCount(self))")
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("\(#function) : \(CFGetRetainCount(self))")
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("\(#function) : \(CFGetRetainCount(self))")
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("\(#function) : \(CFGetRetainCount(self))")
+    }
+    
+    deinit {
+        print("Write View Controller DEINIT !!!!!!")
     }
     
     
@@ -180,7 +207,6 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteTableViewHeader.identifier) as? WriteTableViewHeader else {
             return nil
         }
-        
         header.delegate = self
         header.updateHeader(viewModel: viewModel)
         

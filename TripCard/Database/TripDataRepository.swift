@@ -163,6 +163,18 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
+    func restoreData(urlString: String) throws {
+        guard let data = urlString.data(using: .utf8) else {
+            return
+        }
+        
+        try localRealm.write {
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+//            localRealm.add(json, update: .all)
+        }
+    }
+    
+    
     // SearchController
 //    func fetchSearchResult(searchWord: String) {
 //        searchResultList = totalTripList.where {

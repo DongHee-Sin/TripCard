@@ -37,6 +37,7 @@ final class BackupRestoreView: BaseView {
     }
     
     let backupFileTableView = UITableView().then {
+        $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .clear
     }
     
@@ -76,7 +77,7 @@ final class BackupRestoreView: BaseView {
         
         backupFileTableView.snp.makeConstraints { make in
             make.top.equalTo(fetchBackupFileButton.snp.bottom).offset(20)
-            make.horizontalEdges.equalToSuperview().inset(20)
+            make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
