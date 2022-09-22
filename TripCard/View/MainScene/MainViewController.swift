@@ -61,7 +61,7 @@ final class MainViewController: TabmanViewController {
             $0.selectedTintColor = ColorManager.shared.textColor
         }
         
-        addBar(bar, dataSource: self, at: .top)
+        addBar(bar.systemBar(), dataSource: self, at: .top)
     }
     
     
