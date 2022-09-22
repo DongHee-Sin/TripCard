@@ -11,7 +11,6 @@ final class BackupRestoreViewController: BaseViewController {
 
     // MARK: - Propertys
     let repository = TripDataRepository.shared
-    let documentManager = DocumentManager()
     
     var zipFiles: [URL] = [] {
         didSet {
@@ -71,18 +70,9 @@ final class BackupRestoreViewController: BaseViewController {
         showAlert(title: "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?", buttonTitle: "생성하기", cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             do {
+                try self.repository.saveEncodedTripToDocument()
                 
-                let trip = self.repository.allTripDatas
-                
-                let encodedData = try self.documentManager.encodeTrip(trip)
-                print(encodedData)
-                let directoryPath = self.repository.documentManager.documentDirectoryPath()!.appendingPathComponent("jsondata.json")
-                try encodedData.write(to: directoryPath)
-                
-                
-                
-                
-                let backupFilePath = try self.documentManager.createBackupFile()
+                let backupFilePath = try self.repository.documentManager.createBackupFile()
                 
                 self.showActivityViewController(filePath: backupFilePath)
                 
@@ -102,7 +92,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     private func fetchZipFiles() {
         do {
-            zipFiles = try documentManager.fetchDocumentZipFile()
+            zipFiles = try repository.documentManager.fetchDocumentZipFile()
         }
         catch {
             showErrorAlert(error: error)
@@ -140,12 +130,19 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlert(title: "\(zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { _ in
+            
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             showAlert(title: "백업 파일을 삭제하시겠어요?", buttonTitle: "삭제하기", cancelTitle: "취소") { [weak self] _ in
                 guard let self = self else { return }
                 do {
-                    try self.documentManager.removeFileFromDocument(url: self.zipFiles[indexPath.row])
+                    try self.repository.documentManager.removeFileFromDocument(url: self.zipFiles[indexPath.row])
                     self.fetchZipFiles()
                 }
                 catch {

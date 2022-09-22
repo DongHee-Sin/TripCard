@@ -20,6 +20,7 @@ enum DocumentError: Error {
     case fetchDirectoryPathError
     
     case compressionFailedError
+    case restoreFailedError
 }
 
 
@@ -31,7 +32,7 @@ enum CodableError: Error {
 
 struct DocumentManager {
     
-    func documentDirectoryPath() -> URL? {
+    private func documentDirectoryPath() -> URL? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         return documentDirectory
@@ -210,10 +211,10 @@ struct DocumentManager {
         
         let documentPath = documentDirectoryPath()
         
-        let realmFilePath = documentPath?.appendingPathComponent("default.realm")
+        let encodedFilePath = documentPath?.appendingPathComponent("encodedData.json")
         let imagesDirectoryPath = imageDirectoryPath()
         
-        guard let realmFilePath = realmFilePath, let imagesDirectoryPath = imagesDirectoryPath else {
+        guard let realmFilePath = encodedFilePath, let imagesDirectoryPath = imagesDirectoryPath else {
             throw DocumentError.fetchDirectoryPathError
         }
         
@@ -264,52 +265,37 @@ struct DocumentManager {
 
         return FileManager.default.fileExists(atPath: urlString ?? "")
     }
-}
-
-
-
-
-
-// MARK: - JSON Test
-extension DocumentManager {
     
-    func decodeJSON(_ tripData: Data) throws -> Trip? {
+    
+    
+    func saveDataToDocument(data: Data) throws {
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+        let directoryPath = documentPath.appendingPathComponent("encodedData.json")
         
-        do {
-            let decoder = JSONDecoder()
-            
-            decoder.dateDecodingStrategy = .formatted(dateFormatter)
-            
-            let decodedData: Trip = try decoder.decode(Trip.self, from: tripData)
-            
-            return decodedData
-        } catch {
-            throw CodableError.jsonDecodeError
-        }
+        try data.write(to: directoryPath)
     }
     
     
-    func encodeTrip(_ tripData: Results<Trip>) throws -> Data {
+    func restoreData(zipLastPath: String) throws {
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
-        
+        let fileURL = documentPath.appendingPathComponent(zipLastPath)
+    }
+    
+    
+    // fileURL : 압축파일 경로
+    // documentURL : 저장할 디렉터리 경로
+    private func unzipFile(fileURL: URL, documentURL: URL) throws {
         do {
-            let encoder = JSONEncoder()
-            
-            encoder.dateEncodingStrategy = .formatted(dateFormatter)
-            
-            let encodedData: Data = try encoder.encode(tripData)
-//            let encodedData = try String(data: encoder.encode(tripData), encoding: .utf8)
-            
-            return encodedData
+            try Zip.unzipFile(fileURL, destination: documentURL, overwrite: true, password: nil, progress: { progress in
+                print(progress)
+            }, fileOutputHandler: { unzippedFile in
+                print("복구 완료")
+            })
         }
         catch {
-            throw CodableError.jsonEncodeError
+            throw DocumentError.restoreFailedError
         }
-        
     }
 }

@@ -50,12 +50,15 @@ final class TripDataRepository: TripDataRepositoryType {
     var domesticCount: Int { domesticList.count }
     var overseasCount: Int { overseasList.count }
     
-    var allTripDatas: Results<Trip> { return totalTripList }
-    
     // Observer 토큰
     private var domesticTripNotificationToken: NotificationToken?
     private var overseasTripNotificationToken: NotificationToken?
     
+    private lazy var dateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+        return dateFormatter
+    }()
     
     // SearchController
     private var searchResultList: Results<Trip>?
@@ -165,6 +168,48 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
+    func saveEncodedTripToDocument() throws {
+        let encodedData = try encodeTrip(totalTripList)
+        
+        try documentManager.saveDataToDocument(data: encodedData)
+    }
+    
+    
+    
+    private func decodeJSON(_ tripData: Data) throws -> Trip? {
+        do {
+            let decoder = JSONDecoder()
+            
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            
+            let decodedData: Trip = try decoder.decode(Trip.self, from: tripData)
+            
+            return decodedData
+        } catch {
+            throw CodableError.jsonDecodeError
+        }
+    }
+    
+    
+    
+    private func encodeTrip(_ tripData: Results<Trip>) throws -> Data {
+        do {
+            let encoder = JSONEncoder()
+            
+            encoder.dateEncodingStrategy = .formatted(dateFormatter)
+            
+            let encodedData: Data = try encoder.encode(tripData)
+            
+            return encodedData
+        }
+        catch {
+            throw CodableError.jsonEncodeError
+        }
+        
+    }
+    
+    
+    
 //    func restoreData(urlString: String) throws {
 //        guard let data = urlString.data(using: .utf8) else {
 //            return
@@ -172,7 +217,7 @@ final class TripDataRepository: TripDataRepositoryType {
 //
 //        try localRealm.write {
 //            let json = try JSONSerialization.jsonObject(with: data, options: [])
-////            localRealm.add(json, update: .all)
+//            localRealm.create(Trip.self, value: json, update: true)
 //        }
 //    }
     

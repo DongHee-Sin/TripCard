@@ -65,4 +65,16 @@ final class Trip: Object, Codable {
         try container.encode(numberOfDate, forKey: .numberOfDate)
         try container.encode(contentByDate, forKey: .contentByDate)
     }
+    
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self._isDomestic = try container.decode(Persisted<Bool>.self, forKey: .isDomestic)
+        self._location = try container.decode(Persisted<String>.self, forKey: .location)
+        self._startDate = try container.decode(Persisted<Date>.self, forKey: .startDate)
+        self._endDate = try container.decode(Persisted<Date>.self, forKey: .endDate)
+        self._numberOfDate = try container.decode(Persisted<Int>.self, forKey: .numberOfDate)
+        self._contentByDate = try container.decode(Persisted<List<String?>>.self, forKey: .contentByDate)
+        self._objectId = try container.decode(Persisted<ObjectId>.self, forKey: .objectId)
+    }
 }
