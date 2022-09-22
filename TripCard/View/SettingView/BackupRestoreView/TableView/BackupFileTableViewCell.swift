@@ -15,13 +15,11 @@ final class BackupFileTableViewCell: UITableViewCell {
     }
     
     let fileNameLabel = UILabel().then {
-        $0.text = "TEST Name"
         $0.font = .customFont(size: .normal)
         $0.textColor = ColorManager.shared.textColor
     }
     
-    let fileInfoLabel = UILabel().then {
-        $0.text = "22.05.01 / 16:40 / 0.7MB"
+    let fileSizeLabel = UILabel().then {
         $0.font = .customFont(size: .small)
         $0.textColor = ColorManager.shared.textColor
     }
@@ -55,7 +53,7 @@ final class BackupFileTableViewCell: UITableViewCell {
     
     // MARK: - Methdos
     private func configureUI() {
-        [fileNameLabel, fileInfoLabel].forEach {
+        [fileNameLabel, fileSizeLabel].forEach {
             labelStackView.addArrangedSubview($0)
         }
         
@@ -70,7 +68,7 @@ final class BackupFileTableViewCell: UITableViewCell {
     private func setConstraint() {
         backupImage.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(20)
-            make.verticalEdges.equalToSuperview().inset(12)
+            make.verticalEdges.equalToSuperview().inset(16)
             make.width.equalTo(backupImage.snp.height)
         }
         
@@ -83,6 +81,8 @@ final class BackupFileTableViewCell: UITableViewCell {
     }
     
     
-    func updateCell() {
+    func updateCell(fileName: String, fileSize: String) {
+        fileNameLabel.text = fileName
+        fileSizeLabel.text = fileSize
     }
 }

@@ -54,6 +54,7 @@
 		D09C948028D1D56D00D2B68D /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C947F28D1D56D00D2B68D /* WriteView.swift */; };
 		D09C948328D1D6FD00D2B68D /* WriteTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C948228D1D6FD00D2B68D /* WriteTableViewHeader.swift */; };
 		D09C948528D1D70D00D2B68D /* WriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C948428D1D70D00D2B68D /* WriteTableViewCell.swift */; };
+		D09EB5CB28DB550500F2E72A /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EB5CA28DB550500F2E72A /* FileManager+Extension.swift */; };
 		D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A666B928D0815F0042C9C7 /* MainTextField.swift */; };
 		D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */; };
 		D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB512328C76CD800EB6D2B /* AppDelegate.swift */; };
@@ -124,6 +125,7 @@
 		D09C947F28D1D56D00D2B68D /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		D09C948228D1D6FD00D2B68D /* WriteTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTableViewHeader.swift; sourceTree = "<group>"; };
 		D09C948428D1D70D00D2B68D /* WriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTableViewCell.swift; sourceTree = "<group>"; };
+		D09EB5CA28DB550500F2E72A /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		D0A666B928D0815F0042C9C7 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		D0AB512028C76CD800EB6D2B /* TripCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB512328C76CD800EB6D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */,
 				D091EED328CF138800BEDC80 /* Date+Extension.swift */,
 				D09C947D28D1C31600D2B68D /* UIView+Extension.swift */,
+				D09EB5CA28DB550500F2E72A /* FileManager+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
 				D0306ED428D85788003F9577 /* DateCollectionViewCell.swift in Sources */,
+				D09EB5CB28DB550500F2E72A /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

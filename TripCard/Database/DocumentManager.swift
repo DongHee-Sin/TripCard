@@ -181,18 +181,19 @@ struct DocumentManager {
     
     
     
-//    func removeFileFromDocument(fileName: String) {
-//        guard let documentDirectory = documentDirectoryPath() else { return }
-//
-//        let fileURL = documentDirectory.appendingPathComponent("\(fileName).jpg")
-//
-//        do {
-//            try FileManager.default.removeItem(at: fileURL)
-//        }
-//        catch let error {
-//            print(error)
-//        }
-//    }
+    func removeFileFromDocument(fileName: String) throws {
+        guard let documentDirectory = documentDirectoryPath() else { return }
+
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+
+        try FileManager.default.removeItem(at: fileURL)
+    }
+    
+    
+    
+    func removeFileFromDocument(url: URL) throws {
+        try FileManager.default.removeItem(at: url)
+    }
     
     
     
@@ -215,7 +216,7 @@ struct DocumentManager {
         urlPaths.append(contentsOf: [realmFilePath, imagesDirectoryPath])
         
         do {
-            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "TripCard-\(Date().backupFileTitle)")
+            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "TripCard\(Date().backupFileTitle)")
             
             return zipFilePath
         }

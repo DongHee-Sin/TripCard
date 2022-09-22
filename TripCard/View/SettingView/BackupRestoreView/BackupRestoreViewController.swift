@@ -18,6 +18,13 @@ final class BackupRestoreViewController: BaseViewController {
         }
     }
     
+    let fileByteCountFormatter: ByteCountFormatter = {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = [.useKB, .useMB]
+        formatter.countStyle = .file
+        return formatter
+    }()
+    
     
     
     
@@ -93,8 +100,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     func showActivityViewController(filePath: URL) {
         let vc = UIActivityViewController(activityItems: [filePath], applicationActivities: [])
-        present(vc, animated: true)
-//        transition(vc, transitionStyle: .present)
+        transition(vc, transitionStyle: .present)
     }
 }
 
@@ -114,6 +120,26 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
             return UITableViewCell()
         }
         
+        let fileURL = zipFiles[indexPath.row]
+        let fileSize = fileByteCountFormatter.string(fromByteCount: FileManager.default.sizeOfFile(atPath: fileURL.path) ?? 0)
+        cell.updateCell(fileName: fileURL.lastPathComponent, fileSize: fileSize)
+        
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            showAlert(title: "백업 파일을 삭제하시겠어요?", buttonTitle: "삭제하기", cancelTitle: "취소") { [weak self] _ in
+                guard let self = self else { return }
+                do {
+                    try self.documentManager.removeFileFromDocument(url: self.zipFiles[indexPath.row])
+                    self.fetchZipFiles()
+                }
+                catch {
+                    self.showErrorAlert(error: error)
+                }
+            }
+        }
     }
 }

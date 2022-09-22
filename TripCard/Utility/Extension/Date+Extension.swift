@@ -17,7 +17,7 @@ extension Date {
     
     var backupFileTitle: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "_yyMMdd_hh:mm:ss"
         return formatter.string(from: self)
     }
     

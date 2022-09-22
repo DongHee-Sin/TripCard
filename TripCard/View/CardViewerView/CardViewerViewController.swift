@@ -39,10 +39,11 @@ final class CardViewerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        moveToSelectedCard()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.moveToSelectedCard()
+        }
     }
     
     
