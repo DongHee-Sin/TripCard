@@ -72,7 +72,7 @@ final class CardViewerViewController: BaseViewController {
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItems = [deleteButton, modifyButton]
     }
-    
+     
     
     private func moveToSelectedCard() {
         if let currentCardIndex = currentCardIndex {

@@ -10,6 +10,7 @@ import UIKit
 final class BackupRestoreViewController: BaseViewController {
 
     // MARK: - Propertys
+    let repository = TripDataRepository.shared
     let documentManager = DocumentManager()
     
     var zipFiles: [URL] = [] {
@@ -70,6 +71,17 @@ final class BackupRestoreViewController: BaseViewController {
         showAlert(title: "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?", buttonTitle: "생성하기", cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             do {
+                
+                let trip = self.repository.allTripDatas
+                
+                let encodedData = try self.documentManager.encodeTrip(trip)
+                print(encodedData)
+                let directoryPath = self.repository.documentManager.documentDirectoryPath()!.appendingPathComponent("jsondata.json")
+                try encodedData.write(to: directoryPath)
+                
+                
+                
+                
                 let backupFilePath = try self.documentManager.createBackupFile()
                 
                 self.showActivityViewController(filePath: backupFilePath)
@@ -84,7 +96,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     
     @objc private func fetchBackupButtonTapped() {
-        
+        // 문서파일 여는거 그거 해야함!
     }
     
     

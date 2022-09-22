@@ -106,8 +106,8 @@ class WriteViewModel {
         
         guard let period = tripPeriod.value else { return }
         
-        let trip = Trip(mainPhotoImage: "mainImage", tripType: tripType, location: location.value, tripPeriod: period, contentByDate: contentByDate)
-        
+        let trip = Trip(tripType: tripType, location: location.value, tripPeriod: period, contentByDate: contentByDate)
+
         try repository.create(trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate)
     }
     

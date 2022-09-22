@@ -41,10 +41,10 @@ final class WriteViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\(#function) : \(CFGetRetainCount(self))")
+        //print("\(#function) : \(CFGetRetainCount(self))")
     }
     
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -68,7 +68,7 @@ final class WriteViewController: BaseViewController {
     deinit {
         print("Write View Controller DEINIT !!!!!!")
     }
-    
+    */
     
     
     
@@ -95,7 +95,6 @@ final class WriteViewController: BaseViewController {
     private func addCompletionToViewModelPropertys() {
         viewModel.mainPhotoImage.bind { [weak self] image in
             guard let self = self else { return }
-            print("header 리로드?")
             self.writeView.tableView.reloadData()
         }
         

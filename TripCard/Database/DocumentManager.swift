@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import RealmSwift
 import Zip
 
 
@@ -21,9 +23,15 @@ enum DocumentError: Error {
 }
 
 
+enum CodableError: Error {
+    case jsonDecodeError
+    case jsonEncodeError
+}
+
+
 struct DocumentManager {
     
-    private func documentDirectoryPath() -> URL? {
+    func documentDirectoryPath() -> URL? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         return documentDirectory
@@ -255,5 +263,53 @@ struct DocumentManager {
         }
 
         return FileManager.default.fileExists(atPath: urlString ?? "")
+    }
+}
+
+
+
+
+
+// MARK: - JSON Test
+extension DocumentManager {
+    
+    func decodeJSON(_ tripData: Data) throws -> Trip? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+        
+        do {
+            let decoder = JSONDecoder()
+            
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            
+            let decodedData: Trip = try decoder.decode(Trip.self, from: tripData)
+            
+            return decodedData
+        } catch {
+            throw CodableError.jsonDecodeError
+        }
+    }
+    
+    
+    func encodeTrip(_ tripData: Results<Trip>) throws -> Data {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+        
+        do {
+            let encoder = JSONEncoder()
+            
+            encoder.dateEncodingStrategy = .formatted(dateFormatter)
+            
+            let encodedData: Data = try encoder.encode(tripData)
+//            let encodedData = try String(data: encoder.encode(tripData), encoding: .utf8)
+            
+            return encodedData
+        }
+        catch {
+            throw CodableError.jsonEncodeError
+        }
+        
     }
 }

@@ -50,6 +50,8 @@ final class TripDataRepository: TripDataRepositoryType {
     var domesticCount: Int { domesticList.count }
     var overseasCount: Int { overseasList.count }
     
+    var allTripDatas: Results<Trip> { return totalTripList }
+    
     // Observer 토큰
     private var domesticTripNotificationToken: NotificationToken?
     private var overseasTripNotificationToken: NotificationToken?
@@ -163,16 +165,16 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
-    func restoreData(urlString: String) throws {
-        guard let data = urlString.data(using: .utf8) else {
-            return
-        }
-        
-        try localRealm.write {
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
-//            localRealm.add(json, update: .all)
-        }
-    }
+//    func restoreData(urlString: String) throws {
+//        guard let data = urlString.data(using: .utf8) else {
+//            return
+//        }
+//
+//        try localRealm.write {
+//            let json = try JSONSerialization.jsonObject(with: data, options: [])
+////            localRealm.add(json, update: .all)
+//        }
+//    }
     
     
     // SearchController
