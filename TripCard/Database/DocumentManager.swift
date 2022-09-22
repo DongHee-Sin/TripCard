@@ -317,4 +317,19 @@ struct DocumentManager {
             throw DocumentError.restoreFailedError
         }
     }
+    
+    
+    
+    func fetchZipFileFromDocumentPicker(selectedFileURL: URL) throws {
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
+        
+        let pathToSaveFile = documentPath.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        do {
+            try FileManager.default.copyItem(at: selectedFileURL, to: pathToSaveFile)
+        }
+        catch {
+            throw DocumentError.fetchZipFileError
+        }
+    }
 }

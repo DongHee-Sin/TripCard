@@ -70,7 +70,7 @@ final class BackupRestoreViewController: BaseViewController {
         showAlert(title: "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?", buttonTitle: "생성하기", cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             do {
-                try self.repository.saveEncodedTripToDocument()
+                try self.repository.saveEncodedDataToDocument()
                 
                 let backupFilePath = try self.repository.documentManager.createBackupFile()
                 
@@ -86,7 +86,12 @@ final class BackupRestoreViewController: BaseViewController {
     
     
     @objc private func fetchBackupButtonTapped() {
-        // 문서파일 여는거 그거 해야함!
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.zip], asCopy: true)
+        
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        
+        present(documentPicker, animated: true)
     }
     
     
@@ -138,8 +143,6 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
             do {
                 try self.repository.documentManager.restoreData(zipLastPath: lastPath)
                 
-                try self.repository.removeAll()
-                
                 try self.repository.overwriteRealmWithJSON()
                 
                 self.changeRootViewController()
@@ -165,4 +168,29 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }
     }
+}
+
+
+
+
+// MARK: - DocumentPicker Protocol
+extension BackupRestoreViewController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        guard let selectedFileURL = urls.first else {
+            showAlert(title: "선택된 파일의 경로를 찾을 수 없습니다.")
+            return
+        }
+        
+        do {
+            try repository.documentManager.fetchZipFileFromDocumentPicker(selectedFileURL: selectedFileURL)
+            
+            fetchZipFiles()
+        }
+        catch {
+            showErrorAlert(error: error)
+        }
+    }
+    
 }
