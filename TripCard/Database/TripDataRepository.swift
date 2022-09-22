@@ -152,6 +152,19 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
+    func removeAll() throws {
+        do {
+            try localRealm.write {
+                localRealm.deleteAll()
+            }
+        }
+        catch {
+            throw RealmError.deleteError
+        }
+    }
+    
+    
+    
     // Observer 달기
     func addObserver(to tripType: TripType, completion: @escaping () -> Void) {
         switch tripType {
@@ -176,13 +189,25 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
-    private func decodeJSON(_ tripData: Data) throws -> Trip? {
+    func overwriteRealmWithJSON() throws {
+        let jsonData = try documentManager.fetchJSONData()
+        
+        guard let decodedData = try decodeJSON(jsonData) else { return }
+        
+        try localRealm.write {
+            localRealm.add(decodedData)
+        }
+    }
+    
+    
+    
+    private func decodeJSON(_ tripData: Data) throws -> [Trip]? {
         do {
             let decoder = JSONDecoder()
             
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
             
-            let decodedData: Trip = try decoder.decode(Trip.self, from: tripData)
+            let decodedData: [Trip] = try decoder.decode([Trip].self, from: tripData)
             
             return decodedData
         } catch {
@@ -208,18 +233,6 @@ final class TripDataRepository: TripDataRepositoryType {
         
     }
     
-    
-    
-//    func restoreData(urlString: String) throws {
-//        guard let data = urlString.data(using: .utf8) else {
-//            return
-//        }
-//
-//        try localRealm.write {
-//            let json = try JSONSerialization.jsonObject(with: data, options: [])
-//            localRealm.create(Trip.self, value: json, update: true)
-//        }
-//    }
     
     
     // SearchController

@@ -137,6 +137,12 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
             
             do {
                 try self.repository.documentManager.restoreData(zipLastPath: lastPath)
+                
+                try self.repository.removeAll()
+                
+                try self.repository.overwriteRealmWithJSON()
+                
+                self.changeRootViewController()
             }
             catch {
                 self.showErrorAlert(error: error)

@@ -21,6 +21,8 @@ enum DocumentError: Error {
     
     case compressionFailedError
     case restoreFailedError
+    
+    case fetchJsonDataError
 }
 
 
@@ -254,6 +256,21 @@ struct DocumentManager {
     
     
     
+    func fetchJSONData() throws -> Data {
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
+        
+        let jsonDataPath = documentPath.appendingPathComponent("encodedData.json")
+        
+        do {
+            return try Data(contentsOf: jsonDataPath)
+        }
+        catch {
+            throw DocumentError.fetchJsonDataError
+        }
+    }
+    
+    
+    
     private func isFileExist(path: URL) -> Bool {
         var urlString: String?
         
@@ -271,10 +288,11 @@ struct DocumentManager {
     func saveDataToDocument(data: Data) throws {
         guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
-        let directoryPath = documentPath.appendingPathComponent("encodedData.json")
+        let jsonDataPath = documentPath.appendingPathComponent("encodedData.json")
         
-        try data.write(to: directoryPath)
+        try data.write(to: jsonDataPath)
     }
+    
     
     
     func restoreData(zipLastPath: String) throws {
@@ -286,8 +304,7 @@ struct DocumentManager {
     }
     
     
-    // fileURL : 압축파일 경로
-    // documentURL : 저장할 디렉터리 경로
+    
     private func unzipFile(fileURL: URL, documentURL: URL) throws {
         do {
             try Zip.unzipFile(fileURL, destination: documentURL, overwrite: true, password: nil, progress: { progress in
