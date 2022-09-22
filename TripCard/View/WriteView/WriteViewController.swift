@@ -143,6 +143,8 @@ final class WriteViewController: BaseViewController {
         cropViewController.resetButtonHidden = true
         cropViewController.rotateButtonsHidden = true
         
+        self.dismissIndicator()
+        
         transition(cropViewController, transitionStyle: .present)
     }
     
@@ -261,6 +263,8 @@ extension WriteViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                 guard let self = self else { return }
                 guard let selectedImage = image as? UIImage else { return }
+                
+                self.showIndicator()
                 
                 DispatchQueue.main.async {
                     self.presentCropViewController(image: selectedImage)

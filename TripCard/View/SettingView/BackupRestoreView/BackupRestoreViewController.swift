@@ -70,6 +70,8 @@ final class BackupRestoreViewController: BaseViewController {
         showAlert(title: "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?", buttonTitle: "생성하기", cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             do {
+                self.showIndicator()
+                
                 try self.repository.saveEncodedDataToDocument()
                 
                 let backupFilePath = try self.repository.documentManager.createBackupFile()
@@ -77,6 +79,8 @@ final class BackupRestoreViewController: BaseViewController {
                 self.showActivityViewController(filePath: backupFilePath)
                 
                 self.fetchZipFiles()
+                
+                self.dismissIndicator()
             }
             catch {
                 self.showErrorAlert(error: error)
@@ -141,13 +145,19 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
             let lastPath = self.zipFiles[indexPath.row].lastPathComponent
             
             do {
+                self.showIndicator()
+                
                 try self.repository.documentManager.restoreData(zipLastPath: lastPath)
                 
                 try self.repository.overwriteRealmWithJSON()
                 
+                self.dismissIndicator()
+                
                 self.changeRootViewController()
             }
             catch {
+                self.dismissIndicator()
+                
                 self.showErrorAlert(error: error)
             }
         }
