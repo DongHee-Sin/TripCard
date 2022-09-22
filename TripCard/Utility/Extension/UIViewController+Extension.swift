@@ -42,6 +42,11 @@ extension UIViewController {
         case DocumentError.fetchImagesError: showAlert(title: "이미지를 가져오는데 실패했습니다.")
         case DocumentError.fetchZipFileError: showAlert(title: "압축 파일을 가져오는데 실패했습니다.")
         case DocumentError.fetchDirectoryPathError: showAlert(title: "폴더 경로를 가져오는데 실패했습니다.")
+        case DocumentError.compressionFailedError: showAlert(title: "파일 압축에 실패했습니다.")
+        case DocumentError.restoreFailedError: showAlert(title: "파일 복구에 실패했습니다.")
+        case DocumentError.fetchJsonDataError: showAlert(title: "JSON 파일을 가져오는데 실패했습니다.")
+        case CodableError.jsonDecodeError: showAlert(title: "데이터 디코딩에 실패했습니다.")
+        case CodableError.jsonEncodeError: showAlert(title: "데이터 인코딩에 실패했습니다.")
         default: showAlert(title: "에러가 발생했습니다.")
         }
     }

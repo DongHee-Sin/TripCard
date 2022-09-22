@@ -26,12 +26,6 @@ enum DocumentError: Error {
 }
 
 
-enum CodableError: Error {
-    case jsonDecodeError
-    case jsonEncodeError
-}
-
-
 struct DocumentManager {
     
     private func documentDirectoryPath() -> URL? {

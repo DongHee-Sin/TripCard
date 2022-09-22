@@ -33,7 +33,7 @@ final class UserDefaultManager {
     var customFont: String
     
     
-    @UserDefault(key: "isInitialLaunch", defaultValue: false)
+    @UserDefault(key: "isInitialLaunch", defaultValue: true)
     var isInitialLaunch: Bool
     
     

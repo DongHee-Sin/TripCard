@@ -33,6 +33,12 @@ enum RealmError: Error {
 }
 
 
+enum CodableError: Error {
+    case jsonDecodeError
+    case jsonEncodeError
+}
+
+
 final class TripDataRepository: TripDataRepositoryType {
     
     // MARK: - Propertys
