@@ -131,8 +131,16 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(title: "\(zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { _ in
+        showAlert(title: "\(zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { [weak self] _ in
+            guard let self = self else { return }
+            let lastPath = self.zipFiles[indexPath.row].lastPathComponent
             
+            do {
+                try self.repository.documentManager.restoreData(zipLastPath: lastPath)
+            }
+            catch {
+                self.showErrorAlert(error: error)
+            }
         }
     }
     

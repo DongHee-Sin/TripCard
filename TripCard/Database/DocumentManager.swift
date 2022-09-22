@@ -281,6 +281,8 @@ struct DocumentManager {
         guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
         
         let fileURL = documentPath.appendingPathComponent(zipLastPath)
+        
+        try unzipFile(fileURL: fileURL, documentURL: documentPath)
     }
     
     
