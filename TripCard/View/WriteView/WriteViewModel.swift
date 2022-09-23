@@ -82,6 +82,20 @@ class WriteViewModel {
     }
     
     
+    private var imageByDate: [UIImage?] {
+        return cardByDate.value.map { $0.photoImage }
+    }
+    
+    
+    private var contentByDate: List<String?> {
+        let contentArray = cardByDate.value.map { $0.content }
+        let contentByDate: List<String?> = List<String?>()
+        contentByDate.append(objectsIn: contentArray)
+        
+        return contentByDate
+    }
+    
+    
     
     
     // MARK: - Methods
@@ -98,12 +112,6 @@ class WriteViewModel {
     private func createTripCard() throws {
         let tripType = TripType(rawValue: segmentValue.value) ?? .domestic
         
-        let imageByDate = cardByDate.value.map { $0.photoImage }
-        
-        let contentArray = cardByDate.value.map { $0.content }
-        let contentByDate: List<String?> = List<String?>()
-        contentByDate.append(objectsIn: contentArray)
-        
         guard let period = tripPeriod.value else { return }
         
         let trip = Trip(tripType: tripType, location: location.value, tripPeriod: period, contentByDate: contentByDate)
@@ -115,11 +123,10 @@ class WriteViewModel {
     private func updateTripCard() throws {
         guard let trip = forModifyTrip else { return }
         
-        let imageByDate = cardByDate.value.map { $0.photoImage }
-        
         try repository.update(trip: trip, mainImage: mainPhotoImage.value, imageByDate: imageByDate) { trip in
             trip.isDomestic = segmentValue.value == 0
             trip.location = location.value
+            trip.contentByDate = contentByDate
             
             if let tripPeriod = tripPeriod.value {
                 trip.startDate = tripPeriod.start
