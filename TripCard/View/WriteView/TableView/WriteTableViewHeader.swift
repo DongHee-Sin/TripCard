@@ -20,7 +20,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
 
     // MARK: - Propertys
     weak var delegate: WritingDelegate?
-//    var delegate: WritingDelegate?     -> 강한 참조 사이클
+    
     
     let stackView = UIStackView().then {
         $0.layoutMargins = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 20)
@@ -48,12 +48,12 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
 
     let locationTextField = MainTextField().then {
         $0.tag = 0
-        $0.placeholder = "지역"
+        $0.placeholder = "지역 *"
     }
 
     let periodTextField = MainTextField().then {
         $0.tag = 1
-        $0.placeholder = "기간"
+        $0.placeholder = "기간 *"
     }
     
     

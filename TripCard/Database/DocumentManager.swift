@@ -154,12 +154,7 @@ struct DocumentManager {
         
         let mainImagePath = directoryURL.appendingPathComponent("mainImage.jpg")
         
-        var image: UIImage?
-        if #available(iOS 16, *) {
-            image = UIImage(contentsOfFile: mainImagePath.path())
-        }else {
-            image = UIImage(contentsOfFile: mainImagePath.path)
-        }
+        var image = UIImage(contentsOfFile: mainImagePath.pathString)
         
         return image
     }
@@ -174,11 +169,7 @@ struct DocumentManager {
         let resultImages = (1...numberOfTripDate).map {
             let eachImageURL = directoryURL.appendingPathComponent("day\($0)Image.jpg")
             
-            if #available(iOS 16, *) {
-                return UIImage(contentsOfFile: eachImageURL.path())
-            }else {
-                return UIImage(contentsOfFile: eachImageURL.path)
-            }
+            return UIImage(contentsOfFile: eachImageURL.pathString)
         }
         
         return resultImages
@@ -266,15 +257,9 @@ struct DocumentManager {
     
     
     private func isFileExist(path: URL) -> Bool {
-        var urlString: String?
-        
-        if #available(iOS 16, *) {
-            urlString = path.path()
-        }else {
-            urlString = path.path
-        }
+        var urlString = path.pathString
 
-        return FileManager.default.fileExists(atPath: urlString ?? "")
+        return FileManager.default.fileExists(atPath: urlString)
     }
     
     

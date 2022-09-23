@@ -18,7 +18,7 @@ final class WriteByDateViewController: BaseViewController {
     var index: Int?
     var viewModel: WriteViewModel?
     
-    let textViewPlaceHolder = "TEST (선택)"
+    let textViewPlaceHolder = "PlaceHolder (선택)"
     
     let phpickerViewController: PHPickerViewController = {
         var configuration = PHPickerConfiguration()

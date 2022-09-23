@@ -82,6 +82,7 @@
 		D0C91E2D28DB010E0045D587 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = D0C91E2C28DB010E0045D587 /* Zip */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
+		D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupFileTableViewCell.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +411,7 @@
 				D091EED328CF138800BEDC80 /* Date+Extension.swift */,
 				D09C947D28D1C31600D2B68D /* UIView+Extension.swift */,
 				D09EB5CA28DB550500F2E72A /* FileManager+Extension.swift */,
+				D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
 				D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */,
 				D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */,
+				D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */,
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */,
