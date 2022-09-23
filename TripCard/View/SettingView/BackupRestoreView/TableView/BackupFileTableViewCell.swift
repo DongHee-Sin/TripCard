@@ -11,6 +11,7 @@ final class BackupFileTableViewCell: UITableViewCell {
 
     // MARK: - Propertys
     let backupImage = UIImageView().then {
+        $0.tintColor = ColorManager.shared.textColor
         $0.image = UIImage(systemName: "doc.text")
     }
     
