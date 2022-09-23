@@ -48,7 +48,8 @@ final class MainViewController: TabmanViewController {
 
         bar.layout.transitionStyle = .snap
         bar.layout.contentMode = .fit
-        bar.backgroundView.style = .blur(style: .regular)
+        bar.backgroundView.style = .flat(color: ColorManager.shared.backgroundColor)
+        
 
         bar.indicator.weight = .medium
         bar.indicator.tintColor = ColorManager.shared.buttonColor
@@ -61,7 +62,7 @@ final class MainViewController: TabmanViewController {
             $0.selectedTintColor = ColorManager.shared.textColor
         }
         
-        addBar(bar.systemBar(), dataSource: self, at: .top)
+        addBar(bar, dataSource: self, at: .top)
     }
     
     
