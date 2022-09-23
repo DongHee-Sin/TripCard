@@ -105,6 +105,7 @@ final class CardViewerViewController: BaseViewController {
         
         modifyVC.modifyCardCompletion = { [weak self] in
             guard let self = self else { return }
+            self.cardViewerView.collectionView.isPagingEnabled = true
             self.cardViewerView.collectionView.reloadData()
         }
         
