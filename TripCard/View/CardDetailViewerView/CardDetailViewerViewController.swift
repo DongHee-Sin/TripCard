@@ -15,6 +15,19 @@ final class CardDetailViewerViewController: BaseViewController {
     var contentByDate: [String?] = []
     var imageByDate: [UIImage?] = []
     
+    lazy var cardByDate: [(index: Int, content: String?, image: UIImage?)] = {
+        let zip = zip(contentByDate, imageByDate)
+        var result: [(index: Int, content: String?, image: UIImage?)] = []
+        
+        for (index, card) in zip.enumerated() {
+            if card.0 != nil || card.1 != nil {
+                result.append((index: index, content: card.0, image: card.1))
+            }
+        }
+        
+        return result
+    }()
+    
 
     
     
@@ -72,7 +85,7 @@ final class CardDetailViewerViewController: BaseViewController {
 extension CardDetailViewerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return min(contentByDate.count, imageByDate.count)
+        return cardByDate.count
     }
 
 
@@ -81,13 +94,7 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
             return UICollectionViewCell()
         }
 
-        if contentByDate[indexPath.item] != nil || imageByDate[indexPath.item] != nil {
-            cell.backgroundColor = ColorManager.shared.selectedColor
-        }else {
-            cell.backgroundColor = .systemGray5
-        }
-
-        cell.updateCell(day: indexPath.item + 1)
+        cell.updateCell(day: cardByDate[indexPath.row].index + 1)
 
         return cell
     }
@@ -107,7 +114,7 @@ extension CardDetailViewerViewController: UICollectionViewDelegate, UICollection
 extension CardDetailViewerViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return min(contentByDate.count, imageByDate.count)
+        return cardByDate.count
     }
     
     
@@ -117,7 +124,7 @@ extension CardDetailViewerViewController: FSPagerViewDelegate, FSPagerViewDataSo
         }
         
         cell.contentTextView.delegate = self
-        cell.updateCell(day: index + 1, content: contentByDate[index], image: imageByDate[index])
+        cell.updateCell(day: cardByDate[index].index + 1, content: cardByDate[index].content, image: cardByDate[index].image)
         
         return cell
     }

@@ -24,8 +24,9 @@ class DateCollectionViewCell: BaseCollectionViewCell {
     override func configureUI() {
         self.addSubview(dateLabel)
         
-        self.layer.cornerRadius = 8
-        self.clipsToBounds = true
+        layer.cornerRadius = 8
+        clipsToBounds = true
+        backgroundColor = ColorManager.shared.selectedColor
     }
     
     
