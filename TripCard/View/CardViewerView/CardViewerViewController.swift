@@ -17,7 +17,9 @@ final class CardViewerViewController: BaseViewController {
     var selectedIndex: Int?
     var tripType: TripType?
     
-    var currentCardIndex: Int?
+    private var currentIndex: Int {
+        cardViewerView.pagerView.currentIndex
+    }
     
     var numberOfCard: Int {
         guard let tripType = tripType else { return 1 }
@@ -87,14 +89,8 @@ final class CardViewerViewController: BaseViewController {
      
     
     private func moveToSelectedCard() {
-        if let currentCardIndex = currentCardIndex {
-            scrollToItem(at: currentCardIndex)
-            return
-        }
-
         if let selectedIndex = selectedIndex {
             scrollToItem(at: selectedIndex)
-            currentCardIndex = selectedIndex
         }
     }
     
@@ -143,9 +139,9 @@ final class CardViewerViewController: BaseViewController {
     
     
     private func fetchTrip() -> Trip? {
-        guard let currentCardIndex = self.currentCardIndex, let tripType = self.tripType else { return nil }
+        guard let tripType = self.tripType else { return nil }
         
-        return repository.fetchTrip(at: currentCardIndex, tripType: tripType)
+        return repository.fetchTrip(at: currentIndex, tripType: tripType)
     }
 }
 
