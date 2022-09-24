@@ -8,7 +8,6 @@
 import UIKit
 
 import FSCalendar
-import PanModal
 
 
 protocol AddPeriodDelegate: AnyObject {
@@ -187,31 +186,5 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         calendarView.changeMonthView.dateLabel.text = "\(calendar.currentPage.get(.month))월"
         calendarView.changeYearView.dateLabel.text = "\(calendar.currentPage.get(.year))년"
-    }
-}
-
-
-
-
-// MARK: - PanModal Protocol
-extension CalendarSheetViewController: PanModalPresentable {
-    
-    var panScrollable: UIScrollView? {
-        return nil
-    }
-    
-    
-    var shortFormHeight: PanModalHeight {
-        return .contentHeight(halfDeviceHeight)
-    }
-    
-    
-    var longFormHeight: PanModalHeight {
-        return .contentHeight(halfDeviceHeight)
-    }
-    
-    
-    var panModalBackgroundColor: UIColor {
-        return .black.withAlphaComponent(0.5)
     }
 }

@@ -25,7 +25,6 @@
 		D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB228CB86620076FCB1 /* CardListView.swift */; };
 		D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0254FB528CB89590076FCB1 /* UICollectionViewLayout+Extension.swift */; };
 		D026637A28DCBBC300A86196 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D026637928DCBBC300A86196 /* JGProgressHUD */; };
-		D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = D02BC3BB28D35B6300BCEB0E /* PanModal */; };
 		D02BC3BE28D3714A00BCEB0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D02BC3BD28D3714A00BCEB0E /* .gitignore */; };
 		D0306ECD28D8384E003F9577 /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306ECC28D8384E003F9577 /* ChangeColorViewController.swift */; };
 		D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306ED028D838D4003F9577 /* ReusableTableCustomView.swift */; };
@@ -177,7 +176,6 @@
 				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
-				D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
 			);
@@ -534,7 +532,6 @@
 				D0201A4F28D184EE0038A9B6 /* CropViewController */,
 				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
 				D0BBA54E28D3115A007D0916 /* FSCalendar */,
-				D02BC3BB28D35B6300BCEB0E /* PanModal */,
 				D0C91E2C28DB010E0045D587 /* Zip */,
 				D026637928DCBBC300A86196 /* JGProgressHUD */,
 				D0B210D528DE9CF20041092B /* FSPagerView */,
@@ -577,7 +574,6 @@
 				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
 				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */,
 				D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */,
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
@@ -931,14 +927,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/slackhq/PanModal.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1025,11 +1013,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
-		};
-		D02BC3BB28D35B6300BCEB0E /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */;
-			productName = PanModal;
 		};
 		D031752D28CB285C00C7A91C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

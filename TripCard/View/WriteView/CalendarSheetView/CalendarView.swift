@@ -20,7 +20,7 @@ final class CalendarView: BaseView {
     
     let changeDateStackView = UIStackView().then {
         $0.distribution = .fillEqually
-        $0.spacing = 20
+        $0.spacing = 35
         $0.axis = .horizontal
     }
     
@@ -62,19 +62,19 @@ final class CalendarView: BaseView {
     override func setConstraint() {
         selectedDateLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self).inset(20)
-            make.top.equalTo(self.snp.top).offset(20)
-            make.height.equalTo(30)
+            make.top.equalTo(self.snp.top).offset(12)
+            make.height.equalTo(24)
         }
         
         changeDateStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self).inset(20)
-            make.top.equalTo(selectedDateLabel.snp.bottom).offset(8)
-            make.height.equalTo(30)
+            make.top.equalTo(selectedDateLabel.snp.bottom).offset(12)
+            make.height.equalTo(24)
         }
         
         calendar.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self).inset(20)
-            make.top.equalTo(changeDateStackView.snp.bottom).offset(8)
+            make.top.equalTo(changeDateStackView.snp.bottom).offset(12)
             make.bottom.equalTo(self.snp.bottom).offset(-20)
         }
     }

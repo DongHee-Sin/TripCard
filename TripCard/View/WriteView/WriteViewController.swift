@@ -9,7 +9,6 @@ import UIKit
 
 import CropViewController
 import TOCropViewController
-import PanModal
 import PhotosUI
 
 
@@ -291,7 +290,11 @@ extension WriteViewController: UITextFieldDelegate {
             calendarVC.delegate = self
             calendarVC.calendarInitialSetting(viewModel: viewModel)
             
-            presentPanModal(calendarVC)
+            if let sheet = calendarVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+            }
+            
+            transition(calendarVC, transitionStyle: .present)
             
             return false
         }else {
