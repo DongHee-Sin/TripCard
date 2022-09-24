@@ -19,7 +19,6 @@ final class CardDetailViewerView: BaseView {
     
     lazy var pagerView = FSPagerView().then {
         $0.transformer = FSPagerViewTransformer(type: .overlap)
-        $0.register(CardViewerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     

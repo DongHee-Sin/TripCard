@@ -14,7 +14,6 @@ final class CardViewerView: BaseView {
     // MARK: - Propertys
     lazy var pagerView = FSPagerView().then {
         $0.transformer = FSPagerViewTransformer(type: .linear)
-        $0.isInfinite = true
     }
     
     
