@@ -164,7 +164,7 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
-    func removeAll() throws {
+    private func removeAllRealmData() throws {
         do {
             try localRealm.write {
                 localRealm.deleteAll()
@@ -173,6 +173,13 @@ final class TripDataRepository: TripDataRepositoryType {
         catch {
             throw RealmError.deleteError
         }
+    }
+    
+    
+    
+    func resetAppData() throws {
+        try removeAllRealmData()
+        try documentManager.removeAllDocumentData()
     }
     
     
@@ -198,7 +205,7 @@ final class TripDataRepository: TripDataRepositoryType {
         
         guard let decodedData = try decodeJSON(jsonData) else { return }
         
-        try removeAll()
+        try removeAllRealmData()
         try create(decodedData)
     }
     

@@ -53,6 +53,24 @@ class SettingViewController: BaseViewController {
         
         navigationItem.title = "설정"
     }
+    
+    
+    private func resetButtonTapped() {
+        showAlert(title: "초기화를 진행하시겠습니까?", buttonTitle: "초기화", cancelTitle: "취소") { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.showAlert(title: "모든 카드와 이미지가 삭제됩니다. 정말 초기화를 진행할까요?", buttonTitle: "초기화", cancelTitle: "취소") { _ in
+                do {
+                    try TripDataRepository.shared.resetAppData()
+                    
+                    self.changeRootViewController()
+                }
+                catch {
+                    self.showErrorAlert(error: error)
+                }
+            }
+        }
+    }
 }
 
 
@@ -91,7 +109,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .changeFont: selectedVC = ChangeFontViewController()
         case .changeThemeColor: selectedVC = ChangeColorViewController()
         case .backUpAndRestore: selectedVC = BackupRestoreViewController()
-        case .reset: break
+        case .reset: resetButtonTapped()
         case .bugReportAndFeedback: break
         case .appStoreReview: break
         case .versionInfo: break

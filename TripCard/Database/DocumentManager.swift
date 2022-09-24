@@ -15,6 +15,7 @@ enum DocumentError: Error {
     case createDirectoryError
     case saveImageError
     case removeDirectoryError
+    case removeFileError
     case fetchImagesError
     case fetchZipFileError
     case fetchDirectoryPathError
@@ -154,7 +155,7 @@ struct DocumentManager {
         
         let mainImagePath = directoryURL.appendingPathComponent("mainImage.jpg")
         
-        var image = UIImage(contentsOfFile: mainImagePath.pathString)
+        let image = UIImage(contentsOfFile: mainImagePath.pathString)
         
         return image
     }
@@ -178,17 +179,44 @@ struct DocumentManager {
     
     
     func removeFileFromDocument(fileName: String) throws {
-        guard let documentDirectory = documentDirectoryPath() else { return }
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
 
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        let fileURL = documentPath.appendingPathComponent(fileName)
 
-        try FileManager.default.removeItem(at: fileURL)
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+        }
+        catch {
+            throw DocumentError.removeFileError
+        }
     }
     
     
     
     func removeFileFromDocument(url: URL) throws {
-        try FileManager.default.removeItem(at: url)
+        do {
+            try FileManager.default.removeItem(at: url)
+        }
+        catch {
+            throw DocumentError.removeFileError
+        }
+    }
+    
+    
+    
+    func removeAllDocumentData() throws {
+        guard let documentPath = documentDirectoryPath() else { throw DocumentError.fetchDirectoryPathError }
+        
+        do {
+            let content = try fetchAllContent(at: documentPath)
+            
+            for url in content {
+                try removeFileFromDocument(url: url)
+            }
+        }
+        catch {
+            throw DocumentError.removeFileError
+        }
     }
     
     
@@ -227,7 +255,7 @@ struct DocumentManager {
         do {
             guard let path = documentDirectoryPath() else { return [] }
             
-            let docs = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            let docs = try fetchAllContent(at: path)
             
             let zip = docs.filter { $0.pathExtension == "zip" }
             
@@ -236,7 +264,14 @@ struct DocumentManager {
         }catch {
             throw DocumentError.fetchZipFileError
         }
+    }
+    
+    
+    
+    func fetchAllContent(at path: URL) throws -> [URL] {
+        let content = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
         
+        return content
     }
     
     
@@ -257,7 +292,7 @@ struct DocumentManager {
     
     
     private func isFileExist(path: URL) -> Bool {
-        var urlString = path.pathString
+        let urlString = path.pathString
 
         return FileManager.default.fileExists(atPath: urlString)
     }
