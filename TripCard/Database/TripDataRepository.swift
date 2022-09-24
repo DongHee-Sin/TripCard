@@ -94,6 +94,14 @@ final class TripDataRepository: TripDataRepositoryType {
     // MARK: - Methods
     // Create(add)
     func create(_ trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?]) throws {
+        try create([trip])
+        
+        try documentManager.saveImageToDocument(directoryName: trip.objectId.stringValue, mainImage: mainImage, imageByDate: imageByDate)
+    }
+    
+    
+    
+    func create(_ trip: [Trip]) throws {
         do {
             try localRealm.write {
                 localRealm.add(trip)
@@ -102,8 +110,6 @@ final class TripDataRepository: TripDataRepositoryType {
         catch {
             throw RealmError.writeError
         }
-        
-        try documentManager.saveImageToDocument(directoryName: trip.objectId.stringValue, mainImage: mainImage, imageByDate: imageByDate)
     }
     
     
@@ -158,6 +164,19 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
+    func removeAll() throws {
+        do {
+            try localRealm.write {
+                localRealm.deleteAll()
+            }
+        }
+        catch {
+            throw RealmError.deleteError
+        }
+    }
+    
+    
+    
     // Observer 달기
     func addObserver(to tripType: TripType, completion: @escaping () -> Void) {
         switch tripType {
@@ -179,10 +198,8 @@ final class TripDataRepository: TripDataRepositoryType {
         
         guard let decodedData = try decodeJSON(jsonData) else { return }
         
-        try localRealm.write {
-            localRealm.deleteAll()
-            localRealm.add(decodedData)
-        }
+        try removeAll()
+        try create(decodedData)
     }
     
     
