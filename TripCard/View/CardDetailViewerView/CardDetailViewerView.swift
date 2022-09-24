@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FSPagerView
 
 
 final class CardDetailViewerView: BaseView {
@@ -16,10 +17,9 @@ final class CardDetailViewerView: BaseView {
         $0.backgroundColor = .clear
     }
     
-    let cardCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: .configureDetailCardLayout()).then {
-        $0.isPagingEnabled = true
-        $0.showsHorizontalScrollIndicator = false
-        $0.backgroundColor = .clear
+    lazy var pagerView = FSPagerView().then {
+        $0.transformer = FSPagerViewTransformer(type: .overlap)
+        $0.register(CardViewerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     
@@ -30,7 +30,7 @@ final class CardDetailViewerView: BaseView {
     
     // MARK: - Methods
     override func configureUI() {
-        [dateCollectionView, cardCollectionView].forEach {
+        [dateCollectionView, pagerView].forEach {
             self.addSubview($0)
         }
     }
@@ -40,10 +40,10 @@ final class CardDetailViewerView: BaseView {
         dateCollectionView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(60)
+            make.height.equalTo(70)
         }
         
-        cardCollectionView.snp.makeConstraints { make in
+        pagerView.snp.makeConstraints { make in
             make.top.equalTo(dateCollectionView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)

@@ -73,6 +73,7 @@
 		D0AB59BD28D4384300DD13AD /* ChangeCalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */; };
 		D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = D0B210D528DE9CF20041092B /* FSPagerView */; };
 		D0B210D828DEA26F0041092B /* CardViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */; };
+		D0B210DA28DEAFA90041092B /* MainPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B210D928DEAFA90041092B /* MainPagerViewCell.swift */; };
 		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
@@ -147,6 +148,7 @@
 		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCalendarDateView.swift; sourceTree = "<group>"; };
 		D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0B210D928DEAFA90041092B /* MainPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagerViewCell.swift; sourceTree = "<group>"; };
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A666B928D0815F0042C9C7 /* MainTextField.swift */,
+				D0B210D928DEAFA90041092B /* MainPagerViewCell.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
+				D0B210DA28DEAFA90041092B /* MainPagerViewCell.swift in Sources */,
 				D04CCEB328D220F9004C2F10 /* WriteViewModel.swift in Sources */,
 				D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */,
 				D09C947E28D1C31600D2B68D /* UIView+Extension.swift in Sources */,

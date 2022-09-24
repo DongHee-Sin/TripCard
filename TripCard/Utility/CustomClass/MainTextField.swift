@@ -8,7 +8,7 @@
 import Foundation
 import TextFieldEffects
 
-class MainTextField: HoshiTextField {
+final class MainTextField: HoshiTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -19,7 +19,7 @@ class MainTextField: HoshiTextField {
     }
     
     
-    func setupUI() {
+    private func setupUI() {
         textColor = .black
         placeholderColor = .darkGray
         borderInactiveColor = .lightGray

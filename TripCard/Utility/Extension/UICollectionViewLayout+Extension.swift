@@ -94,7 +94,7 @@ extension UICollectionViewLayout {
                 
             item.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 12, bottom: 12, trailing: 12)
                
-            let groubSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .fractionalHeight(1))
+            let groubSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .fractionalHeight(0.9))
                 
             let groub = NSCollectionLayoutGroup.horizontal(layoutSize: groubSize, subitem: item, count: 1)
                 

@@ -9,7 +9,7 @@ import UIKit
 import FSPagerView
 
 
-final class CardViewerCollectionViewCell: FSPagerViewCell {
+final class CardViewerCollectionViewCell: MainPagerViewCell {
     
     // MARK: - Propertys
     let photoImage = UIImageView().then {
@@ -45,25 +45,8 @@ final class CardViewerCollectionViewCell: FSPagerViewCell {
     
     
     
-    // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        configureUI()
-        setConstraint()
-        addShadow()
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    
-    
-    
     // MARK: - Methods
-    func configureUI() {
+    override func configureUI() {
         [photoImage, locationImage, locationLabel, calendarImage, periodLabel].forEach {
             self.addSubview($0)
         }
@@ -74,7 +57,7 @@ final class CardViewerCollectionViewCell: FSPagerViewCell {
     }
     
     
-    func setConstraint() {
+    override func setConstraint() {
         photoImage.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top)
             make.leading.trailing.equalTo(self)
@@ -106,12 +89,6 @@ final class CardViewerCollectionViewCell: FSPagerViewCell {
             make.bottom.equalTo(self.snp.bottom).offset(-8)
             make.height.equalTo(locationLabel.snp.height)
         }
-    }
-    
-    
-    final private func addShadow() {
-        self.addShadow(color: .black, width: 5, height: 5, alpha: 0.3, radius: 5)
-        self.layer.masksToBounds = false
     }
     
     

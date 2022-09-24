@@ -62,6 +62,17 @@ final class CardViewerViewController: BaseViewController {
     private func setCollectionView() {
         cardViewerView.pagerView.delegate = self
         cardViewerView.pagerView.dataSource = self
+        cardViewerView.pagerView.register(CardViewerCollectionViewCell.self, forCellWithReuseIdentifier: CardViewerCollectionViewCell.identifier)
+        
+        cardViewerView.pagerView.itemSize = fetchCardSize()
+    }
+    
+    
+    private func fetchCardSize() -> CGSize {
+        let width = UIScreen.main.bounds.width - 88
+        let height = (width * 1.25) + 100
+        
+        return CGSize(width: width, height: height)
     }
     
     
@@ -150,7 +161,7 @@ extension CardViewerViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index) as? CardViewerCollectionViewCell else {
+        guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: CardViewerCollectionViewCell.identifier, at: index) as? CardViewerCollectionViewCell else {
             return FSPagerViewCell()
         }
         

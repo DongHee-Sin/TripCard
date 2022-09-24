@@ -12,13 +12,9 @@ import FSPagerView
 final class CardViewerView: BaseView {
     
     // MARK: - Propertys
-    private let itenWidth: CGFloat = UIScreen.main.bounds.width - 88
-    
     lazy var pagerView = FSPagerView().then {
         $0.transformer = FSPagerViewTransformer(type: .linear)
-        $0.itemSize = CGSize(width: itenWidth, height: itenWidth * 1.25 + 100)
         $0.isInfinite = true
-        $0.register(CardViewerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     
