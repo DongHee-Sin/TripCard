@@ -71,6 +71,8 @@
 		D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */; };
 		D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB514F28C776C700EB6D2B /* ColorManager.swift */; };
 		D0AB59BD28D4384300DD13AD /* ChangeCalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */; };
+		D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = D0B210D528DE9CF20041092B /* FSPagerView */; };
+		D0B210D828DEA26F0041092B /* CardViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */; };
 		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
@@ -144,6 +146,7 @@
 		D0AB514C28C7758300EB6D2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D0AB514F28C776C700EB6D2B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCalendarDateView.swift; sourceTree = "<group>"; };
+		D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
+				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
 				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D02BC3BC28D35B6300BCEB0E /* PanModal in Frameworks */,
@@ -487,6 +491,7 @@
 			children = (
 				D015C6F628D716D80081062F /* CardViewerViewController.swift */,
 				D015C6F828D7174E0081062F /* CardViewerView.swift */,
+				D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */,
 			);
 			path = CardViewerView;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				D02BC3BB28D35B6300BCEB0E /* PanModal */,
 				D0C91E2C28DB010E0045D587 /* Zip */,
 				D026637928DCBBC300A86196 /* JGProgressHUD */,
+				D0B210D528DE9CF20041092B /* FSPagerView */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -571,6 +577,7 @@
 				D02BC3BA28D35B6200BCEB0E /* XCRemoteSwiftPackageReference "PanModal" */,
 				D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */,
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -652,6 +659,7 @@
 				D0AB514728C7700D00EB6D2B /* UIViewController+Extension.swift in Sources */,
 				D0254FAB28CB7D800076FCB1 /* OverseasListViewController.swift in Sources */,
 				D0AB512428C76CD800EB6D2B /* AppDelegate.swift in Sources */,
+				D0B210D828DEA26F0041092B /* CardViewerCollectionViewCell.swift in Sources */,
 				D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */,
 				D04CCEB128D2144B004C2F10 /* WriteByDateViewController.swift in Sources */,
 				D0AB512628C76CD800EB6D2B /* SceneDelegate.swift in Sources */,
@@ -967,6 +975,14 @@
 				kind = branch;
 			};
 		};
+		D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSPagerView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -1040,6 +1056,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		D0B210D528DE9CF20041092B /* FSPagerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */;
+			productName = FSPagerView;
 		};
 		D0BBA54E28D3115A007D0916 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;

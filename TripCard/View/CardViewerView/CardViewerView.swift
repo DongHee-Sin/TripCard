@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import FSPagerView
 
 
 final class CardViewerView: BaseView {
     
     // MARK: - Propertys
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .configureCardLayout()).then {
-        $0.backgroundColor = .clear
+    private let itenWidth: CGFloat = UIScreen.main.bounds.width - 88
+    
+    lazy var pagerView = FSPagerView().then {
+        $0.transformer = FSPagerViewTransformer(type: .linear)
+        $0.itemSize = CGSize(width: itenWidth, height: itenWidth * 1.25 + 100)
+        $0.isInfinite = true
+        $0.register(CardViewerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     
@@ -20,12 +26,12 @@ final class CardViewerView: BaseView {
     
     // MARK: - Methods
     override func configureUI() {
-        self.addSubview(collectionView)
+        self.addSubview(pagerView)
     }
     
     
     override func setConstraint() {
-        collectionView.snp.makeConstraints { make in
+        pagerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FSPagerView
+
 
 final class CardViewerViewController: BaseViewController {
 
@@ -58,9 +60,8 @@ final class CardViewerViewController: BaseViewController {
     
     
     private func setCollectionView() {
-        cardViewerView.collectionView.delegate = self
-        cardViewerView.collectionView.dataSource = self
-        cardViewerView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
+        cardViewerView.pagerView.delegate = self
+        cardViewerView.pagerView.dataSource = self
     }
     
     
@@ -79,7 +80,7 @@ final class CardViewerViewController: BaseViewController {
             scrollToItem(at: currentCardIndex)
             return
         }
-        
+
         if let selectedIndex = selectedIndex {
             scrollToItem(at: selectedIndex)
             currentCardIndex = selectedIndex
@@ -88,8 +89,7 @@ final class CardViewerViewController: BaseViewController {
     
     
     private func scrollToItem(at index: Int) {
-        cardViewerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
-        cardViewerView.collectionView.isPagingEnabled = true
+        cardViewerView.pagerView.scrollToItem(at: index, animated: false)
     }
     
     
@@ -105,11 +105,8 @@ final class CardViewerViewController: BaseViewController {
         
         modifyVC.modifyCardCompletion = { [weak self] in
             guard let self = self else { return }
-            self.cardViewerView.collectionView.isPagingEnabled = true
-            self.cardViewerView.collectionView.reloadData()
+            self.cardViewerView.pagerView.reloadData()
         }
-        
-        self.cardViewerView.collectionView.isPagingEnabled = false
         
         let navi = BaseNavigationController(rootViewController: modifyVC)
         transition(navi, transitionStyle: .presentFullScreen)
@@ -144,22 +141,22 @@ final class CardViewerViewController: BaseViewController {
 
 
 
-// MARK: - CollectionView Protocol
-extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+// MARK: - PagerView Protocol
+extension CardViewerViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
         return numberOfCard
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: indexPath) as? CardCell else {
-            return UICollectionViewCell()
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index) as? CardViewerCollectionViewCell else {
+            return FSPagerViewCell()
         }
         
-        guard let tripType = tripType else { return UICollectionViewCell() }
+        guard let tripType = tripType else { return FSPagerViewCell() }
         
-        if let trip = repository.fetchTrip(at: indexPath.item, tripType: tripType) {
+        if let trip = repository.fetchTrip(at: index, tripType: tripType) {
             var image: UIImage?
             do {
                 image = try repository.documentManager.loadMainImageFromDocument(directoryName: trip.objectId.stringValue)
@@ -173,26 +170,17 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
+   
     
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let cell = cardViewerView.collectionView.visibleCells.first else { return }
-        
-        let indexPath = cardViewerView.collectionView.indexPath(for: cell)
-        
-        currentCardIndex = indexPath?.item
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         let detailVC = CardDetailViewerViewController()
-        
-        if let tripType = tripType, let trip = repository.fetchTrip(at: indexPath.item, tripType: tripType) {
+
+        if let tripType = tripType, let trip = repository.fetchTrip(at: index, tripType: tripType) {
             do {
                 var contentByDate: [String?] = []
                 contentByDate.append(contentsOf: trip.contentByDate)
                 let imageByDate = try repository.documentManager.loadImagesFromDocument(directoryName: trip.objectId.stringValue, numberOfTripDate: trip.numberOfDate)
-                
+
                 detailVC.contentByDate = contentByDate
                 detailVC.imageByDate = imageByDate
             }
@@ -200,7 +188,7 @@ extension CardViewerViewController: UICollectionViewDelegate, UICollectionViewDa
                 showErrorAlert(error: error)
             }
         }
-        
+
         transition(detailVC, transitionStyle: .present)
     }
 }
