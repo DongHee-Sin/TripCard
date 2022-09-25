@@ -233,7 +233,7 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let cardByDate = viewModel.cardByDate.value[indexPath.row]
-        cell.updateCell(index: indexPath.row, cardByDate: cardByDate)
+        cell.updateCell(index: indexPath.row, date: viewModel.tripPeriod.value?.start, cardByDate: cardByDate)
         
         return cell
     }

@@ -10,7 +10,7 @@ import UIKit
 final class WriteTableViewCell: UITableViewCell {
 
     // MARK: - Propertys
-    let dateLabel = UILabel().then {
+    let dateCountLabel = UILabel().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 10
         $0.textColor = .white
@@ -23,9 +23,20 @@ final class WriteTableViewCell: UITableViewCell {
         $0.font = .systemFont(ofSize: FontSize.small.rawValue)
     }
     
+    let dateLabel = UILabel().then {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: FontSize.smaller.rawValue)
+    }
+    
+    let labelStackView = UIStackView().then {
+        $0.distribution = .fillProportionally
+//        $0.spacing =
+        $0.axis = .vertical
+    }
+    
     let photoImage = UIImageView().then {
         $0.tintColor = ColorManager.shared.buttonColor
-        $0.backgroundColor = .systemGray6
+        $0.backgroundColor = .clear
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
     }
@@ -53,7 +64,11 @@ final class WriteTableViewCell: UITableViewCell {
     
     // MARK: - Methdos
     private func configureUI() {
-        [dateLabel, contentLabel, photoImage].forEach {
+        [contentLabel, dateLabel].forEach {
+            labelStackView.addArrangedSubview($0)
+        }
+        
+        [dateCountLabel, labelStackView, photoImage].forEach {
             self.addSubview($0)
         }
     }
@@ -66,25 +81,26 @@ final class WriteTableViewCell: UITableViewCell {
             make.width.equalTo(photoImage.snp.height)
         }
         
-        dateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        dateCountLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-        dateLabel.snp.makeConstraints { make in
+        dateCountLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(20)
             make.verticalEdges.equalTo(self).inset(8)
         }
         
-        contentLabel.snp.makeConstraints { make in
-            make.leading.equalTo(dateLabel.snp.trailing).offset(12)
+        labelStackView.snp.makeConstraints { make in
+            make.leading.equalTo(dateCountLabel.snp.trailing).offset(12)
             make.trailing.equalTo(photoImage.snp.leading).offset(-12)
             make.verticalEdges.equalTo(self).inset(8)
         }
     }
     
     
-    func updateCell(index: Int, cardByDate: CardByDate) {
-        dateLabel.text = "  \(index + 1)일차  "
+    func updateCell(index: Int, date: Date?, cardByDate: CardByDate) {
+        dateCountLabel.text = "  \(index + 1)일차  "
         contentLabel.text = cardByDate.content ?? "내용을 입력하세요!"
-        photoImage.image = cardByDate.photoImage ?? UIImage(systemName: "photo")
+        dateLabel.text = date?.add(day: index).string
+        photoImage.image = cardByDate.photoImage ?? UIImage(systemName: "photo.circle")
     }
 
 }
