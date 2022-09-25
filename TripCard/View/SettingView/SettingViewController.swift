@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 
 enum SettingCellList: String {
@@ -29,6 +30,15 @@ class SettingViewController: BaseViewController {
         [.bugReportAndFeedback, .appStoreReview],
         [.versionInfo, .openSource]
     ]
+    
+    private lazy var composeViewController: MFMailComposeViewController = {
+        let vc = MFMailComposeViewController()
+        vc.mailComposeDelegate = self
+        vc.setToRecipients(["sin060123@gmail.com"])
+        vc.setSubject("앱 제목) 개발자 문의")
+        
+        return vc
+    }()
     
     
     
@@ -55,7 +65,7 @@ class SettingViewController: BaseViewController {
     }
     
     
-    private func resetButtonTapped() {
+    private func resetAppData() {
         showAlert(title: "초기화를 진행하시겠습니까?", buttonTitle: "초기화", cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             
@@ -69,6 +79,27 @@ class SettingViewController: BaseViewController {
                     self.showErrorAlert(error: error)
                 }
             }
+        }
+    }
+    
+    
+    private func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            transition(composeViewController, transitionStyle: .present)
+        }else {
+            showAlert(title: "메일 전송 실패", message: "디바이스의 이메일 설정을 확인하고 다시 시도해주세요.")
+        }
+    }
+    
+    
+    private func openAppStore() {
+        let urlString = "itms-apps://itunes.apple.com/app/1645004488"
+        
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        }else {
+            showAlert(title: "앱스토어 연결에 실패했습니다.")
         }
     }
 }
@@ -109,9 +140,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .changeFont: selectedVC = ChangeFontViewController()
         case .changeThemeColor: selectedVC = ChangeColorViewController()
         case .backUpAndRestore: selectedVC = BackupRestoreViewController()
-        case .reset: resetButtonTapped()
-        case .bugReportAndFeedback: break
-        case .appStoreReview: break
+        case .reset: resetAppData()
+        case .bugReportAndFeedback: sendEmail()
+        case .appStoreReview: openAppStore()
         case .versionInfo: break
         case .openSource: break
         }
@@ -119,5 +150,15 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if let selectedVC = selectedVC {
             transition(selectedVC, transitionStyle: .push)
         }
+    }
+}
+
+
+
+
+// MARK: - MFMail Protocol
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

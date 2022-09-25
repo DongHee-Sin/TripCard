@@ -13,8 +13,8 @@ extension UIViewController {
     // MARK: - Alert
     typealias CompletionHandler = (UIAlertAction) -> Void
     
-    func showAlert(title: String, buttonTitle: String = "확인", cancelTitle: String? = nil, completionHandler: CompletionHandler? = nil) -> Void {
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+    func showAlert(title: String, message: String? = nil, buttonTitle: String = "확인", cancelTitle: String? = nil, completionHandler: CompletionHandler? = nil) -> Void {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: buttonTitle, style: .default, handler: completionHandler)
         
         if let cancelTitle = cancelTitle {
