@@ -100,14 +100,14 @@ final class WriteViewController: BaseViewController {
                 // 기존 데이터를 [날짜: 데이터] Dictionary 형태로 변환
                 var cardByDateBeforeChange: [Date: CardByDate] = [:]
                 self.viewModel.cardByDate.value.enumerated().forEach { (index, cardByDate) in
-                    let date = startDateBeforeChange.addingTimeInterval(TimeInterval(86400 * index))
+                    let date = startDateBeforeChange.add(day: index)
                     cardByDateBeforeChange[date] = cardByDate
                 }
                 
                 // 새로 등록할 데이터 배열
                 var cardByDate: [CardByDate] = []
                 for index in 0..<self.viewModel.numberOfCell {
-                    let date = self.viewModel.tripPeriod.value!.start.addingTimeInterval(TimeInterval(86400 * index))
+                    let date = self.viewModel.tripPeriod.value!.start.add(day: index)
                     cardByDate.append(cardByDateBeforeChange[date] ?? CardByDate())
                 }
                 

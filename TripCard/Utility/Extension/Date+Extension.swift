@@ -29,6 +29,11 @@ extension Date {
     }
     
     
+    func add(day: Int) -> Date {
+        return self.addingTimeInterval(TimeInterval(86400 * day))
+    }
+    
+    
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
