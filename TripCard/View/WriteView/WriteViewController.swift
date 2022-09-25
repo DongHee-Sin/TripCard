@@ -79,9 +79,15 @@ final class WriteViewController: BaseViewController {
             guard let self = self else { return }
             
             if self.viewModel.numberOfCell != self.viewModel.cardByDate.value.count {
+                
                 if self.viewModel.numberOfCell > 0 {
+                    // 기간이 입력되어 있다면, 입력된 기간만큼 Cell 생성
+                    // 여기서 업뎃해주면 될듯
+                    
+                    
                     self.viewModel.cardByDate.value = Array(repeating: CardByDate(), count: self.viewModel.numberOfCell)
                 }else {
+                    // 기간이 입력되지 않았다면 빈 배열로 설정 (Cell 생성 X)
                     self.viewModel.cardByDate.value = []
                 }
             }

@@ -21,6 +21,8 @@ final class CalendarSheetViewController: BaseViewController {
     // MARK: - Propertys
     var halfDeviceHeight: CGFloat = 0
     
+    private var period: TripPeriod?
+    
     weak var delegate: AddPeriodDelegate?
     
     
@@ -34,6 +36,12 @@ final class CalendarSheetViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        delegate?.addPeriod(period: period)
     }
     
     
@@ -85,9 +93,8 @@ final class CalendarSheetViewController: BaseViewController {
     
     
     private func selectedDateDidChanged(selectedDates: [Date]) {
-        let period = convertDateArrayToTripPeriod(dates: selectedDates)
-        
-        delegate?.addPeriod(period: period)
+        period = convertDateArrayToTripPeriod(dates: selectedDates)
+    
         updateCalendarLabel(period: period)
     }
     
@@ -107,11 +114,11 @@ final class CalendarSheetViewController: BaseViewController {
     
     
     func calendarInitialSetting(viewModel: WriteViewModel) {
-        let period = viewModel.tripPeriod.value
+        period = viewModel.tripPeriod.value
         
         updateCalendarLabel(period: period)
         
-        guard let period = viewModel.tripPeriod.value else { return }
+        guard let period = period else { return }
         
         selectDates(period: period)
         calendarView.calendar.setCurrentPage(period.start, animated: true)
