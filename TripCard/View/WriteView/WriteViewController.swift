@@ -28,6 +28,10 @@ final class WriteViewController: BaseViewController {
     
     var modifyCardCompletion: (() -> Void)?
     
+    private var startDateBeforeChange: Date?
+    
+    private var periodBindToggle = false
+    
     
     
     
@@ -70,30 +74,52 @@ final class WriteViewController: BaseViewController {
             self.writeView.tableView.reloadData()
         }
         
+        
         viewModel.segmentValue.bind { [weak self] selectedIndex in
             guard let self = self else { return }
             self.updateNavigationTitleImage(selectedSegmentIndex: selectedIndex)
         }
         
+        
+        // MARK: -
         viewModel.tripPeriod.bind { [weak self] dates in
             guard let self = self else { return }
             
-            if self.viewModel.numberOfCell != self.viewModel.cardByDate.value.count {
-                
-                if self.viewModel.numberOfCell > 0 {
-                    // 기간이 입력되어 있다면, 입력된 기간만큼 Cell 생성
-                    // 여기서 업뎃해주면 될듯
-                    
-                    
+            guard self.periodBindToggle else {     // 수정 상태로 화면 처음 진입 시 날짜별 카드 데이터 삭제되는 것 방지
+                self.periodBindToggle.toggle()
+                return
+            }
+            
+            if self.viewModel.numberOfCell > 0 {
+                // Calendar를 띄울 때, 기간 데이터가 입력되어 있었는지 여부
+                guard let startDateBeforeChange = self.startDateBeforeChange else {
                     self.viewModel.cardByDate.value = Array(repeating: CardByDate(), count: self.viewModel.numberOfCell)
-                }else {
-                    // 기간이 입력되지 않았다면 빈 배열로 설정 (Cell 생성 X)
-                    self.viewModel.cardByDate.value = []
+                    return
                 }
+                
+                // 기존 데이터를 [날짜: 데이터] Dictionary 형태로 변환
+                var cardByDateBeforeChange: [Date: CardByDate] = [:]
+                self.viewModel.cardByDate.value.enumerated().forEach { (index, cardByDate) in
+                    let date = startDateBeforeChange.addingTimeInterval(TimeInterval(86400 * index))
+                    cardByDateBeforeChange[date] = cardByDate
+                }
+                
+                // 새로 등록할 데이터 배열
+                var cardByDate: [CardByDate] = []
+                for index in 0..<self.viewModel.numberOfCell {
+                    let date = self.viewModel.tripPeriod.value!.start.addingTimeInterval(TimeInterval(86400 * index))
+                    cardByDate.append(cardByDateBeforeChange[date] ?? CardByDate())
+                }
+                
+                self.viewModel.cardByDate.value = cardByDate
+            }else {
+                // 기간이 입력되지 않았다면 빈 배열로 설정 (Cell 생성 X)
+                self.viewModel.cardByDate.value = []
             }
             
             self.writeView.tableView.reloadData()
         }
+        
         
         viewModel.cardByDate.bind { [weak self] _ in
             guard let self = self else { return }
@@ -299,6 +325,8 @@ extension WriteViewController: UITextFieldDelegate {
             if let sheet = calendarVC.sheetPresentationController {
                 sheet.detents = [.medium()]
             }
+            
+            startDateBeforeChange = viewModel.tripPeriod.value?.start
             
             transition(calendarVC, transitionStyle: .present)
             
