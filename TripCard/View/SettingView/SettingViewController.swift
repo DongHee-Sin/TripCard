@@ -41,6 +41,9 @@ class SettingViewController: BaseViewController {
     }()
     
     
+    private let appVersion = "1.0.0"
+    
+    
     
     
     // MARK: - Life Cycle
@@ -121,11 +124,16 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         
         cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue
         cell.textLabel?.font = .customFont(size: .large)
         cell.selectionStyle = .none
+        
+        if cellItems[indexPath.section][indexPath.row] == .versionInfo {
+            cell.detailTextLabel?.text = appVersion
+            cell.detailTextLabel?.font = .customFont(size: .small)
+        }
         
         return cell
     }
