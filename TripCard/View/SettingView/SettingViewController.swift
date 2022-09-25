@@ -75,6 +75,7 @@ class SettingViewController: BaseViewController {
             self.showAlert(title: "모든 카드와 이미지가 삭제됩니다. 정말 초기화를 진행할까요?", buttonTitle: "초기화", cancelTitle: "취소") { _ in
                 do {
                     try TripDataRepository.shared.resetAppData()
+                    UserDefaultManager.shared.resetAllData()
                     
                     self.changeRootViewController()
                 }
