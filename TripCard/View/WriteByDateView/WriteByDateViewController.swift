@@ -84,7 +84,7 @@ final class WriteByDateViewController: BaseViewController {
     
     private func saveData() {
         let image = writeByDateView.mainPhotoImage.image
-        let content = writeByDateView.contentTextView.text ?? nil
+        let content = writeByDateView.contentTextView.text != textViewPlaceHolder ? writeByDateView.contentTextView.text : nil
         
         let updatedData = CardByDate(photoImage: image, content: content)
         

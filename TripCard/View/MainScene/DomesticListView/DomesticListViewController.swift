@@ -7,10 +7,17 @@
 
 import UIKit
 
+
 final class DomesticListViewController: BaseViewController {
 
     // MARK: - Propertys
-    let repository = TripDataRepository.shared
+    private let repository = TripDataRepository.shared
+    
+    private let placeHolderLabel = UILabel().then {
+        $0.textColor = ColorManager.shared.textColor
+        $0.font = .customFont(size: .largest)
+        $0.text = "작성된 여행기록이 없어요!"
+    }
     
     
     
@@ -34,8 +41,22 @@ final class DomesticListViewController: BaseViewController {
         cardListView.collectionView.dataSource = self
         cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
         
+        setPlaceHolder()
+        
         repository.addObserver(to: .domestic) { [weak self] in
-            self?.cardListView.collectionView.reloadData()
+            guard let self = self else { return }
+            
+            self.cardListView.collectionView.reloadData()
+            self.placeHolderLabel.isHidden = self.repository.domesticCount != 0
+        }
+    }
+    
+    
+    private func setPlaceHolder() {
+        view.addSubview(placeHolderLabel)
+        
+        placeHolderLabel.snp.makeConstraints { make in
+            make.center.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

@@ -98,7 +98,7 @@ final class WriteTableViewCell: UITableViewCell {
     
     func updateCell(index: Int, date: Date?, cardByDate: CardByDate) {
         dateCountLabel.text = "  \(index + 1)일차  "
-        contentLabel.text = cardByDate.content ?? "내용을 입력하세요!"
+        contentLabel.text = cardByDate.content
         dateLabel.text = date?.add(day: index).string
         photoImage.image = cardByDate.photoImage ?? UIImage(systemName: "photo.circle")
     }

@@ -7,10 +7,17 @@
 
 import UIKit
 
+
 final class OverseasListViewController: BaseViewController {
 
     // MARK: - Propertys
-    let repository = TripDataRepository.shared
+    private let repository = TripDataRepository.shared
+    
+    private let placeHolderLabel = UILabel().then {
+        $0.textColor = ColorManager.shared.textColor
+        $0.font = .customFont(size: .largest)
+        $0.text = "작성된 여행기록이 없어요!"
+    }
     
     
     
@@ -34,8 +41,19 @@ final class OverseasListViewController: BaseViewController {
         cardListView.collectionView.dataSource = self
         cardListView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
         
+        setPlaceHolder()
+        
         repository.addObserver(to: .overseas) { [weak self] in
             self?.cardListView.collectionView.reloadData()
+        }
+    }
+    
+    
+    private func setPlaceHolder() {
+        view.addSubview(placeHolderLabel)
+        
+        placeHolderLabel.snp.makeConstraints { make in
+            make.center.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
