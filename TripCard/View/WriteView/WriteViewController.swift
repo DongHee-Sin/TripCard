@@ -128,8 +128,6 @@ final class WriteViewController: BaseViewController {
                 // 기간이 입력되지 않았다면 빈 배열로 설정 (Cell 생성 X)
                 self.viewModel.cardByDate.value = []
             }
-            
-            self.writeView.tableView.reloadData()
         }
         
         
