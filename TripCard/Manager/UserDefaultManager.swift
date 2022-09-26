@@ -41,6 +41,10 @@ final class UserDefaultManager {
     var themeColor: String
     
     
+    @UserDefault(key: "imageQuality", defaultValue: 0.3)
+    var imageQuality: Double
+    
+    
     
     // MARK: - Method
     func resetAllData() {

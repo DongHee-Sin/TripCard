@@ -12,6 +12,7 @@ import MessageUI
 enum SettingCellList: String {
     case changeFont = "폰트 변경"
     case changeThemeColor = "테마 색 변경"
+    case changeImageQuality = "이미지 저장 품질 변경"
     case backUpAndRestore = "백업 / 복원"
     case reset = "초기화"
     case bugReportAndFeedback = "버그 리포트 및 피드백"
@@ -25,7 +26,7 @@ class SettingViewController: BaseViewController {
 
     // MARK: - Propertys
     private let cellItems: [[SettingCellList]] = [
-        [.changeFont, .changeThemeColor],
+        [.changeFont, .changeThemeColor, .changeImageQuality],
         [.backUpAndRestore, .reset],
         [.bugReportAndFeedback, .appStoreReview],
         [.versionInfo, .openSource]
@@ -148,6 +149,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         switch selectedCell {
         case .changeFont: selectedVC = ChangeFontViewController()
         case .changeThemeColor: selectedVC = ChangeColorViewController()
+        case .changeImageQuality: selectedVC = ChangeImageQualityViewController()
         case .backUpAndRestore: selectedVC = BackupRestoreViewController()
         case .reset: resetAppData()
         case .bugReportAndFeedback: sendEmail()

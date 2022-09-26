@@ -88,11 +88,12 @@ struct DocumentManager {
     
         let directoryPath = imagesPath.appendingPathComponent(directoryName, isDirectory: true)
         
+        let imageQuality = UserDefaultManager.shared.imageQuality
         
         // 메인 이미지
         let result = {
             let fileURL = directoryPath.appendingPathComponent("mainImage.jpg")
-            let imageData = mainImage?.jpegData(compressionQuality: 0.3)
+            let imageData = mainImage?.jpegData(compressionQuality: imageQuality)
             
             return (fileURL: fileURL, imageData: imageData)
         }()
@@ -101,7 +102,7 @@ struct DocumentManager {
         // 날짜별 이미지
         let resultByDate = imageByDate.enumerated().map { index, image in
             let fileURL = directoryPath.appendingPathComponent("day\(index + 1)Image.jpg")
-            let imageData = image?.jpegData(compressionQuality: 0.3)
+            let imageData = image?.jpegData(compressionQuality: imageQuality)
             
             let result = (fileURL: fileURL, imageData: imageData)
             

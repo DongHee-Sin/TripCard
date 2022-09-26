@@ -73,6 +73,7 @@
 		D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = D0B210D528DE9CF20041092B /* FSPagerView */; };
 		D0B210D828DEA26F0041092B /* CardViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */; };
 		D0B210DA28DEAFA90041092B /* MainPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B210D928DEAFA90041092B /* MainPagerViewCell.swift */; };
+		D0B8BC5F28E1CE890061B84C /* ChangeImageQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B8BC5E28E1CE890061B84C /* ChangeImageQualityViewController.swift */; };
 		D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0BBA54E28D3115A007D0916 /* FSCalendar */; };
 		D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */; };
 		D0BBA55428D314A0007D0916 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBA55328D314A0007D0916 /* CalendarView.swift */; };
@@ -148,6 +149,7 @@
 		D0AB59BC28D4384300DD13AD /* ChangeCalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCalendarDateView.swift; sourceTree = "<group>"; };
 		D0B210D728DEA26F0041092B /* CardViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0B210D928DEAFA90041092B /* MainPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagerViewCell.swift; sourceTree = "<group>"; };
+		D0B8BC5E28E1CE890061B84C /* ChangeImageQualityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeImageQualityViewController.swift; sourceTree = "<group>"; };
 		D0BBA55128D31487007D0916 /* CalendarSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetViewController.swift; sourceTree = "<group>"; };
 		D0BBA55328D314A0007D0916 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D0BC601428D80FF3001A4728 /* CardDetailViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewerViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */,
 				D0BC601A28D813F8001A4728 /* ChangeFontView */,
 				D0306ECA28D8380C003F9577 /* ChangeColorView */,
+				D0B8BC5D28E1CE620061B84C /* ChangeImageQualityView */,
 				D04DD30928DABB7900EDCBDA /* BackupRestoreView */,
 				D0306ECB28D83826003F9577 /* OpenSourceView */,
 			);
@@ -460,6 +463,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		D0B8BC5D28E1CE620061B84C /* ChangeImageQualityView */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8BC5E28E1CE890061B84C /* ChangeImageQualityViewController.swift */,
+			);
+			path = ChangeImageQualityView;
+			sourceTree = "<group>";
+		};
 		D0BBA55028D3142F007D0916 /* CalendarSheetView */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +631,7 @@
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
+				D0B8BC5F28E1CE890061B84C /* ChangeImageQualityViewController.swift in Sources */,
 				D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */,
 				D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */,
 				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
