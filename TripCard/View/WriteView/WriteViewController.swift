@@ -17,13 +17,25 @@ final class WriteViewController: BaseViewController {
     // MARK: - Propertys
     let viewModel = WriteViewModel()
     
-    let phpickerViewController: PHPickerViewController = {
+    lazy private var phpickerViewController: PHPickerViewController = {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1
         configuration.filter = .images
         
         let pickerVC = PHPickerViewController(configuration: configuration)
         return pickerVC
+    }()
+    
+    lazy private var calendarViewController: CalendarSheetViewController = {
+        let calendarVC = CalendarSheetViewController()
+        
+        if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
+            calendarVC.halfDeviceHeight = deviceHeight / 2
+        }
+        
+        calendarVC.delegate = self
+        
+        return calendarVC
     }()
     
     var modifyCardCompletion: (() -> Void)?
@@ -175,6 +187,11 @@ final class WriteViewController: BaseViewController {
     }
     
     
+    @objc func textFieldValueChange(_ sender: UITextField) {
+        viewModel.location.value = sender.text ?? ""
+    }
+    
+    
     private func presentPHPickerViewController() {
         transition(phpickerViewController, transitionStyle: .present)
     }
@@ -215,8 +232,9 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         header.delegate = self
         header.updateHeader(viewModel: viewModel)
         
-        header.locationTextField.delegate = self
         header.periodTextField.delegate = self
+        
+        header.locationTextField.addTarget(self, action: #selector(textFieldValueChange), for: .editingChanged)
         
         return header
     }
@@ -312,37 +330,17 @@ extension WriteViewController: WritingDelegate {
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        // tag 1 : Calendar
-        if textField.tag == 1 {
-            let calendarVC = CalendarSheetViewController()
-            if let deviceHeight = view.window?.windowScene?.screen.bounds.height {
-                calendarVC.halfDeviceHeight = deviceHeight / 2
-            }
-            
-            calendarVC.delegate = self
-            calendarVC.calendarInitialSetting(viewModel: viewModel)
-            
-            if let sheet = calendarVC.sheetPresentationController {
-                sheet.detents = [.medium()]
-            }
-            
-            startDateBeforeChange = viewModel.tripPeriod.value?.start
-            
-            transition(calendarVC, transitionStyle: .present)
-            
-            return false
-        }else {
-            return true
-        }
-    }
-    
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.tag == 0 {
-            viewModel.location.value = textField.text ?? ""
+        calendarViewController.calendarInitialSetting(viewModel: viewModel)
+        
+        if let sheet = calendarViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
         }
         
-        return true
+        startDateBeforeChange = viewModel.tripPeriod.value?.start
+        
+        transition(calendarViewController, transitionStyle: .present)
+        
+        return false
     }
 }
 

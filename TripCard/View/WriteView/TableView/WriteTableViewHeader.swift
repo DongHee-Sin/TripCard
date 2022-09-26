@@ -47,12 +47,10 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
 
     let locationTextField = MainTextField().then {
-        $0.tag = 0
         $0.placeholder = "지역 *"
     }
 
     let periodTextField = MainTextField().then {
-        $0.tag = 1
         $0.placeholder = "기간 *"
     }
     
