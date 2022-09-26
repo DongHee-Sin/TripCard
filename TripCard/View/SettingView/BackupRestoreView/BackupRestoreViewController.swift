@@ -25,6 +25,11 @@ final class BackupRestoreViewController: BaseViewController {
         return formatter
     }()
     
+    lazy var dismissButton = UIAlertAction(title: "취소", style: .default) { [weak self] _ in
+        guard let self = self else { return }
+        self.dismiss(animated: true)
+    }
+    
     
     
     
@@ -79,8 +84,6 @@ final class BackupRestoreViewController: BaseViewController {
                 self.showActivityViewController(filePath: backupFilePath)
                 
                 self.fetchZipFiles()
-                
-                self.dismissIndicator()
             }
             catch {
                 self.showErrorAlert(error: error)
@@ -109,9 +112,31 @@ final class BackupRestoreViewController: BaseViewController {
     }
     
     
-    func showActivityViewController(filePath: URL) {
+    private func showActivityViewController(filePath: URL) {
         let vc = UIActivityViewController(activityItems: [filePath], applicationActivities: [])
         transition(vc, transitionStyle: .present)
+        dismissIndicator()
+    }
+    
+    
+    private func restoreData(lastPath: String) {
+        showIndicator()
+        
+        do {
+            showIndicator()
+            
+            try repository.documentManager.restoreData(zipLastPath: lastPath)
+            try repository.overwriteRealmWithJSON()
+            
+            dismissIndicator()
+            
+            changeRootViewController()
+        }
+        catch {
+            dismissIndicator()
+            
+            showErrorAlert(error: error)
+        }
     }
 }
 
@@ -140,27 +165,28 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(title: "\(zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { [weak self] _ in
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let restoreButton = UIAlertAction(title: "데이터 복구하기", style: .default) { [weak self] _ in
             guard let self = self else { return }
-            let lastPath = self.zipFiles[indexPath.row].lastPathComponent
-            
-            do {
-                self.showIndicator()
+            self.showAlert(title: "\(self.zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { _ in
+                let lastPath = self.zipFiles[indexPath.row].lastPathComponent
                 
-                try self.repository.documentManager.restoreData(zipLastPath: lastPath)
-                
-                try self.repository.overwriteRealmWithJSON()
-                
-                self.dismissIndicator()
-                
-                self.changeRootViewController()
-            }
-            catch {
-                self.dismissIndicator()
-                
-                self.showErrorAlert(error: error)
+                self.restoreData(lastPath: lastPath)
             }
         }
+        
+        let exportButton = UIAlertAction(title: "데이터 내보내기", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.showIndicator()
+            self.showActivityViewController(filePath: self.zipFiles[indexPath.row])
+        }
+        
+        actionSheet.addAction(restoreButton)
+        actionSheet.addAction(exportButton)
+        actionSheet.addAction(dismissButton)
+        
+        transition(actionSheet, transitionStyle: .present)
     }
     
     
