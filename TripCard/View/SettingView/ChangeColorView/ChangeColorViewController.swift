@@ -57,19 +57,16 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = BaseTableViewCell()
         
         let themeColor = themeColorList[indexPath.row]
         cell.textLabel?.text = themeColor.rawValue
-        cell.textLabel?.font = .customFont(size: .large)
         
         if let currentThemeColor = currentThemeColor {
             if currentThemeColor == themeColor {
                 cell.accessoryType = .checkmark
             }
         }
-        
-        cell.selectionStyle = .none
         
         return cell
     }

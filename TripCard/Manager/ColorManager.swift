@@ -60,29 +60,34 @@ final class ColorManager {
         
         switch themeColor {
         case .modern:
-            backgroundColor = UIColor(hex: "EEE3CBff")
-            selectedColor = UIColor(hex: "D7C0AEff")
+            backgroundColor = UIColor(hex: "FFEDDBff")
+            cellBackgroundColor = .white
+            selectedColor = UIColor(hex: "E3B7A0ff")
             buttonColor = UIColor(hex: "967E76ff")
             textColor = .black
         case .skyBlue:
             backgroundColor = UIColor(hex: "EFFFFDff")
-            selectedColor = UIColor(hex: "85F4FFff")
+            cellBackgroundColor = UIColor(hex: "F6F5F5ff")
+            selectedColor = UIColor(hex: "B8FFF9ff")
             buttonColor = UIColor(hex: "42C2FFff")
             textColor = .black
         case .purple:
             backgroundColor = UIColor(hex: "EBC7E8ff")
+            cellBackgroundColor = UIColor(hex: "FDEBF7ff")
             selectedColor = UIColor(hex: "BFACE0ff")
             buttonColor = UIColor(hex: "645CAAff")
             textColor = .black
         case .light:
             backgroundColor = UIColor(hex: "F9F9F9ff")
+            cellBackgroundColor = .white
             selectedColor = UIColor(hex: "FAF4B7ff")
             buttonColor = UIColor(hex: "ECC5FBff")
             textColor = .black
         case .dark:
             backgroundColor = UIColor(hex: "2C3639ff")
-            selectedColor = UIColor(hex: "A27B5Cff")
-            buttonColor = UIColor(hex: "DCD7C9ff")
+            cellBackgroundColor = .darkGray
+            selectedColor = UIColor(hex: "395B64ff")
+            buttonColor = UIColor(hex: "5C3D2Eff")
             textColor = .white
         }
     }

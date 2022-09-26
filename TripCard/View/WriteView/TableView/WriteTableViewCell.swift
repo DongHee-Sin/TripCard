@@ -52,6 +52,7 @@ final class WriteTableViewCell: UITableViewCell {
         setConstraint()
         
         self.selectionStyle = .none
+        self.backgroundColor = ColorManager.shared.cellBackgroundColor
     }
 
     

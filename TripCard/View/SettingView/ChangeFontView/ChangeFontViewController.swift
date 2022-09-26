@@ -57,19 +57,16 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = BaseTableViewCell()
         
         let font = customFontList[indexPath.row]
         cell.textLabel?.text = font.rawValue
-        cell.textLabel?.font = .customFont(font: font, size: .large)
         
         if let currentFont = currentFont {
             if currentFont == font {
                 cell.accessoryType = .checkmark
             }
         }
-        
-        cell.selectionStyle = .none
         
         return cell
     }

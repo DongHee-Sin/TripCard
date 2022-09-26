@@ -126,11 +126,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+        let cell = BaseTableViewCell(style: .value1, reuseIdentifier: "cell")
         
         cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue
-        cell.textLabel?.font = .customFont(size: .large)
-        cell.selectionStyle = .none
         
         if cellItems[indexPath.section][indexPath.row] == .versionInfo {
             cell.detailTextLabel?.text = appVersion

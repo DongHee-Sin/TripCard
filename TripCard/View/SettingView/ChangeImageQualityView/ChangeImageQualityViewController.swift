@@ -75,19 +75,16 @@ extension ChangeImageQualityViewController: UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = BaseTableViewCell()
         
         let imageQuality = imageQualityList[indexPath.row]
         cell.textLabel?.text = "\(imageQuality.string)"
-        cell.textLabel?.font = .customFont(size: .large)
         
         if let currentImageQuality = currentImageQuality {
             if currentImageQuality == imageQuality {
                 cell.accessoryType = .checkmark
             }
         }
-        
-        cell.selectionStyle = .none
         
         return cell
     }

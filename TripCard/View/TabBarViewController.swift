@@ -35,6 +35,6 @@ final class TabBarViewController: UITabBarController {
         appearence.backgroundColor = ColorManager.shared.selectedColor
         tabBar.standardAppearance = appearence
         tabBar.scrollEdgeAppearance = appearence
-        tabBar.tintColor = .black
+        tabBar.tintColor = ColorManager.shared.textColor
     }
 }

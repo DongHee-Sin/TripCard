@@ -42,6 +42,7 @@ final class BackupFileTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         self.accessoryType = .disclosureIndicator
+        self.backgroundColor = ColorManager.shared.cellBackgroundColor
     }
 
     
