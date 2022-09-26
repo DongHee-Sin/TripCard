@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-        UITabBar.appearance().backgroundColor = ColorManager.shared.selectedColor
-        
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.normal)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.highlighted)
         

@@ -30,8 +30,11 @@ final class TabBarViewController: UITabBarController {
     }
     
     private func setTabBarUI() {
-        tabBar.barTintColor = ColorManager.shared.selectedColor
-        tabBar.tintColor = ColorManager.shared.textColor
-        tabBar.unselectedItemTintColor = .lightGray
+        let appearence = UITabBarAppearance()
+        appearence.configureWithTransparentBackground()
+        appearence.backgroundColor = ColorManager.shared.selectedColor
+        tabBar.standardAppearance = appearence
+        tabBar.scrollEdgeAppearance = appearence
+        tabBar.tintColor = .black
     }
 }
