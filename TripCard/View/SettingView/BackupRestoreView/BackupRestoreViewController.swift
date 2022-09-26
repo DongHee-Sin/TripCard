@@ -25,7 +25,7 @@ final class BackupRestoreViewController: BaseViewController {
         return formatter
     }()
     
-    lazy var dismissButton = UIAlertAction(title: "취소", style: .default) { [weak self] _ in
+    lazy var dismissButton = UIAlertAction(title: "취소", style: .cancel) { [weak self] _ in
         guard let self = self else { return }
         self.dismiss(animated: true)
     }

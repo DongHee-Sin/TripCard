@@ -26,57 +26,64 @@ final class ColorManager {
     
     // MARK: - Init
     private init() {
-        
-        let themeColorString = UserDefaultManager.shared.themeColor
-        let themeColor = ThemeColor(rawValue: themeColorString) ?? .light
-        
-        switch themeColor {
-        case .modern:
-            backgroundColor = UIColor(hex: "EEE3CBff") ?? .white
-            selectedColor = UIColor(hex: "D7C0AEff") ?? .label
-            buttonColor = UIColor(hex: "967E76ff") ?? .label
-            textColor = .black
-        case .skyBlue:
-            backgroundColor = UIColor(hex: "EFFFFDff") ?? .white
-            selectedColor = UIColor(hex: "85F4FFff") ?? .label
-            buttonColor = UIColor(hex: "42C2FFff") ?? .label
-            textColor = .black
-        case .purple:
-            backgroundColor = UIColor(hex: "EBC7E8ff") ?? .white
-            selectedColor = UIColor(hex: "BFACE0ff") ?? .label
-            buttonColor = UIColor(hex: "645CAAff") ?? .label
-            textColor = .black
-        case .light:
-            backgroundColor = UIColor(hex: "F9F9F9ff") ?? .white
-            selectedColor = UIColor(hex: "FAF4B7ff") ?? .label
-            buttonColor = UIColor(hex: "ECC5FBff") ?? .label
-            textColor = .black
-        case .dark:
-            backgroundColor = UIColor(hex: "2C3639ff") ?? .white
-            selectedColor = UIColor(hex: "A27B5Cff") ?? .label
-            buttonColor = UIColor(hex: "DCD7C9ff") ?? .label
-            textColor = .white
-        }
-        
+        setThemeColor()
     }
     
     
     
     
     // MARK: - Propertys
-    private(set) var backgroundColor: UIColor
+    private(set) var backgroundColor: UIColor?
     
-    private(set) var textColor: UIColor
+    private(set) var cellBackgroundColor: UIColor?
     
-    private(set) var buttonColor: UIColor
+    private(set) var textColor: UIColor?
     
-    private(set) var selectedColor: UIColor
+    private(set) var unSelectedTextColor: UIColor?
+    
+    private(set) var buttonColor: UIColor?
+    
+    private(set) var selectedColor: UIColor?
     
     
     
     
     // MARK: - Methods
     static func themeColorChanged() {
-        Self.shared = ColorManager()
+        Self.shared.setThemeColor()
+    }
+    
+    
+    private func setThemeColor() {
+        let themeColorString = UserDefaultManager.shared.themeColor
+        let themeColor = ThemeColor(rawValue: themeColorString) ?? .light
+        
+        switch themeColor {
+        case .modern:
+            backgroundColor = UIColor(hex: "EEE3CBff")
+            selectedColor = UIColor(hex: "D7C0AEff")
+            buttonColor = UIColor(hex: "967E76ff")
+            textColor = .black
+        case .skyBlue:
+            backgroundColor = UIColor(hex: "EFFFFDff")
+            selectedColor = UIColor(hex: "85F4FFff")
+            buttonColor = UIColor(hex: "42C2FFff")
+            textColor = .black
+        case .purple:
+            backgroundColor = UIColor(hex: "EBC7E8ff")
+            selectedColor = UIColor(hex: "BFACE0ff")
+            buttonColor = UIColor(hex: "645CAAff")
+            textColor = .black
+        case .light:
+            backgroundColor = UIColor(hex: "F9F9F9ff")
+            selectedColor = UIColor(hex: "FAF4B7ff")
+            buttonColor = UIColor(hex: "ECC5FBff")
+            textColor = .black
+        case .dark:
+            backgroundColor = UIColor(hex: "2C3639ff")
+            selectedColor = UIColor(hex: "A27B5Cff")
+            buttonColor = UIColor(hex: "DCD7C9ff")
+            textColor = .white
+        }
     }
 }

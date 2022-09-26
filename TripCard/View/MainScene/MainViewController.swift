@@ -50,7 +50,7 @@ final class MainViewController: TabmanViewController {
 
         bar.layout.transitionStyle = .snap
         bar.layout.contentMode = .fit
-        bar.backgroundView.style = .flat(color: ColorManager.shared.backgroundColor)
+        bar.backgroundView.style = .flat(color: ColorManager.shared.backgroundColor ?? .clear)
         
 
         bar.indicator.weight = .medium
