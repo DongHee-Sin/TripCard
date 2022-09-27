@@ -44,7 +44,10 @@ final class OverseasListViewController: BaseViewController {
         setPlaceHolder()
         
         repository.addObserver(to: .overseas) { [weak self] in
-            self?.cardListView.collectionView.reloadData()
+            guard let self = self else { return }
+            
+            self.cardListView.collectionView.reloadData()
+            self.placeHolderLabel.isHidden = self.repository.domesticCount != 0
         }
     }
     

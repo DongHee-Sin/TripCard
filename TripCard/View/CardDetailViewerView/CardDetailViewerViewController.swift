@@ -28,6 +28,12 @@ final class CardDetailViewerViewController: BaseViewController {
         return result
     }()
     
+    private let placeHolderLabel = UILabel().then {
+        $0.textColor = ColorManager.shared.textColor
+        $0.font = .customFont(size: .largest)
+        $0.text = "작성된 여행기록이 없어요!"
+    }
+    
 
     
     
@@ -47,6 +53,10 @@ final class CardDetailViewerViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         setCollectionView()
+        
+        if cardByDate.isEmpty {
+            setPlaceHolder()
+        }
     }
     
     
@@ -60,6 +70,15 @@ final class CardDetailViewerViewController: BaseViewController {
         cardDetailViewerView.pagerView.register(CardDetailCollectionViewCell.self, forCellWithReuseIdentifier: CardDetailCollectionViewCell.identifier)
         
         cardDetailViewerView.pagerView.itemSize = fetchCardSize()
+    }
+    
+    
+    private func setPlaceHolder() {
+        view.addSubview(placeHolderLabel)
+        
+        placeHolderLabel.snp.makeConstraints { make in
+            make.center.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     

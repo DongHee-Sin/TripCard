@@ -187,7 +187,7 @@ final class WriteViewController: BaseViewController {
     
     @objc override func dismissButtonTapped() {
         if viewModel.isDataEntered {
-            showAlert(title: "작성을 취소하실 건가요?", message: "저장하지 않은 데이터는 삭제됩니다.", buttonTitle: "삭제하기", cancelTitle: "취소") { _ in
+            showAlert(title: "작성을 취소하고 뒤로 갈까요?", message: "저장하지 않은 데이터는 유실됩니다.", buttonTitle: "뒤로가기", cancelTitle: "취소") { _ in
                 super.dismissButtonTapped()
             }
         }else {
