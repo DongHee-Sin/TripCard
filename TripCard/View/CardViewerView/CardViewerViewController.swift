@@ -79,8 +79,8 @@ final class CardViewerViewController: BaseViewController {
     
     
     private func setNavigationBarButtonItem() {
-        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
-        let modifyButton = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(modifyButtonTapped))
+        let dismissButton = UIBarButtonItem(image: UIImage.xmarkImage, style: .plain, target: self, action: #selector(dismissButtonTapped))
+        let modifyButton = UIBarButtonItem(title: "modify".localized, style: .plain, target: self, action: #selector(modifyButtonTapped))
         let deleteButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteButtonTapped))
         
         navigationItem.leftBarButtonItem = dismissButton
@@ -121,7 +121,7 @@ final class CardViewerViewController: BaseViewController {
     
     
     @objc private func deleteButtonTapped() throws {
-        showAlert(title: "정말 삭제하실 건가요???", buttonTitle: "삭제하기", cancelTitle: "취소") { [weak self] _ in
+        showAlert(title: "delete_alert_title".localized, buttonTitle: "delete".localized, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             
             guard let toRemoveData = self.fetchTrip() else { return }

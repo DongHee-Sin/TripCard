@@ -34,7 +34,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         $0.contentMode = .scaleAspectFill
     }
 
-    let segmentControl = UISegmentedControl(items: ["국내여행", "해외여행"]).then {
+    let segmentControl = UISegmentedControl(items: ["domestic_trip".localized, "overseas_trip".localized]).then {
         $0.setTitleTextAttributes([.foregroundColor: ColorManager.shared.textColor], for: .selected)
         $0.setTitleTextAttributes([.foregroundColor: UIColor.darkGray], for: .normal)
         $0.selectedSegmentTintColor = ColorManager.shared.selectedColor
@@ -50,12 +50,12 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
 
     let locationTextField = MainTextField().then {
         $0.tag = 0
-        $0.placeholder = "지역 *"
+        $0.placeholder = "location_place_holder".localized
     }
 
     let periodTextField = MainTextField().then {
         $0.tag = 1
-        $0.placeholder = "기간 *"
+        $0.placeholder = "period_place_holder".localized
     }
     
     

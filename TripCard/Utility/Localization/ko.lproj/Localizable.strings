@@ -5,3 +5,161 @@
   Created by 신동희 on 2022/09/07.
   
 */
+
+
+"domestic_trip" = "국내여행";
+
+"overseas_trip" = "해외여행";
+
+"no_trip_date_created" = "작성된 여행기록이 없어요!";
+
+"finish" = "완료";
+
+"location_is_required" = "여행 지역을 입력해주세요! (필수)";
+
+"period_is_required" = "여행 기간을 입력해주세요! (필수)";
+
+"write_view_dismiss_title" = "작성을 취소하고 뒤로 갈까요?";
+
+"write_view_dismiss_message" = "저장하지 않은 데이터는 유실됩니다.";
+
+"dismiss" = "뒤로가기";
+
+"cancel" = "취소";
+
+"location_place_holder" = "지역 *";
+
+"period_place_holder" = "기간 *";
+
+"trip_day" = "  %lld일차  ";
+
+"trip_period_string" = "여행 기간";
+
+"month" = "%lld월";
+
+"year" = "%lld년";
+
+"card_text_view_place_holder" = "내용을 입력하세요! (선택)";
+
+"modify" = "수정";
+
+"delete_alert_title" = "정말 삭제하실 건가요??";
+
+"create" = "생성하기";
+
+"change" = "변경하기";
+
+"delete" = "삭제하기";
+
+"change_font" = "폰트 변경";
+
+"change_theme_color" = "테마 색 변경";
+
+"change_image_quality" = "이미지 저장 품질 변경";
+
+"backup_and_restore" = "백업 / 복구";
+
+"reset" = "초기화";
+
+"bug_report_and_feedback" = "버그 리포트 및 피드백";
+
+"app_store_review" = "앱스토어 리뷰 남기기";
+
+"version_info" = "버전 정보";
+
+"opensource" = "오픈소스 라이선스";
+
+"setting" = "설정";
+
+"reset_alert_title" = "초기화를 진행하시겠습니까?";
+
+"reset_check_alert_title" = "모든 카드와 이미지가 삭제됩니다. 정말 초기화를 진행할까요?";
+
+"fail_send_mail_alert_title" = "메일 전송 실패";
+
+"fail_send_mail_alert_message" = "디바이스의 이메일 설정을 확인하고 다시 시도해주세요.";
+
+"fail_connect_appstore_alert_title" = "앱스토어 연결에 실패했습니다.";
+
+"change_font_view_header_title" = "변경하고 싶은 폰트를 선택하세요!";
+
+"already_applied_font_alert_title" = "이미 적용중인 폰트네요!";
+
+"change_font_alert_title" = "%@ 폰트로 변경하시겠어요?";
+
+"change_theme_color" = "테마 색상 변경";
+
+"change_theme_color_view_header_title" = "변경하고 싶은 테마 색상을 선택하세요!";
+
+"already_applied_theme_color_alert_title" = "이미 적용중인 테마 색상이에요!";
+
+"change_theme_color_alert_title" = "%@ (으)로 테마 색상을 변경하시겠어요?";
+
+"image_quality_best" = "최고 품질";
+
+"image_quality_medium" = "중간 품질";
+
+"image_quality_low" = "저품질";
+
+"change_image_quality" = "이미지 저장 품질 변경";
+
+"change_image_quality_view_header_title" = "이미지 저장 품질을 선택하세요!";
+
+"already_applied_image_quality_alert_title" = "이미 적용중인 테마 색상이에요!";
+
+"change_image_quality_alert_title" = "%@(으)로 저장 품질을 변경하시겠어요?";
+
+"image_quality_changed_alert_title" = "이미지 저장 품질 설정이 변경되었습니다.";
+
+"image_quality_changed_alert_message" = "변경된 설정은 다음 저장 시점부터 적용됩니다.";
+
+"create_backup_alert_title" = "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?";
+
+"restore_button_title" = "복구하기";
+
+"export_button_title" = "내보내기";
+
+"restore_alert_title" = "%@파일로 데이터를 복구합니다.";
+
+"fail_fetch_file_path_alert_title" = "선택된 파일의 경로를 찾을 수 없습니다.";
+
+"backup" = "백업하기";
+
+"backup_description" = "생성된 백업 파일은 앱 내에 생성되기 때문에, 앱이 삭제되면 백업 파일도 삭제됩니다.\n메신저, 이메일, 클라우드 저장소 등을 활용하여 백업 파일을 별도 관리하는 것을 권장합니다.
+        ";
+
+"create_backup_file_button_title" = "백업 파일 생성하기";
+
+"fetch_backup_file_button_title" = "백업 파일 가져오기";
+
+"create_card_date_error" = "데이터 저장에 실패했습니다.";
+
+"modify_card_date_error" = "데이터 수정에 실패했습니다.";
+
+"delete_card_date_error" = "데이터 삭제에 실패했습니다.";
+
+"create_directory_error" = "저장 폴더 생성에 실패했습니다.";
+
+"save_image_error" = "이미지 저장에 실패했습니다.";
+
+"delete_file_error" = "파일 삭제에 실패했습니다.";
+
+"delete_directory_error" = "저장 폴더 삭제에 실패했습니다.";
+
+"fetch_image_error" = "이미지를 가져오는데 실패했습니다.";
+
+"fetch_zip_file_error" = "압축 파일을 가져오는데 실패했습니다.";
+
+"fetch_directory_path_error" = "폴더 경로를 가져오는데 실패했습니다.";
+
+"compression_file_error" = "파일 압축에 실패했습니다.";
+
+"restore_file_error" = "파일 복구에 실패했습니다.";
+
+"fetch_json_file_error" = "JSON 파일을 가져오는데 실패했습니다.";
+
+"json_decode_error" = "데이터 디코딩에 실패했습니다.";
+
+"json_encode_error" = "데이터 인코딩에 실패했습니다.";
+
+"error_occurred" = "에러가 발생했습니다.";

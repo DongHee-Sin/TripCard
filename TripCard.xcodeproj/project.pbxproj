@@ -10,6 +10,7 @@
 		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
 		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
 		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
+		D019487028E32824003004CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019486F28E32824003004CF /* OnboardingViewController.swift */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
 		D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A5128D184EE0038A9B6 /* TOCropViewController */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
@@ -93,6 +94,7 @@
 /* Begin PBXFileReference section */
 		D015C6F628D716D80081062F /* CardViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerViewController.swift; sourceTree = "<group>"; };
 		D015C6F828D7174E0081062F /* CardViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerView.swift; sourceTree = "<group>"; };
+		D019486F28E32824003004CF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
 		D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KyoboHandwriting2020pdy.otf; sourceTree = "<group>"; };
 		D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiBaseRegular.otf; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D019486C28E327F8003004CF /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				D019486F28E32824003004CF /* OnboardingViewController.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		D02099E028C79A2600FD25DF /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +409,7 @@
 		D0AB513928C76D2C00EB6D2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D019486C28E327F8003004CF /* OnboardingView */,
 				D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */,
 				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
@@ -635,6 +646,7 @@
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */,
+				D019487028E32824003004CF /* OnboardingViewController.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,

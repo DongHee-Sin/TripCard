@@ -13,7 +13,7 @@ class CardDetailCollectionViewCell: MainPagerViewCell {
     // MARK: - Propertys
     let dateLabel = UILabel().then {
         $0.textAlignment = .center
-        $0.textColor = ColorManager.shared.textColor
+        $0.textColor = .black
         $0.font = .customFont(size: .large)
     }
     
@@ -27,7 +27,7 @@ class CardDetailCollectionViewCell: MainPagerViewCell {
     let contentTextView = UITextView().then {
         $0.layer.cornerRadius = 20
         $0.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        $0.textColor = ColorManager.shared.textColor
+        $0.textColor = .black
         $0.font = .systemFont(ofSize: FontSize.normal.rawValue)
     }
     
@@ -76,7 +76,7 @@ class CardDetailCollectionViewCell: MainPagerViewCell {
     
     
     func updateCell(day: Int, content: String?, image: UIImage?) {
-        dateLabel.text = "\(day)일차"
+        dateLabel.text = "trip_day".localized(number: day)
         photoImage.image = image
         contentTextView.text = content
     }

@@ -16,7 +16,7 @@ final class DomesticListViewController: BaseViewController {
     private let placeHolderLabel = UILabel().then {
         $0.textColor = ColorManager.shared.textColor
         $0.font = .customFont(size: .largest)
-        $0.text = "작성된 여행기록이 없어요!"
+        $0.text = "no_trip_date_created".localized
     }
     
     

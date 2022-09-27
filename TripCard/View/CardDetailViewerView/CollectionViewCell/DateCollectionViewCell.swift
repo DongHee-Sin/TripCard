@@ -38,6 +38,6 @@ class DateCollectionViewCell: BaseCollectionViewCell {
     
     
     func updateCell(day: Int) {
-        dateLabel.text = "\(day)일차"
+        dateLabel.text = "trip_day".localized(number: day)
     }
 }

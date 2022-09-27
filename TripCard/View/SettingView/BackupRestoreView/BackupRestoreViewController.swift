@@ -25,7 +25,7 @@ final class BackupRestoreViewController: BaseViewController {
         return formatter
     }()
     
-    lazy var dismissButton = UIAlertAction(title: "취소", style: .cancel) { [weak self] _ in
+    lazy var dismissButton = UIAlertAction(title: "cancel".localized, style: .cancel) { [weak self] _ in
         guard let self = self else { return }
         self.dismiss(animated: true)
     }
@@ -48,7 +48,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
-        navigationItem.title = "백업 / 복원"
+        navigationItem.title = "backup_and_restore".localized
         
         fetchZipFiles()
         
@@ -72,7 +72,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     
     @objc private func createBackupButtonTapped() {
-        showAlert(title: "현재 저장된 데이터를 기준으로 백업 파일을 생성하시겠어요?", buttonTitle: "생성하기", cancelTitle: "취소") { [weak self] _ in
+        showAlert(title: "create_backup_alert_title".localized, buttonTitle: "create".localized, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             do {
                 self.showIndicator()
@@ -167,16 +167,16 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let restoreButton = UIAlertAction(title: "데이터 복구하기", style: .default) { [weak self] _ in
+        let restoreButton = UIAlertAction(title: "restore_button_title".localized, style: .default) { [weak self] _ in
             guard let self = self else { return }
-            self.showAlert(title: "\(self.zipFiles[indexPath.row].lastPathComponent) 파일로 데이터를 복구합니다.", buttonTitle: "복구하기", cancelTitle: "취소") { _ in
+            self.showAlert(title: "restore_alert_title".localized(with: self.zipFiles[indexPath.row].lastPathComponent), buttonTitle: "restore_button_title".localized, cancelTitle: "cancel".localized) { _ in
                 let lastPath = self.zipFiles[indexPath.row].lastPathComponent
                 
                 self.restoreData(lastPath: lastPath)
             }
         }
         
-        let exportButton = UIAlertAction(title: "데이터 내보내기", style: .default) { [weak self] _ in
+        let exportButton = UIAlertAction(title: "export_button_title".localized, style: .default) { [weak self] _ in
             guard let self = self else { return }
             self.showIndicator()
             self.showActivityViewController(filePath: self.zipFiles[indexPath.row])
@@ -192,7 +192,7 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showAlert(title: "백업 파일을 삭제하시겠어요?", buttonTitle: "삭제하기", cancelTitle: "취소") { [weak self] _ in
+            showAlert(title: "delete_alert_title".localized, buttonTitle: "delete".localized, cancelTitle: "cancel".localized) { [weak self] _ in
                 guard let self = self else { return }
                 do {
                     try self.repository.documentManager.removeFileFromDocument(url: self.zipFiles[indexPath.row])
@@ -215,7 +215,7 @@ extension BackupRestoreViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
         guard let selectedFileURL = urls.first else {
-            showAlert(title: "선택된 파일의 경로를 찾을 수 없습니다.")
+            showAlert(title: "fail_fetch_file_path_alert_title".localized)
             return
         }
         

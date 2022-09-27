@@ -105,7 +105,7 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        let item = TMBarItem(title: index == 0 ? "국내여행" : "해외여행")
+        let item = TMBarItem(title: index == 0 ? "domestic_trip".localized : "overseas_trip".localized)
         
         return item
     }

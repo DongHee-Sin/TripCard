@@ -36,7 +36,7 @@ final class ChangeColorViewController: BaseViewController {
         changeColorView.tableView.delegate = self
         changeColorView.tableView.dataSource = self
         
-        navigationItem.title = "테마 색상 변경"
+        navigationItem.title = "change_theme_color".localized
     }
 }
 
@@ -47,7 +47,7 @@ final class ChangeColorViewController: BaseViewController {
 extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "변경하고 싶은 테마 색상을 선택하세요!"
+        return "change_theme_color_view_header_title".localized
     }
     
     
@@ -78,13 +78,13 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
         
         if let currentThemeColor = currentThemeColor {
             if currentThemeColor == themeColor {
-                showAlert(title: "이미 적용중인 테마 색상이에요!")
+                showAlert(title: "already_applied_theme_color_alert_title".localized)
                 return
             }
         }
         
         
-        showAlert(title: "\(themeColor.rawValue)(으)로 테마 색상을 변경하시겠어요?", buttonTitle: "네!", cancelTitle: "아뇨!") { _ in
+        showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { _ in
             UserDefaultManager.shared.themeColor = themeColor.rawValue
             ColorManager.themeColorChanged()
             self.changeRootViewController()

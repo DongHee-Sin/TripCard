@@ -12,15 +12,15 @@ import MessageUI
 
 
 enum SettingCellList: String {
-    case changeFont = "폰트 변경"
-    case changeThemeColor = "테마 색 변경"
-    case changeImageQuality = "이미지 저장 품질 변경"
-    case backUpAndRestore = "백업 / 복원"
-    case reset = "초기화"
-    case bugReportAndFeedback = "버그 리포트 및 피드백"
-    case appStoreReview = "앱스토어 리뷰 남기기"
-    case versionInfo = "버전 정보"
-    case openSource = "오픈소스 라이선스"
+    case changeFont = "change_font"
+    case changeThemeColor = "change_theme_color"
+    case changeImageQuality = "change_image_quality"
+    case backUpAndRestore = "backup_and_restore"
+    case reset = "reset"
+    case bugReportAndFeedback = "bug_report_and_feedback"
+    case appStoreReview = "app_store_review"
+    case versionInfo = "version_info"
+    case openSource = "opensource"
 }
 
 
@@ -38,7 +38,7 @@ class SettingViewController: BaseViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = self
         vc.setToRecipients(["sin060123@gmail.com"])
-        vc.setSubject("앱 제목) 개발자 문의")
+        vc.setSubject("Contact Developer)")
         
         return vc
     }()
@@ -82,15 +82,15 @@ class SettingViewController: BaseViewController {
         settingView.tableView.delegate = self
         settingView.tableView.dataSource = self
         
-        navigationItem.title = "설정"
+        navigationItem.title = "setting".localized
     }
     
     
     private func resetAppData() {
-        showAlert(title: "초기화를 진행하시겠습니까?", buttonTitle: "초기화", cancelTitle: "취소") { [weak self] _ in
+        showAlert(title: "reset_alert_title".localized, buttonTitle: "reset".localized, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             
-            self.showAlert(title: "모든 카드와 이미지가 삭제됩니다. 정말 초기화를 진행할까요?", buttonTitle: "초기화", cancelTitle: "취소") { _ in
+            self.showAlert(title: "reset_check_alert_title".localized, buttonTitle: "reset".localized, cancelTitle: "cancel".localized) { _ in
                 do {
                     try TripDataRepository.shared.resetAppData()
                     UserDefaultManager.shared.resetAllData()
@@ -109,7 +109,7 @@ class SettingViewController: BaseViewController {
         if MFMailComposeViewController.canSendMail() {
             transition(composeViewController, transitionStyle: .present)
         }else {
-            showAlert(title: "메일 전송 실패", message: "디바이스의 이메일 설정을 확인하고 다시 시도해주세요.")
+            showAlert(title: "fail_send_mail_alert_title".localized, message: "fail_send_mail_alert_message".localized)
         }
     }
     
@@ -121,7 +121,7 @@ class SettingViewController: BaseViewController {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             
         }else {
-            showAlert(title: "앱스토어 연결에 실패했습니다.")
+            showAlert(title: "fail_connect_appstore_alert_title".localized)
         }
     }
 }
@@ -145,7 +145,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell(style: .value1, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue
+        cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue.localized
         
         if cellItems[indexPath.section][indexPath.row] == .versionInfo {
             cell.detailTextLabel?.text = appVersion

@@ -13,17 +13,19 @@ import Zip
 
 enum DocumentError: Error {
     case createDirectoryError
+    
     case saveImageError
+    
     case removeDirectoryError
     case removeFileError
+    
     case fetchImagesError
     case fetchZipFileError
     case fetchDirectoryPathError
+    case fetchJsonDataError
     
     case compressionFailedError
     case restoreFailedError
-    
-    case fetchJsonDataError
 }
 
 
@@ -325,7 +327,6 @@ struct DocumentManager {
             try Zip.unzipFile(fileURL, destination: documentURL, overwrite: true, password: nil, progress: { progress in
                 print(progress)
             }, fileOutputHandler: { unzippedFile in
-                print("복구 완료")
             })
         }
         catch {

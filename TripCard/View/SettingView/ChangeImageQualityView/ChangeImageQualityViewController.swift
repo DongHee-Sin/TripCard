@@ -16,11 +16,11 @@ enum ImageQuality: Double {
     var string: String {
         switch self {
         case .best:
-            return "최고 품질"
+            return "image_quality_best".localized
         case .medium:
-            return "중간 품질"
+            return "image_quality_medium".localized
         case .low:
-            return "저품질"
+            return "image_quality_low".localized
         }
     }
 }
@@ -54,7 +54,7 @@ final class ChangeImageQualityViewController: BaseViewController {
         changeImageQualityView.tableView.delegate = self
         changeImageQualityView.tableView.dataSource = self
         
-        navigationItem.title = "이미지 저장 품질 변경"
+        navigationItem.title = "change_image_quality".localized
     }
 }
 
@@ -65,7 +65,7 @@ final class ChangeImageQualityViewController: BaseViewController {
 extension ChangeImageQualityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "이미지 저장 품질을 선택하세요!"
+        return "change_image_quality_view_header_title".localized
     }
     
     
@@ -96,16 +96,16 @@ extension ChangeImageQualityViewController: UITableViewDelegate, UITableViewData
         
         if let currentImageQuality = currentImageQuality {
             if currentImageQuality == imageQuality {
-                showAlert(title: "이미 적용중인 저장 품질이에요!")
+                showAlert(title: "already_applied_image_quality_alert_title".localized)
                 return
             }
         }
         
         
-        showAlert(title: "\(imageQuality.string)(으)로 저장 품질을 변경하시겠어요?", buttonTitle: "변경하기", cancelTitle: "취소") { [weak self] _ in
+        showAlert(title: "change_image_quality_alert_title".localized(with: imageQuality.string), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             UserDefaultManager.shared.imageQuality = imageQuality.rawValue
-            self.showAlert(title: "이미지 저장 품질 설정이 변경되었습니다.", message: "변경된 설정은 다음 저장 시점부터 적용됩니다.") { _ in
+            self.showAlert(title: "image_quality_changed_alert_title".localized, message: "image_quality_changed_alert_message".localized) { _ in
                 self.navigationController?.popViewController(animated: true)
             }
         }

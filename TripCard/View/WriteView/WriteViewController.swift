@@ -139,8 +139,8 @@ final class WriteViewController: BaseViewController {
     
     
     private func setNavigationBarButtonItem() {
-        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
-        let addTripButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(finishButtonTapped))
+        let dismissButton = UIBarButtonItem(image: UIImage.xmarkImage, style: .plain, target: self, action: #selector(dismissButtonTapped))
+        let addTripButton = UIBarButtonItem(title: "finish".localized, style: .plain, target: self, action: #selector(finishButtonTapped))
         
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItem = addTripButton
@@ -166,8 +166,8 @@ final class WriteViewController: BaseViewController {
     @objc private func finishButtonTapped() {
         
         switch viewModel.writeViewStatus {
-        case .needEnterLocationData: showAlert(title: "여행 지역을 입력해주세요! (필수)")
-        case .needEnterPeriodData: showAlert(title: "여행 기간을 입력해주세요! (필수)")
+        case .needEnterLocationData: showAlert(title: "location_is_required".localized)
+        case .needEnterPeriodData: showAlert(title: "period_is_required".localized)
         case .dataCanBeStored:
             do {
                 try viewModel.finishButtonTapped()
@@ -187,7 +187,7 @@ final class WriteViewController: BaseViewController {
     
     @objc override func dismissButtonTapped() {
         if viewModel.isDataEntered {
-            showAlert(title: "작성을 취소하고 뒤로 갈까요?", message: "저장하지 않은 데이터는 유실됩니다.", buttonTitle: "뒤로가기", cancelTitle: "취소") { _ in
+            showAlert(title: "write_view_dismiss_title".localized, message: "write_view_dismiss_message".localized, buttonTitle: "dismiss".localized, cancelTitle: "cancel".localized) { _ in
                 super.dismissButtonTapped()
             }
         }else {

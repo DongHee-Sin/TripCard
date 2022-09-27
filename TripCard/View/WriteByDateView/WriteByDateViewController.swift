@@ -18,7 +18,7 @@ final class WriteByDateViewController: BaseViewController {
     var index: Int?
     var viewModel: WriteViewModel?
     
-    let textViewPlaceHolder = "PlaceHolder (선택)"
+    let textViewPlaceHolder = "card_text_view_place_holder".localized
     
     let phpickerViewController: PHPickerViewController = {
         var configuration = PHPickerConfiguration()
@@ -77,7 +77,7 @@ final class WriteByDateViewController: BaseViewController {
     
     private func setNavigationBar() {
         if let index = index {
-            navigationItem.title = "\(index + 1)일차 여행"
+            navigationItem.title = "trip_day".localized(number: index + 1)
         }
     }
     

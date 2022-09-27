@@ -33,21 +33,22 @@ extension UIViewController {
     // MARK: - Error Alert
     func showErrorAlert(error: Error) {
         switch error {
-        case RealmError.writeError: showAlert(title: "메모 저장에 실패했습니다.")
-        case RealmError.updateError: showAlert(title: "메모 수정에 실패했습니다.")
-        case RealmError.deleteError: showAlert(title: "메모 삭제에 실패했습니다.")
-        case DocumentError.createDirectoryError: showAlert(title: "저장 폴더 생성에 실패했습니다.")
-        case DocumentError.saveImageError: showAlert(title: "이미지 저장에 실패했습니다.")
-        case DocumentError.removeDirectoryError: showAlert(title: "저장 폴더 삭제에 실패했습니다.")
-        case DocumentError.fetchImagesError: showAlert(title: "이미지를 가져오는데 실패했습니다.")
-        case DocumentError.fetchZipFileError: showAlert(title: "압축 파일을 가져오는데 실패했습니다.")
-        case DocumentError.fetchDirectoryPathError: showAlert(title: "폴더 경로를 가져오는데 실패했습니다.")
-        case DocumentError.compressionFailedError: showAlert(title: "파일 압축에 실패했습니다.")
-        case DocumentError.restoreFailedError: showAlert(title: "파일 복구에 실패했습니다.")
-        case DocumentError.fetchJsonDataError: showAlert(title: "JSON 파일을 가져오는데 실패했습니다.")
-        case CodableError.jsonDecodeError: showAlert(title: "데이터 디코딩에 실패했습니다.")
-        case CodableError.jsonEncodeError: showAlert(title: "데이터 인코딩에 실패했습니다.")
-        default: showAlert(title: "에러가 발생했습니다.")
+        case RealmError.writeError: showAlert(title: "create_card_date_error".localized)
+        case RealmError.updateError: showAlert(title: "modify_card_date_error".localized)
+        case RealmError.deleteError: showAlert(title: "delete_card_date_error".localized)
+        case DocumentError.createDirectoryError: showAlert(title: "create_directory_error".localized)
+        case DocumentError.saveImageError: showAlert(title: "save_image_error".localized)
+        case DocumentError.removeFileError: showAlert(title: "delete_file_error".localized)
+        case DocumentError.removeDirectoryError: showAlert(title: "delete_directory_error".localized)
+        case DocumentError.fetchImagesError: showAlert(title: "fetch_image_error".localized)
+        case DocumentError.fetchZipFileError: showAlert(title: "fetch_zip_file_error".localized)
+        case DocumentError.fetchDirectoryPathError: showAlert(title: "fetch_directory_path_error".localized)
+        case DocumentError.compressionFailedError: showAlert(title: "compression_file_error".localized)
+        case DocumentError.restoreFailedError: showAlert(title: "restore_file_error".localized)
+        case DocumentError.fetchJsonDataError: showAlert(title: "fetch_json_file_error".localized)
+        case CodableError.jsonDecodeError: showAlert(title: "json_decode_error".localized)
+        case CodableError.jsonEncodeError: showAlert(title: "json_encode_error".localized)
+        default: showAlert(title: "error_occurred".localized)
         }
     }
     

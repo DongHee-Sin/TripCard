@@ -36,7 +36,7 @@ final class ChangeFontViewController: BaseViewController {
         changeFontView.tableView.delegate = self
         changeFontView.tableView.dataSource = self
         
-        navigationItem.title = "폰트 변경"
+        navigationItem.title = "change_font".localized
     }
 }
 
@@ -47,7 +47,7 @@ final class ChangeFontViewController: BaseViewController {
 extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "변경하고 싶은 폰트를 선택하세요!"
+        return "change_font_view_header_title".localized
     }
     
     
@@ -79,13 +79,13 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let currentFont = currentFont {
             if currentFont == font {
-                showAlert(title: "이미 적용중인 폰트네요!")
+                showAlert(title: "already_applied_font_alert_title".localized)
                 return
             }
         }
         
         
-        showAlert(title: "\(font.rawValue) 폰트로 변경하시겠어요?", buttonTitle: "네!", cancelTitle: "아뇨!") { _ in
+        showAlert(title: "change_font_alert_title".localized(with: font.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { _ in
             UserDefaultManager.shared.customFont = font.rawValue
             self.changeRootViewController()
         }

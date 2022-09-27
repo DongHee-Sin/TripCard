@@ -101,7 +101,7 @@ final class CalendarSheetViewController: BaseViewController {
     
     private func updateCalendarLabel(period: TripPeriod?) {
         guard let period = period else {
-            calendarView.selectedDateLabel.text = "여행 기간"
+            calendarView.selectedDateLabel.text = "trip_period_string".localized
             return
         }
         
@@ -191,7 +191,7 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
     
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        calendarView.changeMonthView.dateLabel.text = "\(calendar.currentPage.get(.month))월"
-        calendarView.changeYearView.dateLabel.text = "\(calendar.currentPage.get(.year))년"
+        calendarView.changeMonthView.dateLabel.text = "month".localized(number: calendar.currentPage.get(.month))
+        calendarView.changeYearView.dateLabel.text = "year".localized(number: calendar.currentPage.get(.month))
     }
 }
