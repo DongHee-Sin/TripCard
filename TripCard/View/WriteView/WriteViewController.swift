@@ -185,6 +185,17 @@ final class WriteViewController: BaseViewController {
     }
     
     
+    @objc override func dismissButtonTapped() {
+        if viewModel.isDataEntered {
+            showAlert(title: "작성을 취소하실 건가요?", message: "저장하지 않은 데이터는 삭제됩니다.", buttonTitle: "삭제하기", cancelTitle: "취소") { _ in
+                super.dismissButtonTapped()
+            }
+        }else {
+            super.dismissButtonTapped()
+        }
+    }
+    
+    
     @objc func textFieldValueChange(_ sender: UITextField) {
         viewModel.location.value = sender.text ?? ""
     }
@@ -222,6 +233,11 @@ final class WriteViewController: BaseViewController {
 
 // MARK: - TableView Protocol
 extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteTableViewHeader.identifier) as? WriteTableViewHeader else {

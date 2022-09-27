@@ -82,6 +82,11 @@ class WriteViewModel {
     }
     
     
+    var isDataEntered: Bool {
+        return mainPhotoImage.value != nil || !location.value.isEmpty || tripPeriod.value != nil
+    }
+    
+    
     private var imageByDate: [UIImage?] {
         return cardByDate.value.map { $0.photoImage }
     }
