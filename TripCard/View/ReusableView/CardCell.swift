@@ -10,12 +10,6 @@ import SnapKit
 import Then
 
 
-enum CollectionViewType {
-    case list
-    case card
-}
-
-
 final class CardCell: BaseCollectionViewCell {
     
     // MARK: - Propertys
@@ -28,12 +22,14 @@ final class CardCell: BaseCollectionViewCell {
     }
     
     let locationLabel = UILabel().then {
+        $0.font = .customFont(size: .small)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
     }
     
     let periodLabel = UILabel().then {
+        $0.font = .customFont(size: .small)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
@@ -99,7 +95,7 @@ final class CardCell: BaseCollectionViewCell {
     }
     
     
-    func updateCell(trip: Trip, mainImage: UIImage?, type: CollectionViewType) {
+    func updateCell(trip: Trip, mainImage: UIImage?) {
         self.photoImage.image = mainImage
         self.locationLabel.text = trip.location
         
@@ -107,15 +103,6 @@ final class CardCell: BaseCollectionViewCell {
             self.periodLabel.text = trip.startDate.string
         }else {
             self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
-        }
-        
-        switch type {
-        case .list:
-            locationLabel.font = .customFont(size: .small)
-            periodLabel.font = .customFont(size: .small)
-        case .card:
-            locationLabel.font = .customFont(size: .large)
-            periodLabel.font = .customFont(size: .large)
         }
     }
 }

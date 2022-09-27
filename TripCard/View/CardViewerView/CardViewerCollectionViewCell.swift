@@ -21,12 +21,14 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
     }
     
     let locationLabel = UILabel().then {
+        $0.font = .customFont(size: .largest)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
     }
     
     let periodLabel = UILabel().then {
+        $0.font = .customFont(size: .largest)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
@@ -67,7 +69,7 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
         locationImage.snp.makeConstraints { make in
             make.centerY.equalTo(locationLabel)
             make.leading.equalTo(self.snp.leading).offset(8)
-            make.width.height.equalTo(16)
+            make.width.height.equalTo(24)
         }
 
         locationLabel.snp.makeConstraints { make in
@@ -79,7 +81,7 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
         calendarImage.snp.makeConstraints { make in
             make.centerY.equalTo(periodLabel)
             make.leading.equalTo(self.snp.leading).offset(8)
-            make.width.height.equalTo(16)
+            make.width.height.equalTo(24)
         }
 
         periodLabel.snp.makeConstraints { make in
@@ -92,7 +94,7 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
     }
     
     
-    func updateCell(trip: Trip, mainImage: UIImage?, type: CollectionViewType) {
+    func updateCell(trip: Trip, mainImage: UIImage?) {
         self.photoImage.image = mainImage
         self.locationLabel.text = trip.location
         
@@ -100,15 +102,6 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
             self.periodLabel.text = trip.startDate.string
         }else {
             self.periodLabel.text = trip.startDate.string + " ~ " + trip.endDate.string
-        }
-        
-        switch type {
-        case .list:
-            locationLabel.font = .customFont(size: .small)
-            periodLabel.font = .customFont(size: .small)
-        case .card:
-            locationLabel.font = .customFont(size: .large)
-            periodLabel.font = .customFont(size: .large)
         }
     }
 }

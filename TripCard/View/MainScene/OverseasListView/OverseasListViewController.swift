@@ -82,7 +82,7 @@ extension OverseasListViewController: UICollectionViewDelegate, UICollectionView
             catch {
                 showErrorAlert(error: error)
             }
-            cell.updateCell(trip: trip, mainImage: image, type: .list)
+            cell.updateCell(trip: trip, mainImage: image)
         }
         
         return cell

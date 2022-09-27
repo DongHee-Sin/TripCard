@@ -172,7 +172,7 @@ extension CardViewerViewController: FSPagerViewDelegate, FSPagerViewDataSource {
                 showErrorAlert(error: error)
             }
             
-            cell.updateCell(trip: trip, mainImage: image, type: .card)
+            cell.updateCell(trip: trip, mainImage: image)
         }
         
         return cell
