@@ -20,9 +20,9 @@ final class MainTextField: HoshiTextField {
     
     
     private func setupUI() {
-        textColor = .black
-        placeholderColor = .darkGray
+        textColor = ColorManager.shared.textColor
+        placeholderColor = .lightGray
         borderInactiveColor = .lightGray
-        borderActiveColor = .blue
+        borderActiveColor = ColorManager.shared.buttonColor
     }
 }

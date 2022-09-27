@@ -33,6 +33,7 @@
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
+		D041A29328E2CE1B0038C853 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = D041A29228E2CE1B0038C853 /* AcknowList */; };
 		D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045AAB628D868400027B7F5 /* CardDetailCollectionViewCell.swift */; };
 		D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */; };
 		D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77C28D76C0A007A6BE6 /* SettingViewController.swift */; };
@@ -174,6 +175,7 @@
 				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
+				D041A29328E2CE1B0038C853 /* AcknowList in Frameworks */,
 				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
@@ -549,6 +551,7 @@
 				D0C91E2C28DB010E0045D587 /* Zip */,
 				D026637928DCBBC300A86196 /* JGProgressHUD */,
 				D0B210D528DE9CF20041092B /* FSPagerView */,
+				D041A29228E2CE1B0038C853 /* AcknowList */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -591,6 +594,7 @@
 				D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */,
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
+				D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -959,6 +963,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vtourraine/AcknowList.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
@@ -1039,6 +1051,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		D041A29228E2CE1B0038C853 /* AcknowList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */;
+			productName = AcknowList;
 		};
 		D04A961328D0648F0073EC38 /* TextFieldEffects */ = {
 			isa = XCSwiftPackageProductDependency;

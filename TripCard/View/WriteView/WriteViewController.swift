@@ -230,6 +230,7 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         header.delegate = self
         header.updateHeader(viewModel: viewModel)
         
+        header.locationTextField.delegate = self
         header.periodTextField.delegate = self
         
         header.locationTextField.addTarget(self, action: #selector(textFieldValueChange), for: .editingChanged)
@@ -328,6 +329,10 @@ extension WriteViewController: WritingDelegate {
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard textField.tag == 1 else { return true }
+        
+        view.endEditing(true)
+        
         calendarViewController.calendarInitialSetting(viewModel: viewModel)
         
         if let sheet = calendarViewController.sheetPresentationController {
@@ -339,6 +344,12 @@ extension WriteViewController: UITextFieldDelegate {
         transition(calendarViewController, transitionStyle: .present)
         
         return false
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

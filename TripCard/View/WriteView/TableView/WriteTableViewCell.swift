@@ -19,18 +19,17 @@ final class WriteTableViewCell: UITableViewCell {
     }
     
     let contentLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = ColorManager.shared.textColor
         $0.font = .systemFont(ofSize: FontSize.small.rawValue)
     }
     
     let dateLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = ColorManager.shared.textColor
         $0.font = .systemFont(ofSize: FontSize.smaller.rawValue)
     }
     
     let labelStackView = UIStackView().then {
         $0.distribution = .fillProportionally
-//        $0.spacing =
         $0.axis = .vertical
     }
     

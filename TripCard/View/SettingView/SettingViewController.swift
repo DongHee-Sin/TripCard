@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import AcknowList
 import MessageUI
 
 
@@ -154,7 +156,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .bugReportAndFeedback: sendEmail()
         case .appStoreReview: openAppStore()
         case .versionInfo: break
-        case .openSource: break
+        case .openSource: selectedVC = AcknowListViewController()
         }
         
         if let selectedVC = selectedVC {

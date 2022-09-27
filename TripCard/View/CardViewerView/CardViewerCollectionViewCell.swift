@@ -21,14 +21,14 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
     }
     
     let locationLabel = UILabel().then {
-        $0.font = .customFont(size: .largest)
+        $0.font = .customFont(size: .large)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
     }
     
     let periodLabel = UILabel().then {
-        $0.font = .customFont(size: .largest)
+        $0.font = .customFont(size: .large)
         $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
