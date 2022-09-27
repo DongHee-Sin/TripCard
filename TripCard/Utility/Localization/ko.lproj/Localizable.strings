@@ -105,7 +105,7 @@
 
 "change_image_quality_view_header_title" = "이미지 저장 품질을 선택하세요!";
 
-"already_applied_image_quality_alert_title" = "이미 적용중인 테마 색상이에요!";
+"already_applied_image_quality_alert_title" = "이미 적용중인 이미지 품질 설정이에요!";
 
 "change_image_quality_alert_title" = "%@(으)로 저장 품질을 변경하시겠어요?";
 

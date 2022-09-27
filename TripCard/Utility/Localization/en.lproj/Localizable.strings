@@ -10,3 +10,156 @@
 "domestic_trip" = "Domestic Trip";
 
 "overseas_trip" = "OverSeas Trip";
+
+"no_trip_date_created" = "No travel history has been created.";
+
+"finish" = "Done";
+
+"location_is_required" = "Please enter the area you traveled to. (Required)";
+
+"period_is_required" = "Please enter a travel period. (Required)";
+
+"write_view_dismiss_title" = "Cancel the creation and move back.";
+
+"write_view_dismiss_message" = "Unsaved data will be lost.";
+
+"dismiss" = "Go backwards";
+
+"cancel" = "Cancel";
+
+"location_place_holder" = "travel area *";
+
+"period_place_holder" = "travel period *";
+
+"trip_day" = "  day %lld  ";
+
+"trip_period_string" = "travel period";
+
+"month" = "%lld";
+
+"year" = "%lld";
+
+"card_text_view_place_holder" = "Enter content! (Optional)";
+
+"modify" = "modify";
+
+"delete_alert_title" = "Are you sure you want to delete it?";
+
+"create" = "Create";
+
+"change" = "Change";
+
+"delete" = "Delete";
+
+"change_font" = "Change Font";
+
+"change_theme_color" = "Change theme color";
+
+"change_image_quality" = "Change image storage quality";
+
+"backup_and_restore" = "Backup / Recovery";
+
+"reset" = "Reset";
+
+"bug_report_and_feedback" = "Bug report and feedback";
+
+"app_store_review" = "Leave App Store Reviews";
+
+"version_info" = "About Version";
+
+"opensource" = "Open Source License";
+
+"setting" = "Setting";
+
+"reset_alert_title" = "Do you want to proceed with initialization?";
+
+"reset_check_alert_title" = "All cards and images will be deleted. Do you really want to initialize it?";
+
+"fail_send_mail_alert_title" = "Mail Transfer Failed";
+
+"fail_send_mail_alert_message" = "Please check the email settings on the device and try again.";
+
+"fail_connect_appstore_alert_title" = "App Store connection failed.";
+
+"change_font_view_header_title" = "Select the font you want to change!";
+
+"already_applied_font_alert_title" = "It's a font that's already being applied!";
+
+"change_font_alert_title" = "Would you like to change to a %@ font?";
+
+"change_theme_color" = "Change theme color";
+
+"change_theme_color_view_header_title" = "Choose the theme color you want to change!";
+
+"already_applied_theme_color_alert_title" = "It's a theme color that's already being applied!";
+
+"change_theme_color_alert_title" = "Do you want to change the theme color to %@?";
+
+"image_quality_best" = "Best quality";
+
+"image_quality_medium" = "medium quality";
+
+"image_quality_low" = "low quality";
+
+"change_image_quality" = "Change image storage quality";
+
+"change_image_quality_view_header_title" = "Select image storage quality!";
+
+"already_applied_image_quality_alert_title" = "Image quality settings that are already being applied!";
+
+"change_image_quality_alert_title" = "Do you want to change the storage quality to %@?";
+
+"image_quality_changed_alert_title" = "Image storage quality settings have been changed.";
+
+"image_quality_changed_alert_message" = "The changed settings take effect from the next time you save them.";
+
+"create_backup_alert_title" = "Do you want to create a backup file based on the currently stored data?";
+
+"restore_button_title" = "Restore";
+
+"export_button_title" = "Export";
+
+"restore_alert_title" = "Recover data with file %@.";
+
+"fail_fetch_file_path_alert_title" = "The path to the selected file could not be found.";
+
+"backup" = "Back up";
+
+"backup_description" = "Because the created backup file is created within the app, the backup file is also deleted when the app is deleted.\nWe recommend that you manage backup files separately using messengers, email, cloud storage, and more.
+        ";
+
+"create_backup_file_button_title" = "Creating a backup file";
+
+"fetch_backup_file_button_title" = "Importing backup files";
+
+"create_card_date_error" = "Failed to save data.";
+
+"modify_card_date_error" = "Data modification failed.";
+
+"delete_card_date_error" = "Data deletion failed.";
+
+"create_directory_error" = "Failed to create save folder.";
+
+"save_image_error" = "Failed to save image.";
+
+"delete_file_error" = "File deletion failed.";
+
+"delete_directory_error" = "Failed to delete save folder.";
+
+"fetch_image_error" = "Failed to get image.";
+
+"fetch_zip_file_error" = "Failed to get compressed file.";
+
+"fetch_directory_path_error" = "Failed to get folder path.";
+
+"compression_file_error" = "File compression failed.";
+
+"restore_file_error" = "File recovery failed.";
+
+"fetch_json_file_error" = "Failed to import JSON file.";
+
+"json_decode_error" = "Data decoding failed.";
+
+"json_encode_error" = "Data encoding failed.";
+
+"error_occurred" = "An error has occurred.";
