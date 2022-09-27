@@ -21,25 +21,25 @@ final class CardViewerCollectionViewCell: MainPagerViewCell {
     }
     
     let locationLabel = UILabel().then {
-        $0.textColor = ColorManager.shared.textColor
+        $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
     }
     
     let periodLabel = UILabel().then {
-        $0.textColor = ColorManager.shared.textColor
+        $0.textColor = .black
         $0.minimumScaleFactor = 0.7
         $0.numberOfLines = 1
     }
     
     let locationImage = UIImageView().then {
         $0.image = UIImage.locationImage
-        $0.tintColor = ColorManager.shared.textColor
+        $0.tintColor = .black
     }
     
     let calendarImage = UIImageView().then {
         $0.image = UIImage.calendarImage
-        $0.tintColor = ColorManager.shared.textColor
+        $0.tintColor = .black
     }
     
     

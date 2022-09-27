@@ -132,6 +132,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         if cellItems[indexPath.section][indexPath.row] == .versionInfo {
             cell.detailTextLabel?.text = appVersion
+            cell.detailTextLabel?.textColor = ColorManager.shared.textColor
             cell.detailTextLabel?.font = .customFont(size: .small)
         }
         
