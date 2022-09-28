@@ -30,7 +30,7 @@ final class WriteByDateView: BaseView {
     }
     
     let addImageButton = UIButton().then {
-        $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        $0.backgroundColor = .lightGray
         $0.tintColor = .white
         $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "plus"), for: .normal)

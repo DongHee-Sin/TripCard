@@ -65,6 +65,7 @@ final class WriteByDateViewController: BaseViewController {
         guard let data = viewModel?.cardByDate.value[index] else { return }
         
         writeByDateView.mainPhotoImage.image = data.photoImage
+        addImageButtonAlphaToggle()
         writeByDateView.contentTextView.text = data.content
     }
     
@@ -79,6 +80,11 @@ final class WriteByDateViewController: BaseViewController {
         
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItem = finishButton
+    }
+    
+    
+    private func addImageButtonAlphaToggle() {
+        writeByDateView.addImageButton.alpha = writeByDateView.mainPhotoImage.image == nil ? 0.5 : 0.02
     }
     
     
@@ -148,6 +154,8 @@ extension WriteByDateViewController: PHPickerViewControllerDelegate {
 extension WriteByDateViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         writeByDateView.mainPhotoImage.image = image
+        
+        addImageButtonAlphaToggle()
         
         let viewController = cropViewController.children.first!
         viewController.modalTransitionStyle = .coverVertical
