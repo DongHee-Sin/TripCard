@@ -33,7 +33,7 @@ final class BackupRestoreView: BaseView {
         $0.configuration = setButtonConfiguration(title: "fetch_backup_file_button_title".localized)
     }
     
-    let backupFileTableView = UITableView().then {
+    let backupFileTableView = UITableView(frame: CGRect(), style: .insetGrouped).then {
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .clear
     }

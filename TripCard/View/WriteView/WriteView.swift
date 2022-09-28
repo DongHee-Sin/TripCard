@@ -11,7 +11,7 @@ import UIKit
 final class WriteView: BaseView {
     
     // MARK: - Propertys
-    let tableView = UITableView(frame: CGRect(), style: .grouped).then {
+    let tableView = UITableView(frame: CGRect(), style: .insetGrouped).then {
         $0.keyboardDismissMode = .onDrag
         $0.backgroundColor = .clear
     }
