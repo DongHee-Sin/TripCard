@@ -28,7 +28,7 @@ class CardDetailCollectionViewCell: MainPagerViewCell {
         $0.layer.cornerRadius = 20
         $0.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         $0.textColor = .black
-        $0.font = .systemFont(ofSize: FontSize.normal.rawValue)
+        $0.font = .customFont(size: .normal)
     }
     
     

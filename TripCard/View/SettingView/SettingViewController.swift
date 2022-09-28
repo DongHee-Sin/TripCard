@@ -132,6 +132,16 @@ class SettingViewController: BaseViewController {
 // MARK: - TableView Protocol
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .zero
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return cellItems.count
     }
