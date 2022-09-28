@@ -47,7 +47,7 @@ final class OverseasListViewController: BaseViewController {
             guard let self = self else { return }
             
             self.cardListView.collectionView.reloadData()
-            self.placeHolderLabel.isHidden = self.repository.domesticCount != 0
+            self.placeHolderLabel.isHidden = self.repository.overseasCount != 0
         }
     }
     
