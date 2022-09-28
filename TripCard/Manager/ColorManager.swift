@@ -12,6 +12,7 @@ enum ThemeColor: String, CaseIterable {
     case modern
     case skyBlue
     case purple
+    case green
     case light
     case dark
 }
@@ -76,6 +77,12 @@ final class ColorManager {
             cellBackgroundColor = UIColor(hex: "FDEBF7ff")
             selectedColor = UIColor(hex: "BFACE0ff")
             buttonColor = UIColor(hex: "645CAAff")
+            textColor = .black
+        case .green:
+            backgroundColor = UIColor(hex: "DFE8CCff")
+            cellBackgroundColor = UIColor(hex: "F7EDDBff")
+            selectedColor = UIColor(hex: "B1D7B4ff")
+            buttonColor = UIColor(hex: "7FB77Eff")
             textColor = .black
         case .light:
             backgroundColor = UIColor(hex: "F9F9F9ff")
