@@ -38,7 +38,7 @@ class SettingViewController: BaseViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = self
         vc.setToRecipients(["sin060123@gmail.com"])
-        vc.setSubject("Contact Developer)")
+        vc.setSubject("[Trip Card]")
         
         return vc
     }()
@@ -87,10 +87,10 @@ class SettingViewController: BaseViewController {
     
     
     private func resetAppData() {
-        showAlert(title: "reset_alert_title".localized, buttonTitle: "reset".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+        showAlert(title: "reset_alert_title".localized, buttonTitle: "reset".localized, buttonStyle: .destructive, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             
-            self.showAlert(title: "reset_check_alert_title".localized, buttonTitle: "reset".localized, cancelTitle: "cancel".localized) { _ in
+            self.showAlert(title: "reset_check_alert_title".localized, buttonTitle: "reset".localized, buttonStyle: .destructive, cancelTitle: "cancel".localized) { _ in
                 do {
                     try TripDataRepository.shared.resetAppData()
                     UserDefaultManager.shared.resetAllData()
