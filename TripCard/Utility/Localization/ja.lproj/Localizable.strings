@@ -164,3 +164,9 @@
 "no_data_to_backup" = "バックアップするデータが存在しません。";
 
 "error_occurred" = "エラーが発生しました。";
+
+"fetch_backup_file_alert_title" = "TripCardに対するバックアップファイルで間違いないですか？";
+
+"fetch_backup_file_alert_message" = "このアプリのバックアップファイルは、\TripCard\の接頭語で生成されます。 \"%@\"ファイルがTripCardのバックアップファイルであるか確認してください。";
+
+"fetch" = "持ってくる";

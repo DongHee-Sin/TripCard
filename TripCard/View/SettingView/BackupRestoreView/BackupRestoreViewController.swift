@@ -143,6 +143,18 @@ final class BackupRestoreViewController: BaseViewController {
             showErrorAlert(error: error)
         }
     }
+    
+    
+    private func fetchZipFileFromDocumentAndReloadUI(at selectedFileURL: URL) {
+        do {
+            try repository.documentManager.fetchZipFileFromDocumentPicker(selectedFileURL: selectedFileURL)
+
+            fetchZipFiles()
+        }
+        catch {
+            showErrorAlert(error: error)
+        }
+    }
 }
 
 
@@ -234,13 +246,12 @@ extension BackupRestoreViewController: UIDocumentPickerDelegate {
             return
         }
         
-        do {
-            try repository.documentManager.fetchZipFileFromDocumentPicker(selectedFileURL: selectedFileURL)
-            
-            fetchZipFiles()
-        }
-        catch {
-            showErrorAlert(error: error)
+        if selectedFileURL.lastPathComponent.hasPrefix("TripCard") {
+            fetchZipFileFromDocumentAndReloadUI(at: selectedFileURL)
+        }else {
+            showAlert(title: "fetch_backup_file_alert_title".localized, message: "fetch_backup_file_alert_message".localized(with: selectedFileURL.lastPathComponent), buttonTitle: "fetch".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+                self?.fetchZipFileFromDocumentAndReloadUI(at: selectedFileURL)
+            }
         }
     }
     

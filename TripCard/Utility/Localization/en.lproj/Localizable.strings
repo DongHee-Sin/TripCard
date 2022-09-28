@@ -125,8 +125,7 @@
 
 "backup" = "Back up";
 
-"backup_description" = "Because the created backup file is created within the app, the backup file is also deleted when the app is deleted.\nWe recommend that you manage backup files separately using messengers, email, cloud storage, and more.
-        ";
+"backup_description" = "Because the created backup file is created within the app, the backup file is also deleted when the app is deleted.\nWe recommend that you manage backup files separately using messengers, email, cloud storage, and more.";
 
 "create_backup_file_button_title" = "Creating a backup file";
 
@@ -165,3 +164,9 @@
 "no_data_to_backup" = "Data for backup does not exist.";
 
 "error_occurred" = "An error has occurred.";
+
+"fetch_backup_file_alert_title" = "Is the backup file for TripCard correct?";
+
+"fetch_backup_file_alert_message" = "The backup file for this app is created with the prefix \"TripCard\". Ensure that the \"%@\" file is the backup file for TripCard.";
+
+"fetch" = "Fetch";

@@ -125,8 +125,7 @@
 
 "backup" = "백업하기";
 
-"backup_description" = "생성된 백업 파일은 앱 내에 생성되기 때문에, 앱이 삭제되면 백업 파일도 삭제됩니다.\n메신저, 이메일, 클라우드 저장소 등을 활용하여 백업 파일을 별도 관리하는 것을 권장합니다.
-        ";
+"backup_description" = "생성된 백업 파일은 앱 내에 생성되기 때문에, 앱이 삭제되면 백업 파일도 삭제됩니다.\n메신저, 이메일, 클라우드 저장소 등을 활용하여 백업 파일을 별도 관리하는 것을 권장합니다.";
 
 "create_backup_file_button_title" = "백업 파일 생성하기";
 
@@ -165,3 +164,9 @@
 "no_data_to_backup" = "백업할 데이터가 존재하지 않습니다.";
 
 "error_occurred" = "에러가 발생했습니다.";
+
+"fetch_backup_file_alert_title" = "TripCard에 대한 백업파일이 맞나요?";
+
+"fetch_backup_file_alert_message" = "이 앱의 백업파일은 \"TripCard\"의 접두어를 갖고 생성됩니다. \"%@\"파일이 TripCard의 백업파일이 맞는지 확인해 주세요.";
+
+"fetch" = "가져오기";
