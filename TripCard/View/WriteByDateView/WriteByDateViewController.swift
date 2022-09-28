@@ -42,12 +42,6 @@ final class WriteByDateViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        saveData()
-    }
-    
     
     
     
@@ -79,6 +73,12 @@ final class WriteByDateViewController: BaseViewController {
         if let index = index {
             navigationItem.title = "trip_day".localized(number: index + 1)
         }
+        
+        let dismissButton = UIBarButtonItem(image: UIImage.xmarkImage, style: .plain, target: self, action: #selector(dismissButtonTapped))
+        let finishButton = UIBarButtonItem(title: "finish".localized, style: .plain, target: self, action: #selector(finishButtonTapped))
+        
+        navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.rightBarButtonItem = finishButton
     }
     
     
@@ -105,6 +105,12 @@ final class WriteByDateViewController: BaseViewController {
         cropViewController.rotateButtonsHidden = true
         
         transition(cropViewController, transitionStyle: .present)
+    }
+    
+    
+    @objc private func finishButtonTapped() {
+        saveData()
+        dismiss(animated: true)
     }
     
     
@@ -165,7 +171,7 @@ extension WriteByDateViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = nil
-            textView.textColor = .black
+            textView.textColor = ColorManager.shared.textColor
         }
     }
     

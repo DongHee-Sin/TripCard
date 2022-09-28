@@ -48,6 +48,7 @@ final class WriteByDateView: BaseView {
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.isScrollEnabled = false
         $0.font = .systemFont(ofSize: FontSize.small.rawValue)
+        $0.textColor = ColorManager.shared.textColor
     }
     
     
