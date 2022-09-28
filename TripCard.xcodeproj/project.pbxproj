@@ -89,6 +89,7 @@
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
 		D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */; };
+		D0F8ABF928E43319002351A9 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				D0BC601828D811DD001A4728 /* CustomFont.swift */,
 				D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */,
 				D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */,
+				D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */,
 				D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */,
 			);
 			path = CustomFont;
@@ -627,6 +630,7 @@
 				D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */,
 				D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */,
 				D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */,
+				D0F8ABF928E43319002351A9 /* NanumSquareRoundOTFL.otf in Resources */,
 				D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */,
 				D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */,
 			);

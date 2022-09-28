@@ -11,5 +11,6 @@ import Foundation
 enum CustomFont: String, CaseIterable {
     case KyoboHandwriting2020
     case GangwonEduAll = "GangwonEduAll-OTFLight"
+    case NanumSquareRoundOTFL
     case LeferiBaseType = "LeferiBaseType-Regular"
 }
