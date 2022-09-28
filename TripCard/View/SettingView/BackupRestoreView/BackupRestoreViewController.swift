@@ -18,6 +18,15 @@ final class BackupRestoreViewController: BaseViewController {
         }
     }
     
+    lazy var documentPicker: UIDocumentPickerViewController = {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.zip], asCopy: true)
+        
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        
+        return documentPicker
+    }()
+    
     let fileByteCountFormatter: ByteCountFormatter = {
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = [.useKB, .useMB]
@@ -94,11 +103,6 @@ final class BackupRestoreViewController: BaseViewController {
     
     
     @objc private func fetchBackupButtonTapped() {
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.zip], asCopy: true)
-        
-        documentPicker.delegate = self
-        documentPicker.allowsMultipleSelection = false
-        
         present(documentPicker, animated: true)
     }
     
