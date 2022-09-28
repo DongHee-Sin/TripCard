@@ -39,9 +39,9 @@
 
 "year" = "%lld";
 
-"card_text_view_place_holder" = "Enter content! (Optional)";
+"card_text_view_place_holder" = "Write content. (Optional)";
 
-"modify" = "modify";
+"modify" = "Edit";
 
 "delete_alert_title" = "Are you sure you want to delete it?";
 

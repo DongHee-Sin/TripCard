@@ -18,7 +18,7 @@ extension UIViewController {
         let okButton = UIAlertAction(title: buttonTitle, style: .default, handler: completionHandler)
         
         if let cancelTitle = cancelTitle {
-            let cancelButton = UIAlertAction(title: cancelTitle, style: .destructive)
+            let cancelButton = UIAlertAction(title: cancelTitle, style: .cancel)
             alertController.addAction(cancelButton)
         }
         
