@@ -86,6 +86,7 @@ final class BackupRestoreViewController: BaseViewController {
                 self.fetchZipFiles()
             }
             catch {
+                self.dismissIndicator()
                 self.showErrorAlert(error: error)
             }
         }

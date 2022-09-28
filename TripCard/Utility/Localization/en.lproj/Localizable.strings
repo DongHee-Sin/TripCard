@@ -162,4 +162,6 @@
 
 "json_encode_error" = "Data encoding failed.";
 
+"no_data_to_backup" = "Data for backup does not exist.";
+
 "error_occurred" = "An error has occurred.";

@@ -48,6 +48,7 @@ extension UIViewController {
         case DocumentError.fetchJsonDataError: showAlert(title: "fetch_json_file_error".localized)
         case CodableError.jsonDecodeError: showAlert(title: "json_decode_error".localized)
         case CodableError.jsonEncodeError: showAlert(title: "json_encode_error".localized)
+        case CodableError.noDataToBackupError: showAlert(title: "no_data_to_backup".localized)
         default: showAlert(title: "error_occurred".localized)
         }
     }

@@ -36,6 +36,8 @@ enum RealmError: Error {
 enum CodableError: Error {
     case jsonDecodeError
     case jsonEncodeError
+    
+    case noDataToBackupError
 }
 
 
@@ -236,6 +238,8 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     private func encodeTrip(_ tripData: Results<Trip>) throws -> Data {
+        guard !tripData.isEmpty else { throw CodableError.noDataToBackupError }
+        
         do {
             let encoder = JSONEncoder()
             
