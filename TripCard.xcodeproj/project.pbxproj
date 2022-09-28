@@ -34,6 +34,8 @@
 		D031752E28CB285C00C7A91C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D031752D28CB285C00C7A91C /* SnapKit */; };
 		D031753128CB28F000C7A91C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D031753028CB28F000C7A91C /* Then */; };
 		D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D031753228CB2F2B00C7A91C /* UIImage+Extension.swift */; };
+		D037FABF28E3DC72001F6A43 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D037FABE28E3DC72001F6A43 /* Realm */; };
+		D037FAC128E3DC72001F6A43 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D037FAC028E3DC72001F6A43 /* RealmSwift */; };
 		D041A29328E2CE1B0038C853 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = D041A29228E2CE1B0038C853 /* AcknowList */; };
 		D045AAB728D868400027B7F5 /* CardDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045AAB628D868400027B7F5 /* CardDetailCollectionViewCell.swift */; };
 		D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047C77928D7689A007A6BE6 /* BaseNavigationController+Extension.swift */; };
@@ -47,8 +49,6 @@
 		D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */; };
 		D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */; };
 		D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069916528D45C1A0089F862 /* DateFormatterManager.swift */; };
-		D091EECB28CEE83000BEDC80 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECA28CEE83000BEDC80 /* Realm */; };
-		D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D091EECC28CEE83000BEDC80 /* RealmSwift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
 		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
@@ -174,6 +174,7 @@
 			files = (
 				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
 				D026637A28DCBBC300A86196 /* JGProgressHUD in Frameworks */,
+				D037FAC128E3DC72001F6A43 /* RealmSwift in Frameworks */,
 				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
@@ -182,10 +183,9 @@
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
 				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
-				D091EECB28CEE83000BEDC80 /* Realm in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
+				D037FABF28E3DC72001F6A43 /* Realm in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
-				D091EECD28CEE83000BEDC80 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,8 +551,6 @@
 			packageProductDependencies = (
 				D031752D28CB285C00C7A91C /* SnapKit */,
 				D031753028CB28F000C7A91C /* Then */,
-				D091EECA28CEE83000BEDC80 /* Realm */,
-				D091EECC28CEE83000BEDC80 /* RealmSwift */,
 				D04A961328D0648F0073EC38 /* TextFieldEffects */,
 				D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */,
 				D00BE9FE28D09094000AE09D /* Tabman */,
@@ -563,6 +561,8 @@
 				D026637928DCBBC300A86196 /* JGProgressHUD */,
 				D0B210D528DE9CF20041092B /* FSPagerView */,
 				D041A29228E2CE1B0038C853 /* AcknowList */,
+				D037FABE28E3DC72001F6A43 /* Realm */,
+				D037FAC028E3DC72001F6A43 /* RealmSwift */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -596,7 +596,6 @@
 			packageReferences = (
 				D031752C28CB285C00C7A91C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
-				D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
@@ -606,6 +605,7 @@
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */,
+				D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -975,6 +975,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.30.0;
+			};
+		};
 		D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vtourraine/AcknowList.git";
@@ -989,14 +997,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
 			};
 		};
 		D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -1064,6 +1064,16 @@
 			package = D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
+		D037FABE28E3DC72001F6A43 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		D037FAC028E3DC72001F6A43 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		D041A29228E2CE1B0038C853 /* AcknowList */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D041A29128E2CE1B0038C853 /* XCRemoteSwiftPackageReference "AcknowList" */;
@@ -1073,16 +1083,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
-		};
-		D091EECA28CEE83000BEDC80 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		D091EECC28CEE83000BEDC80 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D091EEC928CEE83000BEDC80 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

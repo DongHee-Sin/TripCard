@@ -192,6 +192,6 @@ extension CalendarSheetViewController: FSCalendarDelegate, FSCalendarDataSource,
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         calendarView.changeMonthView.dateLabel.text = "month".localized(number: calendar.currentPage.get(.month))
-        calendarView.changeYearView.dateLabel.text = "year".localized(number: calendar.currentPage.get(.month))
+        calendarView.changeYearView.dateLabel.text = "year".localized(number: calendar.currentPage.get(.year))
     }
 }
