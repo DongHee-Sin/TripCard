@@ -1,0 +1,166 @@
+/* 
+  Localizable.strings
+  TripCard
+
+  Created by 신동희 on 2022/09/07.
+  
+*/
+
+
+"domestic_trip" = "国内旅行";
+
+"overseas_trip" = "海外旅行";
+
+"no_trip_date_created" = "作成された旅行記録がありません！";
+
+"finish" = "完了";
+
+"location_is_required" = "旅行地域を入力してください！(必須)";
+
+"period_is_required" = "旅行期間を入力してください！(必須)";
+
+"write_view_dismiss_title" = "作成を取り消して後に行きましょうか？";
+
+"write_view_dismiss_message" = "保存していないデータは失われます。";
+
+"dismiss" = "後ろ向き";
+
+"cancel" = "キャンセル";
+
+"location_place_holder" = "地域 *";
+
+"period_place_holder" = "基幹 *";
+
+"trip_day" = "  %lld日目  ";
+
+"trip_period_string" = "旅行期間";
+
+"month" = "%lld月";
+
+"year" = "%lld年";
+
+"card_text_view_place_holder" = "内容を入力してください！（選択）";
+
+"modify" = "修整";
+
+"delete_alert_title" = "本当に削除するんですか？";
+
+"create" = "生成する";
+
+"change" = "変更する";
+
+"delete" = "削除する";
+
+"change_font" = "フォント変更";
+
+"change_theme_color" = "テーマ色変更";
+
+"change_image_quality" = "画像保存品質変更";
+
+"backup_and_restore" = "バックアップ / 復旧.";
+
+"reset" = "初期化";
+
+"bug_report_and_feedback" = "バグレポートおよびフィードバック";
+
+"app_store_review" = "AppStoreレビューを残す";
+
+"version_info" = "バージョン情報";
+
+"opensource" = "オープンソースライセンス";
+
+"setting" = "設定";
+
+"reset_alert_title" = "初期化を進めますか？";
+
+"reset_check_alert_title" = "すべてのカードと画像が削除されます。 本当に初期化を進めましょうか。";
+
+"fail_send_mail_alert_title" = "メール転送失敗";
+
+"fail_send_mail_alert_message" = "デバイスのEメール設定を確認し、もう一度試してください。";
+
+"fail_connect_appstore_alert_title" = "AppStore接続に失敗しました。";
+
+"change_font_view_header_title" = "変更したいフォントをお選びください！";
+
+"already_applied_font_alert_title" = "すでに適用中のフォントですね！";
+
+"change_font_alert_title" = "%@ フォントに変更しますか。";
+
+"change_theme_color" = "テーマカラー変更";
+
+"change_theme_color_view_header_title" = "変更したいテーマの色をお選びください！";
+
+"already_applied_theme_color_alert_title" = "適用中のテーマカラーです！";
+
+"change_theme_color_alert_title" = "%@ にテーマの色を変更しますか。";
+
+"image_quality_best" = "最高品質";
+
+"image_quality_medium" = "中間品質";
+
+"image_quality_low" = "低品質";
+
+"change_image_quality" = "画像保存品質変更";
+
+"change_image_quality_view_header_title" = "画像保存品質を選択してください！";
+
+"already_applied_image_quality_alert_title" = "適用中のイメージ品質設定です！";
+
+"change_image_quality_alert_title" = "%@に保存品質を変更しますか？";
+
+"image_quality_changed_alert_title" = "画像保存品質設定が変更されました。";
+
+"image_quality_changed_alert_message" = "変更された設定は、次の保存時点から適用されます。";
+
+"create_backup_alert_title" = "現在保存されているデータを基準にバックアップファイルを作成しますか？";
+
+"restore_button_title" = "復旧する";
+
+"export_button_title" = "送り出し";
+
+"restore_alert_title" = "%@ファイルでデータを復旧します。";
+
+"fail_fetch_file_path_alert_title" = "選択されたファイルの経路が見つかりません。";
+
+"backup" = "バックアップする";
+
+"backup_description" = "生成されたバックアップファイルはアプリ内に生成されるため、アプリが削除されるとバックアップファイルも削除されます。\nメッセンジャー、Eメール、クラウドストレージなどを活用してバックアップファイルを別途管理することをお勧めします。";
+
+"create_backup_file_button_title" = "バックアップファイルを作成する";
+
+"fetch_backup_file_button_title" = "バックアップファイルを持ってくる";
+
+"create_card_date_error" = "データ保存に失敗しました。";
+
+"modify_card_date_error" = "データの修正に失敗しました。";
+
+"delete_card_date_error" = "データ削除に失敗しました。";
+
+"create_directory_error" = "保存フォルダの作成に失敗しました。";
+
+"save_image_error" = "画像保存に失敗しました。";
+
+"delete_file_error" = "ファイルの削除に失敗しました。";
+
+"delete_directory_error" = "保存フォルダの削除に失敗しました。";
+
+"fetch_image_error" = "画像を取得するのに失敗しました。";
+
+"fetch_zip_file_error" = "圧縮ファイルを取得するのに失敗しました。";
+
+"fetch_directory_path_error" = "フォルダ経路を取得するのに失敗しました。";
+
+"compression_file_error" = "ファイル圧縮に失敗しました。";
+
+"restore_file_error" = "ファイル復旧に失敗しました。";
+
+"fetch_json_file_error" = "JSONファイルを取得するのに失敗しました。";
+
+"json_decode_error" = "データデコードに失敗しました。";
+
+"json_encode_error" = "データエンコードに失敗しました。";
+
+"no_data_to_backup" = "バックアップするデータが存在しません。";
+
+"error_occurred" = "エラーが発生しました。";
