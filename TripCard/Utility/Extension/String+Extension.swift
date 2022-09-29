@@ -23,4 +23,15 @@ extension String {
     func localized(number: Int) -> String {
         return String(format: self.localized, number)
     }
+    
+    
+    func changeColorSpecificText(text: String) -> NSMutableAttributedString {
+        
+        let range = (self as NSString).range(of: text, options: .caseInsensitive)
+
+        let mutableAttributedString = NSMutableAttributedString.init(string: self)
+        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemOrange, range: range)
+
+        return mutableAttributedString
+    }
 }

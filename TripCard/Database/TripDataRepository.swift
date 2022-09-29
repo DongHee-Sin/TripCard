@@ -21,8 +21,8 @@ protocol TripDataRepositoryType {
     
     func addObserver(to tripType: TripType, completion: @escaping () -> Void)
     
-//    func fetchSearchResult(searchWord: String)
-//    func getSearchResult(at index: Int) -> Trip?
+    func updateSearchResult(searchWord: String)
+    func fetchSearchResult(at index: Int) -> Trip?
 }
 
 
@@ -258,14 +258,14 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     // SearchController
-//    func fetchSearchResult(searchWord: String) {
-//        searchResultList = totalTripList.where {
-//            $0.title.contains(searchWord, options: .caseInsensitive) || $0.content.contains(searchWord, options: .caseInsensitive)
-//        }
-//    }
-//
-//    func getSearchResult(at index: Int) -> Trip? {
-//        guard index < searchResultCount else { return nil }
-//        return searchResultList?[index]
-//    }
+    func updateSearchResult(searchWord: String) {
+        searchResultList = totalTripList.where {
+            $0.location.contains(searchWord, options: .caseInsensitive)
+        }
+    }
+
+    func fetchSearchResult(at index: Int) -> Trip? {
+        guard index < searchResultCount else { return nil }
+        return searchResultList?[index]
+    }
 }

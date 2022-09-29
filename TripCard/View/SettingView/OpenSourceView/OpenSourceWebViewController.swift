@@ -30,10 +30,6 @@ final class OpenSourceWebViewController: BaseViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
-    deinit {
-        print("web view DEINIT")
-    }
-    
     
     
     

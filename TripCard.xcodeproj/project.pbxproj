@@ -10,12 +10,10 @@
 		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
 		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
 		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
-		D019487028E32824003004CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019486F28E32824003004CF /* OnboardingViewController.swift */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
 		D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A5128D184EE0038A9B6 /* TOCropViewController */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
 		D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */; };
-		D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */; };
 		D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */; };
 		D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02099F028C79F4500FD25DF /* Localizable.strings */; };
 		D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02099F228C79F5800FD25DF /* String+Extension.swift */; };
@@ -90,16 +88,16 @@
 		D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */; };
 		D0E1AF7328E570A60077F772 /* OpenSourceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1AF7228E570A60077F772 /* OpenSourceListViewController.swift */; };
 		D0E1AF7528E576700077F772 /* OpenSourceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1AF7428E576700077F772 /* OpenSourceWebViewController.swift */; };
+		D0E1AF7828E598340077F772 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1AF7728E598340077F772 /* SearchViewController.swift */; };
+		D0F4B8BB28E5B9F600CBC350 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4B8BA28E5B9F600CBC350 /* SearchViewModel.swift */; };
 		D0F8ABF928E43319002351A9 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D015C6F628D716D80081062F /* CardViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerViewController.swift; sourceTree = "<group>"; };
 		D015C6F828D7174E0081062F /* CardViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerView.swift; sourceTree = "<group>"; };
-		D019486F28E32824003004CF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
 		D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KyoboHandwriting2020pdy.otf; sourceTree = "<group>"; };
-		D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiBaseRegular.otf; sourceTree = "<group>"; };
 		D02099E728C79AFD00FD25DF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		D02099EF28C79F4500FD25DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D02099F128C79F4700FD25DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +166,8 @@
 		D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		D0E1AF7228E570A60077F772 /* OpenSourceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceListViewController.swift; sourceTree = "<group>"; };
 		D0E1AF7428E576700077F772 /* OpenSourceWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceWebViewController.swift; sourceTree = "<group>"; };
+		D0E1AF7728E598340077F772 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D0F4B8BA28E5B9F600CBC350 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		D0F8ABFB28E44005002351A9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0F8ABFC28E44005002351A9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -197,14 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D019486C28E327F8003004CF /* OnboardingView */ = {
-			isa = PBXGroup;
-			children = (
-				D019486F28E32824003004CF /* OnboardingViewController.swift */,
-			);
-			path = OnboardingView;
-			sourceTree = "<group>";
-		};
 		D02099E028C79A2600FD25DF /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +204,6 @@
 				D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */,
 				D02099E328C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf */,
 				D0F8ABF828E43319002351A9 /* NanumSquareRoundOTFL.otf */,
-				D02099E528C79A6200FD25DF /* LeferiBaseRegular.otf */,
 			);
 			path = CustomFont;
 			sourceTree = "<group>";
@@ -417,7 +408,6 @@
 		D0AB513928C76D2C00EB6D2B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D019486C28E327F8003004CF /* OnboardingView */,
 				D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */,
 				D031752928CB245000C7A91C /* ReusableView */,
 				D0AB513F28C76DA000EB6D2B /* MainScene */,
@@ -425,6 +415,7 @@
 				D04CCEAF28D2142A004C2F10 /* WriteByDateView */,
 				D0C4476E28D6CFF300BCCA52 /* CardViewerView */,
 				D0BC601328D80E97001A4728 /* CardDetailViewerView */,
+				D0E1AF7628E598090077F772 /* SearchView */,
 				D047C77B28D76BE3007A6BE6 /* SettingView */,
 			);
 			path = View;
@@ -540,6 +531,15 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		D0E1AF7628E598090077F772 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D0E1AF7728E598340077F772 /* SearchViewController.swift */,
+				D0F4B8BA28E5B9F600CBC350 /* SearchViewModel.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,7 +636,6 @@
 				D02099E428C79A5A00FD25DF /* KyoboHandwriting2020pdy.otf in Resources */,
 				D0F8ABF928E43319002351A9 /* NanumSquareRoundOTFL.otf in Resources */,
 				D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */,
-				D02099E628C79A6200FD25DF /* LeferiBaseRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +653,6 @@
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
 				D0254FB328CB86620076FCB1 /* CardListView.swift in Sources */,
 				D047C77D28D76C0A007A6BE6 /* SettingViewController.swift in Sources */,
-				D019487028E32824003004CF /* OnboardingViewController.swift in Sources */,
 				D0AB515028C776C700EB6D2B /* ColorManager.swift in Sources */,
 				D0BC601728D81015001A4728 /* CardDetailViewerView.swift in Sources */,
 				D0AB514128C76E2C00EB6D2B /* BaseViewController.swift in Sources */,
@@ -663,6 +661,7 @@
 				D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */,
 				D0E1AF7528E576700077F772 /* OpenSourceWebViewController.swift in Sources */,
 				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
+				D0F4B8BB28E5B9F600CBC350 /* SearchViewModel.swift in Sources */,
 				D0AB514B28C7726200EB6D2B /* UserDefaultManager.swift in Sources */,
 				D02099F328C79F5800FD25DF /* String+Extension.swift in Sources */,
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
@@ -686,6 +685,7 @@
 				D0E1AF7328E570A60077F772 /* OpenSourceListViewController.swift in Sources */,
 				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
 				D0254FB628CB89590076FCB1 /* UICollectionViewLayout+Extension.swift in Sources */,
+				D0E1AF7828E598340077F772 /* SearchViewController.swift in Sources */,
 				D04A960F28D0611B0073EC38 /* WriteViewController.swift in Sources */,
 				D0AB514328C76E6400EB6D2B /* BaseView.swift in Sources */,
 				D0B210DA28DEAFA90041092B /* MainPagerViewCell.swift in Sources */,

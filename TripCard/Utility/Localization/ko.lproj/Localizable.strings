@@ -172,3 +172,7 @@
 "fetch_backup_file_alert_message" = "이 앱의 백업파일은 \"TripCard\"의 접두어를 갖고 생성됩니다. \"%@\"파일이 TripCard의 백업파일이 맞는지 확인해 주세요.";
 
 "fetch" = "가져오기";
+
+"search" = "검색";
+
+"search_bar_place_holder" = "지역으로 검색";

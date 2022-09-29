@@ -172,3 +172,7 @@
 "fetch_backup_file_alert_message" = "このアプリのバックアップファイルは、\TripCard\の接頭語で生成されます。 \"%@\"ファイルがTripCardのバックアップファイルであるか確認してください。";
 
 "fetch" = "持ってくる";
+
+"search" = "検索";
+
+"search_bar_place_holder" = "旅行エリアで検索";

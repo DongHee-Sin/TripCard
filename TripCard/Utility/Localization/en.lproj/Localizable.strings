@@ -172,3 +172,7 @@
 "fetch_backup_file_alert_message" = "The backup file for this app is created with the prefix \"TripCard\". Ensure that the \"%@\" file is the backup file for TripCard.";
 
 "fetch" = "Fetch";
+
+"search" = "Search";
+
+"search_bar_place_holder" = "Search by travel area";

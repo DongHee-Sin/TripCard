@@ -95,9 +95,14 @@ final class CardCell: BaseCollectionViewCell {
     }
     
     
-    func updateCell(trip: Trip, mainImage: UIImage?) {
+    func updateCell(trip: Trip, mainImage: UIImage?, searchKeyWord: String? = nil) {
         self.photoImage.image = mainImage
-        self.locationLabel.text = trip.location
+        
+        if let searchKeyWord = searchKeyWord {
+            self.locationLabel.attributedText = trip.location.changeColorSpecificText(text: searchKeyWord)
+        }else {
+            self.locationLabel.text = trip.location
+        }
         
         if trip.startDate == trip.endDate {
             self.periodLabel.text = trip.startDate.string
