@@ -34,6 +34,8 @@ final class MainViewController: TabmanViewController {
         
         configureTabman()
         setFloatingButton()
+        
+        view.backgroundColor = ColorManager.shared.backgroundColor
     }
     
     
@@ -55,6 +57,8 @@ final class MainViewController: TabmanViewController {
 
         bar.indicator.weight = .medium
         bar.indicator.tintColor = ColorManager.shared.buttonColor
+        bar.indicator.overrideUserInterfaceStyle = .light
+        bar.indicator.overscrollBehavior = .compress
         
         bar.layout.contentInset = UIEdgeInsets(top: .zero, left: 20, bottom: .zero, right: 20)
         
