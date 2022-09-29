@@ -36,12 +36,6 @@ final class WriteByDateView: BaseView {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
     }
     
-    let textViewPlaceHolderLabel = UILabel().then {
-        $0.textColor = ColorManager.shared.textColor
-        $0.font = .customFont(size: .normal)
-        $0.text = "여행을 기록하세요!"
-    }
-    
     let contentTextView = UITextView().then {
         $0.backgroundColor = .clear
         $0.sizeToFit()
@@ -62,7 +56,7 @@ final class WriteByDateView: BaseView {
             scrollView.addSubview($0)
         }
         
-        [mainPhotoImage, textViewPlaceHolderLabel, contentTextView].forEach {
+        [mainPhotoImage, contentTextView].forEach {
             stackView.addArrangedSubview($0)
         }
     }
