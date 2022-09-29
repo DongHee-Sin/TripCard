@@ -130,6 +130,21 @@ final class TripDataRepository: TripDataRepositoryType {
     
     
     
+    func findIndex(objectID: ObjectId, tripType: TripType) -> Int? {
+        switch tripType {
+        case .domestic:
+            return domesticList.firstIndex { trip in
+                trip.objectId == objectID
+            }
+        case .overseas:
+            return overseasList.firstIndex { trip in
+                trip.objectId == objectID
+            }
+        }
+    }
+    
+    
+    
     // Update
     func update(trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?], completion: (Trip) -> Void) throws {
         let directoryName = trip.objectId.stringValue

@@ -39,6 +39,21 @@ struct SearchViewModel {
         }else {
             return nil
         }
+    }
+    
+    
+    func selectedIndexInRealm(at index: Int, tripType: TripType) -> Int? {
+        guard let trip = repository.fetchSearchResult(at: index) else {
+            return nil
+        }
         
+        return repository.findIndex(objectID: trip.objectId, tripType: tripType)
+    }
+    
+    
+    func fetchTripType(at index: Int) -> TripType? {
+        guard let trip = repository.fetchSearchResult(at: index) else { return nil }
+        
+        return trip.isDomestic ? .domestic : .overseas
     }
 }

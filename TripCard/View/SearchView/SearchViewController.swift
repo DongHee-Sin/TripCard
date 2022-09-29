@@ -97,6 +97,19 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = CardViewerViewController()
+        
+        if let tripType = viewModel.fetchTripType(at: indexPath.item), let selectedIndex = viewModel.selectedIndexInRealm(at: indexPath.item, tripType: tripType) {
+            vc.selectedIndex = selectedIndex
+            vc.tripType = tripType
+        }
+        
+        let navi = BaseNavigationController(rootViewController: vc)
+        transition(navi, transitionStyle: .presentOverFullScreen)
+    }
 }
 
 
