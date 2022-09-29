@@ -6,8 +6,6 @@
 //
 
 import UIKit
-
-import AcknowList
 import MessageUI
 
 
@@ -42,22 +40,6 @@ class SettingViewController: BaseViewController {
         
         return vc
     }()
-    
-    
-    private lazy var acknowListViewController: AcknowListViewController = {
-        let vc = AcknowListViewController()
-        
-        guard let url = Bundle.main.url(forResource: "Package", withExtension: "resolved"),
-              let data = try? Data(contentsOf: url),
-              let acknowList = try? AcknowPackageDecoder().decode(from: data) else {
-             return AcknowListViewController()
-        }
-        
-        vc.acknowledgements = acknowList.acknowledgements
-        
-        return vc
-    }()
-    
     
     private let appVersion = "1.0.0"
     
@@ -181,7 +163,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .bugReportAndFeedback: sendEmail()
         case .appStoreReview: openAppStore()
         case .versionInfo: break
-        case .openSource: selectedVC = acknowListViewController
+        case .openSource: selectedVC = OpenSourceListViewController()
         }
         
         if let selectedVC = selectedVC {
