@@ -57,6 +57,8 @@ final class WriteByDateViewController: BaseViewController {
         writeByDateView.contentTextView.delegate = self
         
         textViewDidEndEditing(writeByDateView.contentTextView)
+        
+        writeByDateView.tapGesture.addTarget(self, action: #selector(textViewGestureTapped))
     }
     
     
@@ -122,6 +124,11 @@ final class WriteByDateViewController: BaseViewController {
     
     @objc private func presentPHPickerViewController() {
         transition(phpickerViewController, transitionStyle: .present)
+    }
+    
+    
+    @objc private func textViewGestureTapped() {
+        writeByDateView.contentTextView.becomeFirstResponder()
     }
 }
 

@@ -37,13 +37,25 @@ final class WriteByDateView: BaseView {
     }
     
     let contentTextView = UITextView().then {
-        $0.backgroundColor = .clear
+        $0.layer.cornerRadius = 10
+        $0.clipsToBounds = true
+        $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        $0.backgroundColor = .systemGray6
         $0.sizeToFit()
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.isScrollEnabled = false
         $0.font = .systemFont(ofSize: FontSize.small.rawValue)
         $0.textColor = ColorManager.shared.textColor
     }
+    
+    lazy var gestureView = UIView().then {
+        $0.layer.cornerRadius = 10
+        $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        $0.addGestureRecognizer(tapGesture)
+        $0.backgroundColor = .systemGray6
+    }
+    
+    let tapGesture = UITapGestureRecognizer()
     
     
     
@@ -52,7 +64,7 @@ final class WriteByDateView: BaseView {
     override func configureUI() {        
         self.addSubview(scrollView)
         
-        [stackView, addImageButton].forEach {
+        [stackView, addImageButton, gestureView].forEach {
             scrollView.addSubview($0)
         }
         
@@ -79,6 +91,12 @@ final class WriteByDateView: BaseView {
         addImageButton.snp.makeConstraints { make in
             make.height.width.equalTo(88)
             make.center.equalTo(mainPhotoImage)
+        }
+        
+        gestureView.snp.makeConstraints { make in
+            make.top.equalTo(contentTextView.snp.bottom)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }
