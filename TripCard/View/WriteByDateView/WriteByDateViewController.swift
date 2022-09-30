@@ -43,6 +43,13 @@ final class WriteByDateViewController: BaseViewController {
     }
     
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        saveData()
+    }
+    
+    
     
     
     // MARK: - Methods
@@ -117,7 +124,6 @@ final class WriteByDateViewController: BaseViewController {
     
     
     @objc private func finishButtonTapped() {
-        saveData()
         dismiss(animated: true)
     }
     

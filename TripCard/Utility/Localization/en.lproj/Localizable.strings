@@ -176,3 +176,9 @@
 "search" = "Search";
 
 "search_bar_place_holder" = "Search by travel area";
+
+"edit_period_alert_title" = "Are you going to modify the travel period?";
+
+"edit_period_alert_message" = "If you have already saved data, it will only be retained if it overlaps with the date it is modified.";
+
+"edit_period" = "modify period";

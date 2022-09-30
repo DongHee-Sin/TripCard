@@ -176,3 +176,9 @@
 "search" = "検索";
 
 "search_bar_place_holder" = "旅行エリアで検索";
+
+"edit_period_alert_title" = "旅行期間を修正するつもりですか。";
+
+"edit_period_alert_message" = "すでにデータを保存している場合は、変更した日付と重複している場合にのみ保存されます。";
+
+"edit_period" = "期間修正";

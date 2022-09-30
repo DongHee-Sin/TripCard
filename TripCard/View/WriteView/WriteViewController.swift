@@ -349,6 +349,28 @@ extension WriteViewController: UITextFieldDelegate {
         
         view.endEditing(true)
         
+        if !viewModel.cardByDate.value.isEmpty {
+            showAlert(title: "edit_period_alert_title".localized, message: "edit_period_alert_message".localized, buttonTitle: "edit_period".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+                guard let self = self else { return }
+                self.presentCalendarViewController()
+            }
+            
+            return false
+        }
+        
+        presentCalendarViewController()
+        
+        return false
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    private func presentCalendarViewController() {
         calendarViewController.calendarInitialSetting(viewModel: viewModel)
         
         if let sheet = calendarViewController.sheetPresentationController {
@@ -358,14 +380,6 @@ extension WriteViewController: UITextFieldDelegate {
         startDateBeforeChange = viewModel.tripPeriod.value?.start
         
         transition(calendarViewController, transitionStyle: .present)
-        
-        return false
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
 

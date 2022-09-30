@@ -176,3 +176,9 @@
 "search" = "검색";
 
 "search_bar_place_holder" = "지역으로 검색";
+
+"edit_period_alert_title" = "여행 기간을 수정하실 건가요?";
+
+"edit_period_alert_message" = "이미 등록된 날짜별 데이터 중 수정되는 날짜에 포함되지 않는 데이터는 사라집니다.";
+
+"edit_period" = "기간 수정하기";
