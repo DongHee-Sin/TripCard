@@ -22,30 +22,38 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     weak var delegate: WritingDelegate?
     
     
-    let stackView = UIStackView().then {
+    private let stackView = UIStackView().then {
         $0.layoutMargins = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 20)
         $0.isLayoutMarginsRelativeArrangement = true
         $0.spacing = 16
         $0.axis = .vertical
     }
 
-    let mainPhotoImage = UIImageView().then {
+    private let mainPhotoImage = UIImageView().then {
         $0.backgroundColor = .systemGray6
         $0.contentMode = .scaleAspectFill
     }
 
-    let segmentControl = UISegmentedControl(items: ["domestic_trip".localized, "overseas_trip".localized]).then {
+    private let segmentControl = UISegmentedControl(items: ["domestic_trip".localized, "overseas_trip".localized]).then {
         $0.setTitleTextAttributes([.foregroundColor: ColorManager.shared.textColor], for: .selected)
         $0.setTitleTextAttributes([.foregroundColor: UIColor.darkGray], for: .normal)
         $0.selectedSegmentTintColor = ColorManager.shared.selectedColor
         $0.backgroundColor = .lightGray
     }
 
-    let addImageButton = UIButton().then {
-        $0.backgroundColor = .lightGray
+    private let addImageButton = UIButton().then {
+        $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         $0.tintColor = .white
         $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
+    }
+    
+    private let addImageFloatingButton = UIButton().then {
+        $0.layer.cornerRadius = 44
+        $0.tintColor = ColorManager.shared.buttonColor
+        $0.backgroundColor = .white
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "photo.circle.fill"), for: .normal)
     }
 
     let locationTextField = MainTextField().then {
@@ -80,7 +88,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     // MARK: - Methods
     private func configureUI() {
-        [stackView, addImageButton].forEach {
+        [stackView, addImageButton, addImageFloatingButton].forEach {
             self.addSubview($0)
         }
         
@@ -104,6 +112,11 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
             make.center.equalTo(mainPhotoImage)
         }
         
+        addImageFloatingButton.snp.makeConstraints { make in
+            make.trailing.equalTo(mainPhotoImage.snp.trailing).offset(-10)
+            make.bottom.equalTo(mainPhotoImage.snp.bottom).offset(-10)
+        }
+        
         locationTextField.snp.makeConstraints { make in
             make.height.equalTo(55)
         }
@@ -116,6 +129,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     private func addTarget() {
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        addImageFloatingButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
         
         segmentControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
     }
@@ -132,14 +146,13 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     
     func updateHeader(viewModel: WriteViewModel) {
-        if let image = viewModel.mainPhotoImage.value {
-            self.mainPhotoImage.image = image
-            addImageButton.alpha = 0.02
-        }else {
-            addImageButton.alpha = 0.5
-        }
-        self.segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
-        self.locationTextField.text = viewModel.location.value
-        self.periodTextField.text = viewModel.periodString
+        let isImageExist: Bool = viewModel.mainPhotoImage.value != nil
+        addImageButton.isHidden = isImageExist
+        addImageFloatingButton.isHidden = !isImageExist
+        
+        mainPhotoImage.image = viewModel.mainPhotoImage.value
+        segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
+        locationTextField.text = viewModel.location.value
+        periodTextField.text = viewModel.periodString
     }
 }

@@ -74,8 +74,15 @@ final class WriteByDateViewController: BaseViewController {
         guard let data = viewModel?.cardByDate.value[index] else { return }
         
         writeByDateView.mainPhotoImage.image = data.photoImage
-        addImageButtonAlphaToggle()
         writeByDateView.contentTextView.text = data.content
+        
+        addImageButtonHiddenToggle(isImageExist: data.photoImage != nil)
+    }
+    
+    
+    private func addImageButtonHiddenToggle(isImageExist: Bool = true) {
+        writeByDateView.addImageButton.isHidden = isImageExist
+        writeByDateView.addImageFloatingButton.isHidden = !isImageExist
     }
     
     
@@ -89,11 +96,6 @@ final class WriteByDateViewController: BaseViewController {
         
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.rightBarButtonItem = finishButton
-    }
-    
-    
-    private func addImageButtonAlphaToggle() {
-        writeByDateView.addImageButton.alpha = writeByDateView.mainPhotoImage.image == nil ? 0.5 : 0.02
     }
     
     
@@ -168,7 +170,7 @@ extension WriteByDateViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         writeByDateView.mainPhotoImage.image = image
         
-        addImageButtonAlphaToggle()
+        addImageButtonHiddenToggle()
         
         let viewController = cropViewController.children.first!
         viewController.modalTransitionStyle = .coverVertical
