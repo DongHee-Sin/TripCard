@@ -182,3 +182,5 @@
 "edit_period_alert_message" = "이미 등록된 날짜별 데이터 중 수정되는 날짜에 포함되지 않는 데이터는 사라집니다.";
 
 "edit_period" = "기간 수정하기";
+
+"remove_image_alert_title" = "이 사진을 삭제할까요?";

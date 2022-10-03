@@ -182,3 +182,5 @@
 "edit_period_alert_message" = "If you have already saved data, it will only be retained if it overlaps with the date it is modified.";
 
 "edit_period" = "modify period";
+
+"remove_image_alert_title" = "Do you want remove this photo?";

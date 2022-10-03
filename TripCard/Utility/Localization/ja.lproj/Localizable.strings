@@ -182,3 +182,5 @@
 "edit_period_alert_message" = "すでにデータを保存している場合は、変更した日付と重複している場合にのみ保存されます。";
 
 "edit_period" = "期間修正";
+
+"remove_image_alert_title" = "この写真を削除しますか？";
