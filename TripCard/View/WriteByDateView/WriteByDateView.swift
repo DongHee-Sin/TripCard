@@ -36,12 +36,10 @@ final class WriteByDateView: BaseView {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
     }
     
-    let addImageFloatingButton = UIButton().then {
-        $0.layer.cornerRadius = 44
-        $0.tintColor = ColorManager.shared.buttonColor
-        $0.backgroundColor = .white
-        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
-        $0.setImage(UIImage(systemName: "photo.circle.fill"), for: .normal)
+    let removeImageButton = UIButton().then {
+        $0.tintColor = .systemPink
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "trash.circle"), for: .normal)
     }
     
     let contentTextView = UITextView().then {
@@ -72,7 +70,7 @@ final class WriteByDateView: BaseView {
     override func configureUI() {        
         self.addSubview(scrollView)
         
-        [stackView, addImageButton, addImageFloatingButton, gestureView].forEach {
+        [stackView, addImageButton, removeImageButton, gestureView].forEach {
             scrollView.addSubview($0)
         }
         
@@ -101,9 +99,9 @@ final class WriteByDateView: BaseView {
             make.center.equalTo(mainPhotoImage)
         }
         
-        addImageFloatingButton.snp.makeConstraints { make in
-            make.trailing.equalTo(mainPhotoImage.snp.trailing).offset(-10)
-            make.bottom.equalTo(mainPhotoImage.snp.bottom).offset(-10)
+        removeImageButton.snp.makeConstraints { make in
+            make.leading.equalTo(mainPhotoImage.snp.leading).offset(10)
+            make.top.equalTo(mainPhotoImage.snp.top).offset(10)
         }
         
         gestureView.snp.makeConstraints { make in

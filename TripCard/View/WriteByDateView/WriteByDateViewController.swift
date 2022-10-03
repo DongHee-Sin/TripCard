@@ -59,6 +59,7 @@ final class WriteByDateViewController: BaseViewController {
         setNavigationBar()
         
         writeByDateView.addImageButton.addTarget(self, action: #selector(presentPHPickerViewController), for: .touchUpInside)
+        writeByDateView.removeImageButton.addTarget(self, action: #selector(removeImageButtonTapped), for: .touchUpInside)
         
         phpickerViewController.delegate = self
         writeByDateView.contentTextView.delegate = self
@@ -75,14 +76,6 @@ final class WriteByDateViewController: BaseViewController {
         
         writeByDateView.mainPhotoImage.image = data.photoImage
         writeByDateView.contentTextView.text = data.content
-        
-        addImageButtonHiddenToggle(isImageExist: data.photoImage != nil)
-    }
-    
-    
-    private func addImageButtonHiddenToggle(isImageExist: Bool = true) {
-        writeByDateView.addImageButton.isHidden = isImageExist
-        writeByDateView.addImageFloatingButton.isHidden = !isImageExist
     }
     
     
@@ -135,6 +128,14 @@ final class WriteByDateViewController: BaseViewController {
     }
     
     
+    @objc private func removeImageButtonTapped() {
+        showAlert(title: "이 사진을 삭제할까요?", buttonTitle: "삭제", buttonStyle: .destructive, cancelTitle: "취소") { [weak self] _ in
+            guard let self = self else { return }
+            self.writeByDateView.mainPhotoImage.image = nil
+        }
+    }
+    
+    
     @objc private func textViewGestureTapped() {
         writeByDateView.contentTextView.becomeFirstResponder()
     }
@@ -169,8 +170,6 @@ extension WriteByDateViewController: PHPickerViewControllerDelegate {
 extension WriteByDateViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         writeByDateView.mainPhotoImage.image = image
-        
-        addImageButtonHiddenToggle()
         
         let viewController = cropViewController.children.first!
         viewController.modalTransitionStyle = .coverVertical
