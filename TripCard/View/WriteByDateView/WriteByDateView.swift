@@ -37,7 +37,7 @@ final class WriteByDateView: BaseView {
     }
     
     let removeImageButton = UIButton().then {
-        $0.tintColor = .systemPink
+        $0.tintColor = UIColor(hex: "F96666ff")
         $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "trash.circle"), for: .normal)
     }
