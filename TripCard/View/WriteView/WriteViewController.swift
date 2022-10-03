@@ -334,6 +334,14 @@ extension WriteViewController: WritingDelegate {
     }
     
     
+    func removeImageButtonTapped() {
+        showAlert(title: "이 사진을 삭제할까요?", buttonTitle: "삭제", buttonStyle: .destructive, cancelTitle: "취소") { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.mainPhotoImage.value = nil
+        }
+    }
+    
+    
     func segmentValueChanged(_ index: Int) {
         viewModel.segmentValue.value = index
     }

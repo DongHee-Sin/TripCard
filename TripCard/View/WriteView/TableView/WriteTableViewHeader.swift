@@ -12,6 +12,8 @@ import SnapKit
 protocol WritingDelegate: AnyObject {
     func addImageButtonTapped()
     
+    func removeImageButtonTapped()
+    
     func segmentValueChanged(_ index: Int)
 }
 
@@ -48,12 +50,10 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
     }
     
-    private let addImageFloatingButton = UIButton().then {
-        $0.layer.cornerRadius = 44
-        $0.tintColor = ColorManager.shared.buttonColor
-        $0.backgroundColor = .white
-        $0.setPreferredSymbolConfiguration(.init(pointSize: 44, weight: .regular), forImageIn: .normal)
-        $0.setImage(UIImage(systemName: "photo.circle.fill"), for: .normal)
+    private let removeImageButton = UIButton().then {
+        $0.tintColor = .systemPink
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "trash.circle"), for: .normal)
     }
 
     let locationTextField = MainTextField().then {
@@ -88,7 +88,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     // MARK: - Methods
     private func configureUI() {
-        [stackView, addImageButton, addImageFloatingButton].forEach {
+        [stackView, addImageButton, removeImageButton].forEach {
             self.addSubview($0)
         }
         
@@ -112,9 +112,9 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
             make.center.equalTo(mainPhotoImage)
         }
         
-        addImageFloatingButton.snp.makeConstraints { make in
-            make.trailing.equalTo(mainPhotoImage.snp.trailing).offset(-10)
-            make.bottom.equalTo(mainPhotoImage.snp.bottom).offset(-10)
+        removeImageButton.snp.makeConstraints { make in
+            make.leading.equalTo(mainPhotoImage.snp.leading).offset(10)
+            make.top.equalTo(mainPhotoImage.snp.top).offset(10)
         }
         
         locationTextField.snp.makeConstraints { make in
@@ -129,7 +129,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     private func addTarget() {
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
-        addImageFloatingButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        removeImageButton.addTarget(self, action: #selector(removeImageButtonTapped), for: .touchUpInside)
         
         segmentControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
     }
@@ -140,15 +140,18 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
     
     
+    @objc private func removeImageButtonTapped() {
+        delegate?.removeImageButtonTapped()
+    }
+    
+    
     @objc private func segmentValueChanged(_ segmentControl: UISegmentedControl) {
         delegate?.segmentValueChanged(segmentControl.selectedSegmentIndex)
     }
     
     
     func updateHeader(viewModel: WriteViewModel) {
-        let isImageExist: Bool = viewModel.mainPhotoImage.value != nil
-        addImageButton.isHidden = isImageExist
-        addImageFloatingButton.isHidden = !isImageExist
+        removeImageButton.isHidden = viewModel.mainPhotoImage.value == nil
         
         mainPhotoImage.image = viewModel.mainPhotoImage.value
         segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
