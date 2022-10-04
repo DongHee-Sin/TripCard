@@ -12,14 +12,23 @@ import UIKit
 
 protocol TripDataRepositoryType {
     func create(_ trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?]) throws
+    func create(_ trip: [Trip]) throws
     
     func fetchTrip(at index: Int, tripType: TripType) -> Trip?
+    
+    func findIndex(objectID: ObjectId, tripType: TripType) -> Int?
     
     func update(trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?], completion: (Trip) -> Void) throws
     
     func remove(trip: Trip) throws
     
     func addObserver(to tripType: TripType, completion: @escaping () -> Void)
+    
+    func resetAppData() throws
+    
+    func overwriteRealmWithJSON() throws
+    
+    func saveEncodedDataToDocument() throws
     
     func updateSearchResult(searchWord: String)
     func fetchSearchResult(at index: Int) -> Trip?
