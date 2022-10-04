@@ -33,10 +33,6 @@ final class UserDefaultManager {
     var customFont: String
     
     
-    @UserDefault(key: "isInitialLaunch", defaultValue: true)
-    var isInitialLaunch: Bool
-    
-    
     @UserDefault(key: "themeColor", defaultValue: "light")
     var themeColor: String
     
