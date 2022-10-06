@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D00BE9FF28D09094000AE09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D00BE9FE28D09094000AE09D /* Tabman */; };
+		AB5BD6CE90A4B516C0A66EB1 /* Pods_TripCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F413BF7847C797EA1659A1 /* Pods_TripCard.framework */; };
 		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
 		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
@@ -45,6 +45,10 @@
 		D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB528D225F5004C2F10 /* Observable.swift */; };
 		D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */; };
 		D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */; };
+		D04F3B4128EEB38B00356744 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D04F3B4028EEB38B00356744 /* Tabman */; };
+		D05C126D28EEBAAD00683773 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C126C28EEBAAD00683773 /* APIKeys.swift */; };
+		D05C126F28EEBBF300683773 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */; };
+		D05C127128EEBC2E00683773 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C127028EEBC2E00683773 /* LocationSearchView.swift */; };
 		D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069916528D45C1A0089F862 /* DateFormatterManager.swift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
@@ -94,6 +98,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51DE234AF3C89379BC2D51F2 /* Pods-TripCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripCard.debug.xcconfig"; path = "Target Support Files/Pods-TripCard/Pods-TripCard.debug.xcconfig"; sourceTree = "<group>"; };
+		525DD11FB42AA5F85BEA027D /* Pods-TripCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripCard.release.xcconfig"; path = "Target Support Files/Pods-TripCard/Pods-TripCard.release.xcconfig"; sourceTree = "<group>"; };
+		B0F413BF7847C797EA1659A1 /* Pods_TripCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D015C6F628D716D80081062F /* CardViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerViewController.swift; sourceTree = "<group>"; };
 		D015C6F828D7174E0081062F /* CardViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerView.swift; sourceTree = "<group>"; };
 		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
@@ -125,6 +132,9 @@
 		D04CCEB528D225F5004C2F10 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreViewController.swift; sourceTree = "<group>"; };
 		D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreView.swift; sourceTree = "<group>"; };
+		D05C126C28EEBAAD00683773 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		D05C127028EEBC2E00683773 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		D069916528D45C1A0089F862 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -184,19 +194,28 @@
 				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
 				D031752E28CB285C00C7A91C /* SnapKit in Frameworks */,
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
-				D00BE9FF28D09094000AE09D /* Tabman in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
 				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
+				D04F3B4128EEB38B00356744 /* Tabman in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D037FABF28E3DC72001F6A43 /* Realm in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
+				AB5BD6CE90A4B516C0A66EB1 /* Pods_TripCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62BFBFABC0BC99376C30FEA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0F413BF7847C797EA1659A1 /* Pods_TripCard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D02099E028C79A2600FD25DF /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +375,8 @@
 			children = (
 				D0AB512228C76CD800EB6D2B /* TripCard */,
 				D0AB512128C76CD800EB6D2B /* Products */,
+				F97F387E41E98FA352B9D5C7 /* Pods */,
+				62BFBFABC0BC99376C30FEA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -378,6 +399,7 @@
 				D0AB512C28C76CD800EB6D2B /* Assets.xcassets */,
 				D0AB512E28C76CD800EB6D2B /* LaunchScreen.storyboard */,
 				D0AB513128C76CD800EB6D2B /* Info.plist */,
+				D05C126C28EEBAAD00683773 /* APIKeys.swift */,
 				D02BC3BD28D3714A00BCEB0E /* .gitignore */,
 			);
 			path = TripCard;
@@ -517,6 +539,8 @@
 		D0BDF25A28EDDDB1002E1C83 /* LocationSearchView */ = {
 			isa = PBXGroup;
 			children = (
+				D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */,
+				D05C127028EEBC2E00683773 /* LocationSearchView.swift */,
 			);
 			path = LocationSearchView;
 			sourceTree = "<group>";
@@ -548,6 +572,15 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		F97F387E41E98FA352B9D5C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51DE234AF3C89379BC2D51F2 /* Pods-TripCard.debug.xcconfig */,
+				525DD11FB42AA5F85BEA027D /* Pods-TripCard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -555,9 +588,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0AB513428C76CD800EB6D2B /* Build configuration list for PBXNativeTarget "TripCard" */;
 			buildPhases = (
+				E8066A7BE300901335EBA897 /* [CP] Check Pods Manifest.lock */,
 				D0AB511C28C76CD800EB6D2B /* Sources */,
 				D0AB511D28C76CD800EB6D2B /* Frameworks */,
 				D0AB511E28C76CD800EB6D2B /* Resources */,
+				02D8A0A66B60EC8A10B491F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -569,7 +604,6 @@
 				D031753028CB28F000C7A91C /* Then */,
 				D04A961328D0648F0073EC38 /* TextFieldEffects */,
 				D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */,
-				D00BE9FE28D09094000AE09D /* Tabman */,
 				D0201A4F28D184EE0038A9B6 /* CropViewController */,
 				D0201A5128D184EE0038A9B6 /* TOCropViewController */,
 				D0BBA54E28D3115A007D0916 /* FSCalendar */,
@@ -578,6 +612,7 @@
 				D0B210D528DE9CF20041092B /* FSPagerView */,
 				D037FABE28E3DC72001F6A43 /* Realm */,
 				D037FAC028E3DC72001F6A43 /* RealmSwift */,
+				D04F3B4028EEB38B00356744 /* Tabman */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -614,13 +649,13 @@
 				D031752F28CB28F000C7A91C /* XCRemoteSwiftPackageReference "Then" */,
 				D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */,
 				D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				D0BBA54D28D3115A007D0916 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				D0C91E2B28DB010E0045D587 /* XCRemoteSwiftPackageReference "Zip" */,
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -649,6 +684,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02D8A0A66B60EC8A10B491F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8066A7BE300901335EBA897 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TripCard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D0AB511C28C76CD800EB6D2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -656,6 +733,7 @@
 			files = (
 				D0AB513E28C76D9800EB6D2B /* MainViewController.swift in Sources */,
 				D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */,
+				D05C126F28EEBBF300683773 /* LocationSearchViewController.swift in Sources */,
 				D047C77A28D7689A007A6BE6 /* BaseNavigationController+Extension.swift in Sources */,
 				D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */,
 				D031753328CB2F2B00C7A91C /* UIImage+Extension.swift in Sources */,
@@ -684,11 +762,13 @@
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
 				D0B8BC6128E21EAC0061B84C /* BaseTableViewCell.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
+				D05C126D28EEBAAD00683773 /* APIKeys.swift in Sources */,
 				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
 				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
 				D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */,
 				D09C948528D1D70D00D2B68D /* WriteTableViewCell.swift in Sources */,
+				D05C127128EEBC2E00683773 /* LocationSearchView.swift in Sources */,
 				D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */,
 				D0E1AF7328E570A60077F772 /* OpenSourceListViewController.swift in Sources */,
 				D0254FAF28CB831A0076FCB1 /* BaseCollectionViewCell.swift in Sources */,
@@ -872,12 +952,14 @@
 		};
 		D0AB513528C76CD800EB6D2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51DE234AF3C89379BC2D51F2 /* Pods-TripCard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PW2RLJT734;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripCard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TripCard;
@@ -902,12 +984,14 @@
 		};
 		D0AB513628C76CD800EB6D2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 525DD11FB42AA5F85BEA027D /* Pods-TripCard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PW2RLJT734;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripCard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TripCard;
@@ -922,6 +1006,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DongHee.TripCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -954,14 +1039,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/uias/Tabman.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
@@ -1010,6 +1087,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1045,11 +1130,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D00BE9FE28D09094000AE09D /* Tabman */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D00BE9FD28D09094000AE09D /* XCRemoteSwiftPackageReference "Tabman" */;
-			productName = Tabman;
-		};
 		D0201A4F28D184EE0038A9B6 /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
@@ -1089,6 +1169,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
+		};
+		D04F3B4028EEB38B00356744 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

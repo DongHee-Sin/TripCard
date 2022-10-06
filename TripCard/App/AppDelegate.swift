@@ -6,7 +6,10 @@
 //
 
 import UIKit
+
+import GooglePlaces
 import IQKeyboardManagerSwift
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        GMSPlacesClient.provideAPIKey(APIKeys.googleKey)
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.normal)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.highlighted)

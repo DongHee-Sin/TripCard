@@ -131,7 +131,7 @@ final class WriteByDateViewController: BaseViewController {
     
     
     @objc private func removeImageButtonTapped() {
-        showAlert(title: "이 사진을 삭제할까요?", buttonTitle: "삭제", buttonStyle: .destructive, cancelTitle: "취소") { [weak self] _ in
+        showAlert(title: "remove_image_alert_title".localized, buttonTitle: "delete".localized, buttonStyle: .destructive, cancelTitle: "cancel".localized) { [weak self] _ in
             guard let self = self else { return }
             self.writeByDateView.mainPhotoImage.image = nil
             self.writeByDateView.removeImageButton.isHidden = true
