@@ -290,6 +290,7 @@
 				D09C947F28D1D56D00D2B68D /* WriteView.swift */,
 				D04CCEB228D220F9004C2F10 /* WriteViewModel.swift */,
 				D09C948128D1D6D100D2B68D /* TableView */,
+				D0BDF25A28EDDDB1002E1C83 /* LocationSearchView */,
 				D0BBA55028D3142F007D0916 /* CalendarSheetView */,
 			);
 			path = WriteView;
@@ -511,6 +512,13 @@
 				D0BC601B28D8143B001A4728 /* ChangeFontViewController.swift */,
 			);
 			path = ChangeFontView;
+			sourceTree = "<group>";
+		};
+		D0BDF25A28EDDDB1002E1C83 /* LocationSearchView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocationSearchView;
 			sourceTree = "<group>";
 		};
 		D0C4476E28D6CFF300BCCA52 /* CardViewerView */ = {

@@ -73,6 +73,8 @@ final class WriteByDateViewController: BaseViewController {
     private func updateDataToUI() {
         guard let index = index else { return }
         guard let data = viewModel?.cardByDate.value[index] else { return }
+                    
+        writeByDateView.removeImageButton.isHidden = data.photoImage == nil
         
         writeByDateView.mainPhotoImage.image = data.photoImage
         writeByDateView.contentTextView.text = data.content
@@ -132,6 +134,7 @@ final class WriteByDateViewController: BaseViewController {
         showAlert(title: "이 사진을 삭제할까요?", buttonTitle: "삭제", buttonStyle: .destructive, cancelTitle: "취소") { [weak self] _ in
             guard let self = self else { return }
             self.writeByDateView.mainPhotoImage.image = nil
+            self.writeByDateView.removeImageButton.isHidden = true
         }
     }
     
@@ -170,6 +173,8 @@ extension WriteByDateViewController: PHPickerViewControllerDelegate {
 extension WriteByDateViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         writeByDateView.mainPhotoImage.image = image
+        
+        writeByDateView.removeImageButton.isHidden = false
         
         let viewController = cropViewController.children.first!
         viewController.modalTransitionStyle = .coverVertical
