@@ -12,10 +12,13 @@ final class LocationSearchView: BaseView {
     
     // MARK: - Propertys
     let searchBar = UISearchBar().then {
-        $0.showsCancelButton = true
-//        $0.barTintColor = .white
-        $0.barStyle = .default
+        $0.searchTextField.textColor = ColorManager.shared.textColor
+        $0.searchTextField.leftView?.tintColor = ColorManager.shared.textColor
+        $0.barTintColor = ColorManager.shared.selectedColor
+        
+//        $0.barStyle = .default
         $0.placeholder = "location_search_placeholder".localized
+        $0.showsCancelButton = true
     }
     
     let tableView = UITableView().then {

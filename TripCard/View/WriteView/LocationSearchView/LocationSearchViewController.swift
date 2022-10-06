@@ -19,6 +19,9 @@ final class LocationSearchViewController: BaseViewController {
     // MARK: - Propertys
     private lazy var tableDataSource = {
         let dataSource = GMSAutocompleteTableDataSource()
+        dataSource.tableCellBackgroundColor = ColorManager.shared.backgroundColor ?? UIColor.white
+        dataSource.primaryTextHighlightColor = UIColor.systemOrange
+        dataSource.primaryTextColor = ColorManager.shared.textColor ?? UIColor.black
         dataSource.delegate = self
         return dataSource
     }()
@@ -89,8 +92,6 @@ extension LocationSearchViewController: GMSAutocompleteTableDataSourceDelegate {
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
         delegate?.addLocation(location: place.name ?? "")
-        
-        locationSearchView.searchBar.endEditing(true)
         
         dismiss(animated: true)
     }
