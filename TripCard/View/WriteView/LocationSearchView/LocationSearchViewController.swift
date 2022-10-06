@@ -58,14 +58,8 @@ final class LocationSearchViewController: BaseViewController {
 // MARK: - SearchBar Protocol
 extension LocationSearchViewController: UISearchBarDelegate {
     
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        //
-//    }
-    
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        locationSearchView.searchBar.endEditing(true)
-        locationSearchView.searchBar.text = ""
+        dismiss(animated: true)
     }
     
     
@@ -80,6 +74,7 @@ extension LocationSearchViewController: UISearchBarDelegate {
 
 // MARK: - TableView Protocol
 extension LocationSearchViewController: GMSAutocompleteTableDataSourceDelegate {
+    
     func didUpdateAutocompletePredictions(for tableDataSource: GMSAutocompleteTableDataSource) {
         locationSearchView.tableView.reloadData()
     }
@@ -95,6 +90,7 @@ extension LocationSearchViewController: GMSAutocompleteTableDataSourceDelegate {
         
         dismiss(animated: true)
     }
+    
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didFailAutocompleteWithError error: Error) {
         showErrorAlert(error: error)
