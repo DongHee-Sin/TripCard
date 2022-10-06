@@ -184,3 +184,5 @@
 "edit_period" = "期間修正";
 
 "remove_image_alert_title" = "この写真を削除しますか？";
+
+"location_search_placeholder" = "Search";

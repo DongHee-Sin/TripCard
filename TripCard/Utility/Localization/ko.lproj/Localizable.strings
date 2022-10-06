@@ -184,3 +184,5 @@
 "edit_period" = "기간 수정하기";
 
 "remove_image_alert_title" = "이 사진을 삭제할까요?";
+
+"location_search_placeholder" = "검색하세요";

@@ -93,7 +93,12 @@ final class WriteViewController: BaseViewController {
         }
         
         
-        // MARK: -
+        viewModel.location.bind { [weak self] location in
+            guard let self = self else { return }
+            self.writeView.tableView.reloadData()
+        }
+        
+        
         viewModel.tripPeriod.bind { [weak self] dates in
             guard let self = self else { return }
             
@@ -196,11 +201,6 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    @objc func textFieldValueChange(_ sender: UITextField) {
-        viewModel.location.value = sender.text ?? ""
-    }
-    
-    
     private func presentPHPickerViewController() {
         transition(phpickerViewController, transitionStyle: .present)
     }
@@ -248,8 +248,6 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
         
         header.locationTextField.delegate = self
         header.periodTextField.delegate = self
-        
-        header.locationTextField.addTarget(self, action: #selector(textFieldValueChange), for: .editingChanged)
         
         return header
     }
@@ -352,29 +350,29 @@ extension WriteViewController: WritingDelegate {
 
 // MARK: - TextField Delegate
 extension WriteViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard textField.tag == 1 else { return true }
-        
-        view.endEditing(true)
-        
-        if !viewModel.cardByDate.value.isEmpty {
-            showAlert(title: "edit_period_alert_title".localized, message: "edit_period_alert_message".localized, buttonTitle: "edit_period".localized, cancelTitle: "cancel".localized) { [weak self] _ in
-                guard let self = self else { return }
-                self.presentCalendarViewController()
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {        
+        if textField.tag == 0 {
+            let locationSearchVC = LocationSearchViewController()
+            locationSearchVC.delegate = self
+            
+            transition(locationSearchVC, transitionStyle: .present)
+            
+        }
+        else if textField.tag == 1 {
+            if !viewModel.cardByDate.value.isEmpty {
+                showAlert(title: "edit_period_alert_title".localized, message: "edit_period_alert_message".localized, buttonTitle: "edit_period".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+                    guard let self = self else { return }
+                    self.presentCalendarViewController()
+                }
+                
+                return false
             }
             
-            return false
+            presentCalendarViewController()
+            
         }
         
-        presentCalendarViewController()
-        
         return false
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     
@@ -398,5 +396,15 @@ extension WriteViewController: UITextFieldDelegate {
 extension WriteViewController: AddPeriodDelegate {
     func addPeriod(period: TripPeriod?) {
         viewModel.tripPeriod.value = period
+    }
+}
+
+
+
+
+// MARK: - Add Location Delegate
+extension WriteViewController: AddLocationDelegate {
+    func addLocation(location: String) {
+        viewModel.location.value = location
     }
 }
