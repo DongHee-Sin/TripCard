@@ -15,8 +15,6 @@ final class LocationSearchView: BaseView {
         $0.searchTextField.textColor = ColorManager.shared.textColor
         $0.searchTextField.leftView?.tintColor = ColorManager.shared.textColor
         $0.barTintColor = ColorManager.shared.selectedColor
-        
-//        $0.barStyle = .default
         $0.placeholder = "location_search_placeholder".localized
         $0.showsCancelButton = true
     }
