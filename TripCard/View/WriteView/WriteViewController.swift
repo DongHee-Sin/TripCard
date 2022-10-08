@@ -12,19 +12,16 @@ import TOCropViewController
 import PhotosUI
 
 
+enum PHPickerStatus {
+    case mainImage
+    case imageByDate
+}
+
+
 final class WriteViewController: BaseViewController {
 
     // MARK: - Propertys
-    let viewModel = WriteViewModel()
-    
-    lazy private var phpickerViewController: PHPickerViewController = {
-        var configuration = PHPickerConfiguration()
-        configuration.selectionLimit = 1
-        configuration.filter = .images
-        
-        let pickerVC = PHPickerViewController(configuration: configuration)
-        return pickerVC
-    }()
+    private let viewModel = WriteViewModel()
     
     lazy private var calendarViewController: CalendarSheetViewController = {
         let calendarVC = CalendarSheetViewController()
@@ -43,6 +40,8 @@ final class WriteViewController: BaseViewController {
     private var startDateBeforeChange: Date?
     
     private var periodBindToggle = false
+    
+    private var phpickerStatus: PHPickerStatus = .mainImage
     
     
     
@@ -67,8 +66,6 @@ final class WriteViewController: BaseViewController {
         addCompletionToViewModelPropertys()
         
         setNavigationBarButtonItem()
-        
-        phpickerViewController.delegate = self
     }
     
     
@@ -138,7 +135,10 @@ final class WriteViewController: BaseViewController {
         
         viewModel.cardByDate.bind { [weak self] _ in
             guard let self = self else { return }
-            self.writeView.tableView.reloadData()
+        
+            DispatchQueue.main.async {
+                self.writeView.tableView.reloadData()
+            }
         }
     }
     
@@ -201,7 +201,21 @@ final class WriteViewController: BaseViewController {
     }
     
     
-    private func presentPHPickerViewController() {
+    private func presentPHPickerViewController(selectionLimit: Int? = nil) {
+        
+        let phpickerViewController: PHPickerViewController = {
+            var configuration = PHPickerConfiguration()
+            configuration.selectionLimit = selectionLimit ?? 1
+            configuration.filter = .images
+            
+            let pickerVC = PHPickerViewController(configuration: configuration)
+            pickerVC.delegate = self
+            
+            return pickerVC
+        }()
+        
+        phpickerStatus = selectionLimit == nil ? .mainImage : .imageByDate
+        
         transition(phpickerViewController, transitionStyle: .present)
     }
     
@@ -294,15 +308,34 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
 extension WriteViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+        
+        // MARK: - results 매개변수로 넘어온 배열의 요소 개수를 바탕으로 분기처리
+        // 1개 : 원래 로직대로 처리 => crop VC로 넘기기 => 당일치기 여행일 수 있으니 다른 방법을 찾아야 함
+        // 2개 이상 : 데이터 순서대로 날짜별 카드에 이미지 등록 (안내 alert가 필요함)
+        switch phpickerStatus {
+        case .mainImage:
+            if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                    guard let self = self else { return }
+                    guard let selectedImage = image as? UIImage else { return }
+                    
+                    self.showIndicator()
+                    
+                    DispatchQueue.main.async {
+                        self.presentCropViewController(image: selectedImage)
+                    }
+                }
+            }
+        case .imageByDate:
+            let itemProviders = results.map { $0.itemProvider }
+            
+            itemProviders.enumerated().forEach {  [weak self] index, provider in
                 guard let self = self else { return }
-                guard let selectedImage = image as? UIImage else { return }
                 
-                self.showIndicator()
-                
-                DispatchQueue.main.async {
-                    self.presentCropViewController(image: selectedImage)
+                provider.loadObject(ofClass: UIImage.self) { image, error in
+                    guard let selectedImage = image as? UIImage else { return }
+                    
+                    self.viewModel.cardByDate.value[index].photoImage = selectedImage
                 }
             }
         }
@@ -329,6 +362,11 @@ extension WriteViewController: CropViewControllerDelegate {
 extension WriteViewController: WritingDelegate {
     func addImageButtonTapped() {
         presentPHPickerViewController()
+    }
+    
+    
+    func addImageByDateButtonTapped() {
+        presentPHPickerViewController(selectionLimit: viewModel.cardByDate.value.count)
     }
     
     

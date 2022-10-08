@@ -12,6 +12,8 @@ import SnapKit
 protocol WritingDelegate: AnyObject {
     func addImageButtonTapped()
     
+    func addImageByDateButtonTapped()
+    
     func removeImageButtonTapped()
     
     func segmentValueChanged(_ index: Int)
@@ -67,6 +69,24 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
     
     
+    let addImageByDateButton = UIButton().then {
+        var config = UIButton.Configuration.filled()
+        config.title = "이미지 한번에 등록하기"
+        config.baseBackgroundColor = ColorManager.shared.selectedColor
+        config.baseForegroundColor = ColorManager.shared.textColor
+        config.contentInsets = NSDirectionalEdgeInsets.init(top: 12, leading: 12, bottom: 12, trailing: 12)
+        
+        // font 설정
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer({ incoming in
+            var outgoing = incoming
+            outgoing.font = .customFont(size: .normal)
+            return outgoing
+        })
+        
+        $0.configuration = config
+    }
+    
+    
     
     
     // MARK: - Init
@@ -92,7 +112,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
             self.addSubview($0)
         }
         
-        [mainPhotoImage, segmentControl, locationTextField, periodTextField].forEach {
+        [mainPhotoImage, segmentControl, locationTextField, periodTextField, addImageByDateButton].forEach {
             stackView.addArrangedSubview($0)
         }
     }
@@ -129,6 +149,8 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     private func addTarget() {
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        addImageByDateButton.addTarget(self, action: #selector(addImageByDateButtonTapped), for: .touchUpInside)
+        
         removeImageButton.addTarget(self, action: #selector(removeImageButtonTapped), for: .touchUpInside)
         
         segmentControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
@@ -137,6 +159,11 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     @objc private func addImageButtonTapped() {
         delegate?.addImageButtonTapped()
+    }
+    
+    
+    @objc private func addImageByDateButtonTapped() {
+        delegate?.addImageByDateButtonTapped()
     }
     
     
@@ -152,6 +179,8 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     func updateHeader(viewModel: WriteViewModel) {
         removeImageButton.isHidden = viewModel.mainPhotoImage.value == nil
+        
+        addImageByDateButton.isHidden = viewModel.periodString == ""
         
         mainPhotoImage.image = viewModel.mainPhotoImage.value
         segmentControl.selectedSegmentIndex = viewModel.segmentValue.value
