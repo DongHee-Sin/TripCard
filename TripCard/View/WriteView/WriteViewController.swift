@@ -135,10 +135,8 @@ final class WriteViewController: BaseViewController {
         
         viewModel.cardByDate.bind { [weak self] _ in
             guard let self = self else { return }
-        
-            DispatchQueue.main.async {
-                self.writeView.tableView.reloadData()
-            }
+            
+            self.writeView.tableView.reloadData()
         }
     }
     
@@ -309,9 +307,6 @@ extension WriteViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
-        // MARK: - results 매개변수로 넘어온 배열의 요소 개수를 바탕으로 분기처리
-        // 1개 : 원래 로직대로 처리 => crop VC로 넘기기 => 당일치기 여행일 수 있으니 다른 방법을 찾아야 함
-        // 2개 이상 : 데이터 순서대로 날짜별 카드에 이미지 등록 (안내 alert가 필요함)
         switch phpickerStatus {
         case .mainImage:
             if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
@@ -329,14 +324,27 @@ extension WriteViewController: PHPickerViewControllerDelegate {
         case .imageByDate:
             let itemProviders = results.map { $0.itemProvider }
             
-            itemProviders.enumerated().forEach {  [weak self] index, provider in
-                guard let self = self else { return }
+            var temp = viewModel.cardByDate.value
+            
+            let group = DispatchGroup()
+            
+            itemProviders.enumerated().forEach { index, provider in
+                group.enter()
                 
                 provider.loadObject(ofClass: UIImage.self) { image, error in
-                    guard let selectedImage = image as? UIImage else { return }
+                    guard let selectedImage = image as? UIImage else {
+                        group.leave()
+                        return
+                    }
                     
-                    self.viewModel.cardByDate.value[index].photoImage = selectedImage
+                    temp[index].photoImage = selectedImage
+                    group.leave()
                 }
+            }
+            
+            group.notify(queue: .main) { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.cardByDate.value = temp
             }
         }
         
