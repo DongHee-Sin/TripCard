@@ -71,7 +71,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     let addImageByDateButton = UIButton().then {
         var config = UIButton.Configuration.filled()
-        config.title = "이미지 한번에 등록하기"
+        config.title = "register_image_at_once".localized
         config.baseBackgroundColor = ColorManager.shared.selectedColor
         config.baseForegroundColor = ColorManager.shared.textColor
         config.contentInsets = NSDirectionalEdgeInsets.init(top: 12, leading: 12, bottom: 12, trailing: 12)
