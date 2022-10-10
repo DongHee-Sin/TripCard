@@ -246,12 +246,19 @@ final class WriteViewController: BaseViewController {
 // MARK: - TableView Protocol
 extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+        return section == 0 ? UITableView.automaticDimension : .zero
     }
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: WriteTableViewHeader.identifier) as? WriteTableViewHeader else {
             return nil
         }
@@ -266,11 +273,13 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCell
+        return section == 0 ? 0 : viewModel.numberOfCell
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.section != 0 else { return UITableViewCell() }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WriteTableViewCell.identifier, for: indexPath) as? WriteTableViewCell else {
             return UITableViewCell()
         }
@@ -283,11 +292,13 @@ extension WriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return indexPath.section == 0 ? .zero : 55
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section != 0 else { return }
+        
         let writeByDateVC = WriteByDateViewController()
         
         writeByDateVC.index = indexPath.row
