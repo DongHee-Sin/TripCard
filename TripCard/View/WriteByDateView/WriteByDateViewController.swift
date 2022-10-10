@@ -29,6 +29,9 @@ final class WriteByDateViewController: BaseViewController {
         return pickerVC
     }()
     
+    var tempImage: UIImage?
+    var tempText: String?
+    
     
     
     
@@ -42,11 +45,18 @@ final class WriteByDateViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setTempData()
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        saveData()
+        if tempImage != writeByDateView.mainPhotoImage.image || tempText != writeByDateView.contentTextView.text {
+            saveData()
+        }
     }
     
     
@@ -67,6 +77,12 @@ final class WriteByDateViewController: BaseViewController {
         textViewDidEndEditing(writeByDateView.contentTextView)
         
         writeByDateView.tapGesture.addTarget(self, action: #selector(textViewGestureTapped))
+    }
+    
+    
+    private func setTempData() {
+        tempImage = writeByDateView.mainPhotoImage.image
+        tempText = writeByDateView.contentTextView.text
     }
     
     
@@ -116,7 +132,7 @@ final class WriteByDateViewController: BaseViewController {
         cropViewController.resetButtonHidden = true
         cropViewController.rotateButtonsHidden = true
         
-        transition(cropViewController, transitionStyle: .present)
+        transition(cropViewController, transitionStyle: .presentOverFullScreen)
     }
     
     
