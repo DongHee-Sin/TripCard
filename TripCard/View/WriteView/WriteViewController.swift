@@ -80,7 +80,7 @@ final class WriteViewController: BaseViewController {
     private func addCompletionToViewModelPropertys() {
         viewModel.mainPhotoImage.bind { [weak self] image in
             guard let self = self else { return }
-            self.writeView.tableView.reloadData()
+            self.writeView.tableView.reloadSections(IndexSet(0...0), with: .none)
         }
         
         
@@ -92,7 +92,7 @@ final class WriteViewController: BaseViewController {
         
         viewModel.location.bind { [weak self] location in
             guard let self = self else { return }
-            self.writeView.tableView.reloadData()
+            self.writeView.tableView.reloadSections(IndexSet(0...0), with: .none)
         }
         
         
