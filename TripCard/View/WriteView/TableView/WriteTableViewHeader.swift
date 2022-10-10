@@ -16,6 +16,8 @@ protocol WritingDelegate: AnyObject {
     
     func removeImageButtonTapped()
     
+    func cropImageButtonTapped()
+    
     func segmentValueChanged(_ index: Int)
 }
 
@@ -57,6 +59,12 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         $0.tintColor = UIColor(hex: "F96666ff")
         $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
         $0.setImage(UIImage(systemName: "trash.circle"), for: .normal)
+    }
+    
+    private let cropImageButton = UIButton().then {
+        $0.tintColor = UIColor(hex: "F96666ff")
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "crop"), for: .normal)
     }
 
     let locationTextField = MainTextField().then {
@@ -109,7 +117,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     
     // MARK: - Methods
     private func configureUI() {
-        [stackView, addImageButton, removeImageButton].forEach {
+        [stackView, addImageButton, removeImageButton, cropImageButton].forEach {
             self.addSubview($0)
         }
         
@@ -134,8 +142,13 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         }
         
         removeImageButton.snp.makeConstraints { make in
-            make.leading.equalTo(mainPhotoImage.snp.leading).offset(10)
-            make.top.equalTo(mainPhotoImage.snp.top).offset(10)
+            make.leading.equalTo(mainPhotoImage.snp.leading).offset(12)
+            make.top.equalTo(mainPhotoImage.snp.top).offset(12)
+        }
+        
+        cropImageButton.snp.makeConstraints { make in
+            make.leading.equalTo(removeImageButton.snp.trailing).offset(12)
+            make.top.equalTo(mainPhotoImage.snp.top).offset(12)
         }
         
         locationTextField.snp.makeConstraints { make in
@@ -153,6 +166,7 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
         addImageByDateButton.addTarget(self, action: #selector(addImageByDateButtonTapped), for: .touchUpInside)
         
         removeImageButton.addTarget(self, action: #selector(removeImageButtonTapped), for: .touchUpInside)
+        cropImageButton.addTarget(self, action: #selector(cropImageButtonTapped), for: .touchUpInside)
         
         segmentControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
     }
@@ -173,13 +187,20 @@ final class WriteTableViewHeader: UITableViewHeaderFooterView {
     }
     
     
+    @objc private func cropImageButtonTapped() {
+        delegate?.cropImageButtonTapped()
+    }
+    
+    
     @objc private func segmentValueChanged(_ segmentControl: UISegmentedControl) {
         delegate?.segmentValueChanged(segmentControl.selectedSegmentIndex)
     }
     
     
     func updateHeader(viewModel: WriteViewModel) {
-        removeImageButton.isHidden = viewModel.mainPhotoImage.value == nil
+        let hidden = viewModel.mainPhotoImage.value == nil
+        removeImageButton.isHidden = hidden
+        cropImageButton.isHidden = hidden
         
         addImageByDateButton.isHidden = viewModel.periodString == ""
         

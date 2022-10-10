@@ -43,6 +43,12 @@ final class WriteByDateView: BaseView {
         $0.setImage(UIImage(systemName: "trash.circle"), for: .normal)
     }
     
+    let cropImageButton = UIButton().then {
+        $0.tintColor = UIColor(hex: "F96666ff")
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .regular), forImageIn: .normal)
+        $0.setImage(UIImage(systemName: "crop"), for: .normal)
+    }
+    
     let contentTextView = UITextView().then {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
@@ -71,7 +77,7 @@ final class WriteByDateView: BaseView {
     override func configureUI() {        
         self.addSubview(scrollView)
         
-        [stackView, addImageButton, removeImageButton, gestureView].forEach {
+        [stackView, addImageButton, removeImageButton, cropImageButton, gestureView].forEach {
             scrollView.addSubview($0)
         }
         
@@ -103,6 +109,11 @@ final class WriteByDateView: BaseView {
         removeImageButton.snp.makeConstraints { make in
             make.leading.equalTo(mainPhotoImage.snp.leading).offset(10)
             make.top.equalTo(mainPhotoImage.snp.top).offset(10)
+        }
+        
+        cropImageButton.snp.makeConstraints { make in
+            make.leading.equalTo(removeImageButton.snp.trailing).offset(12)
+            make.top.equalTo(mainPhotoImage.snp.top).offset(12)
         }
         
         gestureView.snp.makeConstraints { make in

@@ -400,6 +400,12 @@ extension WriteViewController: WritingDelegate {
     }
     
     
+    func cropImageButtonTapped() {
+        guard let image = viewModel.mainPhotoImage.value else { return }
+        presentCropViewController(image: image)
+    }
+    
+    
     func segmentValueChanged(_ index: Int) {
         viewModel.segmentValue.value = index
     }
