@@ -40,8 +40,6 @@ final class ColorManager {
     
     private(set) var textColor: UIColor?
     
-    private(set) var unSelectedTextColor: UIColor?
-    
     private(set) var buttonColor: UIColor?
     
     private(set) var selectedColor: UIColor?

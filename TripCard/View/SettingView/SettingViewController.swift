@@ -41,7 +41,12 @@ class SettingViewController: BaseViewController {
         return vc
     }()
     
-    private let appVersion = "1.0.0"
+    private var appVersion: String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String else {return nil}
+        
+        return version
+    }
     
     
     

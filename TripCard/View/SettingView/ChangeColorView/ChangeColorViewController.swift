@@ -46,6 +46,11 @@ final class ChangeColorViewController: BaseViewController {
 // MARK: - TableView Protocol
 extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "change_theme_color_view_header_title".localized
     }
