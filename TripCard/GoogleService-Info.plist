@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>844495201288-kncl60b2mhrsd2u2oo5ee097mp7tm8hv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.844495201288-kncl60b2mhrsd2u2oo5ee097mp7tm8hv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYxQEmpqFXy9MgsS4nCouPzfArHHFM6IM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>844495201288</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.DongHee.TripCard</string>
+	<key>PROJECT_ID</key>
+	<string>tripcard-77628</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tripcard-77628.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:844495201288:ios:97865938a2e75a331a5dbd</string>
+</dict>
+</plist>

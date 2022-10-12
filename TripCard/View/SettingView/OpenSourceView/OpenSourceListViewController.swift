@@ -20,6 +20,7 @@ enum OpenSourceList: String, CaseIterable {
     case ToCropViewController
     case Zip
     case GooglePlaces = "Google Places SDK"
+    case Firebase
     
     var url: String {
         switch self {
@@ -45,6 +46,8 @@ enum OpenSourceList: String, CaseIterable {
             return baseURL + "marmelroy/Zip"
         case .GooglePlaces:
             return baseURL + "googlemaps/"
+        case .Firebase:
+            return baseURL + "firebase/firebase-ios-sdk"
         }
     }
     

@@ -46,6 +46,10 @@
 		D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */; };
 		D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */; };
 		D04F3B4128EEB38B00356744 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D04F3B4028EEB38B00356744 /* Tabman */; };
+		D0562E8728F6E06A0098E1EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0562E8628F6E06A0098E1EC /* GoogleService-Info.plist */; };
+		D0562E8A28F6E0F10098E1EC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D0562E8928F6E0F10098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D0562E8C28F6E0F10098E1EC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D0562E8B28F6E0F10098E1EC /* FirebaseCrashlytics */; };
+		D0562E8E28F6E0F10098E1EC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D0562E8D28F6E0F10098E1EC /* FirebaseMessaging */; };
 		D05C126D28EEBAAD00683773 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C126C28EEBAAD00683773 /* APIKeys.swift */; };
 		D05C126F28EEBBF300683773 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */; };
 		D05C127128EEBC2E00683773 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C127028EEBC2E00683773 /* LocationSearchView.swift */; };
@@ -132,6 +136,7 @@
 		D04CCEB528D225F5004C2F10 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreViewController.swift; sourceTree = "<group>"; };
 		D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreView.swift; sourceTree = "<group>"; };
+		D0562E8628F6E06A0098E1EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D05C126C28EEBAAD00683773 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		D05C127028EEBC2E00683773 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
@@ -189,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A666BD28D085000042C9C7 /* IQKeyboardManagerSwift in Frameworks */,
+				D0562E8A28F6E0F10098E1EC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D026637A28DCBBC300A86196 /* JGProgressHUD in Frameworks */,
 				D037FAC128E3DC72001F6A43 /* RealmSwift in Frameworks */,
 				D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */,
@@ -196,10 +202,12 @@
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
+				D0562E8E28F6E0F10098E1EC /* FirebaseMessaging in Frameworks */,
 				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
 				D04F3B4128EEB38B00356744 /* Tabman in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D037FABF28E3DC72001F6A43 /* Realm in Frameworks */,
+				D0562E8C28F6E0F10098E1EC /* FirebaseCrashlytics in Frameworks */,
 				D04A961428D0648F0073EC38 /* TextFieldEffects in Frameworks */,
 				AB5BD6CE90A4B516C0A66EB1 /* Pods_TripCard.framework in Frameworks */,
 			);
@@ -399,6 +407,7 @@
 				D0AB512C28C76CD800EB6D2B /* Assets.xcassets */,
 				D0AB512E28C76CD800EB6D2B /* LaunchScreen.storyboard */,
 				D0AB513128C76CD800EB6D2B /* Info.plist */,
+				D0562E8628F6E06A0098E1EC /* GoogleService-Info.plist */,
 				D05C126C28EEBAAD00683773 /* APIKeys.swift */,
 				D02BC3BD28D3714A00BCEB0E /* .gitignore */,
 			);
@@ -613,6 +622,9 @@
 				D037FABE28E3DC72001F6A43 /* Realm */,
 				D037FAC028E3DC72001F6A43 /* RealmSwift */,
 				D04F3B4028EEB38B00356744 /* Tabman */,
+				D0562E8928F6E0F10098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D0562E8B28F6E0F10098E1EC /* FirebaseCrashlytics */,
+				D0562E8D28F6E0F10098E1EC /* FirebaseMessaging */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -656,6 +668,7 @@
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */,
+				D0562E8828F6E0F10098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -673,6 +686,7 @@
 			files = (
 				D02BC3BE28D3714A00BCEB0E /* .gitignore in Resources */,
 				D0AB513028C76CD800EB6D2B /* LaunchScreen.storyboard in Resources */,
+				D0562E8728F6E06A0098E1EC /* GoogleService-Info.plist in Resources */,
 				D02099F628C7A02800FD25DF /* InfoPlist.strings in Resources */,
 				D02099EE28C79F4500FD25DF /* Localizable.strings in Resources */,
 				D0AB512D28C76CD800EB6D2B /* Assets.xcassets in Resources */,
@@ -1095,6 +1109,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D0562E8828F6E0F10098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		D0A666BB28D085000042C9C7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1174,6 +1196,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		D0562E8928F6E0F10098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0562E8828F6E0F10098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D0562E8B28F6E0F10098E1EC /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0562E8828F6E0F10098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		D0562E8D28F6E0F10098E1EC /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0562E8828F6E0F10098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		D0A666BC28D085000042C9C7 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
