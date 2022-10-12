@@ -7,6 +7,7 @@
 
 import UIKit
 
+import FirebaseCore
 import GooglePlaces
 import IQKeyboardManagerSwift
 
@@ -28,10 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
+        
         GMSPlacesClient.provideAPIKey(APIKeys.googleKey)
+        
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.normal)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ColorManager.shared.textColor, NSAttributedString.Key.font: UIFont.customFont(size: .large)], for: UIControl.State.highlighted)
+        
+        
+        // Firebase
+        FirebaseApp.configure()
+        
         
         return true
     }

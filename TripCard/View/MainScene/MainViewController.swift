@@ -7,6 +7,7 @@
 
 import UIKit
 
+import FirebaseAnalytics
 import Tabman
 import Pageboy
 
@@ -34,6 +35,8 @@ final class MainViewController: TabmanViewController {
         
         configureTabman()
         setFloatingButton()
+        
+        loggingEvents()
         
         view.backgroundColor = ColorManager.shared.backgroundColor
     }
@@ -114,5 +117,31 @@ extension MainViewController: PageboyViewControllerDataSource, TMBarDataSource {
         return item
     }
     
+    
+}
+
+
+
+
+// MARK: - Firebase Logging Events
+extension MainViewController {
+    
+    private func loggingEvents() {
+        
+        let dataRepo = TripDataRepository.shared
+        
+        Analytics.logEvent("Count", parameters: [
+            "domestic": dataRepo.domesticCount,
+            "overseas": dataRepo.overseasCount,
+            "total": dataRepo.domesticCount + dataRepo.overseasCount
+        ])
+        
+        
+        Analytics.logEvent("FontAndTheme", parameters: [
+            "font": UserDefaultManager.shared.customFont,
+            "theme": UserDefaultManager.shared.themeColor
+        ])
+        
+    }
     
 }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+import FirebaseAnalytics
+
 
 extension UIViewController {
     
@@ -32,6 +34,11 @@ extension UIViewController {
     
     // MARK: - Error Alert
     func showErrorAlert(error: Error) {
+        
+        Analytics.logEvent("Error", parameters: [
+            "error": error.localizedDescription
+        ])
+        
         switch error {
         case RealmError.writeError: showAlert(title: "create_card_date_error".localized)
         case RealmError.updateError: showAlert(title: "modify_card_date_error".localized)

@@ -5,9 +5,9 @@
 //  Created by 신동희 on 2022/09/13.
 //
 
-import Foundation
-import RealmSwift
 import UIKit
+
+import RealmSwift
 
 
 protocol TripDataRepositoryType {
