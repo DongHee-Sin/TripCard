@@ -37,6 +37,10 @@ final class UserDefaultManager {
     var themeColor: String
     
     
+    @UserDefault(key: "customThemeColor", defaultValue: "")
+    var customThemeColor: String
+    
+    
     @UserDefault(key: "imageQuality", defaultValue: 0.3)
     var imageQuality: Double
     

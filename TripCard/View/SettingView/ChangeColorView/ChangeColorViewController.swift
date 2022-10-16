@@ -19,8 +19,12 @@ final class ChangeColorViewController: BaseViewController {
     // MARK: - Propertys
     private let repository = CustomThemeColorDataRepository.shared
     
-    private var themeType: ThemeType = .basics
+    private lazy var themeType: ThemeType = currentCustomThemeColor == "" ? .basics : .custom
     
+    // Custom) Realm
+    private let currentCustomThemeColor = UserDefaultManager.shared.customThemeColor
+    
+    // UserDefaults
     private let currentThemeColor = ThemeColor(rawValue: UserDefaultManager.shared.themeColor)
     
     private let themeColorList = ThemeColor.allCases
@@ -56,6 +60,15 @@ final class ChangeColorViewController: BaseViewController {
 // MARK: - TableView Protocol
 extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 && repository.count == 0 {
+            return .zero
+        }else {
+            return 44
+        }
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -78,6 +91,10 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
             guard let customThemeColor = repository.fetch(at: indexPath.row) else { return cell }
             cell.textLabel?.text = customThemeColor.title
             
+            if themeType == .custom && currentCustomThemeColor == customThemeColor.title {
+                cell.accessoryType = .checkmark
+            }
+            
         }else {
             let themeColor = themeColorList[indexPath.row]
             cell.textLabel?.text = themeColor.rawValue
@@ -95,26 +112,46 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let themeColor = themeColorList[indexPath.row]
         
-        
-        if themeType == .basics, let currentThemeColor = currentThemeColor {
-            if currentThemeColor == themeColor {
+        if indexPath.section == 0 {
+            // Custom Theme Color
+            guard let themeColor = repository.fetch(at: indexPath.row) else { return }
+            
+            
+            if themeType == .custom && themeColor.title == currentCustomThemeColor {
                 showAlert(title: "already_applied_theme_color_alert_title".localized)
                 return
             }
-        }
-        
-        
-        showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { [weak self] _ in
-            guard let self = self else { return }
             
-            if indexPath.section == 0 {
-                self.themeType = .custom
+            
+            showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.title), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+                guard let self = self else { return }
                 
+                UserDefaultManager.shared.customThemeColor = themeColor.title
                 
-            }else {
-                self.themeType = .basics
+                ColorManager.themeColorChanged(customThemeColor: themeColor)
+                self.changeRootViewController()
+            }
+            
+        }else {
+            
+            // Basic Theme Color
+            let themeColor = themeColorList[indexPath.row]
+            
+            
+            if themeType == .basics, let currentThemeColor = currentThemeColor {
+                if currentThemeColor == themeColor {
+                    showAlert(title: "already_applied_theme_color_alert_title".localized)
+                    return
+                }
+            }
+            
+            
+            showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+                guard let self = self else { return }
+                
+                UserDefaultManager.shared.customThemeColor = ""
+                
                 UserDefaultManager.shared.themeColor = themeColor.rawValue
                 ColorManager.themeColorChanged()
                 self.changeRootViewController()

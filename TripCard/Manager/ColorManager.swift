@@ -48,8 +48,12 @@ final class ColorManager {
     
     
     // MARK: - Methods
-    static func themeColorChanged() {
-        Self.shared.setThemeColor()
+    static func themeColorChanged(customThemeColor: CustomThemeColor? = nil) {
+        if let customThemeColor = customThemeColor {
+            Self.shared.setCustomThemeColor(customThemeColor)
+        }else {
+            Self.shared.setThemeColor()
+        }
     }
     
     
