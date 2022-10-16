@@ -8,9 +8,19 @@
 import UIKit
 
 
+enum ThemeType {
+    case custom
+    case basics
+}
+
+
 final class ChangeColorViewController: BaseViewController {
 
     // MARK: - Propertys
+    private let repository = CustomThemeColorDataRepository.shared
+    
+    private var themeType: ThemeType = .basics
+    
     private let currentThemeColor = ThemeColor(rawValue: UserDefaultManager.shared.themeColor)
     
     private let themeColorList = ThemeColor.allCases
@@ -57,20 +67,27 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return themeColorList.count
+        return section == 0 ? repository.count : themeColorList.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell()
         
-        let themeColor = themeColorList[indexPath.row]
-        cell.textLabel?.text = themeColor.rawValue
-        
-        if let currentThemeColor = currentThemeColor {
-            if currentThemeColor == themeColor {
-                cell.accessoryType = .checkmark
+        if indexPath.section == 0 {
+            guard let customThemeColor = repository.fetch(at: indexPath.row) else { return cell }
+            cell.textLabel?.text = customThemeColor.title
+            
+        }else {
+            let themeColor = themeColorList[indexPath.row]
+            cell.textLabel?.text = themeColor.rawValue
+            
+            if themeType == .basics, let currentThemeColor = currentThemeColor {
+                if currentThemeColor == themeColor {
+                    cell.accessoryType = .checkmark
+                }
             }
+            
         }
         
         return cell
@@ -81,7 +98,7 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
         let themeColor = themeColorList[indexPath.row]
         
         
-        if let currentThemeColor = currentThemeColor {
+        if themeType == .basics, let currentThemeColor = currentThemeColor {
             if currentThemeColor == themeColor {
                 showAlert(title: "already_applied_theme_color_alert_title".localized)
                 return
@@ -89,10 +106,19 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         
-        showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { _ in
-            UserDefaultManager.shared.themeColor = themeColor.rawValue
-            ColorManager.themeColorChanged()
-            self.changeRootViewController()
+        showAlert(title: "change_theme_color_alert_title".localized(with: themeColor.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { [weak self] _ in
+            guard let self = self else { return }
+            
+            if indexPath.section == 0 {
+                self.themeType = .custom
+                
+                
+            }else {
+                self.themeType = .basics
+                UserDefaultManager.shared.themeColor = themeColor.rawValue
+                ColorManager.themeColorChanged()
+                self.changeRootViewController()
+            }
         }
     }
 }

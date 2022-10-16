@@ -96,4 +96,18 @@ final class ColorManager {
             textColor = .white
         }
     }
+    
+    
+    private func setCustomThemeColor(_ customTheme: CustomThemeColor) {
+        backgroundColor = dataToColor(data: customTheme.backgroundColor)
+        cellBackgroundColor = dataToColor(data: customTheme.cellBackgroundColor)
+        textColor = dataToColor(data: customTheme.textColor)
+        buttonColor = dataToColor(data: customTheme.buttonColor)
+        selectedColor = dataToColor(data: customTheme.selectedColor)
+    }
+    
+    
+    private func dataToColor(data: Data) -> UIColor? {
+        return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UIColor) ?? UIColor()
+    }
 }

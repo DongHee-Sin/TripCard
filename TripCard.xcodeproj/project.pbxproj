@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB5BD6CE90A4B516C0A66EB1 /* Pods_TripCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F413BF7847C797EA1659A1 /* Pods_TripCard.framework */; };
+		D015508E28F8306000A2C7FE /* CustomThemeColorDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015508D28F8306000A2C7FE /* CustomThemeColorDataRepository.swift */; };
 		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
 		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
@@ -53,6 +54,7 @@
 		D05C126F28EEBBF300683773 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */; };
 		D05C127128EEBC2E00683773 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C127028EEBC2E00683773 /* LocationSearchView.swift */; };
 		D069916628D45C1A0089F862 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D069916528D45C1A0089F862 /* DateFormatterManager.swift */; };
+		D08E8E1728F80D800077E6D5 /* CustomThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08E8E1628F80D800077E6D5 /* CustomThemeColor.swift */; };
 		D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */; };
 		D091EED228CF0E8600BEDC80 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED128CF0E8600BEDC80 /* Trip.swift */; };
 		D091EED428CF138800BEDC80 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091EED328CF138800BEDC80 /* Date+Extension.swift */; };
@@ -104,6 +106,7 @@
 		51DE234AF3C89379BC2D51F2 /* Pods-TripCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripCard.debug.xcconfig"; path = "Target Support Files/Pods-TripCard/Pods-TripCard.debug.xcconfig"; sourceTree = "<group>"; };
 		525DD11FB42AA5F85BEA027D /* Pods-TripCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripCard.release.xcconfig"; path = "Target Support Files/Pods-TripCard/Pods-TripCard.release.xcconfig"; sourceTree = "<group>"; };
 		B0F413BF7847C797EA1659A1 /* Pods_TripCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D015508D28F8306000A2C7FE /* CustomThemeColorDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeColorDataRepository.swift; sourceTree = "<group>"; };
 		D015C6F628D716D80081062F /* CardViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerViewController.swift; sourceTree = "<group>"; };
 		D015C6F828D7174E0081062F /* CardViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerView.swift; sourceTree = "<group>"; };
 		D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Light.otf"; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		D05C126E28EEBBF300683773 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		D05C127028EEBC2E00683773 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		D069916528D45C1A0089F862 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		D08E8E1628F80D800077E6D5 /* CustomThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeColor.swift; sourceTree = "<group>"; };
 		D091EECF28CEFC3C00BEDC80 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D091EED128CF0E8600BEDC80 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D091EED328CF138800BEDC80 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -357,12 +361,30 @@
 			path = BackupRestoreView;
 			sourceTree = "<group>";
 		};
-		D091EECE28CEE86C00BEDC80 /* Database */ = {
+		D08E8E1428F80CF60077E6D5 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
 				D091EED128CF0E8600BEDC80 /* Trip.swift */,
 				D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */,
 				D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
+		D08E8E1528F80CFC0077E6D5 /* ThemeColor */ = {
+			isa = PBXGroup;
+			children = (
+				D08E8E1628F80D800077E6D5 /* CustomThemeColor.swift */,
+				D015508D28F8306000A2C7FE /* CustomThemeColorDataRepository.swift */,
+			);
+			path = ThemeColor;
+			sourceTree = "<group>";
+		};
+		D091EECE28CEE86C00BEDC80 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D08E8E1428F80CF60077E6D5 /* Trip */,
+				D08E8E1528F80CFC0077E6D5 /* ThemeColor */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -776,6 +798,7 @@
 				D0B8BC5F28E1CE890061B84C /* ChangeImageQualityViewController.swift in Sources */,
 				D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */,
 				D0306ED128D838D4003F9577 /* ReusableTableCustomView.swift in Sources */,
+				D015508E28F8306000A2C7FE /* CustomThemeColorDataRepository.swift in Sources */,
 				D0E1AF7528E576700077F772 /* OpenSourceWebViewController.swift in Sources */,
 				D0A666BA28D0815F0042C9C7 /* MainTextField.swift in Sources */,
 				D0F4B8BB28E5B9F600CBC350 /* SearchViewModel.swift in Sources */,
@@ -792,6 +815,7 @@
 				D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */,
 				D091EED028CEFC3C00BEDC80 /* TabBarViewController.swift in Sources */,
 				D0B8BC6128E21EAC0061B84C /* BaseTableViewCell.swift in Sources */,
+				D08E8E1728F80D800077E6D5 /* CustomThemeColor.swift in Sources */,
 				D0AB514D28C7758300EB6D2B /* UIColor+Extension.swift in Sources */,
 				D05C126D28EEBAAD00683773 /* APIKeys.swift in Sources */,
 				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
