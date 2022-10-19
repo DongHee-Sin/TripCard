@@ -111,6 +111,24 @@ class SettingViewController: BaseViewController {
             showAlert(title: "fail_connect_appstore_alert_title".localized)
         }
     }
+    
+    
+    private func createCellConfiguration(cell: UITableViewCell, indexPath: IndexPath) -> UIListContentConfiguration {
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = cellItems[indexPath.section][indexPath.row].rawValue.localized
+        content.textProperties.color = ColorManager.shared.textColor ?? .black
+        content.textProperties.font = .customFont(size: .large)
+        
+        if cellItems[indexPath.section][indexPath.row] == .versionInfo {
+            content.secondaryText = appVersion
+            content.secondaryTextProperties.color = ColorManager.shared.textColor ?? .black
+            content.secondaryTextProperties.font = .customFont(size: .small)
+            content.prefersSideBySideTextAndSecondaryText = true
+        }
+        
+        return content
+    }
 }
 
 
@@ -140,15 +158,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell(style: .value1, reuseIdentifier: "cell")
+        let cell = BaseTableViewCell()
         
-        cell.textLabel?.text = cellItems[indexPath.section][indexPath.row].rawValue.localized
-        
-        if cellItems[indexPath.section][indexPath.row] == .versionInfo {
-            cell.detailTextLabel?.text = appVersion
-            cell.detailTextLabel?.textColor = ColorManager.shared.textColor
-            cell.detailTextLabel?.font = .customFont(size: .small)
-        }
+        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
         
         return cell
     }

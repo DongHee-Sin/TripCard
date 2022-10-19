@@ -52,6 +52,36 @@ final class ChangeColorViewController: BaseViewController {
         
         navigationItem.title = "change_theme_color".localized
     }
+    
+    
+    private func createCellConfiguration(cell: UITableViewCell, indexPath: IndexPath) -> UIListContentConfiguration {
+        var content = cell.defaultContentConfiguration()
+        
+        if indexPath.section == 0 {
+            if let customThemeColor = repository.fetch(at: indexPath.row) {
+                content.text = customThemeColor.title
+                
+                if themeType == .custom && currentCustomThemeColor == customThemeColor.title {
+                    cell.accessoryType = .checkmark
+                }
+            }
+            
+        }else {
+            let themeColor = themeColorList[indexPath.row]
+            content.text = themeColor.rawValue
+            
+            if themeType == .basics, let currentThemeColor = currentThemeColor {
+                if currentThemeColor == themeColor {
+                    cell.accessoryType = .checkmark
+                }
+            }
+        }
+        
+        content.textProperties.color = ColorManager.shared.textColor ?? .black
+        content.textProperties.font = .customFont(size: .large)
+        
+        return content
+    }
 }
 
 
@@ -87,25 +117,7 @@ extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell()
         
-        if indexPath.section == 0 {
-            guard let customThemeColor = repository.fetch(at: indexPath.row) else { return cell }
-            cell.textLabel?.text = customThemeColor.title
-            
-            if themeType == .custom && currentCustomThemeColor == customThemeColor.title {
-                cell.accessoryType = .checkmark
-            }
-            
-        }else {
-            let themeColor = themeColorList[indexPath.row]
-            cell.textLabel?.text = themeColor.rawValue
-            
-            if themeType == .basics, let currentThemeColor = currentThemeColor {
-                if currentThemeColor == themeColor {
-                    cell.accessoryType = .checkmark
-                }
-            }
-            
-        }
+        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
         
         return cell
     }

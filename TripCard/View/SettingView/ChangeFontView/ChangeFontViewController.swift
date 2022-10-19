@@ -38,6 +38,24 @@ final class ChangeFontViewController: BaseViewController {
         
         navigationItem.title = "change_font".localized
     }
+    
+    
+    private func createCellConfiguration(cell: UITableViewCell, indexPath: IndexPath) -> UIListContentConfiguration {
+        let font = customFontList[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = font.rawValue
+        content.textProperties.color = ColorManager.shared.textColor ?? .black
+        content.textProperties.font = .customFont(font: font, size: .large)
+        
+        if let currentFont = currentFont {
+            if currentFont == font {
+                cell.accessoryType = .checkmark
+            }
+        }
+        
+        return content
+    }
 }
 
 
@@ -59,15 +77,7 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell()
         
-        let font = customFontList[indexPath.row]
-        cell.textLabel?.text = font.rawValue
-        cell.textLabel?.font = .customFont(font: font, size: .large)
-        
-        if let currentFont = currentFont {
-            if currentFont == font {
-                cell.accessoryType = .checkmark
-            }
-        }
+        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
         
         return cell
     }
@@ -76,14 +86,12 @@ extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let font = customFontList[indexPath.row]
         
-        
         if let currentFont = currentFont {
             if currentFont == font {
                 showAlert(title: "already_applied_font_alert_title".localized)
                 return
             }
         }
-        
         
         showAlert(title: "change_font_alert_title".localized(with: font.rawValue), buttonTitle: "change".localized, cancelTitle: "cancel".localized) { _ in
             UserDefaultManager.shared.customFont = font.rawValue

@@ -83,6 +83,17 @@ final class OpenSourceListViewController: BaseViewController {
         
         navigationItem.title = "opensource".localized
     }
+    
+    
+    private func createCellConfiguration(cell: UITableViewCell, indexPath: IndexPath) -> UIListContentConfiguration {
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = openSourceList[indexPath.row].rawValue
+        content.textProperties.color = ColorManager.shared.textColor ?? .black
+        content.textProperties.font = .customFont(size: .large)
+        
+        return content
+    }
 }
 
 
@@ -104,7 +115,7 @@ extension OpenSourceListViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell()
         
-        cell.textLabel?.text = openSourceList[indexPath.row].rawValue
+        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
         
         return cell
     }

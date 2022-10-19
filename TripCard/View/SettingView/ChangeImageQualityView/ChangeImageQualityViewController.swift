@@ -56,6 +56,25 @@ final class ChangeImageQualityViewController: BaseViewController {
         
         navigationItem.title = "change_image_quality".localized
     }
+    
+    
+    private func createCellConfiguration(cell: UITableViewCell, indexPath: IndexPath) -> UIListContentConfiguration {
+        var content = cell.defaultContentConfiguration()
+                
+        let imageQuality = imageQualityList[indexPath.row]
+        content.text = "\(imageQuality.string)"
+        
+        if let currentImageQuality = currentImageQuality {
+            if currentImageQuality == imageQuality {
+                cell.accessoryType = .checkmark
+            }
+        }
+        
+        content.textProperties.color = ColorManager.shared.textColor ?? .black
+        content.textProperties.font = .customFont(size: .large)
+        
+        return content
+    }
 }
 
 
@@ -77,14 +96,7 @@ extension ChangeImageQualityViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BaseTableViewCell()
         
-        let imageQuality = imageQualityList[indexPath.row]
-        cell.textLabel?.text = "\(imageQuality.string)"
-        
-        if let currentImageQuality = currentImageQuality {
-            if currentImageQuality == imageQuality {
-                cell.accessoryType = .checkmark
-            }
-        }
+        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
         
         return cell
     }

@@ -24,8 +24,6 @@ final class BaseTableViewCell: UITableViewCell {
     
     func configureUI() {
         backgroundColor = ColorManager.shared.cellBackgroundColor
-        textLabel?.font = .customFont(size: .large)
-        textLabel?.textColor = ColorManager.shared.textColor
         selectionStyle = .none
     }
 }
