@@ -141,9 +141,9 @@ class SettingViewController: BaseViewController {
 extension SettingViewController {
     
     private func configureDataSource() {
-        dataSource = UITableViewDiffableDataSource(tableView: settingView.tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+        dataSource = UITableViewDiffableDataSource(tableView: settingView.tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
             let cell = BaseTableViewCell()
-            cell.contentConfiguration = self.createCellConfiguration(cell: cell, indexPath: indexPath)
+            cell.contentConfiguration = self?.createCellConfiguration(cell: cell, indexPath: indexPath)
             return cell
         })
         

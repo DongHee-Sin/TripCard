@@ -75,9 +75,9 @@ final class ChangeFontViewController: BaseViewController {
 extension ChangeFontViewController {
     
     private func configureDataSource() {
-        dataSource = ChangeFontDataSource(tableView: changeFontView.tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+        dataSource = ChangeFontDataSource(tableView: changeFontView.tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
             let cell = BaseTableViewCell()
-            cell.contentConfiguration = self.createCellConfiguration(cell: cell, indexPath: indexPath)
+            cell.contentConfiguration = self?.createCellConfiguration(cell: cell, indexPath: indexPath)
             return cell
         })
         

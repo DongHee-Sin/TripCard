@@ -14,12 +14,21 @@ enum ThemeType {
 }
 
 
+final class ChangeColorDataSource: UITableViewDiffableDataSource<Int, ThemeColor> {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "change_theme_color_view_header_title".localized
+    }
+}
+
+
 final class ChangeColorViewController: BaseViewController {
 
     // MARK: - Propertys
     private let currentThemeColor = ThemeColor(rawValue: UserDefaultManager.shared.themeColor)
 
     private let themeColorList = ThemeColor.allCases
+    
+    private var dataSource: ChangeColorDataSource!
 
 
 
@@ -40,7 +49,8 @@ final class ChangeColorViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         changeColorView.tableView.delegate = self
-        changeColorView.tableView.dataSource = self
+        
+        configureDataSource()
 
         navigationItem.title = "change_theme_color".localized
     }
@@ -66,32 +76,33 @@ final class ChangeColorViewController: BaseViewController {
 
 
 
-// MARK: - TableView Protocol
-extension ChangeColorViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Datasource
+extension ChangeColorViewController {
+    
+    private func configureDataSource() {
+        dataSource = ChangeColorDataSource(tableView: changeColorView.tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
+            let cell = BaseTableViewCell()
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+            cell.contentConfiguration = self?.createCellConfiguration(cell: cell, indexPath: indexPath)
+
+            return cell
+        })
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Int, ThemeColor>()
+        
+        snapshot.appendSections([0])
+        snapshot.appendItems(themeColorList)
+        
+        dataSource.apply(snapshot)
     }
+    
+}
 
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "change_theme_color_view_header_title".localized
-    }
 
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return themeColorList.count
-    }
-
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell()
-
-        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
-
-        return cell
-    }
-
+// MARK: - TableView Delegate
+extension ChangeColorViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let themeColor = themeColorList[indexPath.row]

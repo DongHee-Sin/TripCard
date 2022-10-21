@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class BackupRestoreViewController: BaseViewController {
 
     // MARK: - Propertys
@@ -14,7 +15,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     var zipFiles: [URL] = [] {
         didSet {
-            backupRestoreView.backupFileTableView.reloadData()
+            backupDataDidChanged()
         }
     }
     
@@ -39,6 +40,8 @@ final class BackupRestoreViewController: BaseViewController {
         self.dismiss(animated: true)
     }
     
+    private var dataSource: UITableViewDiffableDataSource<Int, URL>!
+    
     
     
     
@@ -59,16 +62,15 @@ final class BackupRestoreViewController: BaseViewController {
     override func configure() {
         navigationItem.title = "backup_and_restore".localized
         
-        fetchZipFiles()
-        
         setTableView()
+        fetchZipFiles()
         setAddTarget()
     }
     
     
     private func setTableView() {
         backupRestoreView.backupFileTableView.delegate = self
-        backupRestoreView.backupFileTableView.dataSource = self
+        configureDataSource()
         backupRestoreView.backupFileTableView.register(BackupFileTableViewCell.self, forCellReuseIdentifier: BackupFileTableViewCell.identifier)
     }
     
@@ -160,8 +162,41 @@ final class BackupRestoreViewController: BaseViewController {
 
 
 
-// MARK: - TableView Protocol
-extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Datasource
+extension BackupRestoreViewController {
+    
+    private func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: backupRestoreView.backupFileTableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
+            guard let self else { return UITableViewCell() }
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BackupFileTableViewCell.identifier, for: indexPath) as? BackupFileTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            let fileURL = self.zipFiles[indexPath.row]
+            let fileSize = self.fileByteCountFormatter.string(fromByteCount: FileManager.default.sizeOfFile(atPath: fileURL.path) ?? 0)
+            cell.updateCell(fileName: fileURL.lastPathComponent, fileSize: fileSize)
+            
+            return cell
+        })
+    }
+    
+    
+    private func backupDataDidChanged() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, URL>()
+        
+        snapshot.appendSections([0])
+        snapshot.appendItems(zipFiles)
+        
+        dataSource.apply(snapshot)
+    }
+}
+
+
+
+
+// MARK: - TableView Delegate
+extension BackupRestoreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
@@ -170,24 +205,6 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return .zero
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return zipFiles.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BackupFileTableViewCell.identifier, for: indexPath) as? BackupFileTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        let fileURL = zipFiles[indexPath.row]
-        let fileSize = fileByteCountFormatter.string(fromByteCount: FileManager.default.sizeOfFile(atPath: fileURL.path) ?? 0)
-        cell.updateCell(fileName: fileURL.lastPathComponent, fileSize: fileSize)
-        
-        return cell
     }
     
     
@@ -215,12 +232,12 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
         
         transition(actionSheet, transitionStyle: .present)
     }
+
     
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            showAlert(title: "delete_alert_title".localized, buttonTitle: "delete".localized, cancelTitle: "cancel".localized) { [weak self] _ in
-                guard let self = self else { return }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .destructive, title: "Delete".localized) { [weak self] _,_,_ in
+            guard let self else { return }
+            self.showAlert(title: "delete_alert_title".localized, buttonTitle: "delete".localized, cancelTitle: "cancel".localized) { _ in
                 do {
                     try self.repository.documentManager.removeFileFromDocument(url: self.zipFiles[indexPath.row])
                     self.fetchZipFiles()
@@ -230,6 +247,10 @@ extension BackupRestoreViewController: UITableViewDelegate, UITableViewDataSourc
                 }
             }
         }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
     }
 }
 

@@ -60,6 +60,8 @@ final class OpenSourceListViewController: BaseViewController {
     // MARK: - Protocol
     private let openSourceList = OpenSourceList.allCases
     
+    private var dataSource: UITableViewDiffableDataSource<Int, OpenSourceList>!
+    
     
     
     
@@ -79,7 +81,8 @@ final class OpenSourceListViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         OpenSourceListView.tableView.delegate = self
-        OpenSourceListView.tableView.dataSource = self
+        
+        configureDataSource()
         
         navigationItem.title = "opensource".localized
     }
@@ -99,25 +102,36 @@ final class OpenSourceListViewController: BaseViewController {
 
 
 
+// MARK: - TableView Datasource
+extension OpenSourceListViewController {
+    
+    private func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: OpenSourceListView.tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
+            let cell = BaseTableViewCell()
+    
+            cell.contentConfiguration = self?.createCellConfiguration(cell: cell, indexPath: indexPath)
+            
+            return cell
+        })
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Int, OpenSourceList>()
+        
+        snapshot.appendSections([0])
+        snapshot.appendItems(openSourceList)
+        
+        dataSource.apply(snapshot)
+    }
+    
+}
+
+
+
+
 // MARK: - TableView Protocol
-extension OpenSourceListViewController: UITableViewDelegate, UITableViewDataSource {
+extension OpenSourceListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
-    }
-
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return openSourceList.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell()
-        
-        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
-        
-        return cell
     }
     
     

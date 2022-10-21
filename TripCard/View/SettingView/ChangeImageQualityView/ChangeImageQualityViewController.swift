@@ -26,12 +26,21 @@ enum ImageQuality: Double {
 }
 
 
+final class ChangeImageQualityDataSource: UITableViewDiffableDataSource<Int, ImageQuality> {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "change_image_quality_view_header_title".localized
+    }
+}
+
+
 final class ChangeImageQualityViewController: BaseViewController {
     
     // MARK: - Propertys
     private let currentImageQuality = ImageQuality(rawValue: UserDefaultManager.shared.imageQuality)
     
     private let imageQualityList: [ImageQuality] = [.best, .medium, .low]
+    
+    private var dataSource: ChangeImageQualityDataSource!
     
     
     
@@ -52,7 +61,8 @@ final class ChangeImageQualityViewController: BaseViewController {
     // MARK: - Methods
     override func configure() {
         changeImageQualityView.tableView.delegate = self
-        changeImageQualityView.tableView.dataSource = self
+        
+        configureDataSource()
         
         navigationItem.title = "change_image_quality".localized
     }
@@ -80,27 +90,33 @@ final class ChangeImageQualityViewController: BaseViewController {
 
 
 
-// MARK: - TableView Protocol
-extension ChangeImageQualityViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Datasource
+extension ChangeImageQualityViewController {
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "change_image_quality_view_header_title".localized
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imageQualityList.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell()
+    private func configureDataSource() {
+        dataSource = ChangeImageQualityDataSource(tableView: changeImageQualityView.tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
+            let cell = BaseTableViewCell()
+            
+            cell.contentConfiguration = self?.createCellConfiguration(cell: cell, indexPath: indexPath)
+            
+            return cell
+        })
         
-        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
+        var snapshot = NSDiffableDataSourceSnapshot<Int, ImageQuality>()
         
-        return cell
+        snapshot.appendSections([0])
+        snapshot.appendItems(imageQualityList)
+        
+        dataSource.apply(snapshot)
     }
     
+}
+
+
+
+
+// MARK: - TableView Delegate
+extension ChangeImageQualityViewController: UITableViewDelegate {    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let imageQuality = imageQualityList[indexPath.row]
