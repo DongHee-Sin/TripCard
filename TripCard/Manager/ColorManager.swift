@@ -48,12 +48,8 @@ final class ColorManager {
     
     
     // MARK: - Methods
-    static func themeColorChanged(customThemeColor: CustomThemeColor? = nil) {
-        if let customThemeColor = customThemeColor {
-            Self.shared.setCustomThemeColor(customThemeColor)
-        }else {
-            Self.shared.setThemeColor()
-        }
+    static func themeColorChanged() {
+        Self.shared.setThemeColor()
     }
     
     
@@ -99,19 +95,5 @@ final class ColorManager {
             buttonColor = UIColor(hex: "5C3D2Eff")
             textColor = .white
         }
-    }
-    
-    
-    private func setCustomThemeColor(_ customTheme: CustomThemeColor) {
-        backgroundColor = dataToColor(data: customTheme.backgroundColor)
-        cellBackgroundColor = dataToColor(data: customTheme.cellBackgroundColor)
-        textColor = dataToColor(data: customTheme.textColor)
-        buttonColor = dataToColor(data: customTheme.buttonColor)
-        selectedColor = dataToColor(data: customTheme.selectedColor)
-    }
-    
-    
-    private func dataToColor(data: Data) -> UIColor? {
-        return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UIColor) ?? UIColor()
     }
 }

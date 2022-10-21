@@ -48,6 +48,8 @@ class SettingViewController: BaseViewController {
         return version
     }
     
+    private var dataSource: UITableViewDiffableDataSource<Int, SettingCellList>!
+    
     
     
     
@@ -66,8 +68,9 @@ class SettingViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
+        configureDataSource()
+        
         settingView.tableView.delegate = self
-        settingView.tableView.dataSource = self
         
         navigationItem.title = "setting".localized
     }
@@ -134,8 +137,35 @@ class SettingViewController: BaseViewController {
 
 
 
-// MARK: - TableView Protocol
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Datasource
+extension SettingViewController {
+    
+    private func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: settingView.tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+            let cell = BaseTableViewCell()
+            cell.contentConfiguration = self.createCellConfiguration(cell: cell, indexPath: indexPath)
+            return cell
+        })
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Int, SettingCellList>()
+        
+        let sections = [0, 1, 2, 3]
+        
+        snapshot.appendSections(sections)
+        sections.forEach { section in
+            snapshot.appendItems(cellItems[section], toSection: section)
+        }
+        
+        dataSource.apply(snapshot)
+    }
+    
+}
+
+
+
+
+// MARK: - TableView Delegate
+extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
@@ -144,25 +174,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return .zero
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return cellItems.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellItems[section].count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell()
-        
-        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
-        
-        return cell
     }
     
     

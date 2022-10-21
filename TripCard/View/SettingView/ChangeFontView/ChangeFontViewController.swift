@@ -8,12 +8,21 @@
 import UIKit
 
 
+final class ChangeFontDataSource: UITableViewDiffableDataSource<Int, CustomFont> {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "change_font_view_header_title".localized
+    }
+}
+
+
 final class ChangeFontViewController: BaseViewController {
 
     // MARK: - Propertys
     private let currentFont = CustomFont(rawValue: UserDefaultManager.shared.customFont)
     
     private let customFontList = CustomFont.allCases
+    
+    private var dataSource: ChangeFontDataSource!
     
     
     
@@ -33,8 +42,9 @@ final class ChangeFontViewController: BaseViewController {
     
     // MARK: - Methods
     override func configure() {
+        configureDataSource()
+        
         changeFontView.tableView.delegate = self
-        changeFontView.tableView.dataSource = self
         
         navigationItem.title = "change_font".localized
     }
@@ -61,27 +71,31 @@ final class ChangeFontViewController: BaseViewController {
 
 
 
-// MARK: - TableView Protocol
-extension ChangeFontViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Datasource
+extension ChangeFontViewController {
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "change_font_view_header_title".localized
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customFontList.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseTableViewCell()
+    private func configureDataSource() {
+        dataSource = ChangeFontDataSource(tableView: changeFontView.tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+            let cell = BaseTableViewCell()
+            cell.contentConfiguration = self.createCellConfiguration(cell: cell, indexPath: indexPath)
+            return cell
+        })
         
-        cell.contentConfiguration = createCellConfiguration(cell: cell, indexPath: indexPath)
+        var snapshot = NSDiffableDataSourceSnapshot<Int, CustomFont>()
         
-        return cell
+        snapshot.appendSections([0])
+        snapshot.appendItems(customFontList)
+        
+        dataSource.apply(snapshot)
     }
     
+}
+
+
+
+
+// MARK: - TableView Delegate
+extension ChangeFontViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let font = customFontList[indexPath.row]
