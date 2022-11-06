@@ -8,7 +8,7 @@
 import UIKit
 
 
-public protocol ReusableProtocol {
+public protocol ReusableProtocol: AnyObject {
     static var identifier: String { get }
 }
 

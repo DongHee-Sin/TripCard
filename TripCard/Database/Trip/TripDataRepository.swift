@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-protocol TripDataRepositoryType {
+protocol TripDataRepositoryType: AnyObject {
     func create(_ trip: Trip, mainImage: UIImage?, imageByDate: [UIImage?]) throws
     func create(_ trip: [Trip]) throws
     
