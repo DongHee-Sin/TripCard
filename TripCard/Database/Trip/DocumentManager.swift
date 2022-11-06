@@ -11,24 +11,6 @@ import RealmSwift
 import Zip
 
 
-enum DocumentError: Error {
-    case createDirectoryError
-    
-    case saveImageError
-    
-    case removeDirectoryError
-    case removeFileError
-    
-    case fetchImagesError
-    case fetchZipFileError
-    case fetchDirectoryPathError
-    case fetchJsonDataError
-    
-    case compressionFailedError
-    case restoreFailedError
-}
-
-
 struct DocumentManager {
     
     private func documentDirectoryPath() -> URL? {

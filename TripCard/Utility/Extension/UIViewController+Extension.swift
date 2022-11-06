@@ -39,24 +39,21 @@ extension UIViewController {
             "error": error.localizedDescription
         ])
         
-        switch error {
-        case RealmError.writeError: showAlert(title: "create_card_date_error".localized)
-        case RealmError.updateError: showAlert(title: "modify_card_date_error".localized)
-        case RealmError.deleteError: showAlert(title: "delete_card_date_error".localized)
-        case DocumentError.createDirectoryError: showAlert(title: "create_directory_error".localized)
-        case DocumentError.saveImageError: showAlert(title: "save_image_error".localized)
-        case DocumentError.removeFileError: showAlert(title: "delete_file_error".localized)
-        case DocumentError.removeDirectoryError: showAlert(title: "delete_directory_error".localized)
-        case DocumentError.fetchImagesError: showAlert(title: "fetch_image_error".localized)
-        case DocumentError.fetchZipFileError: showAlert(title: "fetch_zip_file_error".localized)
-        case DocumentError.fetchDirectoryPathError: showAlert(title: "fetch_directory_path_error".localized)
-        case DocumentError.compressionFailedError: showAlert(title: "compression_file_error".localized)
-        case DocumentError.restoreFailedError: showAlert(title: "restore_file_error".localized)
-        case DocumentError.fetchJsonDataError: showAlert(title: "fetch_json_file_error".localized)
-        case CodableError.jsonDecodeError: showAlert(title: "json_decode_error".localized)
-        case CodableError.jsonEncodeError: showAlert(title: "json_encode_error".localized)
-        case CodableError.noDataToBackupError: showAlert(title: "no_data_to_backup".localized)
-        default: showAlert(title: "error_occurred".localized)
+        
+        if let realmError = error as? RealmError,
+           let description = realmError.errorDescription {
+            showAlert(title: description)
+        }
+        else if let codableError = error as? CodableError,
+                let description = codableError.errorDescription {
+            showAlert(title: description)
+        }
+        else if let documentError = error as? DocumentError,
+                let description = documentError.errorDescription {
+            showAlert(title: description)
+        }
+        else {
+            showAlert(title: "error_occurred".localized)
         }
     }
     

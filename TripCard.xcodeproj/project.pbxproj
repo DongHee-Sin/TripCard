@@ -94,6 +94,9 @@
 		D0C91E2D28DB010E0045D587 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = D0C91E2C28DB010E0045D587 /* Zip */; };
 		D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */; };
 		D0CDCD8428D00D5000F6AD8C /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */; };
+		D0D227B52917B2880064F8AA /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D227B42917B2880064F8AA /* RealmError.swift */; };
+		D0D227B72917B32F0064F8AA /* CodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D227B62917B32F0064F8AA /* CodableError.swift */; };
+		D0D227B92917B3BA0064F8AA /* DocumentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D227B82917B3BA0064F8AA /* DocumentError.swift */; };
 		D0D279FC28DDF5EC004EA873 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */; };
 		D0E1AF7328E570A60077F772 /* OpenSourceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1AF7228E570A60077F772 /* OpenSourceListViewController.swift */; };
 		D0E1AF7528E576700077F772 /* OpenSourceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1AF7428E576700077F772 /* OpenSourceWebViewController.swift */; };
@@ -181,6 +184,9 @@
 		D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupFileTableViewCell.swift; sourceTree = "<group>"; };
 		D0CDCD8128D00C7E00F6AD8C /* TripDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataRepository.swift; sourceTree = "<group>"; };
 		D0CDCD8328D00D5000F6AD8C /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		D0D227B42917B2880064F8AA /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		D0D227B62917B32F0064F8AA /* CodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableError.swift; sourceTree = "<group>"; };
+		D0D227B82917B3BA0064F8AA /* DocumentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentError.swift; sourceTree = "<group>"; };
 		D0D279FB28DDF5EC004EA873 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		D0E1AF7228E570A60077F772 /* OpenSourceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceListViewController.swift; sourceTree = "<group>"; };
 		D0E1AF7428E576700077F772 /* OpenSourceWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceWebViewController.swift; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				D02099E028C79A2600FD25DF /* CustomFont */,
 				D04A961528D080B50073EC38 /* CustomClass */,
 				D04CCEB428D225DD004C2F10 /* Observable */,
+				D0D227B32917B2750064F8AA /* Error */,
 				D02099EA28C79EF600FD25DF /* Localization */,
 			);
 			path = Utility;
@@ -590,6 +597,16 @@
 				D0C91E2928DAF32A0045D587 /* BackupFileTableViewCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		D0D227B32917B2750064F8AA /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D0D227B42917B2880064F8AA /* RealmError.swift */,
+				D0D227B62917B32F0064F8AA /* CodableError.swift */,
+				D0D227B82917B3BA0064F8AA /* DocumentError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		D0E1AF7628E598090077F772 /* SearchView */ = {
@@ -807,6 +824,7 @@
 				D0254FA928CB7D5E0076FCB1 /* DomesticListViewController.swift in Sources */,
 				D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */,
 				D0CDCD8228D00C7E00F6AD8C /* TripDataRepository.swift in Sources */,
+				D0D227B52917B2880064F8AA /* RealmError.swift in Sources */,
 				D09C948028D1D56D00D2B68D /* WriteView.swift in Sources */,
 				D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */,
 				D04A961128D0613E0073EC38 /* WriteByDateView.swift in Sources */,
@@ -820,6 +838,7 @@
 				D05C126D28EEBAAD00683773 /* APIKeys.swift in Sources */,
 				D0BBA55228D31487007D0916 /* CalendarSheetViewController.swift in Sources */,
 				D0AB514528C76E8D00EB6D2B /* ReusableProtocol.swift in Sources */,
+				D0D227B72917B32F0064F8AA /* CodableError.swift in Sources */,
 				D031752B28CB246D00C7A91C /* CardCell.swift in Sources */,
 				D0BC601528D80FF3001A4728 /* CardDetailViewerViewController.swift in Sources */,
 				D09C948528D1D70D00D2B68D /* WriteTableViewCell.swift in Sources */,
@@ -851,6 +870,7 @@
 				D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */,
 				D02099E828C79AFD00FD25DF /* UIFont+Extension.swift in Sources */,
 				D0306ED428D85788003F9577 /* DateCollectionViewCell.swift in Sources */,
+				D0D227B92917B3BA0064F8AA /* DocumentError.swift in Sources */,
 				D09EB5CB28DB550500F2E72A /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1029,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DongHee.TripCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1061,7 +1081,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DongHee.TripCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -35,21 +35,6 @@ protocol TripDataRepositoryType {
 }
 
 
-enum RealmError: Error {
-    case writeError
-    case updateError
-    case deleteError
-}
-
-
-enum CodableError: Error {
-    case jsonDecodeError
-    case jsonEncodeError
-    
-    case noDataToBackupError
-}
-
-
 final class TripDataRepository: TripDataRepositoryType {
     
     // MARK: - Propertys
