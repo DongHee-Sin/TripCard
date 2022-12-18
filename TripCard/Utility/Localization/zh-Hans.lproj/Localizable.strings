@@ -1,0 +1,190 @@
+/* 
+  Localizable.strings
+  TripCard
+
+  Created by 신동희 on 2022/09/07.
+  
+*/
+
+
+"ok" = "Ok";
+
+"domestic_trip" = "国内旅游";
+
+"overseas_trip" = "海外旅行";
+
+"no_trip_date_created" = "没有写好的旅行记录。";
+
+"finish" = "完了";
+
+"location_is_required" = "请输入旅行地区。(必备)";
+
+"period_is_required" = "请输入旅行时间。(必备)";
+
+"write_view_dismiss_title" = "要不要取消旅行记录后退？";
+
+"write_view_dismiss_message" = "没有保存的数据会丢失。";
+
+"dismiss" = "后退";
+
+"cancel" = "取消";
+
+"location_place_holder" = "地域 *";
+
+"period_place_holder" = "期间 *";
+
+"trip_day" = "  %lld日  ";
+
+"trip_period_string" = "旅行 期间";
+
+"month" = "%lld月";
+
+"year" = "%lld年";
+
+"card_text_view_place_holder" = "请输入内容。(选项)";
+
+"modify" = "修订";
+
+"delete_alert_title" = "真的要删除吗？";
+
+"create" = "创建";
+
+"change" = "更改";
+
+"delete" = "删除";
+
+"change_font" = "字体变更";
+
+"change_theme_color" = "更改主题颜色";
+
+"change_image_quality" = "更改图像保存质量";
+
+"backup_and_restore" = "备份/ 恢复";
+
+"reset" = "初始化";
+
+"bug_report_and_feedback" = "错误报告与反馈";
+
+"app_store_review" = "留下应用商店评论";
+
+"version_info" = "版本信息";
+
+"opensource" = "开源许可证";
+
+"setting" = "设定";
+
+"reset_alert_title" = "确定要进行初始化吗？?";
+
+"reset_check_alert_title" = "所有的卡和图片都会被删除。 真的要进行初始化吗？";
+
+"fail_send_mail_alert_title" = "邮件发送失败";
+
+"fail_send_mail_alert_message" = "请确认设备的电子邮件设置后再试一次。";
+
+"fail_connect_appstore_alert_title" = "应用程序商店连接失败。";
+
+"change_font_view_header_title" = "请选择想要变更的字体。";
+
+"already_applied_font_alert_title" = "是已经在适用的字体。";
+
+"change_font_alert_title" = "要换成%@字体吗？";
+
+"change_theme_color" = "更改主题颜色";
+
+"change_theme_color_view_header_title" = "选择您想要更改的主题颜色。";
+
+"already_applied_theme_color_alert_title" = "是已经适用的主题颜色。";
+
+"change_theme_color_alert_title" = "要把主题颜色改成%@吗？";
+
+"image_quality_best" = "极品";
+
+"image_quality_medium" = "中等质量";
+
+"image_quality_low" = "劣质";
+
+"change_image_quality" = "更改图像保存质量";
+
+"change_image_quality_view_header_title" = "请选择图像保存质量。";
+
+"already_applied_image_quality_alert_title" = "这是已经适用的质量设置！";
+
+"change_image_quality_alert_title" = "您要把存储质量更改为%@吗？";
+
+"image_quality_changed_alert_title" = "图像保存质量设置已更改。";
+
+"image_quality_changed_alert_message" = "更改后的设置将从下次保存时开始生效。";
+
+"create_backup_alert_title" = "您确定要根据当前存储的数据创建备份文件吗？";
+
+"restore_button_title" = "恢复";
+
+"export_button_title" = "导出";
+
+"restore_alert_title" = "用%@文件恢复数据。";
+
+"fail_fetch_file_path_alert_title" = "找不到所选文件的路径 。";
+
+"backup" = "备份";
+
+"backup_description" = "因为生成的备份文件是在应用程序内生成的，所以如果应用程序被删除，备份文件也会被删除。\n鼓励利用聊天工具、电子邮件、云存储等对备份文件进行单独管理。";
+
+"create_backup_file_button_title" = "创建备份文件";
+
+"fetch_backup_file_button_title" = "导入备份文件";
+
+"create_card_date_error" = "数据保存失败 。";
+
+"modify_card_date_error" = "数据修改失败。";
+
+"delete_card_date_error" = "数据删除失败。";
+
+"create_directory_error" = "保存文件夹创建失败 。";
+
+"save_image_error" = "保存图像失败 。";
+
+"delete_file_error" = "删除文件失败 。";
+
+"delete_directory_error" = "删除保存文件夹失败 。";
+
+"fetch_image_error" = "获取图像失败 。";
+
+"fetch_zip_file_error" = "导入保存文件失败 。";
+
+"fetch_directory_path_error" = "导入文件夹路径失败 。";
+
+"compression_file_error" = "文件压缩失败 。";
+
+"restore_file_error" = "文件恢复失败 。";
+
+"fetch_json_file_error" = "导入 JSON 文件失败 。";
+
+"json_decode_error" = "数据解码失败 。";
+
+"json_encode_error" = "数据编码失败 。";
+
+"no_data_to_backup" = "要备份的数据不存在。";
+
+"error_occurred" = "发生了错误。";
+
+"fetch_backup_file_alert_title" = "是TripCard的备份文件吗？";
+
+"fetch_backup_file_alert_message" = "这款APP的备份文件是用\"TripCard\"的前缀生成的。 请确认所选文件是否为TripCard的备份文件。";
+
+"fetch" = "导入";
+
+"search" = "搜索";
+
+"search_bar_place_holder" = "搜索地区名称";
+
+"edit_period_alert_title" = "您要修改旅行时间吗？";
+
+"edit_period_alert_message" = "已登记的特定日期数据中不包括在修改日期内的数据将消失。";
+
+"edit_period" = "修改期间";
+
+"remove_image_alert_title" = "要删除这张照片吗？";
+
+"location_search_placeholder" = "请搜索地区或地址。";
+
+"register_image_at_once" = "一次性登记多张图片";

@@ -39,8 +39,6 @@ struct DocumentManager {
             catch {
                 throw DocumentError.createDirectoryError
             }
-        }else {
-            print("images directory 이미 있다!")
         }
     }
     
@@ -58,8 +56,6 @@ struct DocumentManager {
             catch {
                 throw DocumentError.createDirectoryError
             }
-        }else {
-            print("directory 이미 있다!")
         }
     }
     
@@ -306,10 +302,7 @@ struct DocumentManager {
     
     private func unzipFile(fileURL: URL, documentURL: URL) throws {
         do {
-            try Zip.unzipFile(fileURL, destination: documentURL, overwrite: true, password: nil, progress: { progress in
-                print(progress)
-            }, fileOutputHandler: { unzippedFile in
-            })
+            try Zip.unzipFile(fileURL, destination: documentURL, overwrite: true, password: nil)
         }
         catch {
             throw DocumentError.restoreFailedError

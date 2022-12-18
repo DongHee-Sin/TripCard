@@ -80,8 +80,6 @@ final class TripDataRepository: TripDataRepositoryType {
         self.overseasList = totalTripList.where {
             $0.isDomestic == false
         }
-        
-        print("Realm is located at:", localRealm.configuration.fileURL!)
     }
     
     
