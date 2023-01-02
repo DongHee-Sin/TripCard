@@ -34,9 +34,9 @@
 
 ## 📱 실행화면 (gif)
 
-| <center>메인화면</center> | <center>기간 입력</center> | <center>지역 입력</center> | <center>이미지 등록</center>
-|---|---|---|---|
-| ![메인화면](https://user-images.githubusercontent.com/82014951/209630597-c9e40837-332d-4666-85ad-d1c0ab0bc989.gif) | ![기간입력](https://user-images.githubusercontent.com/82014951/209631139-1879ce8e-e9d2-4b51-ad60-adbacb126fc1.gif) | ![지역입력](https://user-images.githubusercontent.com/82014951/209631269-f275673c-73d6-4256-b7fb-ea527771a91a.gif) | ![이미지등록](https://user-images.githubusercontent.com/82014951/209631336-051ac49a-1e6a-4b74-a34f-4bc2d39b79cb.gif)
+| 메인화면 | 기간 입력 | 지역 입력 | 이미지 등록
+|:---:|:---:|:---:|:---:|
+| ![메인화면](https://user-images.githubusercontent.com/82014951/210208934-698ec34b-55df-4b1c-a8ae-ad22c8a2a396.gif) | ![기간입력](https://user-images.githubusercontent.com/82014951/210209995-6993d3ef-06e2-456c-88bf-91bd1065d343.gif) | ![지역입력](https://user-images.githubusercontent.com/82014951/210210008-75ee4cde-d222-4f2f-a3e4-17e54eae2d81.gif) | ![이미지등록](https://user-images.githubusercontent.com/82014951/210210015-93749933-a479-44ea-8f9d-9beef91e3f3a.gif)
 
 <br/>
 <br/>
