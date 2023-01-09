@@ -84,7 +84,12 @@
 * 지원하는 폰트 변경 (특정 문자를 지원하지 않는 폰트 교체)
 
 ### v1.3.1
-* 버그 수정 및 안정성 개선
+* Firebase) Analytics, Crashlytics, Logging Events 추가
+* 설정화면의 앱 버전 정보가 업데이트 되지 않는 문제 수정 (자동 적용)
 
 ### v1.3.2
-* 버그 수정 및 안정성 개선
+* 설정화면 구조 변경
+    * TableViewCell의 textLabel Deprecated 대응 (UIListContentConfiguration 적용)
+    * DifferbleDataSource 적용
+* Error Handling 방식 수정 (LocalizedError, errorDescription)
+* 프로토콜 최적화 (AnyObject)
