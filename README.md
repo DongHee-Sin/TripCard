@@ -55,7 +55,8 @@
 ## Link
 [프로젝트 회고](https://co-dong.tistory.com/75)<br/>
 [개발일지](https://difficult-knee-26c.notion.site/580f179303614af19b8007aef6c6bfb3)<br/>
-[Trouble Shooting](https://difficult-knee-26c.notion.site/TripCard-Trouble-Shooting-4d5f8e1fef3d4a4487c523f54567a107)
+[Trouble Shooting](https://difficult-knee-26c.notion.site/TripCard-Trouble-Shooting-4d5f8e1fef3d4a4487c523f54567a107) <br/>
+[앱스토어 링크](https://apps.apple.com/kr/app/tripcard/id1645004488)
 
 <br/>
 <br/>
