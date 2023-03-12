@@ -15,10 +15,7 @@ enum RealmError: Error {
 }
 
 
-
-
 extension RealmError: LocalizedError {
-    
     var errorDescription: String? {
         switch self {
         case .writeError:
@@ -29,5 +26,4 @@ extension RealmError: LocalizedError {
             return "delete_card_date_error".localized
         }
     }
-    
 }

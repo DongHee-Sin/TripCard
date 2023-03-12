@@ -11,6 +11,7 @@
 		D015508E28F8306000A2C7FE /* CustomThemeColorDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015508D28F8306000A2C7FE /* CustomThemeColorDataRepository.swift */; };
 		D015C6F728D716D80081062F /* CardViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F628D716D80081062F /* CardViewerViewController.swift */; };
 		D015C6F928D7174E0081062F /* CardViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6F828D7174E0081062F /* CardViewerView.swift */; };
+		D01E9C8329BE10C200D2047B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D01E9C8229BE10C200D2047B /* Tabman */; };
 		D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A4F28D184EE0038A9B6 /* CropViewController */; };
 		D0201A5228D184EE0038A9B6 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = D0201A5128D184EE0038A9B6 /* TOCropViewController */; };
 		D02099E228C79A4F00FD25DF /* 강원교육모두 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D02099E128C79A4F00FD25DF /* 강원교육모두 Light.otf */; };
@@ -46,7 +47,6 @@
 		D04CCEB628D225F5004C2F10 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CCEB528D225F5004C2F10 /* Observable.swift */; };
 		D04DD30B28DABBAD00EDCBDA /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30A28DABBAD00EDCBDA /* BackupRestoreViewController.swift */; };
 		D04DD30D28DABBD500EDCBDA /* BackupRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DD30C28DABBD500EDCBDA /* BackupRestoreView.swift */; };
-		D04F3B4128EEB38B00356744 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D04F3B4028EEB38B00356744 /* Tabman */; };
 		D0562E8728F6E06A0098E1EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0562E8628F6E06A0098E1EC /* GoogleService-Info.plist */; };
 		D0562E9228F6F33A0098E1EC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D0562E9128F6F33A0098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D0562E9428F6F33A0098E1EC /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D0562E9328F6F33A0098E1EC /* FirebaseCrashlytics */; };
@@ -213,8 +213,8 @@
 				D0BBA54F28D3115A007D0916 /* FSCalendar in Frameworks */,
 				D031753128CB28F000C7A91C /* Then in Frameworks */,
 				D0C91E2D28DB010E0045D587 /* Zip in Frameworks */,
+				D01E9C8329BE10C200D2047B /* Tabman in Frameworks */,
 				D0B210D628DE9CF20041092B /* FSPagerView in Frameworks */,
-				D04F3B4128EEB38B00356744 /* Tabman in Frameworks */,
 				D0201A5028D184EE0038A9B6 /* CropViewController in Frameworks */,
 				D037FABF28E3DC72001F6A43 /* Realm in Frameworks */,
 				D0562E9428F6F33A0098E1EC /* FirebaseCrashlytics in Frameworks */,
@@ -640,8 +640,8 @@
 				D0AB511C28C76CD800EB6D2B /* Sources */,
 				D0AB511D28C76CD800EB6D2B /* Frameworks */,
 				D0AB511E28C76CD800EB6D2B /* Resources */,
-				02D8A0A66B60EC8A10B491F3 /* [CP] Copy Pods Resources */,
 				D0562E8F28F6EE510098E1EC /* ShellScript */,
+				E815EED496583F7743E9CFF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -661,9 +661,9 @@
 				D0B210D528DE9CF20041092B /* FSPagerView */,
 				D037FABE28E3DC72001F6A43 /* Realm */,
 				D037FAC028E3DC72001F6A43 /* RealmSwift */,
-				D04F3B4028EEB38B00356744 /* Tabman */,
 				D0562E9128F6F33A0098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */,
 				D0562E9328F6F33A0098E1EC /* FirebaseCrashlytics */,
+				D01E9C8229BE10C200D2047B /* Tabman */,
 			);
 			productName = TripCard;
 			productReference = D0AB512028C76CD800EB6D2B /* TripCard.app */;
@@ -707,8 +707,8 @@
 				D026637828DCBBC300A86196 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				D0B210D428DE9CF20041092B /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				D037FABD28E3DC72001F6A43 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D0562E9028F6F33A0098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D01E9C8129BE10C200D2047B /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = D0AB512128C76CD800EB6D2B /* Products */;
 			projectDirPath = "";
@@ -739,23 +739,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02D8A0A66B60EC8A10B491F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D0562E8F28F6EE510098E1EC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -795,6 +778,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E815EED496583F7743E9CFF8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TripCard/Pods-TripCard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1120,6 +1120,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D01E9C8129BE10C200D2047B /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
@@ -1168,14 +1176,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/uias/Tabman.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		D0562E9028F6F33A0098E1EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1219,6 +1219,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D01E9C8229BE10C200D2047B /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D01E9C8129BE10C200D2047B /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
 		D0201A4F28D184EE0038A9B6 /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0201A4E28D184EE0038A9B6 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
@@ -1258,11 +1263,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D04A961228D0648F0073EC38 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
-		};
-		D04F3B4028EEB38B00356744 /* Tabman */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D04F3B3F28EEB38A00356744 /* XCRemoteSwiftPackageReference "Tabman" */;
-			productName = Tabman;
 		};
 		D0562E9128F6F33A0098E1EC /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
