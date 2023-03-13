@@ -46,7 +46,7 @@ final class BackupRestoreViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let backupRestoreView = BackupRestoreView()
+    private let backupRestoreView = BackupRestoreView()
     override func loadView() {
         self.view = backupRestoreView
     }

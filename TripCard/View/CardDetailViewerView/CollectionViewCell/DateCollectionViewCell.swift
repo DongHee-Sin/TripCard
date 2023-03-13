@@ -8,7 +8,7 @@
 import UIKit
 
 
-class DateCollectionViewCell: BaseCollectionViewCell {
+final class DateCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Propertys
     let dateLabel = UILabel().then {

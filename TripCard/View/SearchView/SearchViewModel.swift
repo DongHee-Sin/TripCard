@@ -8,7 +8,7 @@
 import UIKit
 
 
-struct SearchViewModel {
+final class SearchViewModel {
     
     // MARK: - Propertys
     private let repository = TripDataRepository.shared

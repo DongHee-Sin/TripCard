@@ -66,7 +66,7 @@ final class OpenSourceListViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let OpenSourceListView = ReusableTableCustomView()
+    private let OpenSourceListView = ReusableTableCustomView()
     override func loadView() {
         self.view = OpenSourceListView
     }

@@ -47,7 +47,7 @@ final class WriteViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let writeView = WriteView()
+    private let writeView = WriteView()
     override func loadView() {
         self.view = writeView
     }

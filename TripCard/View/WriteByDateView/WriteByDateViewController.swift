@@ -36,7 +36,7 @@ final class WriteByDateViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let writeByDateView = WriteByDateView()
+    private let writeByDateView = WriteByDateView()
     override func loadView() {
         self.view = writeByDateView
     }

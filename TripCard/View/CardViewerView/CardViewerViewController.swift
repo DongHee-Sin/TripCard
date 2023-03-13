@@ -36,7 +36,7 @@ final class CardViewerViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let cardViewerView = CardViewerView()
+    private let cardViewerView = CardViewerView()
     override func loadView() {
         self.view = cardViewerView
     }

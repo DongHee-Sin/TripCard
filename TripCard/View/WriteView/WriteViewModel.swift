@@ -28,7 +28,7 @@ struct CardByDate {
 }
 
 
-class WriteViewModel {
+final class WriteViewModel {
     
     // MARK: - Propertys
     var writeCardMode: WriteCardMode = .create

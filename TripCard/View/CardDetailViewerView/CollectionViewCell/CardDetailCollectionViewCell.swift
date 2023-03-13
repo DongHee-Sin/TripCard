@@ -8,7 +8,7 @@
 import UIKit
 
 
-class CardDetailCollectionViewCell: MainPagerViewCell {
+final class CardDetailCollectionViewCell: MainPagerViewCell {
     
     // MARK: - Propertys
     let dateLabel = UILabel().then {

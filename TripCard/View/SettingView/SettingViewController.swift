@@ -22,7 +22,7 @@ enum SettingCellList: String {
 }
 
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
 
     // MARK: - Propertys
     private let cellItems: [[SettingCellList]] = [

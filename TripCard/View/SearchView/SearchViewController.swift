@@ -17,7 +17,7 @@ final class SearchViewController: BaseViewController {
     
     
     // MARK: - Life Cycle
-    let cardListView = CardListView()
+    private let cardListView = CardListView()
     override func loadView() {
         self.view = cardListView
     }
